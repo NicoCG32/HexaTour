@@ -1,25 +1,22 @@
-# README – Guía para Agregar un Nuevo POI al Portal HexaTour
+# Frontend (Interfaz) – Gestión de contenidos
 
-Consideración: La tarjeta SD debe estar en formato FAT32, en caso de formatear.
+Este README describe cómo actualizar el contenido que consume el portal cautivo de HexaTour. Está enfocado en **datos, rutas e imágenes** dentro de la carpeta www.
 
-Este documento explica paso a paso cómo agregar un **Punto de Interés (POI)** a HexaTour, manteniendo la compatibilidad con el frontend y el firmware del ESP32.
-La estructura relevante se encuentra en:
+> Importante:
+> - Todo en **UTF-8 sin BOM**.
+> - No alterar la estructura de carpetas.
+> - Los nombres de archivo deben coincidir con el **slug**.
+
+## Estructura relevante
 
 ```
 www/
- ├─ datos/
- ├─ rutas/
- └─ img/
+	datos/
+	rutas/
+	img/
 ```
 
-> **Importante:**  
-> - Todo debe quedar en **UTF-8 sin BOM**.  
-> - No alterar la estructura de carpetas.  
-> - Los nombres de archivo deben ser **idénticos al slug**, sin mayúsculas, tildes ni espacios.
-
-## 1. Categorías disponibles
-
-El sistema utiliza las siguientes categorías:
+## Categorías disponibles
 
 - campings
 - ferias
@@ -31,128 +28,132 @@ El sistema utiliza las siguientes categorías:
 - servicios
 - universidad
 
-## 2. Slug del POI
-
-El **slug** es el identificador único del POI.  
-Ejemplo: `restaurantea`, `campinga`, `rioa`.
+## Slug (identificador)
 
 Reglas:
-- Solo letras minúsculas.
+- Solo minúsculas.
 - Sin espacios ni acentos.
 - Debe coincidir exactamente en datos, rutas e imágenes.
 
-## 3. Archivos a modificar o crear
+Ejemplo de slug: restaurantee.
 
-Supongamos que agregas `restaurantee`.
+## Actualizar un POI existente
 
-### 3.1. `_index.txt`
+1. Edita los datos en www/datos/<categoria>/<slug>.txt.
+2. Si cambia el nombre visible, actualiza www/datos/<categoria>/nombres.txt.
+3. Si cambian las indicaciones, actualiza www/rutas/<categoria>/indicaciones<slug>ruta.txt.
+4. Si cambian imágenes, reemplaza los archivos correspondientes en www/img/<categoria>/.
 
-Ruta:
+Ejemplo rapido (restaurantee):
+- Datos: www/datos/restaurantes/restaurantee.txt
+- Nombre: www/datos/restaurantes/nombres.txt
+- Ruta: www/rutas/restaurantes/indicacionesrestauranteeruta.txt
+- Imagenes: www/img/restaurantes/restaurantee.jpg (y variantes)
+
+## Agregar un nuevo POI
+
+### 1) Registrar el slug
+Archivo:
 ```
-www/datos/restaurantes/_index.txt
+www/datos/<categoria>/_index.txt
 ```
+Agrega una línea con el slug.
 
-Agregar una línea:
+### 2) Nombre visible
+Archivo:
 ```
-restaurantee
+www/datos/<categoria>/nombres.txt
 ```
-
-### 3.2. `nombres.txt`
-
-Ruta:
-```
-www/datos/restaurantes/nombres.txt
-```
-
 Formato:
 ```
-restaurantee|Restaurante Costa Elquina de Coquimbo
+<slug>|Nombre visible
 ```
 
-### 3.3. Datos del POI
-
+### 3) Ficha del POI
 Archivo:
 ```
-www/datos/restaurantes/restaurantee.txt
+www/datos/<categoria>/<slug>.txt
+```
+Campos típicos:
+```
+descripcion=
+tpie=
+tveh=
+apertura=
+cierre=
+alertas=
 ```
 
-Ejemplo:
-```
-descripcion=Restaurante Costa Elquina de Coquimbo ofrece pescados y mariscos típicos de la región.
-tpie=15 min
-tveh=5 min
-apertura=12:00
-cierre=23:00
-alertas=Recomendable reservar fines de semana.
-```
-
-### 3.4. Rutas del POI
-
+### 4) Ruta
 Archivo:
 ```
-www/rutas/restaurantes/indicacionesrestauranteeruta.txt
+www/rutas/<categoria>/indicaciones<slug>ruta.txt
 ```
 
-Ejemplo:
+### 5) Imágenes
+Archivos requeridos:
 ```
-Inicio en la plaza principal de Coquimbo.
-Toma la avenida costera hacia el norte.
-Continúa recto siguiendo la señalética turística.
-Encontrarás el restaurante a mano derecha.
-```
-
-### 3.5. Imágenes
-
-Debes crear:
-
-```
-restaurantee.jpg
-restaurantee-640.jpg
-restaurantee-1280.jpg
-rutarestaurantee.jpg
-rutarestaurantee-640.jpg
-rutarestaurantee-1280.jpg
+<slug>.jpg
+<slug>-640.jpg
+<slug>-1280.jpg
+ruta<slug>.jpg
+ruta<slug>-640.jpg
+ruta<slug>-1280.jpg
 ```
 
-## 4. Versiones GZ (para ESP32)
+## Ajuste de logo para PDF de ruta
 
-Cada archivo nuevo/modificado debe comprimirse:
-
-Ejemplo:
+El PDF puede incluir un logo si existe en:
 ```
-gzip -kf datos/restaurantes/restaurantee.txt
-gzip -kf rutas/restaurantes/indicacionesrestauranteeruta.txt
-gzip -kf img/restaurantes/restaurantee.jpg
+www/img/map/logo.jpg
 ```
+Si no se encuentra, el PDF se genera sin logo.
 
-## 5. Testeo del POI
+## Compresión opcional (GZ)
 
-### 5.1. Test local
-Para hacer un testeo correctamente se debe abrir un servidor en local para que el frontend pueda leer los datos, aquí un ejemplo con python:
+Si se usan versiones comprimidas en el ESP32, generar .gz para nuevos archivos.
 
-```
-cd www
-python -m http.server 8080
-```
-Probar:
-```
-http://localhost:8080/visitor/index.html
-```
+## Testeo en PC (antes de copiar a la SD)
 
-### 5.2. Test en el ESP32
-- Subir carpeta `www`.
-- Conectarse al portal cautivo.
-- Validar datos, imágenes y rutas.
+1. Abre una terminal en la carpeta www.
+2. Inicia un servidor local. Opciones comunes:
+	- Python: python -m http.server 8000
+	- Node.js: npx serve .
+3. Abre en el navegador:
+	- Visitante: http://localhost:8000/visitor/
+	- Operador: http://localhost:8000/main/
+4. Revisa que los cambios se vean y que los datos carguen bien.
 
-## 6. Checklist
+Si no ves los cambios, limpia cache:
+- En PC (Chrome/Edge): recarga forzada con Ctrl+Shift+R o abre DevTools y activa Disable cache mientras pruebas.
+- Borra datos del sitio para localhost (Site settings -> Clear data).
 
-- [x] Slug en `_index.txt`
-- [x] Nombre en `nombres.txt`
-- [x] Archivo `<slug>.txt`
-- [x] Archivo `indicaciones<slug>ruta.txt`
-- [x] Imágenes
-- [x] GZ generados
-- [x] Pruebas locales
-- [x] Pruebas en ESP32
+## Testeo local (servidor del ESP32)
+
+1. Copia la carpeta www a la SD.
+2. Enciende el equipo y conéctate al Wi-Fi HexaTour.
+3. Abre el portal:
+	- Visitante: http://192.168.4.1/visitor/
+	- Operador: http://192.168.4.1/main/
+4. Verifica que los cambios aparezcan en el POI editado.
+
+Si no ves los cambios, limpia cache:
+- En PC (Chrome/Edge): recarga forzada con Ctrl+Shift+R o abre DevTools y activa Disable cache mientras pruebas.
+- Borra datos del sitio para 192.168.4.1 (Site settings -> Clear data).
+- En celular: usa modo incognito o borra cache del navegador antes de probar.
+
+## Errores comunes
+
+- El slug no coincide en datos/rutas/imagenes.
+- Se omite el slug en _index.txt.
+- Archivos en otra codificacion que no sea UTF-8 sin BOM.
+
+## Checklist rápido
+
+- Slug en _index.txt
+- Nombre en nombres.txt
+- Ficha <slug>.txt
+- Ruta indicaciones<slug>ruta.txt
+- Imágenes en img/<categoria>
 
 
