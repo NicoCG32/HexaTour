@@ -376,7 +376,10 @@ bool streamFileWithCache(File& file, const String& ctype, bool cache) {
 
 // Versión SIN .gz
 bool tryServePath(String path, bool cache) {
-  if (!sd_ok) return false;
+  if (!sd_ok) {
+    sd_ok = SD.begin(PIN_CS, SPI, 1000000);
+    if (!sd_ok) return false;
+  }
   if (!isSafePath(path)) return false;
 
   if (!SD.exists(path)) return false;
@@ -490,7 +493,10 @@ void handlePrintRuta() {
     return;
   }
 
-  if (!sd_ok && !SD.begin(PIN_CS, SPI, 4000000)) {
+  if (!sd_ok) {
+    sd_ok = SD.begin(PIN_CS, SPI, 4000000);
+  }
+  if (!sd_ok) {
     server.send(500, "text/plain; charset=UTF-8", "SD error");
     lcdShowStatus("Error SD", "no montada");
     return;
@@ -581,7 +587,7 @@ bool deriveImageFromTxtFile(const String& fileParam, String& folder, String& slu
   if (slash > 0) folder = fileParam.substring(0, slash);
 
   int i1 = fileParam.indexOf("indicaciones");
-  int i2 = fileParam.lastIndexOf("ruta");
+  int i2 = fileParam.lastIndexOf("ruta.txt");
   if (i1 < 0 || i2 <= i1) return false;
 
   slug = fileParam.substring(i1 + String("indicaciones").length(), i2);

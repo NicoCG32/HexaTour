@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-
 <html lang="es">
-<head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>HexaTour — Portal Visitante</title>
-<style>:root{--bg:#fff;--text:#0a1219;--muted:#425466;--panel:#f8fafc;--border:#e2e8f0;--ring:#0d9488;--c-rest:#c2410c;--c-hosp:#1d4ed8;--c-plaz:#6d28d9;--c-rios:#0d9488;--c-pisq:#b45309;--c-camp:#047857;--c-feri:#7c3aed;--c-serv:#374151;--c-uni:#0284c7;--c-urgn:#b91c1c;--top-grad:rgba(56,189,248,.95);--bot-grad:rgba(34,197,94,.95)}*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica Neue,Arial,Noto Sans,sans-serif;color:var(--text);background-image:linear-gradient(to bottom,var(--top-grad) 0%,rgba(255,255,255,0) 60%),linear-gradient(to top,var(--bot-grad) 0%,rgba(255,255,255,0) 60%);background-repeat:no-repeat,no-repeat;background-attachment:fixed,fixed;background-position:top left,bottom left;background-size:100% 45%,100% 45%}.wrap{max-width:480px;margin:0 auto;padding:16px}header{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:12px}header img{width:250px;height:auto}h1{font-size:1.35rem;margin:0;text-align:center}p.sub{color:var(--muted);text-align:center;margin:.25rem 0 1rem}.grid{display:grid;grid-template-columns:1fr;gap:10px}.btn-cat{display:flex;align-items:center;gap:10px;border:none;border-radius:14px;padding:16px;min-height:64px;cursor:pointer;color:#fff;font-weight:800;text-align:left;box-shadow:0 3px 0 rgba(0,0,0,.15)}.btn-cat img{width:24px;height:24px;filter:brightness(0) invert(1)}.rest{background:var(--c-rest)}.hosp{background:var(--c-hosp)}.plaz{background:var(--c-plaz)}.rios{background:var(--c-rios)}.pisq{background:var(--c-pisq)}.camp{background:var(--c-camp)}.feri{background:var(--c-feri)}.serv{background:var(--c-serv)}.uni{background:var(--c-uni)}.urgn{background:var(--c-urgn)}.card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:14px;margin-top:12px}.map{width:100%;height:auto;border-radius:12px;border:1px solid var(--border)}h1 .line1{font-weight:800} h1 .line2{font-weight:700}</style><link as_="image" href="../img/mapageneral-640.jpg" rel="preload"/></head>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>HexaTour — Portal Visitante</title>
+<link rel="stylesheet" href="../assets/css/base.css"/>
+<link rel="stylesheet" href="../assets/css/visitor.css"/>
+<link rel="preload" as="image" href="../img/mapageneral.jpg"/>
+</head>
 <body><div class="wrap">
 <header><img alt="HexaTour" decoding="async" loading="lazy" src="../img/map/logoHexaTour.png"/><h1><span class="line1">HexaTour</span><br/><span class="line2">Portal Visitante</span></h1></header>
 <p class="sub">Elige una categoría para ver lugares y descargar la ruta.</p>
@@ -18,7 +23,7 @@
 <button class="btn-cat uni" data-cat="Universidad"><img alt="" decoding="async" loading="lazy" src="../img/map/logoUniversidad.png"/><span>Universidad</span></button>
 <button class="btn-cat urgn" data-cat="Urgencia"><img alt="" decoding="async" loading="lazy" src="../img/map/logoUrgencia.png"/><span>Urgencia</span></button>
 </div>
-<div class="card"><picture><source sizes="(max-width: 768px) 90vw, 720px" srcset="../img/mapageneral-1280.webp 1280w, ../img/mapageneral-640.webp 640w" type="image/webp"/><source sizes="(max-width: 768px) 90vw, 720px" srcset="../img/mapageneral-1280.jpg 1280w, ../img/mapageneral-640.jpg 640w" type="image/jpeg"/><img alt="Mapa general" class="map" decoding="async" fetchpriority="high" loading="eager" src="../img/mapageneral.jpg"/></picture></div>
+<div class="card"><img alt="Mapa general" class="map" decoding="async" fetchpriority="high" loading="eager" src="../img/mapageneral.jpg"/></div>
 </div>
-<script>(function(){const $$=s=>document.querySelectorAll(s);function goLugar(cat){const base=location.pathname.replace(/[^\/]+$/, ''); location.href=base+'lugar.html?cat='+encodeURIComponent(cat);} $$('#categorias .btn-cat').forEach(b=>b.addEventListener('click',()=>goLugar(b.dataset.cat),{passive:true}));})();</script>
+<script src="../assets/js/visitor-index.js" defer></script>
 </body></html>
