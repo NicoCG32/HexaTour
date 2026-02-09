@@ -1,0 +1,5 @@
+# slug|Nombre visible
+campinga|Eco Camping Combarbala
+campingb|Camping Municipal Illapel
+campingc|Camping Rio Tongoy
+campingd|Camping Familiar Quebrada Andacollo

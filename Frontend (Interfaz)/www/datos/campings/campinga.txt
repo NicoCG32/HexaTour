@@ -1,0 +1,6 @@
+descripcion=Eco Camping Combarbala es un camping de la Region de Coquimbo, ideal para disfrutar del cielo estrellado y del entorno de valle.
+tpie=13 min
+tveh=5 min
+apertura=09:00
+cierre=22:00
+alertas=Hidratacion recomendada, poca sombra en la ruta.

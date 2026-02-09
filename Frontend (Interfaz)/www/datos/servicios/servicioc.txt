@@ -1,0 +1,6 @@
+descripcion=Posta Rural Monte Patria entrega servicios basicos a habitantes y visitantes del sector.
+tpie=6 min
+tveh=10 min
+apertura=08:00
+cierre=18:00
+alertas=Hidratacion recomendada, poca sombra en la ruta.

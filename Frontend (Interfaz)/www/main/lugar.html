@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Hexatour — Lugar (Operador)</title>
+<style>:root{--bg:#fff;--text:#0a1219;--muted:#425466;--panel:#fff;--border:#d8e4ea;--ring:#0d9488;--top-grad:rgba(14,165,233,.95);--bot-grad:rgba(22,163,74,.95)}*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica Neue,Arial,Noto Sans,sans-serif;color:var(--text);background-image:linear-gradient(to bottom,var(--top-grad) 0%,rgba(255,255,255,0) 60%),linear-gradient(to top,var(--bot-grad) 0%,rgba(255,255,255,0) 60%);background-repeat:no-repeat,no-repeat;background-attachment:fixed,fixed;background-position:top left,bottom left;background-size:100% 45%,100% 45%}.wrap{max-width:1200px;margin:0 auto;padding:16px}.panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:16px;box-shadow:0 8px 24px rgba(0,0,0,.06)}.top{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:10px}.back{display:inline-flex;align-items:center;gap:12px;border:none;border-radius:18px;padding:14px 18px;background:linear-gradient(180deg,#4b5563,#374151);color:#fff;font-weight:900;font-size:1.05rem;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.2)}.back:focus{outline:3px solid var(--ring);outline-offset:2px} .back:active{transform:translateY(1px)}h1{margin:0;font-size:1.35rem}.options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.opt{display:flex;align-items:center;gap:12px;background:#0f172a;color:#fff;border:none;border-radius:14px;padding:16px;min-height:68px;cursor:pointer;font-weight:800;text-align:left;box-shadow:0 3px 0 rgba(0,0,0,.15)}.opt.urg.carabineros{background:#166534;border:2px solid #000;color:#fff} .opt.urg.ambulancia{background:#fff;border:2px solid #dc2626;color:#111} .opt.urg.bomberos{background:#b91c1c;border:2px solid #f59e0b;color:#fff}.detail img{width:min(720px,70%);height:auto;border-radius:12px;border:1px solid var(--border);display:block;margin:0 auto}.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin-top:8px}.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.btn{border:none;border-radius:14px;padding:12px 16px;font-weight:800;cursor:pointer;box-shadow:0 3px 0 rgba(0,0,0,.15)}.btn.route{background:#0ea5e9;color:#fff} .btn.print{background:#16a34a;color:#fff}.emg-msg{margin-top:10px;padding:10px 12px;border-radius:10px;border:2px solid #16a34a;background:#ecfdf5;color:#065f46;font-weight:800;text-align:center}</style></head>
+<body><div class="wrap"><section class="panel">
+<div class="top"><button class="back" onclick="location.href='index.html'" type="button">← Volver</button><h1 id="title">Lugar</h1></div>
+<h2>Opciones</h2><div class="options" id="opts"></div><div class="emg-msg" hidden="" id="emgMsg">ALERTA ENVIADA!</div>
+<h2>Detalle</h2><div class="detail" hidden="" id="detail">
+<img alt="Imagen del lugar seleccionado" decoding="async" id="detailImg" loading="lazy"/>
+<div class="kv" id="info"><b>Descripción</b><span id="desc">—</span><b>Tiempo a pie</b><span id="tPie">—</span><b>Tiempo en vehículo</b><span id="tVeh">—</span><b>Apertura</b><span id="hOpen">—</span><b>Cierre</b><span id="hClose">—</span><b>Alertas</b><span id="alert">—</span></div>
+<div class="row" id="actionRow"><button class="btn route" id="routeBtn" type="button">Ruta</button></div>
+<img alt="Ruta al lugar" decoding="async" id="routeImg" style="display:none"/>
+<div class="row" id="printRow" style="margin-top:8px; display:none;"><button class="btn print" id="printBtn" type="button">Imprimir</button></div>
+</div></section></div>
+<script>
+
+function normalize(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ñ/g,'n');}
+function catFolder(cat){
+  switch(cat){
+    case 'Restaurantes': return 'restaurantes';
+    case 'Hospedajes': return 'hospedajes';
+    case 'Plazas': return 'plazas';
+    case 'Ríos': return 'rios';
+    case 'Pisqueras': return 'pisqueras';
+    case 'Campings': return 'campings';
+    case 'Ferias Artesanales': return 'ferias';
+    case 'Servicios': return 'servicios';
+    case 'Universidad': return 'universidad';
+    case 'Urgencia': return 'urgencias';
+    default: return 'otros';
+  }
+}
+function labelBase(cat){
+  switch(cat){
+    case 'Restaurantes': return 'Restaurante';
+    case 'Hospedajes': return 'Hospedaje';
+    case 'Plazas': return 'Plaza';
+    case 'Ríos': return 'Río';
+    case 'Pisqueras': return 'Pisquera';
+    case 'Campings': return 'Camping';
+    case 'Ferias Artesanales': return 'Feria';
+    case 'Servicios': return 'Servicio';
+    case 'Universidad': return 'Universidad';
+    case 'Urgencia': return 'Urgencia';
+    default: return 'Lugar';
+  }
+}
+function slugify(s){ return normalize(s).replace(/[^a-z0-9]+/g,'').trim(); }
+
+
+async function loadMeta(current, targets){
+  const p = `${current.folder}/${current.slug}.txt`;
+  const candidates = [`../datos/${p}`, `/datos/${p}`, `/www/datos/${p}`, `../../datos/${p}`, `datos/${p}`];
+  let ok = null;
+  for (const u of candidates){
+    try{ const r = await fetch(u, {cache:'no-store'}); if(r.ok){ ok = await r.text(); break; } }catch(e){}
+  }
+  if(!ok){ targets.desc.textContent='Metadatos no encontrados.'; return; }
+  const N = s=> (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ñ/g,'n').trim();
+  const map = {};
+  ok.split(/\r?\n+/).forEach(line=>{
+    if(!line || line.trim().startsWith('#')) return;
+    const m = line.match(/^\s*([^=]+?)\s*=\s*(.*?)\s*$/);
+    if(m){ map[N(m[1])] = m[2]; }
+  });
+  if(map['descripcion']) targets.desc.textContent  = map['descripcion'];
+  if(map['tpie'])        targets.tPie.textContent  = map['tpie'];
+  if(map['tveh'])        targets.tVeh.textContent  = map['tveh'];
+  if(map['apertura'])    targets.hOpen.textContent = map['apertura'];
+  if(map['cierre'])      targets.hClose.textContent= map['cierre'];
+  if(map['alertas'])     targets.alertEl.textContent = map['alertas'];
+}
+
+(function(){
+  const $ = s=>document.querySelector(s);
+  const url = new URL(location.href);
+  const cat = url.searchParams.get('cat') || '';
+  $('#title').textContent = cat || 'Lugar';
+
+  const opts = $('#opts'), detail = $('#detail'), img = $('#detailImg'), routeImg = $('#routeImg');
+  const desc = $('#desc'), tPie = $('#tPie'), tVeh = $('#tVeh'), hOpen = $('#hOpen'), hClose = $('#hClose'), alertEl = $('#alert');
+  const printBtn = $('#printBtn'), printRow = $('#printRow'), routeBtn = $('#routeBtn'), emgMsg = $('#emgMsg');
+  let current = null;
+
+  async function renderOptions(){
+    opts.innerHTML = ''; emgMsg.hidden = true; emgMsg.textContent = 'ALERTA ENVIADA!';
+
+    if(cat === 'Urgencia'){
+      detail.hidden = true;
+      ['Carabineros','Ambulancia','Bomberos'].forEach(n=>{
+        const b = document.createElement('button');
+        b.className='opt urg ' + (n==='Carabineros'?'carabineros':n==='Ambulancia'?'ambulancia':'bomberos');
+        b.type='button'; b.textContent=n;
+        b.onclick = ()=> { if(confirm(`¿Está seguro de llamar a ${n}?`)){ emgMsg.hidden = false; } };
+        opts.appendChild(b);
+      });
+      return;
+    }
+
+    const base = labelBase(cat || 'Restaurantes');
+    const folder = catFolder(cat || 'Restaurantes');
+    const baseSlug = slugify(base);
+    let used = false;
+    let nameMap = {};
+    try{
+      const rn = await fetch(`../datos/${folder}/nombres.txt`, {cache:'no-store'});
+      if(rn.ok){
+        const txt = await rn.text();
+        txt.split(/\r?\n+/).forEach(line=>{
+          const l = line.trim();
+          if(!l || l.startsWith('#')) return;
+          const parts = l.split('|');
+          const id = (parts[0]||'').trim();
+          const label = (parts[1]||'').trim();
+          if(id && label){ nameMap[id] = label; }
+        });
+      }
+    }catch(e){}
+    try{
+      const r = await fetch(`../datos/${folder}/_index.txt`, {cache:'no-store'});
+      if(r.ok){
+        const lines = (await r.text()).split(/\r?\n+/).map(s=>s.trim()).filter(s=>s && !s.startsWith('#'));
+        if(lines.length){
+          lines.forEach(slug=>{
+            const suf = slug.startsWith(baseSlug) ? slug.slice(baseSlug.length) : slug;
+            const fallbackName = `${base} ${suf.toUpperCase()}`;
+            const displayName = nameMap[slug] || fallbackName;
+            const b = document.createElement('button');
+            b.className='opt';
+            b.type='button';
+            b.textContent=displayName;
+            b.onclick = ()=> selectPlace(slug, displayName);
+            opts.appendChild(b);
+          });
+          used = true;
+        }
+      }
+    }catch(e){}
+
+if(!used){
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach(suf=>{
+        const name = `${base} ${suf}`;
+        const slug = slugify(name);
+        const testSrc = `../img/${folder}/${slug}.jpg`;
+        const b = document.createElement('button');
+        b.className='opt';
+        b.type='button';
+        b.textContent=name;
+        b.style.display='none';
+        b.onclick = ()=> selectPlace(slug, name);
+        opts.appendChild(b);
+        const probe = new Image();
+        probe.onload = ()=>{ b.style.display=''; };
+        probe.onerror = ()=>{ b.remove(); };
+        probe.src = testSrc;
+      });
+    }
+
+    detail.hidden = true;
+  }
+  renderOptions();
+
+  function selectPlace(slug, name){
+    const folder = catFolder(cat || 'Restaurantes');
+    current = {cat, folder, name, slug};
+
+    img.onerror = ()=>{ img.style.display='none'; };
+    img.src = `../img/${folder}/${slug}.jpg`;
+    img.alt = `Imagen de ${name}`;
+    img.style.display='block';
+
+    routeImg.style.display='none';
+    routeImg.removeAttribute('src');
+    if (printRow) printRow.style.display='none';
+
+    desc.textContent='—';
+    tPie.textContent='—';
+    tVeh.textContent='—';
+    hOpen.textContent='—';
+    hClose.textContent='—';
+    alertEl.textContent='—';
+
+    loadMeta(current, {desc, tPie, tVeh, hOpen, hClose, alertEl});
+
+    detail.hidden = false;
+  }
+
+
+document.getElementById('routeBtn').addEventListener('click', ()=>{
+    if(!current) return;
+    routeImg.onload = ()=>{ if (printRow) printRow.style.display = ''; routeImg.style.display='block'; };
+    routeImg.onerror = ()=>{ if (printRow) printRow.style.display = 'none'; routeImg.style.display='none'; alert('No se encontró la imagen de ruta.'); };
+    routeImg.removeAttribute('loading'); routeImg.setAttribute('loading','eager'); routeImg.decoding = 'async';
+routeImg.src = `../img/${current.folder}/ruta${current.slug}.jpg`; routeImg.alt = `Ruta hacia ${current.name}`;
+  });
+
+  document.getElementById('printBtn').addEventListener('click', async ()=>{
+    if(!current) return;
+    const file = `${current.folder}/indicaciones${current.slug}ruta.txt`;
+    try{
+      const r = await fetch(`../api/print-ruta?name=${encodeURIComponent(current.name)}&file=${encodeURIComponent(file)}`, {cache:'no-store'});
+      if(!r.ok) throw 0;
+      alert('Indicaciones enviadas a impresión.');
+    }catch(_){
+      alert('No se pudo enviar a impresión (verifique /www/rutas/).');
+    }
+  });
+})();
+</script>
+</body></html>

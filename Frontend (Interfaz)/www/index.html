@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>HexaTour • Conexión</title>
+<style>body{font-family:system-ui;display:grid;place-items:center;height:100vh;margin:0;background-image:linear-gradient(to bottom, rgba(56,189,248,.95), rgba(255,255,255,0) 60%),linear-gradient(to top, rgba(34,197,94,.95), rgba(255,255,255,0) 60%);background-repeat:no-repeat,no-repeat;background-attachment:fixed,fixed;background-position:top left,bottom left;background-size:100% 45%,100% 45%;}.card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:24px;box-shadow:0 6px 18px rgba(0,0,0,.06);text-align:center;max-width:420px}h1{margin:.2rem 0 1rem}button{border:none;background:#16a34a;color:#fff;font-weight:900;padding:12px 18px;border-radius:12px;cursor:pointer}p{color:#475569}</style>
+<div class="card"><h1>Conectado a HexaTour</h1><p>Confirma la señal para abrir el portal.</p><button id="go">Abrir portal</button><p style="margin-top:.75rem;font-size:.9rem">Se abrirá automáticamente en 2 segundos.</p></div>
+<script>const go=()=>location.href="/visitor/";document.getElementById('go').onclick=go;setTimeout(go,2000);</script>

@@ -1,0 +1,6 @@
+descripcion=Camping Municipal Illapel es un camping de la Region de Coquimbo, ideal para disfrutar del cielo estrellado y del entorno de valle.
+tpie=19 min
+tveh=10 min
+apertura=09:00
+cierre=20:00
+alertas=Precaucion: tramo final con camino de ripio.

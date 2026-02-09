@@ -1,0 +1,6 @@
+descripcion=Mercado Campesino de Ovalle reune artesanos y productores locales con productos del Valle de Elqui y de la costa de Coquimbo.
+tpie=17 min
+tveh=10 min
+apertura=12:00
+cierre=23:00
+alertas=Precaucion: tramo final con camino de ripio.

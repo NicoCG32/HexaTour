@@ -1,0 +1,4 @@
+# slug|Nombre visible
+rioa|Orilla del Rio Tongoy
+riob|Orilla del Rio Elqui
+rioc|Orilla del Rio Coquimbo

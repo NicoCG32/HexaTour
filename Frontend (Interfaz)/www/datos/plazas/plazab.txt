@@ -1,0 +1,6 @@
+descripcion=Plaza de Armas de Monte Patria es un punto de encuentro clasico, con sombra de arboles y vista a la cordillera.
+tpie=9 min
+tveh=6 min
+apertura=09:00
+cierre=21:00
+alertas=Llevar abrigo: baja la temperatura en la tarde.

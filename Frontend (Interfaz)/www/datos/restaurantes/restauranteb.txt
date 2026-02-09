@@ -1,0 +1,6 @@
+descripcion=Picada Caleta Guanaqueros ofrece cocina tipica de la Region de Coquimbo, con pescados, mariscos y platos del valle.
+tpie=19 min
+tveh=6 min
+apertura=12:00
+cierre=22:00
+alertas=Precaucion: tramo final con camino de ripio.

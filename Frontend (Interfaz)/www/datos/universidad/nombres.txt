@@ -1,0 +1,2 @@
+# slug|Nombre visible
+universidada|Universidad Catolica del Norte - Campus Coquimbo

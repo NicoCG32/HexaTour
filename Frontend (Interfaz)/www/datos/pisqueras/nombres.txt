@@ -1,0 +1,4 @@
+# slug|Nombre visible
+pisqueraa|Destileria Vicuna
+pisquerab|Ruta del Pisco Los Vilos
+pisquerac|Pisquera Pisco Elqui

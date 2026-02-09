@@ -1,0 +1,4 @@
+# slug|Nombre visible
+feriaa|Mercado Campesino de Guanaqueros
+feriab|Mercado Campesino de Ovalle
+feriac|Feria Costumbrista de Pisco Elqui

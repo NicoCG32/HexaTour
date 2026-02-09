@@ -1,0 +1,4 @@
+# slug|Nombre visible
+servicioa|Posta Rural Monte Patria
+serviciob|Oficina de Informacion Turistica Coquimbo
+servicioc|Posta Rural Monte Patria

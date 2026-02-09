@@ -1,0 +1,6 @@
+descripcion=Oficina de Informacion Turistica Coquimbo entrega servicios basicos a habitantes y visitantes del sector.
+tpie=11 min
+tveh=9 min
+apertura=09:00
+cierre=17:00
+alertas=Hidratacion recomendada, poca sombra en la ruta.

@@ -1,0 +1,6 @@
+descripcion=Camping Familiar Quebrada Andacollo es un camping de la Region de Coquimbo, ideal para disfrutar del cielo estrellado y del entorno de valle.
+tpie=5 min
+tveh=3 min
+apertura=08:00
+cierre=22:00
+alertas=Llevar abrigo: baja la temperatura en la tarde.

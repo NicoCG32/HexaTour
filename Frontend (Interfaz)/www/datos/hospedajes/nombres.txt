@@ -1,0 +1,4 @@
+# slug|Nombre visible
+hospedajea|Lodge Mirador Andino
+hospedajeb|Refugio Brisa Marina
+hospedajec|Hostal Estrella Elquina

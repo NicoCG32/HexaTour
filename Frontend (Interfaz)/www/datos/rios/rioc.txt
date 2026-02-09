@@ -1,0 +1,6 @@
+descripcion=Orilla del Rio Coquimbo es un sector de rio apto para paseos cortos, fotografia y descanso junto al agua.
+tpie=12 min
+tveh=10 min
+apertura=09:00
+cierre=20:00
+alertas=Hidratacion recomendada, poca sombra en la ruta.

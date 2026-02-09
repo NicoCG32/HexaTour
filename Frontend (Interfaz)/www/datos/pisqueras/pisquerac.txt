@@ -1,0 +1,6 @@
+descripcion=Pisquera Pisco Elqui forma parte de la ruta del pisco, con visitas guiadas y degustaciones.
+tpie=18 min
+tveh=4 min
+apertura=12:00
+cierre=00:00
+alertas=Atencion: mayor flujo de visitantes en temporada alta.

@@ -1,0 +1,6 @@
+descripcion=Feria Costumbrista de Pisco Elqui reune artesanos y productores locales con productos del Valle de Elqui y de la costa de Coquimbo.
+tpie=7 min
+tveh=4 min
+apertura=09:00
+cierre=23:00
+alertas=Precaucion: tramo final con camino de ripio.
