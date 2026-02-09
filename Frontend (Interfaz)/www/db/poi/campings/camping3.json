@@ -1,0 +1,24 @@
+{
+  "slug": "camping3",
+  "name": "Camping Rio Tongoy",
+  "category": "campings",
+  "fields": {
+    "descripcion": "Camping Rio Tongoy es un camping de la Region de Coquimbo, ideal para disfrutar del cielo estrellado y del entorno de valle.",
+    "tpie": "7 min",
+    "tveh": "9 min",
+    "apertura": "09:00",
+    "cierre": "22:00",
+    "alertas": "Llevar abrigo: baja la temperatura en la tarde."
+  },
+  "route": {
+    "text": "Inicio en la plaza principal de Pisco Elqui.\nSigue las indicaciones hacia los atractivos del Valle de Elqui.\nGira hacia el interior siguiendo el camino que bordea el rio.\nContinua por el camino principal hasta ver letreros hacia el valle.\nCamping Rio Tongoy se encuentra a mano derecha, identificado con letrero turistico."
+  },
+  "images": {
+    "main": "img/campings/camping3.jpg",
+    "main_640": "img/campings/camping3-640.jpg",
+    "main_1280": "img/campings/camping3-1280.jpg",
+    "route": "img/campings/rutacamping3.jpg",
+    "route_640": "img/campings/rutacamping3-640.jpg",
+    "route_1280": "img/campings/rutacamping3-1280.jpg"
+  }
+}

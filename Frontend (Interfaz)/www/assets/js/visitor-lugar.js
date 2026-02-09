@@ -15,16 +15,6 @@
     ].join('\n');
   }
 
-  async function hasRouteFile(folder, slug){
-    const path = '../rutas/' + folder + '/indicaciones' + slug + 'ruta.txt';
-    try{
-      const r = await fetch(path, {cache:'no-store'});
-      return r.ok;
-    }catch(e){
-      return false;
-    }
-  }
-
   document.addEventListener('DOMContentLoaded', ()=>{
     const url = new URL(location.href);
     const cat = url.searchParams.get('cat') || '';
@@ -74,68 +64,28 @@
 
       const base = HT.labelBase(cat || 'Restaurantes');
       const folder = HT.catFolder(cat || 'Restaurantes');
-      const baseSlug = HT.slugify(base);
       const col = {
         'Restaurantes':'#c2410c','Hospedajes':'#1d4ed8','Plazas':'#16a34a','Ríos':'#0d9488','Pisqueras':'#b45309','Campings':'#047857','Ferias Artesanales':'#7c3aed','Servicios':'#374151','Universidad':'#0284c7'
       }[cat] || '#0f172a';
       document.documentElement.style.setProperty('--opt-bg', col);
 
-      let used = false;
-      let nameMap = {};
-      try{
-        const rn = await fetch('../datos/' + folder + '/nombres.txt', {cache:'no-store'});
-        if(rn.ok){
-          const txt = await rn.text();
-          txt.split(/\r?\n+/).forEach(line=>{
-            const l = line.trim();
-            if(!l || l.startsWith('#')) return;
-            const parts = l.split('|');
-            const id = (parts[0]||'').trim();
-            const label = (parts[1]||'').trim();
-            if(id && label){ nameMap[id] = label; }
-          });
-        }
-      }catch(e){}
-
-      try{
-        const r = await fetch('../datos/' + folder + '/_index.txt', {cache:'no-store'});
-        if(r.ok){
-          const lines = (await r.text()).split(/\r?\n+/).map(s=>s.trim()).filter(s=>s && !s.startsWith('#'));
-          if(lines.length){
-            lines.forEach(slug=>{
-              const suf = slug.startsWith(baseSlug) ? slug.slice(baseSlug.length) : slug;
-              const fallbackName = base + ' ' + suf.toUpperCase();
-              const displayName = nameMap[slug] || fallbackName;
-              const btn = document.createElement('button');
-              btn.className = 'opt';
-              btn.type = 'button';
-              btn.textContent = displayName;
-              btn.onclick = ()=>{ selectPlace(slug, displayName); };
-              opts.appendChild(btn);
-            });
-            used = true;
-          }
-        }
-      }catch(e){}
-
-      if(!used){
-        'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach(suf=>{
-          const name = base + ' ' + suf;
-          const slug = HT.slugify(name);
-          const testSrc = '../img/' + folder + '/' + slug + '.jpg';
-          const b = document.createElement('button');
-          b.className = 'opt';
-          b.type = 'button';
-          b.textContent = name;
-          b.style.display = 'none';
-          b.onclick = ()=>{ selectPlace(slug, name); };
-          opts.appendChild(b);
-          const probe = new Image();
-          probe.onload = ()=>{ b.style.display = ''; };
-          probe.onerror = ()=>{ b.remove(); };
-          probe.src = testSrc;
-        });
+      const items = await HT.loadCategoryList(folder);
+      if(!items.length){
+        const msg = document.createElement('div');
+        msg.textContent = 'No hay datos cargados para esta categoria.';
+        opts.appendChild(msg);
+        detailCard.hidden = true;
+        return;
       }
+
+      items.forEach(item=>{
+        const btn = document.createElement('button');
+        btn.className = 'opt';
+        btn.type = 'button';
+        btn.textContent = item.name || item.slug || (base + '');
+        btn.onclick = ()=>{ selectPlace(item.slug, item.name || item.slug); };
+        opts.appendChild(btn);
+      });
 
       detailCard.hidden = true;
     }
@@ -145,7 +95,7 @@
       current = {cat:cat, folder:folder, name:name, slug:slug};
 
       img.onerror = ()=>{ img.style.display = 'none'; };
-      img.src = '../img/' + folder + '/' + slug + '.jpg';
+      img.src = HT.resolveAssetPath('img/' + folder + '/' + slug + '.jpg');
       img.alt = 'Imagen de ' + name;
       img.style.display = 'block';
 
@@ -160,10 +110,24 @@
       hClose.textContent = '—';
       alertEl.textContent = '—';
 
-      const canDownload = await hasRouteFile(folder, slug);
-      downloadBtn.hidden = !canDownload;
+      const poi = await HT.loadPoi(folder, slug);
+      if(!poi){
+        desc.textContent = 'Metadatos no encontrados.';
+      } else {
+        current.poi = poi;
+        HT.fillPoiFields(poi.fields, {desc:desc, tPie:tPie, tVeh:tVeh, hOpen:hOpen, hClose:hClose, alertEl:alertEl});
 
-      HT.loadMeta(current, {desc:desc, tPie:tPie, tVeh:tVeh, hOpen:hOpen, hClose:hClose, alertEl:alertEl});
+        const mainImg = (poi.images && poi.images.main) ? HT.resolveAssetPath(poi.images.main) : img.src;
+        img.src = mainImg;
+        if(poi.images && poi.images.route){
+          current.routeImg = HT.resolveAssetPath(poi.images.route);
+        } else {
+          current.routeImg = HT.resolveAssetPath('img/' + folder + '/ruta' + slug + '.jpg');
+        }
+
+        const routeText = (poi.route && poi.route.text) ? poi.route.text.trim() : '';
+        downloadBtn.hidden = !routeText;
+      }
 
       detailCard.hidden = false;
     }
@@ -175,16 +139,16 @@
       routeImg.removeAttribute('loading');
       routeImg.setAttribute('loading','eager');
       routeImg.decoding = 'async';
-      routeImg.src = '../img/' + current.folder + '/ruta' + current.slug + '.jpg';
+      routeImg.src = current.routeImg || HT.resolveAssetPath('img/' + current.folder + '/ruta' + current.slug + '.jpg');
       routeImg.alt = 'Ruta hacia ' + current.name;
-      routeImg.setAttribute('sizes', '(max-width: 768px) 90vw, 720px');
-      routeImg.setAttribute('srcset', '../img/' + current.folder + '/ruta' + current.slug + '-640.jpg 640w, ../img/' + current.folder + '/ruta' + current.slug + '-1280.jpg 1280w');
+      routeImg.removeAttribute('sizes');
+      routeImg.removeAttribute('srcset');
     });
 
     downloadBtn.addEventListener('click', ()=>{
       if(!current) return;
-      const file = current.folder + '/indicaciones' + current.slug + 'ruta.txt';
-      const url = '../api/route-pdf?name=' + encodeURIComponent(current.name) + '&file=' + encodeURIComponent(file) + '&dl=1';
+      const file = current.folder + '/' + current.slug;
+      const url = '../api/route-pdf?name=' + encodeURIComponent(current.name) + '&cat=' + encodeURIComponent(current.folder) + '&slug=' + encodeURIComponent(current.slug) + '&file=' + encodeURIComponent(file) + '&dl=1';
       location.href = url;
     });
 

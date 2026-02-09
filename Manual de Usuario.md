@@ -60,7 +60,7 @@ Si la impresora está ocupada, el sistema mostrará “Impresora ocupada”. Esp
 3. Puedes guardar el PDF en el teléfono para consultarlo sin conexión.
 
 ## 7. Actualizacion de contenidos
-Para editar, agregar o corregir datos de lugares, sigue la guia en [Frontend (Interfaz)/README.md](Frontend%20(Interfaz)/README.md).
+Para editar, agregar o corregir datos de lugares, usa la base JSON en /www/db y sigue la guia en [Frontend (Interfaz)/README.md](Frontend%20(Interfaz)/README.md).
 
 ## 8. Recomendaciones de uso
 - Evita retirar la SD con el equipo encendido.
@@ -71,6 +71,23 @@ Para editar, agregar o corregir datos de lugares, sigue la guia en [Frontend (In
 - No aparece el portal cautivo: abre el navegador y escribe http://192.168.4.1/visitor/.
 - “Error SD”: verificar formato FAT32 y estructura /www en la tarjeta.
 - No imprime: revisar que la impresora tenga papel y esté encendida.
+- Si el portal se siente lento: limpiar cache del navegador y verificar que la SD tenga los archivos .gz en /www/db y /www/img.
+- Si el PDF no muestra logo: verifica que exista /www/img/map/logo.jpg.
+
+## 9.1 Errores comunes (clave y solucion)
+
+- Clave: PORTAL_NO_ABRE
+	Solucion: conecta al Wi-Fi HexaTour y abre http://192.168.4.1/visitor/ manualmente.
+- Clave: ERROR_SD
+	Solucion: verifica FAT32, carpeta /www en la SD y vuelve a insertar la tarjeta.
+- Clave: DATOS_NO_CARGAN
+	Solucion: confirma que /www/db contiene index.json, categories/ y poi/; limpia cache.
+- Clave: IMAGEN_FALTANTE
+	Solucion: revisa que existan los archivos en /www/img/<categoria>/ y sus .gz.
+- Clave: PDF_SIN_LOGO
+	Solucion: asegura /www/img/map/logo.jpg y su .gz.
+- Clave: NO_IMPRIME
+	Solucion: revisa papel, encendido de impresora y conexion serial con el UNO.
 
 ## 10. Alcance
 Este manual cubre la operación del prototipo con ESP32 + Arduino UNO.

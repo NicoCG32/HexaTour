@@ -4,7 +4,7 @@ HexaTour es un prototipo de orientacion turistica rural que funciona sin Interne
 
 ## Como se llevo a cabo el prototipo
 
-- Se definio una estructura fija de contenidos (datos, rutas, imagenes) dentro de la carpeta www para que el portal cautivo cargue informacion desde la SD.
+- Se definio una base de datos JSON en /www/db y una estructura de imagenes en /www/img para cargar informacion desde la SD.
 - Se implemento el portal cautivo en el ESP32-S3 con endpoints para imprimir rutas y generar PDF.
 - Se separo el control de la impresora en un Arduino UNO, comunicandose por serial con el ESP32.
 - Se documentaron pines y conexiones para permitir replicar el armado.
@@ -34,13 +34,21 @@ HexaTour es un prototipo de orientacion turistica rural que funciona sin Interne
    - Visitante: http://192.168.4.1/visitor/
    - Operador: http://192.168.4.1/main/
 
+## Backend local (pruebas en PC)
+
+Para probar el frontend sin ESP32, usa el backend mock en [local_backend/README.md](local_backend/README.md).
+
+## Rendimiento
+
+Si el portal se siente lento, verifica que los .gz esten generados para `www/db` y `www/img`, y limpia cache del navegador.
+
 ## Actualizar datos y testear
 
-Para editar datos, rutas e imagenes, y probar localmente antes de copiar a la SD, sigue la guia en [Frontend (Interfaz)/README.md](Frontend%20(Interfaz)/README.md).
+Para editar la base JSON, rutas e imagenes, y probar localmente antes de copiar a la SD, sigue la guia en [Frontend (Interfaz)/README.md](Frontend%20(Interfaz)/README.md).
 
 ## Alcances futuros
 
-- Base de datos local para optimizar lectura en SD (por ejemplo, indice binario o SQLite liviano) y reducir tiempos de busqueda.
+- Optimizar indices y cacheo de la base JSON en el ESP32-S3 para acelerar busquedas.
 - Panel de administracion para cargar contenidos sin editar archivos manualmente.
 - Integracion con nuevos modulos (NFC, voz, multilenguaje) segun la evolucion del prototipo.
 

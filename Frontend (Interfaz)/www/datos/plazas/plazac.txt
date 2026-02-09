@@ -1,6 +1,0 @@
-descripcion=Plaza Principal de Paihuano es un punto de encuentro clasico, con sombra de arboles y vista a la cordillera.
-tpie=12 min
-tveh=9 min
-apertura=09:00
-cierre=22:00
-alertas=Llevar abrigo: baja la temperatura en la tarde.

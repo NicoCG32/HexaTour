@@ -1,4 +1,0 @@
-# slug|Nombre visible
-plazaa|Plaza de Armas de Combarbala
-plazab|Plaza de Armas de Monte Patria
-plazac|Plaza Principal de Paihuano

@@ -1,0 +1,24 @@
+{
+  "slug": "hospedaje1",
+  "name": "Lodge Mirador Andino",
+  "category": "hospedajes",
+  "fields": {
+    "descripcion": "Lodge Mirador Andino ofrece alojamiento para turistas que recorren los valles y la costa de la region.",
+    "tpie": "15 min",
+    "tveh": "4 min",
+    "apertura": "00:00",
+    "cierre": "23:59",
+    "alertas": "Atencion: mayor flujo de visitantes en temporada alta."
+  },
+  "route": {
+    "text": "Inicio en el sector centrico de Coquimbo, cerca del terminal.\nContinua por el camino principal hasta ver letreros hacia el valle.\nSigue las indicaciones hacia los atractivos del Valle del Limari.\nMantente por la ruta senalizada hasta acercarte al sector del destino.\nEl ingreso a Lodge Mirador Andino esta demarcado con porton y letreros informativos."
+  },
+  "images": {
+    "main": "img/hospedajes/hospedaje1.jpg",
+    "main_640": "img/hospedajes/hospedaje1-640.jpg",
+    "main_1280": "img/hospedajes/hospedaje1-1280.jpg",
+    "route": "img/hospedajes/rutahospedaje1.jpg",
+    "route_640": "img/hospedajes/rutahospedaje1-640.jpg",
+    "route_1280": "img/hospedajes/rutahospedaje1-1280.jpg"
+  }
+}

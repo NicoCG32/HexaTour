@@ -1,6 +1,0 @@
-descripcion=Cocina Tipica Monte Patria ofrece cocina tipica de la Region de Coquimbo, con pescados, mariscos y platos del valle.
-tpie=17 min
-tveh=6 min
-apertura=11:00
-cierre=00:00
-alertas=Llevar abrigo: baja la temperatura en la tarde.

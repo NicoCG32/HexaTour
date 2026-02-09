@@ -1,0 +1,24 @@
+{
+  "slug": "plaza2",
+  "name": "Plaza de Armas de Monte Patria",
+  "category": "plazas",
+  "fields": {
+    "descripcion": "Plaza de Armas de Monte Patria es un punto de encuentro clasico, con sombra de arboles y vista a la cordillera.",
+    "tpie": "9 min",
+    "tveh": "6 min",
+    "apertura": "09:00",
+    "cierre": "21:00",
+    "alertas": "Llevar abrigo: baja la temperatura en la tarde."
+  },
+  "route": {
+    "text": "Inicio en el sector centrico de Los Vilos, cerca del terminal.\nContinua por el camino principal hasta ver letreros hacia el valle.\nGira hacia el interior siguiendo el camino que bordea el rio.\nAvanza por la avenida principal siguiendo la senaletica turistica.\nVeras el acceso a Plaza de Armas de Monte Patria senalizado al costado del camino."
+  },
+  "images": {
+    "main": "img/plazas/plaza2.jpg",
+    "main_640": "img/plazas/plaza2-640.jpg",
+    "main_1280": "img/plazas/plaza2-1280.jpg",
+    "route": "img/plazas/rutaplaza2.jpg",
+    "route_640": "img/plazas/rutaplaza2-640.jpg",
+    "route_1280": "img/plazas/rutaplaza2-1280.jpg"
+  }
+}

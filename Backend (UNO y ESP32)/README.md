@@ -50,14 +50,20 @@ En el mismo archivo:
 ### Logo en PDF de ruta
 El PDF intenta incluir un logo si existe:
 
-- Ruta esperada: /www/img/map/logo.jpg
+- Ruta esperada (JPEG): /www/img/map/logo.jpg
 - Función: `findLogoJpeg()`
 
-Si no existe, el PDF se genera sin logo.
+El archivo `logo.jpg` se usa exclusivamente en el PDF de ruta generado por el ESP32.
+
+El archivo `logoHexaTour.png` se usa en el frontend como logo principal del portal.
 
 ### Endpoints relevantes
-- `/api/print-ruta` imprime rutas desde /www/rutas.
-- `/api/route-pdf` genera PDF con texto e imagen (si existe ruta y logo).
+- `/api/print-ruta?cat=<categoria>&slug=<slug>&name=<nombre>` imprime rutas desde /www/db.
+- `/api/route-pdf?cat=<categoria>&slug=<slug>&name=<nombre>&dl=1` genera PDF con texto e imagen desde /www/db.
+
+### Dependencias
+
+- ArduinoJson (para leer /www/db/poi/<categoria>/<slug>.json).
 
 ## Ajustes clave en el UNO
 
@@ -70,9 +76,9 @@ Si no existe, el PDF se genera sin logo.
 
 ## Contenidos en SD
 
-La SD debe contener la carpeta www del frontend. Ver guía de contenidos en [Frontend (Interfaz)/README.md](../Frontend%20(Interfaz)/README.md).
+La SD debe contener la carpeta www del frontend, incluyendo /www/db y /www/img. Ver guía de contenidos en [Frontend (Interfaz)/README.md](../Frontend%20(Interfaz)/README.md).
 
 ## Notas de compatibilidad
 
 - Si cambias pines en el hardware, actualiza los `#define` correspondientes.
-- Si cambias el logo del PDF, reemplaza el archivo en /www/img/map/logo.jpg.
+- Si cambias el logo del PDF, reemplaza el archivo en /www/img/map/logo.jpg (JPEG).

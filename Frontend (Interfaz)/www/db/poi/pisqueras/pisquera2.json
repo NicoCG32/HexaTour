@@ -1,0 +1,24 @@
+{
+  "slug": "pisquera2",
+  "name": "Ruta del Pisco Los Vilos",
+  "category": "pisqueras",
+  "fields": {
+    "descripcion": "Ruta del Pisco Los Vilos forma parte de la ruta del pisco, con visitas guiadas y degustaciones.",
+    "tpie": "13 min",
+    "tveh": "2 min",
+    "apertura": "10:00",
+    "cierre": "00:00",
+    "alertas": "Llevar abrigo: baja la temperatura en la tarde."
+  },
+  "route": {
+    "text": "Inicio en la entrada de La Serena por la Ruta 5.\nMantente por la ruta senalizada hasta acercarte al sector del destino.\nContinua por el camino principal hasta ver letreros hacia el valle.\nAvanza por la avenida principal siguiendo la senaletica turistica.\nRuta del Pisco Los Vilos se encuentra a mano derecha, identificado con letrero turistico."
+  },
+  "images": {
+    "main": "img/pisqueras/pisquera2.jpg",
+    "main_640": "img/pisqueras/pisquera2-640.jpg",
+    "main_1280": "img/pisqueras/pisquera2-1280.jpg",
+    "route": "img/pisqueras/rutapisquera2.jpg",
+    "route_640": "img/pisqueras/rutapisquera2-640.jpg",
+    "route_1280": "img/pisqueras/rutapisquera2-1280.jpg"
+  }
+}

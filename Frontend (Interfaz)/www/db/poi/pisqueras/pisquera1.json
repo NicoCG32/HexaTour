@@ -1,0 +1,24 @@
+{
+  "slug": "pisquera1",
+  "name": "Destileria Vicuna",
+  "category": "pisqueras",
+  "fields": {
+    "descripcion": "Destileria Vicuna forma parte de la ruta del pisco, con visitas guiadas y degustaciones.",
+    "tpie": "21 min",
+    "tveh": "8 min",
+    "apertura": "10:00",
+    "cierre": "22:00",
+    "alertas": "Atencion: mayor flujo de visitantes en temporada alta."
+  },
+  "route": {
+    "text": "Inicio en la entrada de Pisco Elqui por la Ruta 5.\nAvanza por la avenida principal siguiendo la senaletica turistica.\nMantente por la ruta senalizada hasta acercarte al sector del destino.\nSigue las indicaciones hacia los atractivos del Valle del Limari.\nVeras el acceso a Destileria Vicuna senalizado al costado del camino."
+  },
+  "images": {
+    "main": "img/pisqueras/pisquera1.jpg",
+    "main_640": "img/pisqueras/pisquera1-640.jpg",
+    "main_1280": "img/pisqueras/pisquera1-1280.jpg",
+    "route": "img/pisqueras/rutapisquera1.jpg",
+    "route_640": "img/pisqueras/rutapisquera1-640.jpg",
+    "route_1280": "img/pisqueras/rutapisquera1-1280.jpg"
+  }
+}

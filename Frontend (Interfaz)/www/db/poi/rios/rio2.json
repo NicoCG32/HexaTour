@@ -1,0 +1,24 @@
+{
+  "slug": "rio2",
+  "name": "Orilla del Rio Elqui",
+  "category": "rios",
+  "fields": {
+    "descripcion": "Orilla del Rio Elqui es un sector de rio apto para paseos cortos, fotografia y descanso junto al agua.",
+    "tpie": "18 min",
+    "tveh": "4 min",
+    "apertura": "09:00",
+    "cierre": "22:00",
+    "alertas": "Precaucion: tramo final con camino de ripio."
+  },
+  "route": {
+    "text": "Inicio en el sector centrico de Tongoy, cerca del terminal.\nContinua por el camino principal hasta ver letreros hacia el valle.\nSigue las indicaciones hacia los atractivos del Valle del Choapa.\nAvanza por la avenida principal siguiendo la senaletica turistica.\nVeras el acceso a Orilla del Rio Elqui senalizado al costado del camino."
+  },
+  "images": {
+    "main": "img/rios/rio2.jpg",
+    "main_640": "img/rios/rio2-640.jpg",
+    "main_1280": "img/rios/rio2-1280.jpg",
+    "route": "img/rios/rutario2.jpg",
+    "route_640": "img/rios/rutario2-640.jpg",
+    "route_1280": "img/rios/rutario2-1280.jpg"
+  }
+}

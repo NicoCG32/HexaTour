@@ -1,0 +1,24 @@
+{
+  "slug": "servicio2",
+  "name": "Oficina de Informacion Turistica Coquimbo",
+  "category": "servicios",
+  "fields": {
+    "descripcion": "Oficina de Informacion Turistica Coquimbo entrega servicios basicos a habitantes y visitantes del sector.",
+    "tpie": "11 min",
+    "tveh": "9 min",
+    "apertura": "09:00",
+    "cierre": "17:00",
+    "alertas": "Hidratacion recomendada, poca sombra en la ruta."
+  },
+  "route": {
+    "text": "Inicio en el sector centrico de Vicuna, cerca del terminal.\nContinua por el camino principal hasta ver letreros hacia el valle.\nSigue las indicaciones hacia los atractivos del Valle del Limari.\nMantente por la ruta senalizada hasta acercarte al sector del destino.\nEl ingreso a Oficina de Informacion Turistica Coquimbo esta demarcado con porton y letreros informativos."
+  },
+  "images": {
+    "main": "img/servicios/servicio2.jpg",
+    "main_640": "img/servicios/servicio2-640.jpg",
+    "main_1280": "img/servicios/servicio2-1280.jpg",
+    "route": "img/servicios/rutaservicio2.jpg",
+    "route_640": "img/servicios/rutaservicio2-640.jpg",
+    "route_1280": "img/servicios/rutaservicio2-1280.jpg"
+  }
+}

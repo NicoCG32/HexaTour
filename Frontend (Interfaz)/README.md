@@ -1,6 +1,6 @@
 # Frontend (Interfaz) – Gestión de contenidos
 
-Este README describe cómo actualizar el contenido que consume el portal cautivo de HexaTour. Está enfocado en **datos, rutas e imágenes** dentro de la carpeta www.
+Este README describe cómo actualizar el contenido que consume el portal cautivo de HexaTour. Está enfocado en la **base de datos JSON** y las imágenes dentro de la carpeta www.
 
 > Importante:
 > - Todo en **UTF-8 sin BOM**.
@@ -11,10 +11,14 @@ Este README describe cómo actualizar el contenido que consume el portal cautivo
 
 ```
 www/
-	datos/
-	rutas/
+	db/
+		index.json
+		categories/
+		poi/
 	img/
 ```
+
+Nota: la base actual se mantiene en `db/` y las imagenes en `img/`.
 
 ## Categorías disponibles
 
@@ -33,64 +37,74 @@ www/
 Reglas:
 - Solo minúsculas.
 - Sin espacios ni acentos.
-- Debe coincidir exactamente en datos, rutas e imágenes.
+- Debe coincidir exactamente entre `db/poi`, `db/categories` y `img`.
 
-Ejemplo de slug: restaurantee.
+Ejemplo de slug: restaurante1 (los slugs son numericos por categoria).
 
 ## Actualizar un POI existente
 
-1. Edita los datos en www/datos/<categoria>/<slug>.txt.
-2. Si cambia el nombre visible, actualiza www/datos/<categoria>/nombres.txt.
-3. Si cambian las indicaciones, actualiza www/rutas/<categoria>/indicaciones<slug>ruta.txt.
-4. Si cambian imágenes, reemplaza los archivos correspondientes en www/img/<categoria>/.
+1. Edita la ficha JSON en www/db/poi/<categoria>/<slug>.json.
+2. Si cambia el nombre visible, actualiza tambien www/db/categories/<categoria>.json.
+3. Si cambian imagenes, reemplaza los archivos en www/img/<categoria>/.
 
-Ejemplo rapido (restaurantee):
-- Datos: www/datos/restaurantes/restaurantee.txt
-- Nombre: www/datos/restaurantes/nombres.txt
-- Ruta: www/rutas/restaurantes/indicacionesrestauranteeruta.txt
-- Imagenes: www/img/restaurantes/restaurantee.jpg (y variantes)
+Ejemplo rapido (restaurante1):
+- Ficha: www/db/poi/restaurantes/restaurante1.json
+- Lista: www/db/categories/restaurantes.json
+- Imagenes: www/img/restaurantes/restaurante1.jpg (y variantes)
 
 ## Agregar un nuevo POI
 
-### 1) Registrar el slug
+### 1) Agregar a la lista de categoria
 Archivo:
 ```
-www/datos/<categoria>/_index.txt
+www/db/categories/<categoria>.json
 ```
-Agrega una línea con el slug.
+Agrega un item:
+```
+{"slug":"<slug>","name":"Nombre visible"}
+```
 
-### 2) Nombre visible
+### 2) Crear la ficha JSON
 Archivo:
 ```
-www/datos/<categoria>/nombres.txt
+www/db/poi/<categoria>/<slug>.json
 ```
-Formato:
+Campos tipicos:
 ```
-<slug>|Nombre visible
+{
+	"slug": "<slug>",
+	"name": "Nombre visible",
+	"category": "<categoria>",
+	"fields": {
+		"descripcion": "",
+		"tpie": "",
+		"tveh": "",
+		"apertura": "",
+		"cierre": "",
+		"alertas": ""
+	},
+	"route": {
+		"text": ""
+	},
+	"images": {
+		"main": "img/<categoria>/<slug>.jpg",
+		"main_640": "img/<categoria>/<slug>-640.jpg",
+		"main_1280": "img/<categoria>/<slug>-1280.jpg",
+		"route": "img/<categoria>/ruta<slug>.jpg",
+		"route_640": "img/<categoria>/ruta<slug>-640.jpg",
+		"route_1280": "img/<categoria>/ruta<slug>-1280.jpg"
+	}
+}
 ```
 
-### 3) Ficha del POI
+### 3) Actualizar index global
 Archivo:
 ```
-www/datos/<categoria>/<slug>.txt
+www/db/index.json
 ```
-Campos típicos:
-```
-descripcion=
-tpie=
-tveh=
-apertura=
-cierre=
-alertas=
-```
+Actualiza el `count` de la categoria si corresponde.
 
-### 4) Ruta
-Archivo:
-```
-www/rutas/<categoria>/indicaciones<slug>ruta.txt
-```
-
-### 5) Imágenes
+### 4) Imágenes
 Archivos requeridos:
 ```
 <slug>.jpg
@@ -107,18 +121,40 @@ El PDF puede incluir un logo si existe en:
 ```
 www/img/map/logo.jpg
 ```
-Si no se encuentra, el PDF se genera sin logo.
+`logo.jpg` se usa en el PDF de ruta generado por el ESP32.
 
-## Compresión opcional (GZ)
+`logoHexaTour.png` se usa como logo principal en el portal cautivo.
 
-Si se usan versiones comprimidas en el ESP32, generar .gz para nuevos archivos.
+## Compresión (GZ)
+
+Si usas archivos comprimidos en el ESP32, regenera los .gz despues de cambios en JSON o imagenes:
+
+```powershell
+Get-ChildItem -Path "Frontend (Interfaz)\www\db" -Filter *.gz -Recurse | Remove-Item -Force
+Get-ChildItem -Path "Frontend (Interfaz)\www\img" -Filter *.gz -Recurse | Remove-Item -Force
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+Get-ChildItem -Path "Frontend (Interfaz)\www\db" -Filter *.json -Recurse | ForEach-Object {
+	$src = $_.FullName; $dst = $src + ".gz"
+	$input=[IO.File]::OpenRead($src); $output=[IO.File]::Create($dst)
+	$gzip=New-Object IO.Compression.GzipStream($output,[IO.Compression.CompressionMode]::Compress)
+	$input.CopyTo($gzip); $gzip.Dispose(); $input.Dispose(); $output.Dispose()
+}
+$imgExt = @('*.jpg','*.jpeg','*.png','*.webp','*.svg')
+foreach($ext in $imgExt){
+	Get-ChildItem -Path "Frontend (Interfaz)\www\img" -Filter $ext -Recurse | ForEach-Object {
+		$src = $_.FullName; $dst = $src + ".gz"
+		$input=[IO.File]::OpenRead($src); $output=[IO.File]::Create($dst)
+		$gzip=New-Object IO.Compression.GzipStream($output,[IO.Compression.CompressionMode]::Compress)
+		$input.CopyTo($gzip); $gzip.Dispose(); $input.Dispose(); $output.Dispose()
+	}
+}
+```
 
 ## Testeo en PC (antes de copiar a la SD)
 
 1. Abre una terminal en la carpeta www.
-2. Inicia un servidor local. Opciones comunes:
-	- Python: python -m http.server 8000
-	- Node.js: npx serve .
+2. Inicia el backend local (mock) para simular la API del ESP32:
+	- Python: python local_backend/server.py --root "Frontend (Interfaz)/www" --port 8000
 3. Abre en el navegador:
 	- Visitante: http://localhost:8000/visitor/
 	- Operador: http://localhost:8000/main/
@@ -144,16 +180,16 @@ Si no ves los cambios, limpia cache:
 
 ## Errores comunes
 
-- El slug no coincide en datos/rutas/imagenes.
-- Se omite el slug en _index.txt.
+- El slug no coincide entre `db/categories` y `db/poi`.
+- Falta una ruta o imagen declarada en `images`.
 - Archivos en otra codificacion que no sea UTF-8 sin BOM.
+- Si se siente lento, verifica que los .gz esten presentes y prueba limpiar cache.
 
 ## Checklist rápido
 
-- Slug en _index.txt
-- Nombre en nombres.txt
-- Ficha <slug>.txt
-- Ruta indicaciones<slug>ruta.txt
-- Imágenes en img/<categoria>
+- Item en db/categories/<categoria>.json
+- Ficha db/poi/<categoria>/<slug>.json
+- Ruta en route.text
+- Imagenes en img/<categoria>
 
 

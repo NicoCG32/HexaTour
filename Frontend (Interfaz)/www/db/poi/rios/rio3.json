@@ -1,0 +1,24 @@
+{
+  "slug": "rio3",
+  "name": "Orilla del Rio Coquimbo",
+  "category": "rios",
+  "fields": {
+    "descripcion": "Orilla del Rio Coquimbo es un sector de rio apto para paseos cortos, fotografia y descanso junto al agua.",
+    "tpie": "12 min",
+    "tveh": "10 min",
+    "apertura": "09:00",
+    "cierre": "20:00",
+    "alertas": "Hidratacion recomendada, poca sombra en la ruta."
+  },
+  "route": {
+    "text": "Inicio en la entrada de Tongoy por la Ruta 5.\nContinua por el camino principal hasta ver letreros hacia el valle.\nAvanza por la avenida principal siguiendo la senaletica turistica.\nGira hacia el interior siguiendo el camino que bordea el rio.\nOrilla del Rio Coquimbo se encuentra a mano derecha, identificado con letrero turistico."
+  },
+  "images": {
+    "main": "img/rios/rio3.jpg",
+    "main_640": "img/rios/rio3-640.jpg",
+    "main_1280": "img/rios/rio3-1280.jpg",
+    "route": "img/rios/rutario3.jpg",
+    "route_640": "img/rios/rutario3-640.jpg",
+    "route_1280": "img/rios/rutario3-1280.jpg"
+  }
+}

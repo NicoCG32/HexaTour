@@ -3,16 +3,6 @@
   const HT = window.HexaTour;
   const $ = s => document.querySelector(s);
 
-  async function hasRouteFile(folder, slug){
-    const path = '../rutas/' + folder + '/indicaciones' + slug + 'ruta.txt';
-    try{
-      const r = await fetch(path, {cache:'no-store'});
-      return r.ok;
-    }catch(e){
-      return false;
-    }
-  }
-
   document.addEventListener('DOMContentLoaded', ()=>{
     const url = new URL(location.href);
     const cat = url.searchParams.get('cat') || '';
@@ -52,66 +42,24 @@
         return;
       }
 
-      const base = HT.labelBase(cat || 'Restaurantes');
       const folder = HT.catFolder(cat || 'Restaurantes');
-      const baseSlug = HT.slugify(base);
-      let used = false;
-      let nameMap = {};
-
-      try{
-        const rn = await fetch('../datos/' + folder + '/nombres.txt', {cache:'no-store'});
-        if(rn.ok){
-          const txt = await rn.text();
-          txt.split(/\r?\n+/).forEach(line=>{
-            const l = line.trim();
-            if(!l || l.startsWith('#')) return;
-            const parts = l.split('|');
-            const id = (parts[0]||'').trim();
-            const label = (parts[1]||'').trim();
-            if(id && label){ nameMap[id] = label; }
-          });
-        }
-      }catch(e){}
-
-      try{
-        const r = await fetch('../datos/' + folder + '/_index.txt', {cache:'no-store'});
-        if(r.ok){
-          const lines = (await r.text()).split(/\r?\n+/).map(s=>s.trim()).filter(s=>s && !s.startsWith('#'));
-          if(lines.length){
-            lines.forEach(slug=>{
-              const suf = slug.startsWith(baseSlug) ? slug.slice(baseSlug.length) : slug;
-              const fallbackName = base + ' ' + suf.toUpperCase();
-              const displayName = nameMap[slug] || fallbackName;
-              const b = document.createElement('button');
-              b.className = 'opt';
-              b.type = 'button';
-              b.textContent = displayName;
-              b.onclick = ()=>{ selectPlace(slug, displayName); };
-              opts.appendChild(b);
-            });
-            used = true;
-          }
-        }
-      }catch(e){}
-
-      if(!used){
-        'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach(suf=>{
-          const name = base + ' ' + suf;
-          const slug = HT.slugify(name);
-          const testSrc = '../img/' + folder + '/' + slug + '.jpg';
-          const b = document.createElement('button');
-          b.className = 'opt';
-          b.type = 'button';
-          b.textContent = name;
-          b.style.display = 'none';
-          b.onclick = ()=>{ selectPlace(slug, name); };
-          opts.appendChild(b);
-          const probe = new Image();
-          probe.onload = ()=>{ b.style.display = ''; };
-          probe.onerror = ()=>{ b.remove(); };
-          probe.src = testSrc;
-        });
+      const items = await HT.loadCategoryList(folder);
+      if(!items.length){
+        const msg = document.createElement('div');
+        msg.textContent = 'No hay datos cargados para esta categoria.';
+        opts.appendChild(msg);
+        detail.hidden = true;
+        return;
       }
+
+      items.forEach(item=>{
+        const b = document.createElement('button');
+        b.className = 'opt';
+        b.type = 'button';
+        b.textContent = item.name || item.slug || 'Lugar';
+        b.onclick = ()=>{ selectPlace(item.slug, item.name || item.slug); };
+        opts.appendChild(b);
+      });
 
       detail.hidden = true;
     }
@@ -121,7 +69,7 @@
       current = {cat:cat, folder:folder, name:name, slug:slug};
 
       img.onerror = ()=>{ img.style.display = 'none'; };
-      img.src = '../img/' + folder + '/' + slug + '.jpg';
+      img.src = HT.resolveAssetPath('img/' + folder + '/' + slug + '.jpg');
       img.alt = 'Imagen de ' + name;
       img.style.display = 'block';
 
@@ -138,14 +86,29 @@
       printRow.style.display = 'none';
       printBtn.disabled = true;
       printBtn.setAttribute('aria-disabled','true');
-      const canPrint = await hasRouteFile(folder, slug);
-      if(canPrint){
-        printRow.style.display = '';
-        printBtn.disabled = false;
-        printBtn.setAttribute('aria-disabled','false');
-      }
 
-      HT.loadMeta(current, {desc:desc, tPie:tPie, tVeh:tVeh, hOpen:hOpen, hClose:hClose, alertEl:alertEl});
+      const poi = await HT.loadPoi(folder, slug);
+      if(!poi){
+        desc.textContent = 'Metadatos no encontrados.';
+      } else {
+        current.poi = poi;
+        HT.fillPoiFields(poi.fields, {desc:desc, tPie:tPie, tVeh:tVeh, hOpen:hOpen, hClose:hClose, alertEl:alertEl});
+
+        const mainImg = (poi.images && poi.images.main) ? HT.resolveAssetPath(poi.images.main) : img.src;
+        img.src = mainImg;
+        if(poi.images && poi.images.route){
+          current.routeImg = HT.resolveAssetPath(poi.images.route);
+        } else {
+          current.routeImg = HT.resolveAssetPath('img/' + folder + '/ruta' + slug + '.jpg');
+        }
+
+        const routeText = (poi.route && poi.route.text) ? poi.route.text.trim() : '';
+        if(routeText){
+          printRow.style.display = '';
+          printBtn.disabled = false;
+          printBtn.setAttribute('aria-disabled','false');
+        }
+      }
 
       detail.hidden = false;
     }
@@ -157,19 +120,19 @@
       routeImg.removeAttribute('loading');
       routeImg.setAttribute('loading','eager');
       routeImg.decoding = 'async';
-      routeImg.src = '../img/' + current.folder + '/ruta' + current.slug + '.jpg';
+      routeImg.src = current.routeImg || HT.resolveAssetPath('img/' + current.folder + '/ruta' + current.slug + '.jpg');
       routeImg.alt = 'Ruta hacia ' + current.name;
     });
 
     printBtn.addEventListener('click', async ()=>{
       if(!current) return;
-      const file = current.folder + '/indicaciones' + current.slug + 'ruta.txt';
+      const file = current.folder + '/' + current.slug;
       try{
-        const r = await fetch('../api/print-ruta?name=' + encodeURIComponent(current.name) + '&file=' + encodeURIComponent(file), {cache:'no-store'});
+        const r = await fetch('../api/print-ruta?name=' + encodeURIComponent(current.name) + '&cat=' + encodeURIComponent(current.folder) + '&slug=' + encodeURIComponent(current.slug) + '&file=' + encodeURIComponent(file), {cache:'no-store'});
         if(!r.ok) throw 0;
         alert('Indicaciones enviadas a impresión.');
       }catch(e){
-        alert('No se pudo enviar a impresión (verifique /www/rutas/).');
+        alert('No se pudo enviar a impresión (verifique la BD en /www/db/).');
       }
     });
 

@@ -1,0 +1,18 @@
+{
+  "category": "plazas",
+  "label": "Plazas",
+  "items": [
+    {
+      "slug": "plaza1",
+      "name": "Plaza de Armas de Combarbala"
+    },
+    {
+      "slug": "plaza2",
+      "name": "Plaza de Armas de Monte Patria"
+    },
+    {
+      "slug": "plaza3",
+      "name": "Plaza Principal de Paihuano"
+    }
+  ]
+}

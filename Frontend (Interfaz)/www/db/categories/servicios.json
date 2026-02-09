@@ -1,0 +1,18 @@
+{
+  "category": "servicios",
+  "label": "Servicios",
+  "items": [
+    {
+      "slug": "servicio1",
+      "name": "Posta Rural Monte Patria"
+    },
+    {
+      "slug": "servicio2",
+      "name": "Oficina de Informacion Turistica Coquimbo"
+    },
+    {
+      "slug": "servicio3",
+      "name": "Posta Rural Monte Patria"
+    }
+  ]
+}

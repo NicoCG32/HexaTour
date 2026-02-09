@@ -1,6 +1,0 @@
-descripcion=Destileria Vicuna forma parte de la ruta del pisco, con visitas guiadas y degustaciones.
-tpie=21 min
-tveh=8 min
-apertura=10:00
-cierre=22:00
-alertas=Atencion: mayor flujo de visitantes en temporada alta.

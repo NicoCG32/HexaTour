@@ -1,0 +1,24 @@
+{
+  "slug": "camping2",
+  "name": "Camping Municipal Illapel",
+  "category": "campings",
+  "fields": {
+    "descripcion": "Camping Municipal Illapel es un camping de la Region de Coquimbo, ideal para disfrutar del cielo estrellado y del entorno de valle.",
+    "tpie": "19 min",
+    "tveh": "10 min",
+    "apertura": "09:00",
+    "cierre": "20:00",
+    "alertas": "Precaucion: tramo final con camino de ripio."
+  },
+  "route": {
+    "text": "Inicio en la plaza principal de Vicuna.\nGira hacia el interior siguiendo el camino que bordea el rio.\nContinua por el camino principal hasta ver letreros hacia el valle.\nMantente por la ruta senalizada hasta acercarte al sector del destino.\nCamping Municipal Illapel se encuentra a mano derecha, identificado con letrero turistico."
+  },
+  "images": {
+    "main": "img/campings/camping2.jpg",
+    "main_640": "img/campings/camping2-640.jpg",
+    "main_1280": "img/campings/camping2-1280.jpg",
+    "route": "img/campings/rutacamping2.jpg",
+    "route_640": "img/campings/rutacamping2-640.jpg",
+    "route_1280": "img/campings/rutacamping2-1280.jpg"
+  }
+}

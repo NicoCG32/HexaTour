@@ -1,0 +1,22 @@
+{
+  "category": "campings",
+  "label": "Campings",
+  "items": [
+    {
+      "slug": "camping1",
+      "name": "Eco Camping Combarbala"
+    },
+    {
+      "slug": "camping2",
+      "name": "Camping Municipal Illapel"
+    },
+    {
+      "slug": "camping3",
+      "name": "Camping Rio Tongoy"
+    },
+    {
+      "slug": "camping4",
+      "name": "Camping Familiar Quebrada Andacollo"
+    }
+  ]
+}

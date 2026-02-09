@@ -53,35 +53,56 @@
     return null;
   }
 
-  async function loadMeta(current, targets){
-    const p = current.folder + '/' + current.slug + '.txt';
+  function resolveAssetPath(path){
+    if(!path) return '';
+    if(path.startsWith('/')) return path;
+    return '../' + path.replace(/^\.\//, '');
+  }
+
+  async function loadCategoryList(category){
     const candidates = [
-      '../datos/' + p,
-      '/datos/' + p,
-      '/www/datos/' + p,
-      '../../datos/' + p,
-      'datos/' + p
+      '../db/categories/' + category + '.json',
+      '/db/categories/' + category + '.json',
+      '/www/db/categories/' + category + '.json',
+      '../../db/categories/' + category + '.json',
+      'db/categories/' + category + '.json'
     ];
     const text = await fetchTextCandidates(candidates);
-    if(!text){
-      targets.desc.textContent = 'Metadatos no encontrados.';
-      return;
+    if(!text) return [];
+    try{
+      const data = JSON.parse(text);
+      return Array.isArray(data.items) ? data.items : [];
+    }catch(e){
+      return [];
     }
-    const cleanKey = s => (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ñ/g,'n').trim();
-    const map = {};
-    text.split(/\r?\n+/).forEach(line=>{
-      if(!line || line.trim().startsWith('#')) return;
-      const m = line.match(/^\s*([^=]+?)\s*=\s*(.*?)\s*$/);
-      if(m){
-        map[cleanKey(m[1])] = m[2];
-      }
-    });
-    if(map['descripcion']) targets.desc.textContent = map['descripcion'];
-    if(map['tpie']) targets.tPie.textContent = map['tpie'];
-    if(map['tveh']) targets.tVeh.textContent = map['tveh'];
-    if(map['apertura']) targets.hOpen.textContent = map['apertura'];
-    if(map['cierre']) targets.hClose.textContent = map['cierre'];
-    if(map['alertas']) targets.alertEl.textContent = map['alertas'];
+  }
+
+  async function loadPoi(category, slug){
+    const p = category + '/' + slug + '.json';
+    const candidates = [
+      '../db/poi/' + p,
+      '/db/poi/' + p,
+      '/www/db/poi/' + p,
+      '../../db/poi/' + p,
+      'db/poi/' + p
+    ];
+    const text = await fetchTextCandidates(candidates);
+    if(!text) return null;
+    try{
+      return JSON.parse(text);
+    }catch(e){
+      return null;
+    }
+  }
+
+  function fillPoiFields(fields, targets){
+    const safe = (fields || {});
+    targets.desc.textContent = safe.descripcion || '—';
+    targets.tPie.textContent = safe.tpie || '—';
+    targets.tVeh.textContent = safe.tveh || '—';
+    targets.hOpen.textContent = safe.apertura || '—';
+    targets.hClose.textContent = safe.cierre || '—';
+    targets.alertEl.textContent = safe.alertas || '—';
   }
 
   window.HexaTour = {
@@ -89,6 +110,9 @@
     catFolder,
     labelBase,
     slugify,
-    loadMeta
+    resolveAssetPath,
+    loadCategoryList,
+    loadPoi,
+    fillPoiFields
   };
 })();

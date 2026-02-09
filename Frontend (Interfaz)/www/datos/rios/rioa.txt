@@ -1,6 +1,0 @@
-descripcion=Orilla del Rio Tongoy es un sector de rio apto para paseos cortos, fotografia y descanso junto al agua.
-tpie=6 min
-tveh=9 min
-apertura=08:00
-cierre=22:00
-alertas=Sin alertas por ahora.

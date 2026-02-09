@@ -1,6 +1,0 @@
-descripcion=Lodge Mirador Andino ofrece alojamiento para turistas que recorren los valles y la costa de la region.
-tpie=15 min
-tveh=4 min
-apertura=00:00
-cierre=23:59
-alertas=Atencion: mayor flujo de visitantes en temporada alta.

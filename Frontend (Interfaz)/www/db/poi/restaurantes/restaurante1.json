@@ -1,0 +1,24 @@
+{
+  "slug": "restaurante1",
+  "name": "Marisqueria Ruta 5",
+  "category": "restaurantes",
+  "fields": {
+    "descripcion": "Marisqueria Ruta 5 ofrece cocina tipica de la Region de Coquimbo, con pescados, mariscos y platos del valle.",
+    "tpie": "21 min",
+    "tveh": "3 min",
+    "apertura": "09:00",
+    "cierre": "23:00",
+    "alertas": "Atencion: mayor flujo de visitantes en temporada alta."
+  },
+  "route": {
+    "text": "Inicio en la plaza principal de Vicuna.\nGira hacia el interior siguiendo el camino que bordea el rio.\nAvanza por la avenida principal siguiendo la senaletica turistica.\nContinua por el camino principal hasta ver letreros hacia el valle.\nVeras el acceso a Marisqueria Ruta 5 senalizado al costado del camino."
+  },
+  "images": {
+    "main": "img/restaurantes/restaurante1.jpg",
+    "main_640": "img/restaurantes/restaurante1-640.jpg",
+    "main_1280": "img/restaurantes/restaurante1-1280.jpg",
+    "route": "img/restaurantes/rutarestaurante1.jpg",
+    "route_640": "img/restaurantes/rutarestaurante1-640.jpg",
+    "route_1280": "img/restaurantes/rutarestaurante1-1280.jpg"
+  }
+}

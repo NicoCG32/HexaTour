@@ -1,0 +1,24 @@
+{
+  "slug": "plaza1",
+  "name": "Plaza de Armas de Combarbala",
+  "category": "plazas",
+  "fields": {
+    "descripcion": "Plaza de Armas de Combarbala es un punto de encuentro clasico, con sombra de arboles y vista a la cordillera.",
+    "tpie": "16 min",
+    "tveh": "6 min",
+    "apertura": "09:00",
+    "cierre": "21:00",
+    "alertas": "Llevar abrigo: baja la temperatura en la tarde."
+  },
+  "route": {
+    "text": "Inicio en la plaza principal de Coquimbo.\nMantente por la ruta senalizada hasta acercarte al sector del destino.\nContinua por el camino principal hasta ver letreros hacia el valle.\nAvanza por la avenida principal siguiendo la senaletica turistica.\nVeras el acceso a Plaza de Armas de Combarbala senalizado al costado del camino."
+  },
+  "images": {
+    "main": "img/plazas/plaza1.jpg",
+    "main_640": "img/plazas/plaza1-640.jpg",
+    "main_1280": "img/plazas/plaza1-1280.jpg",
+    "route": "img/plazas/rutaplaza1.jpg",
+    "route_640": "img/plazas/rutaplaza1-640.jpg",
+    "route_1280": "img/plazas/rutaplaza1-1280.jpg"
+  }
+}

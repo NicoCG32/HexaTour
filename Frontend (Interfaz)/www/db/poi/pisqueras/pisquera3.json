@@ -1,0 +1,24 @@
+{
+  "slug": "pisquera3",
+  "name": "Pisquera Pisco Elqui",
+  "category": "pisqueras",
+  "fields": {
+    "descripcion": "Pisquera Pisco Elqui forma parte de la ruta del pisco, con visitas guiadas y degustaciones.",
+    "tpie": "18 min",
+    "tveh": "4 min",
+    "apertura": "12:00",
+    "cierre": "00:00",
+    "alertas": "Atencion: mayor flujo de visitantes en temporada alta."
+  },
+  "route": {
+    "text": "Inicio en la plaza principal de La Serena.\nGira hacia el interior siguiendo el camino que bordea el rio.\nAvanza por la avenida principal siguiendo la senaletica turistica.\nMantente por la ruta senalizada hasta acercarte al sector del destino.\nVeras el acceso a Pisquera Pisco Elqui senalizado al costado del camino."
+  },
+  "images": {
+    "main": "img/pisqueras/pisquera3.jpg",
+    "main_640": "img/pisqueras/pisquera3-640.jpg",
+    "main_1280": "img/pisqueras/pisquera3-1280.jpg",
+    "route": "img/pisqueras/rutapisquera3.jpg",
+    "route_640": "img/pisqueras/rutapisquera3-640.jpg",
+    "route_1280": "img/pisqueras/rutapisquera3-1280.jpg"
+  }
+}

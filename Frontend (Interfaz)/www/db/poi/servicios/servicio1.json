@@ -1,0 +1,24 @@
+{
+  "slug": "servicio1",
+  "name": "Posta Rural Monte Patria",
+  "category": "servicios",
+  "fields": {
+    "descripcion": "Posta Rural Monte Patria entrega servicios basicos a habitantes y visitantes del sector.",
+    "tpie": "13 min",
+    "tveh": "2 min",
+    "apertura": "08:00",
+    "cierre": "18:00",
+    "alertas": "Precaucion: tramo final con camino de ripio."
+  },
+  "route": {
+    "text": "Inicio en la plaza principal de Ovalle.\nMantente por la ruta senalizada hasta acercarte al sector del destino.\nContinua por el camino principal hasta ver letreros hacia el valle.\nSigue las indicaciones hacia los atractivos del Valle del Choapa.\nEl ingreso a Posta Rural Monte Patria esta demarcado con porton y letreros informativos."
+  },
+  "images": {
+    "main": "img/servicios/servicio1.jpg",
+    "main_640": "img/servicios/servicio1-640.jpg",
+    "main_1280": "img/servicios/servicio1-1280.jpg",
+    "route": "img/servicios/rutaservicio1.jpg",
+    "route_640": "img/servicios/rutaservicio1-640.jpg",
+    "route_1280": "img/servicios/rutaservicio1-1280.jpg"
+  }
+}

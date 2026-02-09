@@ -1,0 +1,24 @@
+{
+  "slug": "feria2",
+  "name": "Mercado Campesino de Ovalle",
+  "category": "ferias",
+  "fields": {
+    "descripcion": "Mercado Campesino de Ovalle reune artesanos y productores locales con productos del Valle de Elqui y de la costa de Coquimbo.",
+    "tpie": "17 min",
+    "tveh": "10 min",
+    "apertura": "12:00",
+    "cierre": "23:00",
+    "alertas": "Precaucion: tramo final con camino de ripio."
+  },
+  "route": {
+    "text": "Inicio en la plaza principal de La Serena.\nAvanza por la avenida principal siguiendo la senaletica turistica.\nMantente por la ruta senalizada hasta acercarte al sector del destino.\nGira hacia el interior siguiendo el camino que bordea el rio.\nVeras el acceso a Mercado Campesino de Ovalle senalizado al costado del camino."
+  },
+  "images": {
+    "main": "img/ferias/feria2.jpg",
+    "main_640": "img/ferias/feria2-640.jpg",
+    "main_1280": "img/ferias/feria2-1280.jpg",
+    "route": "img/ferias/rutaferia2.jpg",
+    "route_640": "img/ferias/rutaferia2-640.jpg",
+    "route_1280": "img/ferias/rutaferia2-1280.jpg"
+  }
+}

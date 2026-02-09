@@ -1,6 +1,0 @@
-descripcion=Ruta del Pisco Los Vilos forma parte de la ruta del pisco, con visitas guiadas y degustaciones.
-tpie=13 min
-tveh=2 min
-apertura=10:00
-cierre=00:00
-alertas=Llevar abrigo: baja la temperatura en la tarde.

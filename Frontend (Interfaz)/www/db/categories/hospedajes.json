@@ -1,0 +1,18 @@
+{
+  "category": "hospedajes",
+  "label": "Hospedajes",
+  "items": [
+    {
+      "slug": "hospedaje1",
+      "name": "Lodge Mirador Andino"
+    },
+    {
+      "slug": "hospedaje2",
+      "name": "Refugio Brisa Marina"
+    },
+    {
+      "slug": "hospedaje3",
+      "name": "Hostal Estrella Elquina"
+    }
+  ]
+}

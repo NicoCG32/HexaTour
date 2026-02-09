@@ -1,0 +1,24 @@
+{
+  "slug": "universidad1",
+  "name": "Universidad Catolica del Norte - Campus Coquimbo",
+  "category": "universidad",
+  "fields": {
+    "descripcion": "Universidad Catolica del Norte - Campus Coquimbo es un campus universitario que articula docencia y vinculacion con el medio en la Region de Coquimbo.",
+    "tpie": "19 min",
+    "tveh": "8 min",
+    "apertura": "08:00",
+    "cierre": "21:00",
+    "alertas": "Llevar abrigo: baja la temperatura en la tarde."
+  },
+  "route": {
+    "text": "Inicio en la plaza Domeyko.\nContinua por Tucapel 2 cuadras yendo hacia el mar.\nGira a la izquierda en Larrondo.\nSigue recto y llegar\u00e1s al destino."
+  },
+  "images": {
+    "main": "img/universidad/universidad1.jpg",
+    "main_640": "img/universidad/universidad1-640.jpg",
+    "main_1280": "img/universidad/universidad1-1280.jpg",
+    "route": "img/universidad/rutauniversidad1.jpg",
+    "route_640": "img/universidad/rutauniversidad1-640.jpg",
+    "route_1280": "img/universidad/rutauniversidad1-1280.jpg"
+  }
+}

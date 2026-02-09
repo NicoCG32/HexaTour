@@ -6,6 +6,7 @@
 #include <SD.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
+#include <ArduinoJson.h>
 
 #define DNS_PORT 53
 #define SERIAL_BAUD 115200
@@ -62,6 +63,9 @@ bool tryServePath(String path, bool cache = true);
 void listDir(const char* dirname, uint8_t levels);
 bool readFileToString(const char* path, String& out, size_t maxLen = 8192);
 String readWholeFile(const String& path);
+void sanitizeSegment(String& value);
+bool parsePoiRef(const String& fileParam, String& category, String& slug);
+bool loadPoiFromDb(const String& category, const String& slug, String& name, String& routeText, String& routeImg);
 bool deriveImageFromTxtFile(const String& fileParam, String& folder, String& slug, String& imgPath);
 bool readJpegDims(const char* path, int& w, int& h, int& comps);
 bool findLogoJpeg(String& logoPath, int& w, int& h, int& comps, size_t& len);
@@ -443,6 +447,39 @@ String readWholeFile(const String& path) {
   return out;
 }
 
+void sanitizeSegment(String& value) {
+  value.replace("..", "");
+  value.replace("\\", "");
+  value.replace("/", "");
+}
+
+bool parsePoiRef(const String& fileParam, String& category, String& slug) {
+  int slash = fileParam.indexOf('/');
+  if (slash <= 0) return false;
+  category = fileParam.substring(0, slash);
+  slug = fileParam.substring(slash + 1);
+  sanitizeSegment(category);
+  sanitizeSegment(slug);
+  return category.length() > 0 && slug.length() > 0;
+}
+
+bool loadPoiFromDb(const String& category, const String& slug, String& name, String& routeText, String& routeImg) {
+  String path = "/www/db/poi/" + category + "/" + slug + ".json";
+  String json;
+  if (!SD.exists(path) || !readFileToString(path.c_str(), json, 20000)) {
+    return false;
+  }
+
+  DynamicJsonDocument doc(12288);
+  DeserializationError err = deserializeJson(doc, json);
+  if (err) return false;
+
+  name = doc["name"].as<String>();
+  routeText = doc["route"]["text"].as<String>();
+  routeImg = doc["images"]["route"].as<String>();
+  return true;
+}
+
 // ====================== Navegación ======================
 void handleMainRoot() {
   if (!checkMainAuth()) return;
@@ -503,20 +540,29 @@ void handlePrintRuta() {
   }
 
   String name = server.hasArg("name") ? server.arg("name") : "";
+  String category = server.hasArg("cat") ? server.arg("cat") : "";
+  String slug = server.hasArg("slug") ? server.arg("slug") : "";
   String file = server.hasArg("file") ? server.arg("file") : "";
-  if (file == "") {
-    server.send(400, "text/plain; charset=UTF-8", "file required");
-    return;
+
+  if ((category == "" || slug == "") && file.length()) {
+    parsePoiRef(file, category, slug);
   }
-  if (file.indexOf("..") >= 0 || file.indexOf('\\') >= 0) {
-    server.send(400, "text/plain; charset=UTF-8", "invalid file");
+  sanitizeSegment(category);
+  sanitizeSegment(slug);
+  if (category == "" || slug == "") {
+    server.send(400, "text/plain; charset=UTF-8", "cat y slug requeridos");
     return;
   }
 
-  String path = String("/www/rutas/") + file;
-  String content;
-  if (!SD.exists(path) || !readFileToString(path.c_str(), content)) {
-    server.send(404, "text/plain; charset=UTF-8", "file not found");
+  String dbName, routeText, routeImg;
+  if (!loadPoiFromDb(category, slug, dbName, routeText, routeImg)) {
+    server.send(404, "text/plain; charset=UTF-8", "poi no encontrado");
+    lcdShowStatus("Ruta no", "encontrada");
+    return;
+  }
+  if (name.length() == 0) name = dbName;
+  if (routeText.length() == 0) {
+    server.send(404, "text/plain; charset=UTF-8", "ruta no encontrada");
     lcdShowStatus("Ruta no", "encontrada");
     return;
   }
@@ -527,7 +573,7 @@ void handlePrintRuta() {
   //  - Se evita el carácter '|' porque es separador de campos.
 
   // 1) Normalizar saltos de línea en el cuerpo
-  String body = content;
+  String body = routeText;
   body.replace("\r\n", "\n");
   body.replace("\r", "\n");
 
@@ -564,7 +610,7 @@ void handlePrintRuta() {
     Serial.println(name);
   }
   Serial.print(F("Archivo: "));
-  Serial.println(path);
+  Serial.println(String("/www/db/poi/") + category + "/" + slug + ".json");
   Serial.print(F("JobId: "));
   Serial.println(currentJobId);
   Serial.println(F("Texto codificado (truncado si era largo):"));
@@ -696,27 +742,40 @@ String pdfEscape(String s) {
 void handleApiRoutePdf() {
   String name = server.hasArg("name") ? server.arg("name") : "";
   String file = server.hasArg("file") ? server.arg("file") : "";
+  String category = server.hasArg("cat") ? server.arg("cat") : "";
+  String slug = server.hasArg("slug") ? server.arg("slug") : "";
   String extra = server.hasArg("extra") ? server.arg("extra") : "";
-  if (name == "" || file == "") {
-    server.send(400, "text/plain; charset=UTF-8", "name y file requeridos");
+  if ((category == "" || slug == "") && file.length()) {
+    parsePoiRef(file, category, slug);
+  }
+  sanitizeSegment(category);
+  sanitizeSegment(slug);
+  if (category == "" || slug == "") {
+    server.send(400, "text/plain; charset=UTF-8", "cat y slug requeridos");
     return;
   }
-  if (file.indexOf("..") >= 0 || file.indexOf('\\') >= 0) {
-    server.send(400, "text/plain; charset=UTF-8", "ruta insegura");
+  String dbName, routeText, routeImg;
+  if (!loadPoiFromDb(category, slug, dbName, routeText, routeImg)) {
+    server.send(404, "text/plain; charset=UTF-8", "poi no encontrado");
     return;
   }
+  if (name.length() == 0) name = dbName;
 
-  String txtPath = "/www/rutas/" + file;
-  String body = readWholeFile(txtPath);
+  String body = routeText;
   if (body == "") {
-    server.send(404, "text/plain; charset=UTF-8", "no se pudo leer " + txtPath);
+    server.send(404, "text/plain; charset=UTF-8", "ruta no encontrada");
     return;
   }
   body.replace("\r", "\n");
   if (body.length() > 8000) body = body.substring(0, 8000);
 
-  String folder, slug, routeImgPath;
-  bool hasRouteImg = deriveImageFromTxtFile(file, folder, slug, routeImgPath) && SD.exists(routeImgPath);
+  String routeImgPath;
+  bool hasRouteImg = false;
+  if (routeImg.length()) {
+    routeImgPath = routeImg;
+    if (!routeImgPath.startsWith("/")) routeImgPath = "/www/" + routeImgPath;
+    hasRouteImg = SD.exists(routeImgPath);
+  }
   int routeW = 0, routeH = 0, routeComps = 3;
   size_t routeLen = 0;
   if (hasRouteImg) {

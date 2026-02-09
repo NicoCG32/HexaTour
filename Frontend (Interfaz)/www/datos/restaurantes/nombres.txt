@@ -1,5 +1,0 @@
-# slug|Nombre visible
-restaurantea|Marisqueria Ruta 5
-restauranteb|Picada Caleta Guanaqueros
-restaurantec|Cocina Tipica Monte Patria
-restauranted|Restaurante Puerto Coquimbo

@@ -1,0 +1,24 @@
+{
+  "slug": "restaurante3",
+  "name": "Cocina Tipica Monte Patria",
+  "category": "restaurantes",
+  "fields": {
+    "descripcion": "Cocina Tipica Monte Patria ofrece cocina tipica de la Region de Coquimbo, con pescados, mariscos y platos del valle.",
+    "tpie": "17 min",
+    "tveh": "6 min",
+    "apertura": "11:00",
+    "cierre": "00:00",
+    "alertas": "Llevar abrigo: baja la temperatura en la tarde."
+  },
+  "route": {
+    "text": "Inicio en el sector centrico de Coquimbo, cerca del terminal.\nAvanza por la avenida principal siguiendo la senaletica turistica.\nMantente por la ruta senalizada hasta acercarte al sector del destino.\nContinua por el camino principal hasta ver letreros hacia el valle.\nVeras el acceso a Cocina Tipica Monte Patria senalizado al costado del camino."
+  },
+  "images": {
+    "main": "img/restaurantes/restaurante3.jpg",
+    "main_640": "img/restaurantes/restaurante3-640.jpg",
+    "main_1280": "img/restaurantes/restaurante3-1280.jpg",
+    "route": "img/restaurantes/rutarestaurante3.jpg",
+    "route_640": "img/restaurantes/rutarestaurante3-640.jpg",
+    "route_1280": "img/restaurantes/rutarestaurante3-1280.jpg"
+  }
+}

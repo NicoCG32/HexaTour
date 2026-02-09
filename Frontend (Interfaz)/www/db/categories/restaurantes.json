@@ -1,0 +1,22 @@
+{
+  "category": "restaurantes",
+  "label": "Restaurantes",
+  "items": [
+    {
+      "slug": "restaurante1",
+      "name": "Marisqueria Ruta 5"
+    },
+    {
+      "slug": "restaurante2",
+      "name": "Picada Caleta Guanaqueros"
+    },
+    {
+      "slug": "restaurante3",
+      "name": "Cocina Tipica Monte Patria"
+    },
+    {
+      "slug": "restaurante4",
+      "name": "Restaurante Puerto Coquimbo"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "servicio3",
+  "name": "Posta Rural Monte Patria",
+  "category": "servicios",
+  "fields": {
+    "descripcion": "Posta Rural Monte Patria entrega servicios basicos a habitantes y visitantes del sector.",
+    "tpie": "6 min",
+    "tveh": "10 min",
+    "apertura": "08:00",
+    "cierre": "18:00",
+    "alertas": "Hidratacion recomendada, poca sombra en la ruta."
+  },
+  "route": {
+    "text": "Inicio en la entrada de Ovalle por la Ruta 5.\nGira hacia el interior siguiendo el camino que bordea el rio.\nContinua por el camino principal hasta ver letreros hacia el valle.\nAvanza por la avenida principal siguiendo la senaletica turistica.\nPosta Rural Monte Patria se encuentra a mano derecha, identificado con letrero turistico."
+  },
+  "images": {
+    "main": "img/servicios/servicio3.jpg",
+    "main_640": "img/servicios/servicio3-640.jpg",
+    "main_1280": "img/servicios/servicio3-1280.jpg",
+    "route": "img/servicios/rutaservicio3.jpg",
+    "route_640": "img/servicios/rutaservicio3-640.jpg",
+    "route_1280": "img/servicios/rutaservicio3-1280.jpg"
+  }
+}

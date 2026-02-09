@@ -1,0 +1,24 @@
+{
+  "slug": "restaurante4",
+  "name": "Restaurante Puerto Coquimbo",
+  "category": "restaurantes",
+  "fields": {
+    "descripcion": "Restaurante Puerto Coquimbo ofrece cocina tipica de la Region de Coquimbo, con pescados, mariscos y platos del valle.",
+    "tpie": "6 min",
+    "tveh": "8 min",
+    "apertura": "11:00",
+    "cierre": "00:00",
+    "alertas": "Llevar abrigo: baja la temperatura en la tarde."
+  },
+  "route": {
+    "text": "Inicio en el sector centrico de Tongoy, cerca del terminal.\nGira hacia el interior siguiendo el camino que bordea el rio.\nAvanza por la avenida principal siguiendo la senaletica turistica.\nSigue las indicaciones hacia los atractivos del Valle de Elqui.\nRestaurante Puerto Coquimbo se encuentra a mano derecha, identificado con letrero turistico."
+  },
+  "images": {
+    "main": "img/restaurantes/restaurante4.jpg",
+    "main_640": "img/restaurantes/restaurante4-640.jpg",
+    "main_1280": "img/restaurantes/restaurante4-1280.jpg",
+    "route": "img/restaurantes/rutarestaurante4.jpg",
+    "route_640": "img/restaurantes/rutarestaurante4-640.jpg",
+    "route_1280": "img/restaurantes/rutarestaurante4-1280.jpg"
+  }
+}

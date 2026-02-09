@@ -1,0 +1,24 @@
+{
+  "slug": "camping4",
+  "name": "Camping Familiar Quebrada Andacollo",
+  "category": "campings",
+  "fields": {
+    "descripcion": "Camping Familiar Quebrada Andacollo es un camping de la Region de Coquimbo, ideal para disfrutar del cielo estrellado y del entorno de valle.",
+    "tpie": "5 min",
+    "tveh": "3 min",
+    "apertura": "08:00",
+    "cierre": "22:00",
+    "alertas": "Llevar abrigo: baja la temperatura en la tarde."
+  },
+  "route": {
+    "text": "Inicio en el sector centrico de Vicuna, cerca del terminal.\nAvanza por la avenida principal siguiendo la senaletica turistica.\nSigue las indicaciones hacia los atractivos del Valle de Elqui.\nMantente por la ruta senalizada hasta acercarte al sector del destino.\nVeras el acceso a Camping Familiar Quebrada Andacollo senalizado al costado del camino."
+  },
+  "images": {
+    "main": "img/campings/camping4.jpg",
+    "main_640": "img/campings/camping4-640.jpg",
+    "main_1280": "img/campings/camping4-1280.jpg",
+    "route": "img/campings/rutacamping4.jpg",
+    "route_640": "img/campings/rutacamping4-640.jpg",
+    "route_1280": "img/campings/rutacamping4-1280.jpg"
+  }
+}

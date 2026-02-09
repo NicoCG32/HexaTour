@@ -1,0 +1,10 @@
+{
+  "category": "universidad",
+  "label": "Universidad",
+  "items": [
+    {
+      "slug": "universidad1",
+      "name": "Universidad Catolica del Norte - Campus Coquimbo"
+    }
+  ]
+}

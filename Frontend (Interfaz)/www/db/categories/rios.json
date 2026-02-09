@@ -1,0 +1,18 @@
+{
+  "category": "rios",
+  "label": "Rios",
+  "items": [
+    {
+      "slug": "rio1",
+      "name": "Orilla del Rio Tongoy"
+    },
+    {
+      "slug": "rio2",
+      "name": "Orilla del Rio Elqui"
+    },
+    {
+      "slug": "rio3",
+      "name": "Orilla del Rio Coquimbo"
+    }
+  ]
+}

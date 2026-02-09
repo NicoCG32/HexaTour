@@ -1,0 +1,18 @@
+{
+  "category": "pisqueras",
+  "label": "Pisqueras",
+  "items": [
+    {
+      "slug": "pisquera1",
+      "name": "Destileria Vicuna"
+    },
+    {
+      "slug": "pisquera2",
+      "name": "Ruta del Pisco Los Vilos"
+    },
+    {
+      "slug": "pisquera3",
+      "name": "Pisquera Pisco Elqui"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "category": "ferias",
+  "label": "Ferias Artesanales",
+  "items": [
+    {
+      "slug": "feria1",
+      "name": "Mercado Campesino de Guanaqueros"
+    },
+    {
+      "slug": "feria2",
+      "name": "Mercado Campesino de Ovalle"
+    },
+    {
+      "slug": "feria3",
+      "name": "Feria Costumbrista de Pisco Elqui"
+    }
+  ]
+}

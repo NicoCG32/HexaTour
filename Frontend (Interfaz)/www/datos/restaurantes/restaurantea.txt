@@ -1,6 +1,0 @@
-descripcion=Marisqueria Ruta 5 ofrece cocina tipica de la Region de Coquimbo, con pescados, mariscos y platos del valle.
-tpie=21 min
-tveh=3 min
-apertura=09:00
-cierre=23:00
-alertas=Atencion: mayor flujo de visitantes en temporada alta.

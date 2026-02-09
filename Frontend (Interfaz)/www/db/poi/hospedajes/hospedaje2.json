@@ -1,0 +1,24 @@
+{
+  "slug": "hospedaje2",
+  "name": "Refugio Brisa Marina",
+  "category": "hospedajes",
+  "fields": {
+    "descripcion": "Refugio Brisa Marina ofrece alojamiento para turistas que recorren los valles y la costa de la region.",
+    "tpie": "14 min",
+    "tveh": "5 min",
+    "apertura": "00:00",
+    "cierre": "23:59",
+    "alertas": "Sin alertas por ahora."
+  },
+  "route": {
+    "text": "Inicio en la plaza principal de Guanaqueros.\nAvanza por la avenida principal siguiendo la senaletica turistica.\nGira hacia el interior siguiendo el camino que bordea el rio.\nSigue las indicaciones hacia los atractivos del Valle del Choapa.\nEl ingreso a Refugio Brisa Marina esta demarcado con porton y letreros informativos."
+  },
+  "images": {
+    "main": "img/hospedajes/hospedaje2.jpg",
+    "main_640": "img/hospedajes/hospedaje2-640.jpg",
+    "main_1280": "img/hospedajes/hospedaje2-1280.jpg",
+    "route": "img/hospedajes/rutahospedaje2.jpg",
+    "route_640": "img/hospedajes/rutahospedaje2-640.jpg",
+    "route_1280": "img/hospedajes/rutahospedaje2-1280.jpg"
+  }
+}

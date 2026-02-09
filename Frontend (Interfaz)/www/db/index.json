@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "campings",
+      "label": "Campings",
+      "count": 4
+    },
+    {
+      "id": "ferias",
+      "label": "Ferias Artesanales",
+      "count": 3
+    },
+    {
+      "id": "hospedajes",
+      "label": "Hospedajes",
+      "count": 3
+    },
+    {
+      "id": "pisqueras",
+      "label": "Pisqueras",
+      "count": 3
+    },
+    {
+      "id": "plazas",
+      "label": "Plazas",
+      "count": 3
+    },
+    {
+      "id": "restaurantes",
+      "label": "Restaurantes",
+      "count": 4
+    },
+    {
+      "id": "rios",
+      "label": "Rios",
+      "count": 3
+    },
+    {
+      "id": "servicios",
+      "label": "Servicios",
+      "count": 3
+    },
+    {
+      "id": "universidad",
+      "label": "Universidad",
+      "count": 1
+    }
+  ]
+}

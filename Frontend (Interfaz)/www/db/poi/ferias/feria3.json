@@ -1,0 +1,24 @@
+{
+  "slug": "feria3",
+  "name": "Feria Costumbrista de Pisco Elqui",
+  "category": "ferias",
+  "fields": {
+    "descripcion": "Feria Costumbrista de Pisco Elqui reune artesanos y productores locales con productos del Valle de Elqui y de la costa de Coquimbo.",
+    "tpie": "7 min",
+    "tveh": "4 min",
+    "apertura": "09:00",
+    "cierre": "23:00",
+    "alertas": "Precaucion: tramo final con camino de ripio."
+  },
+  "route": {
+    "text": "Inicio en la plaza principal de Los Vilos.\nAvanza por la avenida principal siguiendo la senaletica turistica.\nGira hacia el interior siguiendo el camino que bordea el rio.\nContinua por el camino principal hasta ver letreros hacia el valle.\nFeria Costumbrista de Pisco Elqui se encuentra a mano derecha, identificado con letrero turistico."
+  },
+  "images": {
+    "main": "img/ferias/feria3.jpg",
+    "main_640": "img/ferias/feria3-640.jpg",
+    "main_1280": "img/ferias/feria3-1280.jpg",
+    "route": "img/ferias/rutaferia3.jpg",
+    "route_640": "img/ferias/rutaferia3-640.jpg",
+    "route_1280": "img/ferias/rutaferia3-1280.jpg"
+  }
+}

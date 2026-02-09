@@ -1,0 +1,24 @@
+{
+  "slug": "restaurante2",
+  "name": "Picada Caleta Guanaqueros",
+  "category": "restaurantes",
+  "fields": {
+    "descripcion": "Picada Caleta Guanaqueros ofrece cocina tipica de la Region de Coquimbo, con pescados, mariscos y platos del valle.",
+    "tpie": "19 min",
+    "tveh": "6 min",
+    "apertura": "12:00",
+    "cierre": "22:00",
+    "alertas": "Precaucion: tramo final con camino de ripio."
+  },
+  "route": {
+    "text": "Inicio en la entrada de Pisco Elqui por la Ruta 5.\nSigue las indicaciones hacia los atractivos del Valle del Choapa.\nAvanza por la avenida principal siguiendo la senaletica turistica.\nMantente por la ruta senalizada hasta acercarte al sector del destino.\nPicada Caleta Guanaqueros se encuentra a mano derecha, identificado con letrero turistico."
+  },
+  "images": {
+    "main": "img/restaurantes/restaurante2.jpg",
+    "main_640": "img/restaurantes/restaurante2-640.jpg",
+    "main_1280": "img/restaurantes/restaurante2-1280.jpg",
+    "route": "img/restaurantes/rutarestaurante2.jpg",
+    "route_640": "img/restaurantes/rutarestaurante2-640.jpg",
+    "route_1280": "img/restaurantes/rutarestaurante2-1280.jpg"
+  }
+}
