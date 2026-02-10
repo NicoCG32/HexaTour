@@ -1,79 +1,74 @@
 # HexaTour
 
+Prototipo de orientacion turistica rural que funciona sin Internet. Ofrece un portal cautivo con informacion de puntos de interes y permite imprimir indicaciones mediante una impresora termica. El sistema se basa en ESP32-S3 (portal, SD, PDF) y Arduino UNO (control de impresora).
+
 Video promocional: https://www.youtube.com/shorts/Zw-bziu8veU
 
-HexaTour es un prototipo de orientacion turistica rural que funciona sin Internet. Ofrece un portal cautivo con informacion de puntos de interes y permite imprimir indicaciones mediante una impresora termica. El sistema se basa en ESP32-S3 (portal, SD, PDF) y Arduino UNO (control de impresora).
+## Tabla de contenidos
 
-## Como se llevo a cabo el prototipo
+- [Vision general](#vision-general)
+- [Guia rapida](#guia-rapida)
+- [Documentacion clave](#documentacion-clave)
+- [Mapa del repo](#mapa-del-repo)
+- [Pruebas locales](#pruebas-locales)
+- [FAQ](#faq)
+- [Creditos y terceros](#creditos-y-terceros)
 
-- Se definio una base de datos JSON en /www/db y una estructura de imagenes en /www/img para cargar informacion desde la SD.
-- Se implemento el portal cautivo en el ESP32-S3 con endpoints para imprimir rutas y generar PDF.
-- Se separo el control de la impresora en un Arduino UNO, comunicandose por serial con el ESP32.
-- Se documentaron pines y conexiones para permitir replicar el armado.
+## Vision general
 
-## Contenidos principales
+- Portal cautivo con UI de visitante y operador.
+- Base de datos JSON y assets en la SD.
+- Impresion de rutas via impresora termica.
 
-- Manual de usuario: [Manual de Usuario.md](Manual%20de%20Usuario.md)
-- Firmware y pines: [Backend (UNO y ESP32)/README.md](Backend%20(UNO%20y%20ESP32)/README.md)
-- Contenidos y portal cautivo: [Frontend (Interfaz)/README.md](Frontend%20(Interfaz)/README.md)
-- Informes: carpeta Informes (los extract no se versionan)
-
-## Estructura del repo
-
-- Backend (UNO y ESP32)/
-- Frontend (Interfaz)/
-- Informes/
-- Manual de Usuario.md
-
-## Puesta en marcha rapida
+## Guia rapida
 
 1. Carga los sketches:
-   - ESP32: [Backend (UNO y ESP32)/HexaTour (ESP32)/HexaTour.ino](Backend%20(UNO%20y%20ESP32)/HexaTour%20(ESP32)/HexaTour.ino)
-   - UNO: [Backend (UNO y ESP32)/Impresora (UNO)/ImpresoraUNO.ino](Backend%20(UNO%20y%20ESP32)/Impresora%20(UNO)/ImpresoraUNO.ino)
-2. Copia la carpeta www del frontend a la tarjeta SD.
+   - ESP32: [firmware/esp32/HexaTour.ino](firmware/esp32/HexaTour.ino)
+   - UNO: [firmware/uno/ImpresoraUNO.ino](firmware/uno/ImpresoraUNO.ino)
+2. Copia la carpeta www a la SD desde [web/www](web/www).
 3. Enciende el equipo y conecta al Wi-Fi HexaTour.
 4. Abre el portal:
    - Visitante: http://192.168.4.1/visitor/
    - Operador: http://192.168.4.1/main/
 
-## Diagrama de conexion
+![Diagrama de conexion de HexaTour](docs/diagramas/HexaTourCircuito.jpg)
 
-![Diagrama de conexion de HexaTour](Diagramas/HexaTourCircuito.jpg)
+## Documentacion clave
 
-## Backend local (pruebas en PC)
+- Manual del proveedor: [docs/manual-proveedor.md](docs/manual-proveedor.md)
+- Firmware y pines: [firmware/README.md](firmware/README.md)
+- Contenidos y portal cautivo: [web/README.md](web/README.md)
+- Backend local (mock): [tools/backend-local/README.md](tools/backend-local/README.md)
 
-Para probar el frontend sin ESP32, usa el backend mock en [LocalBackend/README.md](LocalBackend/README.md).
+## Mapa del repo
 
-## Rendimiento
+- [docs](docs): documentacion tecnica y entregables.
+- [docs/diagramas](docs/diagramas): diagramas del sistema y conexionado.
+- [docs/informes](docs/informes): informes y anexos del proyecto.
+- [docs/manual-proveedor.md](docs/manual-proveedor.md): guia operativa para equipo tecnico.
+- [firmware](firmware): sketches, pines y librerias locales para ESP32 y UNO.
+- [web](web): portal cautivo, base JSON y assets para la SD.
+- [tools/backend-local](tools/backend-local): servidor mock para pruebas locales.
 
-Si el portal se siente lento, verifica que los .gz esten generados para `www/db` y `www/img`, y limpia cache del navegador.
+## Pruebas locales
 
-## Errores comunes
+Para probar la UI sin ESP32, usa el backend mock y sigue la guia en [tools/backend-local/README.md](tools/backend-local/README.md).
 
-- Portal no abre: conecta al Wi-Fi HexaTour y visita http://192.168.4.1/visitor/.
-- Error SD: revisa FAT32 y que exista la carpeta /www en la tarjeta.
-- Datos no cargan: confirma que /www/db/index.json exista y limpia cache.
-- No imprime: revisa papel, encendido de impresora y enlace serial con el UNO.
+## FAQ
 
-## Actualizar datos y testear
+**El portal se ve lento**
+- Verifica que los .gz existan en [web/www/db](web/www/db) y [web/www/img](web/www/img), y limpia cache del navegador.
 
-Para editar la base JSON, rutas e imagenes, y probar localmente antes de copiar a la SD, sigue la guia en [Frontend (Interfaz)/README.md](Frontend%20(Interfaz)/README.md).
+**No aparecen datos**
+- Confirma que exista [web/www/db/index.json](web/www/db/index.json) y limpia cache.
 
-## Alcances futuros
-
-- Optimizar indices y cacheo de la base JSON en el ESP32-S3 para acelerar busquedas.
-- Panel de administracion para cargar contenidos sin editar archivos manualmente.
-- Integracion con nuevos modulos (NFC, voz, multilenguaje) segun la evolucion del prototipo.
-
-## Notas
-
-- Este repositorio incluye documentos y codigo; los archivos generados o temporales quedan fuera via .gitignore.
-- Si cambias hardware o pines, actualiza los defines en el firmware y la documentacion.
+**No imprime**
+- Revisa papel, alimentacion de la impresora y enlace serial con el UNO.
 
 ## Creditos y terceros
 
 El proyecto incluye componentes de terceros. Se mantienen sus licencias en las carpetas correspondientes.
 
-- Librerias del backend (ArduinoJson, LiquidCrystal_I2C, Adafruit_Thermal) y cores Arduino/ESP32: ver detalle en [Backend (UNO y ESP32)/README.md](Backend%20(UNO%20y%20ESP32)/README.md).
+- Librerias y cores: ver detalle en [firmware/README.md](firmware/README.md).
 - Arduino core para AVR (UNO): SoftwareSerial, Wire, SPI, SD y otros headers provienen del core oficial de Arduino.
 - Arduino core para ESP32 (ESP32-S3): WiFi, WebServer, DNSServer, SPI, SD, Wire y otros headers provienen del core oficial de Espressif.

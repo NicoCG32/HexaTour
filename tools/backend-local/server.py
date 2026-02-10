@@ -316,7 +316,7 @@ def main():
 
 
 def WWW_DEFAULT() -> Path:
-    return ROOT / "Frontend (Interfaz)" / "www"
+    return ROOT / "web" / "www"
 
 
 if __name__ == "__main__":
