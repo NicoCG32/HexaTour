@@ -38,7 +38,7 @@ HexaTour es un prototipo de orientacion turistica rural que funciona sin Interne
 
 ## Diagrama de conexion
 
-![Diagrama de conexion de HexaTour](Diagramas/HexaTourCircuito.png)
+![Diagrama de conexion de HexaTour](Diagramas/HexaTourCircuito.jpg)
 
 ## Backend local (pruebas en PC)
 

@@ -1,6 +1,7 @@
 import argparse
 import json
 import os
+import time
 from http import HTTPStatus
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
@@ -21,6 +22,41 @@ def read_poi(db_root: Path, category: str, slug: str) -> dict | None:
     if not path.exists():
         return None
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def read_category_items(db_root: Path, category: str) -> list:
+    path = db_root / "db" / "categories" / f"{category}.json"
+    if not path.exists():
+        return []
+    data = json.loads(path.read_text(encoding="utf-8"))
+    items = data.get("items") if isinstance(data, dict) else []
+    return items if isinstance(items, list) else []
+
+
+def list_categories(db_root: Path) -> list:
+    base = db_root / "db" / "categories"
+    if not base.exists():
+        return []
+    return sorted(p.stem for p in base.glob("*.json") if p.is_file())
+
+
+def list_pois(db_root: Path, category: str) -> list:
+    base = db_root / "db" / "poi" / category
+    if not base.exists():
+        return []
+    slugs = []
+    for path in sorted(base.glob("*.json")):
+        if not path.is_file():
+            continue
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            continue
+        slugs.append({
+            "slug": path.stem,
+            "name": data.get("name", path.stem),
+        })
+    return slugs
 
 
 def build_pdf(title: str, body: str) -> bytes:
@@ -79,6 +115,21 @@ class Handler(BaseHTTPRequestHandler):
         if path.endswith("/"):
             path += "index.html"
 
+        if path.startswith("/api/health"):
+            self.handle_health()
+            return
+        if path.startswith("/api/categories"):
+            self.handle_categories()
+            return
+        if path.startswith("/api/category-items"):
+            self.handle_category_items(qs)
+            return
+        if path.startswith("/api/pois"):
+            self.handle_pois(qs)
+            return
+        if path.startswith("/api/poi"):
+            self.handle_poi(path, qs)
+            return
         if path.startswith("/api/print-ruta"):
             self.handle_print(qs)
             return
@@ -127,6 +178,65 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(b"print job accepted (local)\n")
 
+    def handle_health(self):
+        self.send_json({
+            "status": "ok",
+            "version": self.server_version,
+            "time": int(time.time()),
+        })
+
+    def handle_categories(self):
+        categories = list_categories(self.server.www_root)
+        self.send_json({"items": categories})
+
+    def handle_category_items(self, qs):
+        category = qs.get("cat", [""])[0]
+        if not category:
+            self.send_json_error("cat requerido", HTTPStatus.BAD_REQUEST)
+            return
+        items = read_category_items(self.server.www_root, category)
+        if not items:
+            self.send_json_error("categoria no encontrada", HTTPStatus.NOT_FOUND)
+            return
+        self.send_json({"items": items})
+
+    def handle_pois(self, qs):
+        category = qs.get("cat", [""])[0]
+        if not category:
+            self.send_json_error("cat requerido", HTTPStatus.BAD_REQUEST)
+            return
+        items = list_pois(self.server.www_root, category)
+        if not items:
+            self.send_json_error("categoria no encontrada", HTTPStatus.NOT_FOUND)
+            return
+        self.send_json({"items": items})
+
+    def handle_poi(self, path: str, qs):
+        category = qs.get("cat", [""])[0]
+        slug = qs.get("slug", [""])[0]
+        file_ref = qs.get("file", [""])[0]
+
+        if path.startswith("/api/poi/"):
+            parts = path.split("/")
+            if len(parts) >= 4:
+                category = category or parts[3]
+            if len(parts) >= 5:
+                slug = slug or parts[4]
+
+        if (not category or not slug) and file_ref:
+            if "/" in file_ref:
+                category, slug = file_ref.split("/", 1)
+        if not category or not slug:
+            self.send_json_error("cat y slug requeridos", HTTPStatus.BAD_REQUEST)
+            return
+
+        poi = read_poi(self.server.www_root, category, slug)
+        if not poi:
+            self.send_json_error("poi no encontrado", HTTPStatus.NOT_FOUND)
+            return
+
+        self.send_json({"item": poi})
+
     def handle_pdf(self, qs):
         category = qs.get("cat", [""])[0]
         slug = qs.get("slug", [""])[0]
@@ -157,6 +267,17 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Content-Disposition", f"attachment; filename=\"ruta-{slug}.pdf\"")
         self.end_headers()
         self.wfile.write(pdf)
+
+    def send_json(self, payload: dict, status: HTTPStatus = HTTPStatus.OK):
+        data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+        self.send_response(status)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Length", str(len(data)))
+        self.end_headers()
+        self.wfile.write(data)
+
+    def send_json_error(self, message: str, status: HTTPStatus):
+        self.send_json({"error": message}, status)
 
     def guess_type(self, suffix: str) -> str:
         return {
