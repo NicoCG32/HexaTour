@@ -22,6 +22,7 @@ int  lastJobId = -1;     // último id de trabajo aceptado (para evitar duplicad
 
 String cmdBuffer;
 
+// El ESP32 envia texto con saltos codificados como "\n"; este helper los expande a lineas reales.
 void printEncodedLines(const String &textoCodificado) {
   String linea = "";
   for (int i = 0; i < (int)textoCodificado.length(); i++) {

@@ -20,6 +20,60 @@ www/
 
 Nota: la base actual se mantiene en `db/` y las imagenes en `img/`.
 
+## Paginas del portal
+
+El portal tiene dos vistas principales:
+
+- Visitante: `/visitor/index.html` y `/visitor/lugar.html`
+- Operador: `/main/index.html` y `/main/lugar.html`
+
+`/index.html` redirige automaticamente a `/visitor/`.
+
+## Flujo de datos (frontend)
+
+1. El usuario elige una categoria.
+2. Se carga `db/categories/<categoria>.json` para listar items.
+3. Al seleccionar un item, se carga `db/poi/<categoria>/<slug>.json`.
+4. Se renderiza texto (fields), imagen principal y ruta.
+5. En operador, se puede descargar PDF o mostrar ruta; en visitante, se puede imprimir.
+
+```mermaid
+flowchart LR
+	Browser[Usuario en portal] --> ESP32[Servidor ESP32 (portal cautivo)]
+	ESP32 --> SD[SD: /www, db, img]
+	Browser --> API[/api/print-ruta o /api/route-pdf/]
+	API --> ESP32
+	ESP32 --> UNO[UNO impresora]
+```
+
+## JS principal
+
+`www/assets/js/common.js` expone utilidades globales en `window.HexaTour`:
+- `catFolder()` mapea etiquetas visibles a carpetas.
+- `loadCategoryList()` y `loadPoi()` cargan JSON con rutas alternativas.
+- `resolveAssetPath()` resuelve rutas relativas a `img/`.
+
+Scripts por vista:
+- `visitor-index.js`: navega a `lugar.html?cat=...`.
+- `visitor-lugar.js`: lista POI, muestra detalles y llama a `/api/print-ruta`.
+- `main-index.js`: navega a `lugar.html?cat=...`.
+- `main-lugar.js`: lista POI, muestra detalles y llama a `/api/route-pdf`.
+- `landing.js`: redireccion a `/visitor/`.
+
+## Endpoints usados por el frontend
+
+- `GET /api/print-ruta?cat=<categoria>&slug=<slug>&name=<nombre>&file=<cat/slug>`
+	- Usado por `visitor-lugar.js` para imprimir indicaciones.
+- `GET /api/route-pdf?cat=<categoria>&slug=<slug>&name=<nombre>&file=<cat/slug>&dl=1`
+	- Usado por `main-lugar.js` para descargar PDF de la ruta.
+
+## Urgencias
+
+En categoria `Urgencia`:
+- Visitante: muestra botones que solo despliegan mensaje local.
+- Operador: abre la app de SMS con un mensaje prellenado.
+	- Edita el numero en `www/assets/js/main-lugar.js` (`phone = '+56935774427'`).
+
 ## Categorías disponibles
 
 - campings

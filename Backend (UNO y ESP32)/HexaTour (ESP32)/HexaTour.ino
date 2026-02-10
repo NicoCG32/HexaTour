@@ -38,6 +38,8 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);  // Dirección típica 0x27
 #define RXD2 16  // ESP32 RX2  <- UNO TX (11, con divisor)
 #define TXD2 17  // ESP32 TX2  -> UNO RX (10)
 
+// Protocolo serial: mensajes de una linea, separados por '|'. El texto codifica saltos como "\n".
+
 // Máquina de estados para la impresora
 enum Estado {
   ESP_IDLE,

@@ -36,6 +36,10 @@ HexaTour es un prototipo de orientacion turistica rural que funciona sin Interne
    - Visitante: http://192.168.4.1/visitor/
    - Operador: http://192.168.4.1/main/
 
+## Diagrama de conexion
+
+![Diagrama de conexion de HexaTour](Diagramas/HexaTourCircuito.png)
+
 ## Backend local (pruebas en PC)
 
 Para probar el frontend sin ESP32, usa el backend mock en [LocalBackend/README.md](LocalBackend/README.md).
@@ -65,3 +69,11 @@ Para editar la base JSON, rutas e imagenes, y probar localmente antes de copiar 
 
 - Este repositorio incluye documentos y codigo; los archivos generados o temporales quedan fuera via .gitignore.
 - Si cambias hardware o pines, actualiza los defines en el firmware y la documentacion.
+
+## Creditos y terceros
+
+El proyecto incluye componentes de terceros. Se mantienen sus licencias en las carpetas correspondientes.
+
+- Librerias del backend (ArduinoJson, LiquidCrystal_I2C, Adafruit_Thermal) y cores Arduino/ESP32: ver detalle en [Backend (UNO y ESP32)/README.md](Backend%20(UNO%20y%20ESP32)/README.md).
+- Arduino core para AVR (UNO): SoftwareSerial, Wire, SPI, SD y otros headers provienen del core oficial de Arduino.
+- Arduino core para ESP32 (ESP32-S3): WiFi, WebServer, DNSServer, SPI, SD, Wire y otros headers provienen del core oficial de Espressif.

@@ -30,6 +30,30 @@ Este README documenta el firmware del backend y sus ajustes clave. Está enfocad
   - UNO RX: 2 (desde TX impresora)
   - UNO TX: 3 (hacia RX impresora)
 
+## Flujo general (backend)
+
+1. El ESP32-S3 levanta un AP Wi-Fi, DNS cautivo y el servidor HTTP.
+2. El portal cautivo lee archivos desde la SD (/www) y expone endpoints de impresion y PDF.
+3. El ESP32 consulta estado del UNO y le envia trabajos de impresion por Serial2.
+4. El UNO imprime en la termica y confirma con DONE cuando termina.
+
+```mermaid
+sequenceDiagram
+  participant Usuario
+  participant Navegador
+  participant ESP32
+  participant SD
+  participant UNO
+  participant Impresora
+  Usuario->>Navegador: Abre portal cautivo
+  Navegador->>ESP32: HTTP /visitor/...
+  ESP32->>SD: Lee /www
+  Navegador->>ESP32: /api/print-ruta
+  ESP32->>UNO: STATUS? / PRINT|id|texto
+  UNO->>Impresora: Imprime ticket
+  UNO-->>ESP32: DONE|id
+```
+
 ## Ajustes clave en el ESP32
 
 ### Wi‑Fi AP
@@ -61,6 +85,20 @@ El archivo `logoHexaTour.png` se usa en el frontend como logo principal del port
 - `/api/print-ruta?cat=<categoria>&slug=<slug>&name=<nombre>` imprime rutas desde /www/db.
 - `/api/route-pdf?cat=<categoria>&slug=<slug>&name=<nombre>&dl=1` genera PDF con texto e imagen desde /www/db.
 
+### Detalle de endpoints
+
+`GET /api/print-ruta`
+- Query params: `cat`, `slug`, `name`, `file`.
+- `cat` y `slug` se usan para cargar `/www/db/poi/<cat>/<slug>.json`.
+- `name` solo se usa para el titulo impreso.
+- `file` acepta el formato `<cat>/<slug>` y se usa como ref auxiliar.
+- Respuesta: 200 si el trabajo fue encolado, 4xx si faltan datos.
+
+`GET /api/route-pdf`
+- Query params: `cat`, `slug`, `name`, `file`, `dl`.
+- Si `dl=1`, fuerza descarga del PDF.
+- El PDF incluye texto de ruta (`route.text`) e imagen de ruta si existe.
+
 ### Dependencias
 
 - ArduinoJson (para leer /www/db/poi/<categoria>/<slug>.json).
@@ -85,6 +123,44 @@ Librerias utilizadas:
 - SPI/SD: acceso a la tarjeta SD (core del ESP32/Arduino).
 - Wire: bus I2C para LCD (core del ESP32/Arduino).
 - SoftwareSerial: UART por software en el UNO para impresora y enlace con ESP32.
+
+## Formato de datos (POI)
+
+El ESP32 espera una ficha JSON por POI en:
+
+`/www/db/poi/<categoria>/<slug>.json`
+
+Campos usados por el firmware:
+- `name`: nombre visible del lugar.
+- `fields`: `descripcion`, `tpie`, `tveh`, `apertura`, `cierre`, `alertas`.
+- `route.text`: texto de indicaciones que se imprime y se incluye en PDF.
+- `images.route` (opcional): ruta a la imagen de ruta; si falta se usa `img/<cat>/ruta<slug>.jpg`.
+
+## Protocolo serial ESP32 <-> UNO
+
+El ESP32 controla la impresora via UNO con mensajes de una linea (terminadas en `\n`):
+
+- `STATUS?` (ESP32 -> UNO): solicita disponibilidad.
+- `STATUS|<0|1>` (UNO -> ESP32): 1 disponible, 0 ocupado.
+- `PRINT|<jobId>|<texto>` (ESP32 -> UNO): orden de impresion.
+- `DONE|<jobId>` (UNO -> ESP32): confirma impresion finalizada.
+
+Notas:
+- El texto de impresion usa `\n` como salto de linea.
+- El UNO ignora un `PRINT` si esta ocupado o si el `jobId` es repetido.
+
+## Creditos y terceros
+
+Librerias locales (se conservan sus licencias en cada carpeta):
+
+- ArduinoJson: autor Benoit Blanchon, licencia MIT. Origen: https://github.com/bblanchon/ArduinoJson
+- LiquidCrystal_I2C: autor Martin Kubovcik, licencia MIT. Origen: https://github.com/markub3327/LiquidCrystal_I2C
+- Adafruit_Thermal_Printer_Library: autora Limor Fried (Ladyada) y Adafruit Industries, licencia MIT. Origen: https://github.com/adafruit/Adafruit-Thermal-Printer-Library
+
+Cores y headers del toolchain (no pertenecen al proyecto):
+
+- Arduino AVR core (UNO): SoftwareSerial, Wire, SPI, SD y otros headers del core oficial de Arduino.
+- Arduino-ESP32 core (ESP32-S3): WiFi, WebServer, DNSServer, SPI, SD, Wire y otros headers del core oficial de Espressif.
 
 ## Ajustes clave en el UNO
 
