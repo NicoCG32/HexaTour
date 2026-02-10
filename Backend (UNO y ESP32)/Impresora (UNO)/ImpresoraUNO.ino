@@ -1,5 +1,6 @@
 #include <SoftwareSerial.h>
-#include "Adafruit_Thermal.h"
+// #include "Adafruit_Thermal.h"
+#include "../librerias/Adafruit_Thermal_Printer_Library/Adafruit_Thermal.h"
 
 // ---- Serial hacia ESP32 ----
 #define ESP_RX 10    // UNO RX  <- TX ESP32 (a través de divisor)
@@ -8,6 +9,8 @@
 // ---- Serial hacia impresora térmica ----
 #define PRINTER_RX 2 // UNO RX  <- TX impresora
 #define PRINTER_TX 3 // UNO TX  -> RX impresora
+
+// El descuento se calcula en el ESP32 y se envia en el texto
 
 SoftwareSerial link(ESP_RX, ESP_TX);               // Canal UNO <-> ESP32
 SoftwareSerial mySerial(PRINTER_RX, PRINTER_TX);   // Canal UNO <-> impresora
@@ -18,6 +21,23 @@ bool ocupado   = false;  // true mientras se imprime, false cuando está libre
 int  lastJobId = -1;     // último id de trabajo aceptado (para evitar duplicados simples)
 
 String cmdBuffer;
+
+void printEncodedLines(const String &textoCodificado) {
+  String linea = "";
+  for (int i = 0; i < (int)textoCodificado.length(); i++) {
+    char c = textoCodificado[i];
+    if (c == '\\' && (i + 1) < (int)textoCodificado.length() && textoCodificado[i + 1] == 'n') {
+      printer.println(linea);
+      linea = "";
+      i++;
+    } else {
+      linea += c;
+    }
+  }
+  if (linea.length() > 0) {
+    printer.println(linea);
+  }
+}
 
 // --- Función de impresión con respeto a saltos de línea ---
 void imprimirTexto(const String &textoCodificado) {
@@ -32,24 +52,29 @@ void imprimirTexto(const String &textoCodificado) {
   printer.setSize('S');      // tamaño pequeño
   printer.boldOn();
 
-  // Decodificar secuencias "\n" (dos caracteres: '\' y 'n') en saltos de línea reales
+  String descuentoMsg = "";
   String linea = "";
   for (int i = 0; i < (int)textoCodificado.length(); i++) {
     char c = textoCodificado[i];
-
     if (c == '\\' && (i + 1) < (int)textoCodificado.length() && textoCodificado[i + 1] == 'n') {
-      // Encontramos secuencia "\n" -> imprimir la línea acumulada y empezar otra
-      printer.println(linea);
+      if (linea.startsWith("__DESCUENTO__=")) {
+        descuentoMsg = linea.substring(String("__DESCUENTO__=").length());
+      } else {
+        printer.println(linea);
+      }
       linea = "";
-      i++; // saltar la 'n'
+      i++;
     } else {
       linea += c;
     }
   }
 
-  // Imprimir lo que haya quedado en el buffer de la última línea (si no terminó en \n)
   if (linea.length() > 0) {
-    printer.println(linea);
+    if (linea.startsWith("__DESCUENTO__=")) {
+      descuentoMsg = linea.substring(String("__DESCUENTO__=").length());
+    } else {
+      printer.println(linea);
+    }
   }
 
   printer.boldOff();
@@ -58,11 +83,20 @@ void imprimirTexto(const String &textoCodificado) {
   printer.println();
 
   // 2) Mensaje final de cortesía: derecha + inverso
-  printer.justify('C');      // alineado a la derecha
+  printer.justify('C');      // alineado al centro
   printer.setSize('L');      // tamaño pequeño
   printer.inverseOn();
   printer.println(F("GRACIAS POR USAR HEXATOUR"));
   printer.inverseOff();
+
+  if (descuentoMsg.length() > 0) {
+    printer.println();
+    printer.justify('L');
+    printer.setSize('S');
+    printer.boldOn();
+    printEncodedLines(descuentoMsg);
+    printer.boldOff();
+  }
 
   // 3) Alimentar papel y dormir
   printer.feed(3);
@@ -147,6 +181,7 @@ void setup() {
 
   // Por defecto, escuchar al ESP32
   link.listen();
+
 
   Serial.println("UNO: listo, impresora inicializada");
 }

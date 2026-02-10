@@ -1,5 +1,7 @@
 # HexaTour
 
+Video promocional: https://www.youtube.com/shorts/Zw-bziu8veU
+
 HexaTour es un prototipo de orientacion turistica rural que funciona sin Internet. Ofrece un portal cautivo con informacion de puntos de interes y permite imprimir indicaciones mediante una impresora termica. El sistema se basa en ESP32-S3 (portal, SD, PDF) y Arduino UNO (control de impresora).
 
 ## Como se llevo a cabo el prototipo
@@ -36,11 +38,18 @@ HexaTour es un prototipo de orientacion turistica rural que funciona sin Interne
 
 ## Backend local (pruebas en PC)
 
-Para probar el frontend sin ESP32, usa el backend mock en [local_backend/README.md](local_backend/README.md).
+Para probar el frontend sin ESP32, usa el backend mock en [LocalBackend/README.md](LocalBackend/README.md).
 
 ## Rendimiento
 
 Si el portal se siente lento, verifica que los .gz esten generados para `www/db` y `www/img`, y limpia cache del navegador.
+
+## Errores comunes
+
+- Portal no abre: conecta al Wi-Fi HexaTour y visita http://192.168.4.1/visitor/.
+- Error SD: revisa FAT32 y que exista la carpeta /www en la tarjeta.
+- Datos no cargan: confirma que /www/db/index.json exista y limpia cache.
+- No imprime: revisa papel, encendido de impresora y enlace serial con el UNO.
 
 ## Actualizar datos y testear
 

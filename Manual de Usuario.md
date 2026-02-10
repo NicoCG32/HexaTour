@@ -40,6 +40,8 @@ El modo operador permite revisar la interfaz interna y el contenido.
 2. Espera a que la impresora genere el ticket.
 3. Retira el ticket y sigue los pasos indicados.
 
+En categorias con descuento, el ticket incluye el mensaje promocional correspondiente.
+
 Si la impresora está ocupada, el sistema mostrará “Impresora ocupada”. Espera unos segundos e intenta de nuevo.
 
 ## 4. Acceso al portal cautivo (visitante)
@@ -88,6 +90,19 @@ Para editar, agregar o corregir datos de lugares, usa la base JSON en /www/db y 
 	Solucion: asegura /www/img/map/logo.jpg y su .gz.
 - Clave: NO_IMPRIME
 	Solucion: revisa papel, encendido de impresora y conexion serial con el UNO.
+
+## 9.2 Errores adicionales (sintoma y accion)
+
+- Sintoma: IMPRIMIR se queda en espera.
+	Accion: confirma que la impresora este encendida y que el UNO reciba datos; intenta de nuevo.
+- Sintoma: No se ve la lista de lugares (pantalla vacia).
+	Accion: limpia cache y verifica que /www/db/index.json exista en la SD.
+- Sintoma: No puedo iniciar sesion en operador.
+	Accion: verifica usuario/clave y confirma que estas en http://192.168.4.1/main/.
+- Sintoma: PDF se abre pero no muestra ruta.
+	Accion: revisa que la ficha JSON tenga route.text y que la imagen exista si esta declarada.
+- Sintoma: No aparece mensaje de descuento.
+	Accion: solo aplica en categorias con promo; prueba otra categoria.
 
 ## 10. Alcance
 Este manual cubre la operación del prototipo con ESP32 + Arduino UNO.

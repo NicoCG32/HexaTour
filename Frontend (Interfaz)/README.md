@@ -154,7 +154,7 @@ foreach($ext in $imgExt){
 
 1. Abre una terminal en la carpeta www.
 2. Inicia el backend local (mock) para simular la API del ESP32:
-	- Python: python local_backend/server.py --root "Frontend (Interfaz)/www" --port 8000
+	- Python: python LocalBackend/server.py --root "Frontend (Interfaz)/www" --port 8000
 3. Abre en el navegador:
 	- Visitante: http://localhost:8000/visitor/
 	- Operador: http://localhost:8000/main/
@@ -184,6 +184,9 @@ Si no ves los cambios, limpia cache:
 - Falta una ruta o imagen declarada en `images`.
 - Archivos en otra codificacion que no sea UTF-8 sin BOM.
 - Si se siente lento, verifica que los .gz esten presentes y prueba limpiar cache.
+- JSON invalido (coma final o comillas faltantes) en fichas o listas.
+- Rutas de imagen con mayusculas o nombres distintos a los archivos reales.
+- Cambios en JSON o imagenes sin regenerar los .gz correspondientes.
 
 ## Checklist rápido
 

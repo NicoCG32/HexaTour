@@ -1,0 +1,132 @@
+<mxfile host="65bd71144e">
+    <diagram id="hexa-circuit" name="HexaTour Circuit" compressed="false">
+        <mxGraphModel dx="1236" dy="846" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="esp32" value="ESP32-S3 Dev Module&#xa;3.3V, GND&#xa;GPIO12 SCK&#xa;GPIO13 MISO&#xa;GPIO11 MOSI&#xa;GPIO10 CS&#xa;GPIO8 SDA&#xa;GPIO9 SCL&#xa;GPIO16 RX2&#xa;GPIO17 TX2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2fe;strokeColor=#0ea5e9;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="370" width="160" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uno" target="note">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;UNO TX 11&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4">
+                    <mxGeometry x="0.0363" y="2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="uno" value="Arduino UNO&#xa;5V, GND&#xa;RX 10 (SoftSerial)&#xa;TX 11 (SoftSerial)&#xa;PRN RX 2&#xa;PRN TX 3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#f59e0b;" parent="1" vertex="1">
+                    <mxGeometry x="460" y="320" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="sd" value="Modulo SD (7 pines)&#xa;3.3V, GND&#xa;SCK, MISO, MOSI, CS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#22c55e;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="160" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="lcd" value="LCD I2C 16x2&#xa;VCC 3.3V&#xa;GND&#xa;SDA&#xa;SCL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ede9fe;strokeColor=#8b5cf6;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="160" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="printer" value="Impresora Termica TTL&#xa;GND, RX, TX, RST (opcional)&#xa;Alimentacion 9V + GND" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#ef4444;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="320" width="240" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="psu" value="Fuente 9V (impresora)&#xa;No alimentar desde ESP32/UNO" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="150" width="240" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="gnd" value="GND comun (todos los modulos)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#334155;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="40" width="980" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="note" value="Divisor 5V -&gt; 3.3V (optimo): R1=2k en serie desde UNO TX(11) a ESP32 RX2&#xa;R2=3.3k desde RX2 a GND" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fefce8;strokeColor=#eab308;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="520" width="280" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1" value="SCK 12" style="endArrow=block;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" parent="1" source="esp32" target="sd" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="240" y="300"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e2" value="MISO 13" style="endArrow=block;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" parent="1" source="esp32" target="sd" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="330" y="260" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="290" y="300"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e3" value="MOSI 11" style="endArrow=block;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" parent="1" source="esp32" target="sd" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="330" y="310"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e4" value="CS 10" style="endArrow=block;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" parent="1" source="esp32" target="sd" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="360" y="340"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e5" value="SDA 8" style="endArrow=block;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" parent="1" source="esp32" target="lcd" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e6" value="SCL 9" style="endArrow=block;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" parent="1" source="esp32" target="lcd" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e7" value="TX2 17&amp;nbsp;" style="endArrow=block;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="esp32" target="note" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e8" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;RX2 16 (con divisor)&amp;nbsp;&lt;/span&gt;" style="endArrow=block;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;" parent="1" source="note" target="esp32" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="430" y="540" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e17" value="R2 a GND" style="endArrow=block;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="note" target="gnd">
+                    <mxGeometry x="-0.5097" relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="410" y="410"/>
+                        </Array>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e9" value="TX 3 -&gt; RX impresora" style="endArrow=block;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" parent="1" source="uno" target="printer" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e10" value="RX 2 &lt;- TX impresora" style="endArrow=block;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;" parent="1" source="printer" target="uno" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e11" value="9V + GND" style="endArrow=block;html=1;" parent="1" source="psu" target="printer" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e12" value="GND comun" style="endArrow=block;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="gnd" target="esp32" edge="1">
+                    <mxGeometry x="0.1476" relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="410" y="330"/>
+                        </Array>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e13" value="GND comun" style="endArrow=block;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="gnd" target="uno" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e14" value="GND comun" style="endArrow=block;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="1" source="gnd" target="sd" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="420" y="120" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e15" value="GND comun" style="endArrow=block;html=1;exitX=0.087;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="gnd" target="lcd" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e16" value="GND comun" style="endArrow=block;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="gnd" target="printer" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" style="edgeStyle=none;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="note" target="uno">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;UNO RX 10&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="3">
+                    <mxGeometry x="0.0641" y="2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

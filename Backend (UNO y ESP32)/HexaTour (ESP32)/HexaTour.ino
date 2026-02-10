@@ -5,8 +5,10 @@
 #include <SPI.h>
 #include <SD.h>
 #include <Wire.h>
-#include <LiquidCrystal_I2C.h>
-#include <ArduinoJson.h>
+// #include <LiquidCrystal_I2C.h>
+// #include <ArduinoJson.h>
+#include "../librerias/LiquidCrystal_I2C/LiquidCrystal_I2C.h"
+#include "../librerias/ArduinoJson/ArduinoJson.h"
 
 #define DNS_PORT 53
 #define SERIAL_BAUD 115200
@@ -64,6 +66,8 @@ void listDir(const char* dirname, uint8_t levels);
 bool readFileToString(const char* path, String& out, size_t maxLen = 8192);
 String readWholeFile(const String& path);
 void sanitizeSegment(String& value);
+int discountForCategory(const String& category);
+String buildDiscountMessage(int discount);
 bool parsePoiRef(const String& fileParam, String& category, String& slug);
 bool loadPoiFromDb(const String& category, const String& slug, String& name, String& routeText, String& routeImg);
 bool deriveImageFromTxtFile(const String& fileParam, String& folder, String& slug, String& imgPath);
@@ -447,6 +451,21 @@ String readWholeFile(const String& path) {
   return out;
 }
 
+int discountForCategory(const String& category) {
+  if (category == "campings" || category == "hospedajes") {
+    return random(1, 4);
+  }
+  if (category == "servicios" || category == "ferias" || category == "restaurantes") {
+    return random(5, 8);
+  }
+  return 0;
+}
+
+String buildDiscountMessage(int discount) {
+  if (discount <= 0) return "";
+  return "Haz ganado un descuento de " + String(discount) + "%\\nMuestra el ticket en la tienda";
+}
+
 void sanitizeSegment(String& value) {
   value.replace("..", "");
   value.replace("\\", "");
@@ -592,6 +611,13 @@ void handlePrintRuta() {
     safeName.replace("|", "/");  // por seguridad, también aquí
     // Título en una línea propia
     texto = "Ruta: " + safeName + "\\n" + texto;
+  }
+
+  // 4.1) Descuento dinámico por categoría (se imprime despues del mensaje final)
+  int discount = discountForCategory(category);
+  String discountMsg = buildDiscountMessage(discount);
+  if (discountMsg.length()) {
+    texto += "\\n__DESCUENTO__=" + discountMsg;
   }
 
   // 5) Limitar longitud para no saturar el buffer del UNO

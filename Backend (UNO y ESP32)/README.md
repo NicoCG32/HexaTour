@@ -64,6 +64,27 @@ El archivo `logoHexaTour.png` se usa en el frontend como logo principal del port
 ### Dependencias
 
 - ArduinoJson (para leer /www/db/poi/<categoria>/<slug>.json).
+- LiquidCrystal_I2C (LCD 16x2).
+- Adafruit_Thermal (impresora termica en UNO).
+
+## Librerias locales
+
+El proyecto usa librerias locales en [Backend (UNO y ESP32)/librerias](Backend%20(UNO%20y%20ESP32)/librerias) para evitar depender del gestor del IDE. Los includes se ajustaron a rutas relativas.
+
+Librerias utilizadas:
+- ArduinoJson
+- LiquidCrystal_I2C
+- Adafruit_Thermal_Printer_Library
+
+### Detalle de librerias
+
+- ArduinoJson: lectura de la base JSON desde la SD en el ESP32-S3.
+- LiquidCrystal_I2C: control de la pantalla LCD 16x2 por I2C.
+- Adafruit_Thermal_Printer_Library: impresion en la termica desde el UNO.
+- WiFi/WebServer/DNSServer: portal cautivo y API HTTP (core del ESP32).
+- SPI/SD: acceso a la tarjeta SD (core del ESP32/Arduino).
+- Wire: bus I2C para LCD (core del ESP32/Arduino).
+- SoftwareSerial: UART por software en el UNO para impresora y enlace con ESP32.
 
 ## Ajustes clave en el UNO
 
@@ -74,6 +95,9 @@ El archivo `logoHexaTour.png` se usa en el frontend como logo principal del port
 - Mensaje final del ticket:
   - `GRACIAS POR USAR HEXATOUR`
 
+- Descuento dinamico:
+  - Calculado en el ESP32-S3 segun categoria y enviado al UNO para impresion.
+
 ## Contenidos en SD
 
 La SD debe contener la carpeta www del frontend, incluyendo /www/db y /www/img. Ver guía de contenidos en [Frontend (Interfaz)/README.md](../Frontend%20(Interfaz)/README.md).
@@ -82,3 +106,11 @@ La SD debe contener la carpeta www del frontend, incluyendo /www/db y /www/img. 
 
 - Si cambias pines en el hardware, actualiza los `#define` correspondientes.
 - Si cambias el logo del PDF, reemplaza el archivo en /www/img/map/logo.jpg (JPEG).
+
+## Errores comunes (firmware y hardware)
+
+- ESP32 no monta SD: revisar FAT32, cableado SPI y que exista /www en la tarjeta.
+- Datos no cargan en portal: confirmar /www/db/index.json y que los slugs coincidan.
+- Serial entre ESP32 y UNO no responde: verificar divisor en RX2, GND comun y baudrate.
+- Impresora no imprime: confirmar 9V independiente, GND comun y pins RX/TX correctos.
+- LCD no muestra texto: revisar direccion I2C y cableado SDA/SCL.
