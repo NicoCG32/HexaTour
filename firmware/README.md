@@ -103,12 +103,15 @@ Notas:
 
 ## Dependencias y librerias
 
-El proyecto usa librerias locales en [firmware/librerias](firmware/librerias) para evitar depender del gestor del IDE.
+El proyecto usa librerias locales en [firmware/librerias](firmware/librerias) para evitar depender del gestor del IDE. Cada una conserva su licencia en su carpeta.
 
-Librerias utilizadas:
-- ArduinoJson
-- LiquidCrystal_I2C
-- Adafruit_Thermal_Printer_Library
+Librerias de terceros embebidas:
+
+| Libreria | Licencia | Autor | Carpeta |
+|----------|----------|-------|---------|
+| [ArduinoJson](https://github.com/bblanchon/ArduinoJson) | MIT | Benoit BLANCHON | [firmware/librerias/ArduinoJson](firmware/librerias/ArduinoJson) |
+| [LiquidCrystal_I2C](https://github.com/markub3327/LiquidCrystal_I2C) | MIT | Martin Kubovcik (orig. Frank de Brabander) | [firmware/librerias/LiquidCrystal_I2C](firmware/librerias/LiquidCrystal_I2C) |
+| [Adafruit Thermal Printer Library](https://github.com/adafruit/Adafruit-Thermal-Printer-Library) | MIT | Adafruit Industries (Limor Fried) | [firmware/librerias/Adafruit_Thermal_Printer_Library](firmware/librerias/Adafruit_Thermal_Printer_Library) |
 
 ## Errores comunes
 

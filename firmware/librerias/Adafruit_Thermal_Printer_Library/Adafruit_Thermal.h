@@ -139,17 +139,17 @@ public:
      */
     doubleWidthOn(),
     /*!
-     * @brief Feeds by the specified number of lines 
-     * @param x How many lines to feed 
+     * @brief Feeds by the specified number of lines
+     * @param x How many lines to feed
      */
     feed(uint8_t x=1),
     /*!
-     * @brief Feeds by the specified number of individual pixel rows 
+     * @brief Feeds by the specified number of individual pixel rows
      * @param rows How many rows to feed
      */
     feedRows(uint8_t),
     /*!
-     * @brief Flush data pending in the printer 
+     * @brief Flush data pending in the printer
      */
     flush(),
     /*!
@@ -201,7 +201,7 @@ public:
     printBitmap(Stream *fromStream),
     /*!
      * @brief Sets text to normal mode
-     */ 
+     */
     normal(),
     /*!
      * @brief Reset the printer
@@ -281,7 +281,7 @@ public:
     sleepAfter(uint16_t seconds),
     /*!
      * @brief Disables delete line mode
-     */ 
+     */
     strikeOff(),
     /*!
      * @brief Enables delete line mode
@@ -305,7 +305,7 @@ public:
      */
     timeoutSet(unsigned long),
     /*!
-     * @brief Waits for the prior task to complete 
+     * @brief Waits for the prior task to complete
      */
     timeoutWait(),
     /*!

@@ -1,4 +1,7 @@
+# Virtual environments
 .venv/
+venv/
+env/
 
 # Python
 __pycache__/
@@ -26,6 +29,11 @@ package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
+# Secrets / environment
+.env
+.env.*
+!.env.example
+
 # Logs
 *.log
 
@@ -34,7 +42,7 @@ pnpm-lock.yaml
 Thumbs.db
 Desktop.ini
 
-# Editors/IDE
+# Editors / IDE
 .vscode/
 !.vscode/extensions.json
 !.vscode/settings.json
@@ -45,6 +53,9 @@ Desktop.ini
 *.swo
 *.tmp
 
+# Caches
+.cache/
+
 # Archives
 *.zip
 *.tar
@@ -54,7 +65,9 @@ Desktop.ini
 # Reports (extracted)
 Informes/extract/
 
-# Arduino
+# Arduino / ESP32 (PlatformIO + Arduino IDE)
+.pio/
+.clangd/
 *.elf
 *.hex
 *.bin
