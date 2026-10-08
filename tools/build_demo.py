@@ -116,6 +116,13 @@ def build(source: Path, output: Path) -> dict:
     common = (source / "assets/js/common.js").read_text(encoding="utf-8")
     if "meta[name=\"hexatour-mode\"]" not in common:
         raise ValueError("common.js no reconoce el modo del artefacto")
+    license_path = ROOT / "LICENSE"
+    if license_path.is_symlink():
+        raise ValueError("La licencia del proyecto no debe ser un enlace simbólico")
+    license_content = license_path.read_bytes()
+    selected.add("LICENSE.txt")
+    prepared["LICENSE.txt"] = license_content
+    source_hash.update(b"LICENSE.txt\0" + hashlib.sha256(license_content).digest())
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix=".hexatour-demo-", dir=output.parent) as scratch:
         # La limpieza automática queda limitada a una carpeta nueva bajo el padre elegido.

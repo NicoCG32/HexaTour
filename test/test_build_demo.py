@@ -67,6 +67,7 @@ class BuildDemoTests(unittest.TestCase):
         for relative, digest in manifest["files"].items():
             self.assertEqual(hashlib.sha256((self.output / relative).read_bytes()).hexdigest(), digest)
         self.assertEqual(set(snapshot(self.output)), set(manifest["files"]) | {"demo-manifest.json"})
+        self.assertEqual((self.output / "LICENSE.txt").read_bytes(), (ROOT / "LICENSE").read_bytes())
         self.assertFalse((self.output / ".env").exists())
         self.assertFalse((self.output / "firmware").exists())
         self.assertFalse((self.output / "assets/js/local-config.js").exists())

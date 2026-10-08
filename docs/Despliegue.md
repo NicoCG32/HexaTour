@@ -42,9 +42,10 @@ Abre http://localhost:8000/ y las entradas `/visitor/`, `/main/`, `/visitor/luga
 | JSON de categorías/fichas e imágenes | Catálogo validado, recursos originales; `.gz` opcionales excluidos |
 | Configuración SMS | `URGENCIA_SMS` se sustituye por teléfono/punto vacíos sólo en la copia; una declaración no reconocida hace fallar el empaquetado |
 | `.nojekyll` | Marcador estático vacío |
+| `LICENSE.txt` | Copia exacta de la licencia raíz del código propio; incluida también en los hashes y en la huella fuente |
 | `demo-manifest.json` | Modo, entradas, resumen de catálogo, huella del conjunto fuente seleccionado y hashes SHA-256 de los archivos generados; el propio manifiesto no incluye su hash |
 
-La raíz actual tiene 275 archivos. Se comprueban también scripts, estilos e imágenes referenciados por el HTML. Una nueva entrada HTML o asset debe incorporarse al contrato del empaquetador y comprobarse antes de distribuirlo. Herramientas, pruebas, firmware, documentación, informes, archivos ocultos locales y scripts ajenos a la lista no forman parte del artefacto.
+Desde la adopción de MIT el 2026-10-08, la raíz generada tiene 276 archivos, incluida `LICENSE.txt`; la primera publicación registrada arriba tenía 275. Se comprueban también scripts, estilos e imágenes referenciados por el HTML. Una nueva entrada HTML o asset debe incorporarse al contrato del empaquetador y comprobarse antes de distribuirlo. Herramientas, pruebas, firmware, documentación, informes, archivos ocultos locales y scripts ajenos a la lista no forman parte del artefacto.
 
 ## Workflow de Pages
 
