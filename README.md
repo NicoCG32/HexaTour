@@ -120,7 +120,7 @@ El smoke debe terminar con codigo 0 y tres resultados `[ok]`: health, categories
 
 El proyecto incluye componentes de terceros. Se mantienen sus licencias en las carpetas correspondientes.
 
-Esta rama no contiene una licencia raiz para el proyecto; las licencias de terceros se consultan en sus carpetas y no sustituyen esa definicion.
+El código propio del proyecto se distribuye bajo [licencia MIT](LICENSE), Copyright (c) 2026 HexaTour. Los componentes de terceros conservan sus licencias y atribuciones en sus carpetas. La procedencia de los recursos gráficos está registrada en [Contenido de la demo](docs/Contenido-demo.md#recursos-gráficos).
 
 - Librerias y cores: ver detalle en [firmware/README.md](firmware/README.md).
 - Arduino core para AVR (UNO): SoftwareSerial, Wire, SPI, SD y otros headers provienen del core oficial de Arduino.

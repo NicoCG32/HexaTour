@@ -14,7 +14,7 @@ Para convertir una ficha en información operativa, registrar una fuente identif
 
 El responsable del proyecto declaró el **2026-10-07** que las fotografías, mapas e iconos de [web/www/img](../web/www/img) son propios del proyecto. La revisión técnica cuenta 221 archivos gráficos, incluidos originales, variantes, logos y mapa general; todos se decodificaron correctamente. Las 162 referencias gráficas de las fichas apuntan a archivos presentes.
 
-Este registro se basa en esa declaración de procedencia. No define una licencia general para redistribuir el proyecto ni sustituye las licencias de componentes de terceros. Si se incorporan recursos ajenos, registrar autor, origen, permiso/licencia y atribución junto a su ruta antes de incluirlos en la demo.
+Este registro se basa en esa declaración de procedencia. El código propio se distribuye bajo la [licencia MIT del proyecto](../LICENSE); esa elección no sustituye las licencias y atribuciones de componentes de terceros ni asigna nuevos términos de redistribución a las fotografías, mapas e iconos. Si se incorporan recursos ajenos, registrar autor, origen, permiso/licencia y atribución junto a su ruta antes de incluirlos en la demo.
 
 ## SMS y acciones
 
