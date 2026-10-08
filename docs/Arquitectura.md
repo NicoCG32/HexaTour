@@ -10,9 +10,9 @@ El montaje crea una red Wi-Fi local para consultar información sin Internet. El
 | --- | --- | --- |
 | Portal web | Categorías, fichas, imágenes y solicitudes de acciones | [web/www](../web/www) |
 | Cliente de contenidos | Leer listas y POI; resolver imágenes y campos | [common.js](../web/www/assets/js/common.js) |
-| ESP32-S3 | Wi-Fi AP, DNS cautivo, HTTP, lectura SD, PDF y coordinación serial | [HexaTour.ino](../firmware/esp32/HexaTour.ino) |
+| ESP32-S3 | Wi-Fi AP, DNS cautivo, HTTP, lectura SD, PDF y coordinación serial | [HexaTour.ino](../firmware/esp32/HexaTour/HexaTour.ino) |
 | SD | HTML/CSS/JS, JSON e imágenes bajo `/www` | [Contenido para SD](../web/www) |
-| Arduino UNO | Estado de disponibilidad, impresión y confirmación final | [ImpresoraUNO.ino](../firmware/uno/ImpresoraUNO.ino) |
+| Arduino UNO | Estado de disponibilidad, impresión y confirmación final | [ImpresoraUNO.ino](../firmware/uno/ImpresoraUNO/ImpresoraUNO.ino) |
 | Mock Python | Servir archivos locales y simular API para pruebas | [server.py](../tools/backend-local/server.py) |
 
 Vista del montaje implementado; los pines y voltajes se consultan en la [guía de firmware](../firmware/README.md) y el [circuito](diagramas/HexaTourCircuito.drawio).
@@ -140,8 +140,8 @@ flowchart LR
     E --> Q["Comprobar portal, PDF e impresión físicos"]
 ```
 
-La SD debe contener `/www`; actualizar un sitio público no actualiza ese almacenamiento ni los sketches. La compilación y comprobación física siguen pendientes de registro. La fuente editable del circuito permanece en [HexaTourCircuito.drawio](diagramas/HexaTourCircuito.drawio), con sus [vistas exportadas](README.md#circuito-y-fuentes-editables).
+La SD debe contener `/www`; actualizar un sitio público no actualiza ese almacenamiento ni los sketches. La [compilación de ambos firmwares con versiones fijas](../firmware/Compilacion.md) está comprobada; la carga y prueba física siguen pendientes. La fuente editable del circuito permanece en [HexaTourCircuito.drawio](diagramas/HexaTourCircuito.drawio), con sus [vistas exportadas](README.md#circuito-y-fuentes-editables).
 
 ## Límites de la entrega
 
-La verificación local disponible cubre API mock y datos, no funcionamiento del montaje completo. Las versiones de cores Arduino y la compilación/prueba física todavía deben registrarse. El portal no calcula rutas geográficas en vivo; muestra texto e imágenes almacenados. Los tiempos, horarios, alertas y descuentos no constituyen información turística verificada por la prueba técnica.
+La verificación disponible cubre API mock, datos, demo pública y compilación/enlace de ambos firmwares, no funcionamiento del montaje completo. La base de compilación es nueva: no se conocen las versiones del entorno original. Las pruebas físicas están enumeradas en la [guía de compilación](../firmware/Compilacion.md#prueba-física-pendiente). El portal no calcula rutas geográficas en vivo; muestra texto e imágenes almacenados. Los tiempos, horarios, alertas y descuentos no constituyen información turística verificada por la prueba técnica.

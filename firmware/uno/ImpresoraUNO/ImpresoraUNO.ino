@@ -1,6 +1,5 @@
 #include <SoftwareSerial.h>
-// #include "Adafruit_Thermal.h"
-#include "../librerias/Adafruit_Thermal_Printer_Library/Adafruit_Thermal.h"
+#include <Adafruit_Thermal.h>
 
 // ---- Serial hacia ESP32 ----
 #define ESP_RX 10    // UNO RX  <- TX ESP32 (a través de divisor)

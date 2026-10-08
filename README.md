@@ -6,7 +6,7 @@ Video promocional: https://www.youtube.com/shorts/Zw-bziu8veU
 
 ## Estado de la entrega
 
-Prototipo de curso cerrado. Puedes explorar la [demo pública sin hardware](https://nicocg32.github.io/HexaTour/), publicada y comprobada por HTTPS el 2026-10-07. Muestra datos de ejemplo e impresión simulada; PDF no disponible y urgencias sin envío. La interfaz también puede probarse con el mock Python; el portal cautivo y la impresión real requieren el montaje. La compilación del firmware y las versiones de cores Arduino aún deben registrarse para una reproducción completa.
+Prototipo de curso cerrado. Puedes explorar la [demo pública sin hardware](https://nicocg32.github.io/HexaTour/), publicada y comprobada por HTTPS el 2026-10-07. Muestra datos de ejemplo e impresión simulada; PDF no disponible y urgencias sin envío. La interfaz también puede probarse con el mock Python; el portal cautivo y la impresión real requieren el montaje. Ambos firmwares compilaron el 2026-10-08 con una [base de versiones fijas](firmware/Compilacion.md); la comprobación física sigue pendiente.
 
 ## Tabla de contenidos
 
@@ -52,11 +52,11 @@ Para distribuir una copia que siempre active demo, ejecuta `python tools/build_d
 
 ### Con hardware
 
-Necesitas ESP32-S3, Arduino UNO, SD y los perifericos del circuito; Arduino IDE con soporte para ambas placas y las librerias descritas en [firmware/README.md](firmware/README.md).
+Necesitas ESP32-S3, Arduino UNO, SD y los periféricos del circuito. Los [perfiles de Arduino CLI y las librerías locales](firmware/Compilacion.md) permiten compilar sin tener conectado el montaje; la carga y la prueba física requieren contrastar las placas y sus ajustes.
 
 1. Carga los sketches:
-   - ESP32: [firmware/esp32/HexaTour.ino](firmware/esp32/HexaTour.ino)
-   - UNO: [firmware/uno/ImpresoraUNO.ino](firmware/uno/ImpresoraUNO.ino)
+   - ESP32: [firmware/esp32/HexaTour/HexaTour.ino](firmware/esp32/HexaTour/HexaTour.ino)
+   - UNO: [firmware/uno/ImpresoraUNO/ImpresoraUNO.ino](firmware/uno/ImpresoraUNO/ImpresoraUNO.ino)
 2. Copia la carpeta `www` completa desde [web/www](web/www) a la raiz de la SD. Debe quedar `/www/visitor/index.html` y `/www/db/index.json`, conservando tambien `assets/`, `main/` e `img/` dentro de `/www`.
 3. Enciende el equipo y conecta al Wi-Fi HexaTour.
 4. Abre el portal:

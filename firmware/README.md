@@ -11,19 +11,20 @@ Este README documenta el firmware y sus ajustes clave. Incluye que microcontrola
 - [Ajustes clave en ESP32](#ajustes-clave-en-esp32)
 - [Protocolo serial ESP32-UNO](#protocolo-serial-esp32-uno)
 - [Dependencias y librerias](#dependencias-y-librerias)
+- [Compilación con versiones fijas](Compilacion.md)
 - [Errores comunes](#errores-comunes)
 
 ## Guia rapida
 
-1. Abre el sketch del ESP32: [firmware/esp32/HexaTour.ino](esp32/HexaTour.ino)
-2. Abre el sketch del UNO: [firmware/uno/ImpresoraUNO.ino](uno/ImpresoraUNO.ino)
+1. Abre el sketch del ESP32: [firmware/esp32/HexaTour/HexaTour.ino](esp32/HexaTour/HexaTour.ino)
+2. Abre el sketch del UNO: [firmware/uno/ImpresoraUNO/ImpresoraUNO.ino](uno/ImpresoraUNO/ImpresoraUNO.ino)
 3. Verifica pines, credenciales y rutas.
-4. Carga ambos sketches en sus placas.
+4. Compila con los [perfiles y versiones registrados](Compilacion.md) y contrasta la configuración con las placas reales antes de cargar.
 
 ## Que se carga y donde
 
-- ESP32-S3: [firmware/esp32/HexaTour.ino](esp32/HexaTour.ino)
-- Arduino UNO: [firmware/uno/ImpresoraUNO.ino](uno/ImpresoraUNO.ino)
+- ESP32-S3: [firmware/esp32/HexaTour/HexaTour.ino](esp32/HexaTour/HexaTour.ino)
+- Arduino UNO: [firmware/uno/ImpresoraUNO/ImpresoraUNO.ino](uno/ImpresoraUNO/ImpresoraUNO.ino)
 
 ## Pines usados
 
@@ -74,7 +75,7 @@ sequenceDiagram
 
 ## Ajustes clave en ESP32
 
-En [firmware/esp32/HexaTour.ino](esp32/HexaTour.ino):
+En [firmware/esp32/HexaTour/HexaTour.ino](esp32/HexaTour/HexaTour.ino):
 
 - Wi-Fi AP: `AP_SSID`, `AP_PASS`
 - Credenciales del panel operador: `MAIN_USER`, `MAIN_PASS`
@@ -118,7 +119,7 @@ Versiones declaradas por los archivos `library.properties` incluidos:
 | LiquidCrystal_I2C | 2.0.0 |
 | Adafruit Thermal Printer Library | 1.4.1 |
 
-Estas versiones describen el contenido del repositorio; no constituyen una compilacion comprobada. Las versiones de Arduino IDE y de los cores ESP32/AVR usados en el montaje aun deben registrarse junto con el resultado de compilacion y prueba fisica. [Arquitectura y limites](../docs/Arquitectura.md).
+Ambos firmwares compilaron el 2026-10-08 con Arduino CLI 1.5.1, core ESP32 3.3.12 y AVR 1.8.8, usando estas librerías locales. Las versiones del entorno original no están disponibles; se documenta una base nueva. [Perfiles, comandos, memoria y advertencias](Compilacion.md). No se cargó firmware en placas ni se verificó el montaje físico. [Arquitectura y límites](../docs/Arquitectura.md).
 
 ## Errores comunes
 

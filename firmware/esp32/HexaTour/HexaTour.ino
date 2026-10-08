@@ -5,10 +5,8 @@
 #include <SPI.h>
 #include <SD.h>
 #include <Wire.h>
-// #include <LiquidCrystal_I2C.h>
-// #include <ArduinoJson.h>
-#include "../librerias/LiquidCrystal_I2C/LiquidCrystal_I2C.h"
-#include "../librerias/ArduinoJson/ArduinoJson.h"
+#include <LiquidCrystal_I2C.h>
+#include <ArduinoJson.h>
 
 #define DNS_PORT 53
 #define SERIAL_BAUD 115200

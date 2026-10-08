@@ -13,13 +13,14 @@ HexaTour es un prototipo académico de orientación turística rural con portal 
 | Validar catálogo y recursos sin servidor | [Validación local y regresiones](Formato-de-datos.md#validación-local) |
 | Actualizar contenido y probar el portal | [Guía web](../web/README.md) |
 | Pines, configuración y protocolo ESP32–UNO | [Guía de firmware](../firmware/README.md) |
+| Compilar con versiones fijas y registrar la prueba física | [Compilación del firmware](../firmware/Compilacion.md) |
 | Servidor de prueba, API mock y smoke | [Backend local](../tools/backend-local/README.md) |
 | Explorar en modo demo sin API ni hardware | [Demo: activación y recorrido](Demo.md) |
 | Preparar la copia pública y desplegarla en Pages | [Distribución y despliegue](Despliegue.md) |
 | Conocer procedencia y alcance de los ejemplos mostrados | [Contenido de la demo](Contenido-demo.md) |
 | Puesta en marcha y mantenimiento del equipo | [Manual del proveedor](manual-proveedor.md) |
 
-Las versiones de cores Arduino y una compilación reproducible del firmware todavía no están registradas. Los datos turísticos son ejemplos sin verificación de vigencia; la procedencia gráfica declarada y las condiciones de presentación están en [Contenido de la demo](Contenido-demo.md). La [demo pública](https://nicocg32.github.io/HexaTour/) fue comprobada por HTTPS el 2026-10-07; [versión publicada y recuperación](Despliegue.md#estado).
+Ambos firmwares tienen una [base de compilación comprobada con versiones fijas](../firmware/Compilacion.md); la carga y prueba física siguen pendientes. Los datos turísticos son ejemplos sin verificación de vigencia; la procedencia gráfica declarada y las condiciones de presentación están en [Contenido de la demo](Contenido-demo.md). La [demo pública](https://nicocg32.github.io/HexaTour/) fue comprobada por HTTPS el 2026-10-07; [versión publicada y recuperación](Despliegue.md#estado).
 
 ## Circuito y fuentes editables
 
