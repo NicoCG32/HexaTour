@@ -33,10 +33,10 @@ El visitante consulta lugares y descarga PDF; el operador solicita impresion. [C
 Requiere Python 3.10 o posterior; la prueba local se ha ejecutado con Python 3.12.14. Ejecuta desde la raiz del repositorio, la carpeta que contiene este README, `firmware/`, `web/` y `tools/`:
 
 ```bash
-python tools/backend-local/server.py --root web/www --port 8000
+python tools/backend-local/server.py --port 8000
 ```
 
-Abre http://localhost:8000/visitor/ y http://localhost:8000/main/. El mock simula aceptacion de impresion y genera un PDF sencillo; no se comunica con una ticketera ni reproduce la autenticacion del operador. Conserva `--root web/www`: la ruta predeterminada del servidor actual no apunta al contenido correcto. [Detalle del mock](tools/backend-local/README.md).
+Abre http://localhost:8000/visitor/ y http://localhost:8000/main/. El mock simula aceptación de impresión y genera un PDF sencillo; no se comunica con una ticketera ni reproduce la autenticación del operador. Sin `--root`, sirve `web/www` del repositorio, tomando como referencia la ubicación del script. Puedes indicar otra carpeta con `--root`; una ruta relativa se interpreta desde la carpeta de ejecución. [Detalle del mock](tools/backend-local/README.md).
 
 ### Demo en servidor estático
 

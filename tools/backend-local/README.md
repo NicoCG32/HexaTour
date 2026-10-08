@@ -17,7 +17,7 @@ Requiere Python 3.10 o posterior. Ejecuta los comandos desde la raiz del reposit
 1. Inicia el servidor:
 
 ```bash
-python "tools/backend-local/server.py" --root "web/www" --port 8000
+python "tools/backend-local/server.py" --port 8000
 ```
 
 2. Abre en el navegador:
@@ -48,12 +48,14 @@ python "tools/backend-local/smoke_test.py" --base http://localhost:8000
 
 El script valida health, listado de categorias, un POI real y endpoints de impresion/PDF.
 
+Las regresiones de [test_backend_local.py](../../test/test_backend_local.py) arrancan el servidor sin `--root` desde la raíz del repositorio y desde una carpeta temporal externa, ejecutan este smoke y comprueban el portal servido. También prueban una carpeta alternativa mediante `--root` relativo. Desde la raíz, ejecuta `python -m unittest discover -s test -p "test_backend_local.py"`.
+
 Codigo fuente:
 - [tools/backend-local/smoke_test.py](smoke_test.py)
 
 ## Parametros
 
-- `--root`: ruta a la carpeta [web/www](../../web/www).
+- `--root`: carpeta web alternativa. Por defecto sirve [web/www](../../web/www) del repositorio, localizada respecto al script sin depender de la carpeta de ejecución. Si se indica una ruta relativa, se resuelve desde la carpeta actual; por ejemplo, `--root web/www` desde la raíz del repositorio.
 - `--port`: puerto (default 8000).
 
 ## FAQ
