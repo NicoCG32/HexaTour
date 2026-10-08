@@ -54,3 +54,8 @@ header img{width:250px;height:auto}
 .btn.route{background:#0ea5e9;color:#fff}
 .btn.download{background:#0284c7;color:#fff}
 .emg-msg{margin-top:10px;padding:10px 12px;border-radius:10px;border:2px solid #16a34a;background:#ecfdf5;color:#065f46;font-weight:800;text-align:center}
+@media (max-width:420px){
+  header{flex-direction:column}
+  header img{max-width:100%}
+  .top{flex-wrap:wrap}
+}

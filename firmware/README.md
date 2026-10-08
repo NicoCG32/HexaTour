@@ -15,15 +15,15 @@ Este README documenta el firmware y sus ajustes clave. Incluye que microcontrola
 
 ## Guia rapida
 
-1. Abre el sketch del ESP32: [firmware/esp32/HexaTour.ino](firmware/esp32/HexaTour.ino)
-2. Abre el sketch del UNO: [firmware/uno/ImpresoraUNO.ino](firmware/uno/ImpresoraUNO.ino)
+1. Abre el sketch del ESP32: [firmware/esp32/HexaTour.ino](esp32/HexaTour.ino)
+2. Abre el sketch del UNO: [firmware/uno/ImpresoraUNO.ino](uno/ImpresoraUNO.ino)
 3. Verifica pines, credenciales y rutas.
 4. Carga ambos sketches en sus placas.
 
 ## Que se carga y donde
 
-- ESP32-S3: [firmware/esp32/HexaTour.ino](firmware/esp32/HexaTour.ino)
-- Arduino UNO: [firmware/uno/ImpresoraUNO.ino](firmware/uno/ImpresoraUNO.ino)
+- ESP32-S3: [firmware/esp32/HexaTour.ino](esp32/HexaTour.ino)
+- Arduino UNO: [firmware/uno/ImpresoraUNO.ino](uno/ImpresoraUNO.ino)
 
 ## Pines usados
 
@@ -51,7 +51,7 @@ Este README documenta el firmware y sus ajustes clave. Incluye que microcontrola
 ## Flujo general
 
 1. El ESP32-S3 levanta un AP Wi-Fi, DNS cautivo y el servidor HTTP.
-2. El portal cautivo lee archivos desde la SD (carpeta [web/www](web/www)) y expone endpoints de impresion y PDF.
+2. El portal cautivo lee archivos desde la SD (carpeta [web/www](../web/www)) y expone endpoints de impresion y PDF.
 3. El ESP32 consulta estado del UNO y le envia trabajos de impresion por Serial2.
 4. El UNO imprime en la termica y confirma con DONE cuando termina.
 
@@ -74,7 +74,7 @@ sequenceDiagram
 
 ## Ajustes clave en ESP32
 
-En [firmware/esp32/HexaTour.ino](firmware/esp32/HexaTour.ino):
+En [firmware/esp32/HexaTour.ino](esp32/HexaTour.ino):
 
 - Wi-Fi AP: `AP_SSID`, `AP_PASS`
 - Credenciales del panel operador: `MAIN_USER`, `MAIN_PASS`
@@ -103,17 +103,27 @@ Notas:
 
 ## Dependencias y librerias
 
-El proyecto usa librerias locales en [firmware/librerias](firmware/librerias) para evitar depender del gestor del IDE.
+El proyecto usa librerias locales en [firmware/librerias](librerias) para evitar depender del gestor del IDE.
 
 Librerias utilizadas:
 - ArduinoJson
 - LiquidCrystal_I2C
 - Adafruit_Thermal_Printer_Library
 
+Versiones declaradas por los archivos `library.properties` incluidos:
+
+| Libreria | Version |
+| --- | --- |
+| ArduinoJson | 7.4.2 |
+| LiquidCrystal_I2C | 2.0.0 |
+| Adafruit Thermal Printer Library | 1.4.1 |
+
+Estas versiones describen el contenido del repositorio; no constituyen una compilacion comprobada. Las versiones de Arduino IDE y de los cores ESP32/AVR usados en el montaje aun deben registrarse junto con el resultado de compilacion y prueba fisica. [Arquitectura y limites](../docs/Arquitectura.md).
+
 ## Errores comunes
 
-- ESP32 no monta SD: revisar FAT32, cableado SPI y que exista [web/www](web/www) en la tarjeta.
-- Datos no cargan en portal: confirmar [web/www/db/index.json](web/www/db/index.json) y que los slugs coincidan.
+- ESP32 no monta SD: revisar FAT32, cableado SPI y que exista [web/www](../web/www) en la tarjeta.
+- Datos no cargan en portal: confirmar [web/www/db/index.json](../web/www/db/index.json) y que los slugs coincidan.
 - Serial entre ESP32 y UNO no responde: verificar divisor en RX2, GND comun y baudrate.
 - Impresora no imprime: confirmar 9V independiente, GND comun y pins RX/TX correctos.
 - LCD no muestra texto: revisar direccion I2C y cableado SDA/SCL.

@@ -3,12 +3,13 @@
   const HT = window.HexaTour;
   const $ = s => document.querySelector(s);
 
-  const HEXATOUR_PUNTO = 'PUNTO_HEXATOUR_AQUI';
+  // Configurar únicamente para un montaje local con destinatario acordado.
+  const URGENCIA_SMS = { phone: '', punto: '' };
 
   function buildSmsBodyUrgencia(tipo){
     return [
       'ALERTA URGENCIA HEXATOUR',
-      'Punto: ' + HEXATOUR_PUNTO,
+      'Punto: ' + URGENCIA_SMS.punto.trim(),
       'Servicio requerido: ' + tipo,
       'Urgencia: [describa brevemente]',
       'Se necesita con urgencia: [indique lo que requiere]'
@@ -33,12 +34,17 @@
     const routeBtn = $('#routeBtn');
     const downloadBtn = $('#downloadBtn');
     const emgMsg = $('#emgMsg');
+    if(HT.isDemo){
+      downloadBtn.textContent = 'PDF no disponible en demo';
+      downloadBtn.disabled = true;
+      downloadBtn.setAttribute('aria-disabled', 'true');
+    }
     let current = null;
 
     async function renderOpts(){
       opts.innerHTML = '';
       emgMsg.hidden = true;
-      emgMsg.textContent = 'ALERTA ENVIADA!';
+      emgMsg.textContent = 'No se ha enviado ningún mensaje.';
 
       if(cat === 'Urgencia'){
         ['Carabineros','Ambulancia','Bomberos'].forEach(n=>{
@@ -47,12 +53,22 @@
           b.type = 'button';
           b.textContent = n;
           b.onclick = ()=>{
-            if(confirm('¿Está seguro de contactar a ' + n + ' por SMS?')){
-              const phone = '+56935774427';
+            if(HT.isDemo){
+              emgMsg.hidden = false;
+              emgMsg.textContent = 'Demostración de urgencia: ' + n + '. No se ha abierto la app de mensajes ni enviado un SMS.';
+              return;
+            }
+            const phone = URGENCIA_SMS.phone.trim();
+            if(!/^\+[1-9]\d{7,14}$/.test(phone) || !URGENCIA_SMS.punto.trim()){
+              emgMsg.hidden = false;
+              emgMsg.textContent = 'SMS no configurado. No se ha abierto la app de mensajes ni enviado una solicitud de atención.';
+              return;
+            }
+            if(confirm('¿Abrir un SMS para el destinatario configurado sobre ' + n + '? El envío se realiza desde tu app.')){
               const body = buildSmsBodyUrgencia(n);
               const smsUrl = 'sms:' + phone + '?body=' + encodeURIComponent(body);
               emgMsg.hidden = false;
-              emgMsg.textContent = 'Abriendo app de mensajes...';
+              emgMsg.textContent = 'Abriendo app de mensajes. Revisa el destinatario y envía el mensaje desde esa app.';
               location.href = smsUrl;
             }
           };
@@ -62,7 +78,6 @@
         return;
       }
 
-      const base = HT.labelBase(cat || 'Restaurantes');
       const folder = HT.catFolder(cat || 'Restaurantes');
       const col = {
         'Restaurantes':'#c2410c','Hospedajes':'#1d4ed8','Plazas':'#16a34a','Ríos':'#0d9488','Pisqueras':'#b45309','Campings':'#047857','Ferias Artesanales':'#7c3aed','Servicios':'#374151','Universidad':'#0284c7'
@@ -78,11 +93,11 @@
         return;
       }
 
-      items.forEach(item=>{
+      items.forEach((item, index)=>{
         const btn = document.createElement('button');
         btn.className = 'opt';
         btn.type = 'button';
-        btn.textContent = item.name || item.slug || (base + '');
+        btn.textContent = HT.placeLabel(item, index, items);
         btn.onclick = ()=>{ selectPlace(item.slug, item.name || item.slug); };
         opts.appendChild(btn);
       });
@@ -147,6 +162,7 @@
 
     downloadBtn.addEventListener('click', ()=>{
       if(!current) return;
+      if(HT.isDemo) return;
       const file = current.folder + '/' + current.slug;
       const url = '../api/route-pdf?name=' + encodeURIComponent(current.name) + '&cat=' + encodeURIComponent(current.folder) + '&slug=' + encodeURIComponent(current.slug) + '&file=' + encodeURIComponent(file) + '&dl=1';
       location.href = url;

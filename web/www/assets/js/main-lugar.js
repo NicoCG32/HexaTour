@@ -22,12 +22,13 @@
     const printRow = $('#printRow');
     const routeBtn = $('#routeBtn');
     const emgMsg = $('#emgMsg');
+    if(HT.isDemo) printBtn.textContent = 'Simular impresión';
     let current = null;
 
     async function renderOptions(){
       opts.innerHTML = '';
       emgMsg.hidden = true;
-      emgMsg.textContent = 'ALERTA ENVIADA!';
+      emgMsg.textContent = 'Aviso local. No se ha realizado ninguna llamada ni envío.';
 
       if(cat === 'Urgencia'){
         detail.hidden = true;
@@ -36,7 +37,14 @@
           b.className = 'opt urg ' + (n==='Carabineros'?'carabineros':n==='Ambulancia'?'ambulancia':'bomberos');
           b.type = 'button';
           b.textContent = n;
-          b.onclick = ()=>{ if(confirm('¿Está seguro de llamar a ' + n + '?')){ emgMsg.hidden = false; } };
+          b.onclick = ()=>{
+            if(HT.isDemo){
+              emgMsg.textContent = 'Demostración de urgencia: ' + n + '. No se ha realizado ninguna llamada ni envío.';
+              emgMsg.hidden = false;
+            } else if(confirm('¿Mostrar un aviso local de ' + n + '? No se realizará ninguna llamada ni envío.')){
+              emgMsg.hidden = false;
+            }
+          };
           opts.appendChild(b);
         });
         return;
@@ -52,11 +60,11 @@
         return;
       }
 
-      items.forEach(item=>{
+      items.forEach((item, index)=>{
         const b = document.createElement('button');
         b.className = 'opt';
         b.type = 'button';
-        b.textContent = item.name || item.slug || 'Lugar';
+        b.textContent = HT.placeLabel(item, index, items);
         b.onclick = ()=>{ selectPlace(item.slug, item.name || item.slug); };
         opts.appendChild(b);
       });
@@ -65,6 +73,8 @@
     }
 
     async function selectPlace(slug, name){
+      const previousMessage = printRow.querySelector('.demo-message');
+      if(previousMessage) previousMessage.remove();
       const folder = HT.catFolder(cat || 'Restaurantes');
       current = {cat:cat, folder:folder, name:name, slug:slug};
 
@@ -126,6 +136,10 @@
 
     printBtn.addEventListener('click', async ()=>{
       if(!current) return;
+      if(HT.isDemo){
+        HT.showDemoMessage('Impresión simulada de ' + current.name + '. No se ha enviado ningún trabajo a una impresora.', printRow);
+        return;
+      }
       const file = current.folder + '/' + current.slug;
       try{
         const r = await fetch('../api/print-ruta?name=' + encodeURIComponent(current.name) + '&cat=' + encodeURIComponent(current.folder) + '&slug=' + encodeURIComponent(current.slug) + '&file=' + encodeURIComponent(file), {cache:'no-store'});

@@ -1,8 +1,60 @@
 (function(){
   'use strict';
 
+  const isDemo = document.querySelector('meta[name="hexatour-mode"]')?.content === 'demo'
+    || new URL(location.href).searchParams.get('demo') === '1';
+  const siteRoot = new URL('../../', document.currentScript.src);
+
+  function siteUrl(path){
+    return new URL(path, siteRoot).href;
+  }
+
+  function withMode(path){
+    const url = new URL(path, location.href);
+    if(isDemo) url.searchParams.set('demo', '1');
+    return url.href;
+  }
+
+  function showDemoMessage(text, container){
+    let message = container.querySelector('.demo-message');
+    if(!message){
+      message = document.createElement('p');
+      message.className = 'demo-message';
+      message.setAttribute('role', 'status');
+      container.appendChild(message);
+    }
+    message.textContent = text;
+  }
+
+  document.addEventListener('DOMContentLoaded', ()=>{
+    if(!isDemo) return;
+    const banner = document.createElement('aside');
+    banner.className = 'demo-banner';
+    banner.setAttribute('aria-label', 'Modo demo');
+    const title = document.createElement('strong');
+    title.textContent = 'Demo sin hardware';
+    const description = document.createElement('p');
+    description.textContent = 'Datos de ejemplo: horarios, tiempos y rutas no verificados. No usar para orientación ni atención de urgencias. Impresión simulada, PDF no disponible y urgencias sin envío.';
+    const nav = document.createElement('nav');
+    nav.setAttribute('aria-label', 'Vistas de la demo');
+    [['Visitante', 'visitor/'], ['Operador', 'main/']].forEach(([label, path])=>{
+      const link = document.createElement('a');
+      link.textContent = label;
+      link.href = withMode(siteUrl(path));
+      nav.appendChild(link);
+    });
+    banner.append(title, description, nav);
+    document.body.prepend(banner);
+  });
+
   function normalize(s){
     return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ñ/g,'n');
+  }
+
+  function placeLabel(item, index, items){
+    const name = item.name || item.slug || 'Lugar';
+    const repeated = items.filter(other=>(other.name || other.slug || 'Lugar') === name).length > 1;
+    return isDemo && repeated ? name + ' (ejemplo ' + (index + 1) + ')' : name;
   }
 
   function catFolder(cat){
@@ -106,6 +158,11 @@
   }
 
   window.HexaTour = {
+    isDemo,
+    siteUrl,
+    withMode,
+    showDemoMessage,
+    placeLabel,
     normalize,
     catFolder,
     labelBase,

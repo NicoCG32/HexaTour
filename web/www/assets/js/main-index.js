@@ -3,7 +3,7 @@
   const $$ = s => document.querySelectorAll(s);
   function goLugar(cat){
     const base = location.pathname.replace(/[^\/]+$/, '');
-    location.href = base + 'lugar.html?cat=' + encodeURIComponent(cat);
+    location.href = window.HexaTour.withMode(base + 'lugar.html?cat=' + encodeURIComponent(cat));
   }
   document.addEventListener('DOMContentLoaded', ()=>{
     $$('#categorias .btn-cat').forEach(btn=>{

@@ -1,0 +1,56 @@
+name: Demo estática de HexaTour
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publicar la demo en Pages (solo main)
+        type: boolean
+        default: false
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hexatour-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Probar validadores y empaquetado
+        run: python -m unittest discover -s test -p "test_*.py"
+      - name: Preparar demo
+        run: python tools/build_demo.py
+      - name: Subir únicamente el artefacto estático
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist/demo
+          include-hidden-files: true
+          retention-days: 1
+
+  deploy:
+    if: ${{ inputs.publish && github.ref == 'refs/heads/main' }}
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: false
+      - name: Publicar demo
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -60,3 +60,12 @@
 .btn.route{background:#0ea5e9;color:#fff}
 .btn.print{background:#16a34a;color:#fff}
 .emg-msg{margin-top:10px;padding:10px 12px;border-radius:10px;border:2px solid #16a34a;background:#ecfdf5;color:#065f46;font-weight:800;text-align:center}
+@media (max-width:700px){
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .left{min-width:0;padding:16px}
+  .brand{flex-direction:column;text-align:center}
+  .brand img.logo{max-width:100%}
+  .grid,.options{grid-template-columns:minmax(0,1fr)}
+  .top{flex-wrap:wrap}
+  .detail img{width:100%}
+}

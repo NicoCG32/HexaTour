@@ -18,7 +18,7 @@ Este manual esta orientado al equipo tecnico que provee y mantiene el servicio H
 ## Guia rapida de proveedor
 
 - Verifica que el firmware este cargado segun [firmware/README.md](../firmware/README.md).
-- Prepara la SD con [web/www](../web/www).
+- Copia la carpeta `www` de [web/www](../web/www) a la raiz de la SD; conserva `/www/visitor/index.html` y `/www/db/index.json` junto con el resto de sus archivos.
 - Enciende el equipo y confirma la red Wi-Fi HexaTour.
 - Valida el portal:
    - Visitante: http://192.168.4.1/visitor/
@@ -56,6 +56,12 @@ Detalle de pines y cableado en [firmware/README.md](../firmware/README.md).
 - Usuario navega en http://192.168.4.1/visitor/.
 - El sistema imprime rutas y genera PDF cuando se solicita.
 
+La vista de operador solicita impresion; la vista de visitante descarga PDF. Ambas permiten consultar la imagen de ruta. [Acciones por vista](../web/README.md#paginas-del-portal).
+
+En Urgencia del modo habitual, el visitante puede preparar un SMS en la app del dispositivo si `URGENCIA_SMS` tiene un destinatario acordado y un punto de ubicacion configurados; ambos estan vacios por defecto. Sin ellos, muestra SMS no configurado y no abre la app. El envio depende del usuario. El operador solo muestra un aviso local, cuyo texto aclara que no ha realizado llamada ni envio. La configuracion no acredita que el destinatario atienda urgencias; revisar su uso con el responsable del montaje. [Configuracion local](../web/README.md#urgencias).
+
+Con `demo=1` ambas vistas muestran demostraciones sin contactar a nadie; imprimir es simulado y PDF esta deshabilitado. [Demo sin hardware](Demo.md). Usar URLs sin ese parametro para el montaje operativo.
+
 Credenciales por defecto:
 - Usuario: operator
 - Contrasena: HexaTour2025!
@@ -72,7 +78,7 @@ Para cambios de configuracion, pines o credenciales, seguir [firmware/README.md]
 
 - Revisar cableado y conectores cada ciclo de mantenimiento.
 - Limpiar cache del navegador en pruebas de contenido.
-- Verificar existencia de .gz cuando se despliega contenido a SD.
+- Verificar los archivos originales sin comprimir dentro de `/www`; el firmware actual los sirve directamente. Los `.gz` opcionales no sustituyen esos originales.
 - Hacer respaldo periodico de [web/www](../web/www).
 
 ## Diagnostico rapido
