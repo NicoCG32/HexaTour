@@ -6,7 +6,7 @@ Video promocional: https://www.youtube.com/shorts/Zw-bziu8veU
 
 ## Estado de la entrega
 
-Prototipo de curso cerrado. La interfaz puede probarse sin hardware con el mock Python; el portal cautivo y la impresion real requieren el montaje. No hay una demo publica validada documentada. La compilacion del firmware y las versiones de cores Arduino aun deben registrarse para una reproduccion completa.
+Prototipo de curso cerrado. Puedes explorar la [demo pública sin hardware](https://nicocg32.github.io/HexaTour/), publicada y comprobada por HTTPS el 2026-10-07. Muestra datos de ejemplo e impresión simulada; PDF no disponible y urgencias sin envío. La interfaz también puede probarse con el mock Python; el portal cautivo y la impresión real requieren el montaje. La compilación del firmware y las versiones de cores Arduino aún deben registrarse para una reproducción completa.
 
 ## Tabla de contenidos
 
@@ -48,7 +48,7 @@ python -m http.server 8000 --bind 127.0.0.1 --directory web/www
 
 Abre http://localhost:8000/?demo=1. El aviso Demo sin hardware identifica la simulación: impresión local, PDF no disponible y urgencias sin envío. [Activación, recorrido y límites](docs/Demo.md). Las URLs sin `demo=1` mantienen el modo habitual.
 
-Para distribuir una copia que siempre active demo, ejecuta `python tools/build_demo.py`. Genera `dist/demo` sin modificar el portal fuente; el [workflow manual y la guía de despliegue](docs/Despliegue.md) usan únicamente ese artefacto. La publicación pública sigue pendiente.
+Para distribuir una copia que siempre active demo, ejecuta `python tools/build_demo.py`. Genera `dist/demo` sin modificar el portal fuente; el [workflow manual y la guía de despliegue](docs/Despliegue.md) usan únicamente ese artefacto. La demo publicada en Pages conserva ese modo en todos sus accesos, incluso sin parámetro o con `demo=0`.
 
 ### Con hardware
 

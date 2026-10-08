@@ -2,6 +2,8 @@
 
 [Índice técnico](README.md) · [Arquitectura](Arquitectura.md) · [Modo con mock](../tools/backend-local/README.md)
 
+La [demo pública en Pages](https://nicocg32.github.io/HexaTour/) está disponible y comprobada por HTTPS el 2026-10-07. Fuerza demo en todas sus entradas; las instrucciones siguientes describen también la prueba local del portal fuente.
+
 ## Ejecutar y activar
 
 Desde la raíz del repositorio, con Python 3.10 o posterior:
@@ -34,7 +36,7 @@ No usar el servidor estático del primer comando para comprobar esas APIs. Para 
 
 La navegación deriva la raíz web de la ubicación del script compartido. Se comprobó una entrada en raíz y otra bajo `/HexaTour/` en un servidor estático temporal: la landing, los enlaces de vista, las fichas y las imágenes conservan su base.
 
-Al servir el checkout `web/www`, la demo se activa por URL. La [copia pública generada](Despliegue.md#generar-y-revisar-localmente) inserta `hexatour-mode=demo` en las cinco entradas: `common.js` fuerza demo incluso sin parámetro o con `demo=0`. Conserva SMS vacío y excluye firmware, herramientas e informes. El workflow de Pages está preparado con ejecución manual; aún no hay hosting público validado.
+Al servir el checkout `web/www`, la demo se activa por URL. La [copia pública generada](Despliegue.md#generar-y-revisar-localmente) inserta `hexatour-mode=demo` en las cinco entradas: `common.js` fuerza demo incluso sin parámetro o con `demo=0`. Conserva SMS vacío y excluye firmware, herramientas e informes. Pages publica esa copia mediante el workflow manual; [versión, ejecución y recuperación](Despliegue.md#estado).
 
 ## Comprobación realizada
 
@@ -44,4 +46,6 @@ Los menús y una ficha representativa de cada vista/base se comprobaron a 320, 3
 
 Los 273 archivos estáticos sin `.gz` respondieron correctamente desde ambas bases (546 solicitudes de recursos). La prueba no registró errores de consola ni respuestas HTTP de error. El smoke de la API mock había pasado 3/3; sus componentes no cambiaron en esta revisión.
 
-Esto no valida impresión física, SMS con destinatario configurado, compilación del firmware, exactitud turística ni un hosting público. La procedencia gráfica declarada por el responsable está registrada en [Contenido de la demo](Contenido-demo.md#recursos-gráficos); no fue una comprobación independiente de titularidad. El empaquetado y recorrido público siguen pendientes.
+La revisión posterior de Pages comprobó los 275 recursos del artefacto por HTTPS, las cinco entradas con demo ausente/0/1, los nueve menús de categoría en ambas vistas y la ficha/ruta Universidad a 320/390/1280 píxeles. Impresión simulada y urgencias se activaron con Enter; PDF permaneció deshabilitado. La consola no registró errores/advertencias y el inventario de recursos observado no contiene `/api/`. Esta observación no es una traza HTTP exhaustiva. [Registro de publicación](Despliegue.md#estado).
+
+Esto no valida impresión física, SMS con destinatario configurado, compilación del firmware ni exactitud turística. La procedencia gráfica declarada por el responsable está registrada en [Contenido de la demo](Contenido-demo.md#recursos-gráficos); no fue una comprobación independiente de titularidad.

@@ -8,7 +8,7 @@ HexaTour es un prototipo académico de orientación turística rural con portal 
 | --- | --- |
 | Ejecutar la web sin hardware o preparar el montaje | [README del proyecto](../README.md#guia-rapida) |
 | Entender componentes, acciones y límites | [Arquitectura](Arquitectura.md) |
-| Distinguir montaje físico, mock y demo disponible | [Contexto](Arquitectura.md#contexto-y-modos-de-ejecución) · [Flujo de impresión](Arquitectura.md#flujo-de-datos-y-aceptación-de-impresión) · [Distribución propuesta](Arquitectura.md#demo-disponible-y-distribución-propuesta) |
+| Distinguir montaje físico, mock y demo disponible | [Contexto](Arquitectura.md#contexto-y-modos-de-ejecución) · [Flujo de impresión](Arquitectura.md#flujo-de-datos-y-aceptación-de-impresión) · [Distribución pública](Arquitectura.md#demo-disponible-y-distribución-pública) |
 | Editar categorías, fichas e imágenes de forma coherente | [Formato de datos](Formato-de-datos.md) |
 | Validar catálogo y recursos sin servidor | [Validación local y regresiones](Formato-de-datos.md#validación-local) |
 | Actualizar contenido y probar el portal | [Guía web](../web/README.md) |
@@ -19,7 +19,7 @@ HexaTour es un prototipo académico de orientación turística rural con portal 
 | Conocer procedencia y alcance de los ejemplos mostrados | [Contenido de la demo](Contenido-demo.md) |
 | Puesta en marcha y mantenimiento del equipo | [Manual del proveedor](manual-proveedor.md) |
 
-Las versiones de cores Arduino y una compilación reproducible del firmware todavía no están registradas. Los datos turísticos son ejemplos sin verificación de vigencia; la procedencia gráfica declarada y las condiciones de presentación están en [Contenido de la demo](Contenido-demo.md). No hay una demo pública validada documentada aquí.
+Las versiones de cores Arduino y una compilación reproducible del firmware todavía no están registradas. Los datos turísticos son ejemplos sin verificación de vigencia; la procedencia gráfica declarada y las condiciones de presentación están en [Contenido de la demo](Contenido-demo.md). La [demo pública](https://nicocg32.github.io/HexaTour/) fue comprobada por HTTPS el 2026-10-07; [versión publicada y recuperación](Despliegue.md#estado).
 
 ## Circuito y fuentes editables
 

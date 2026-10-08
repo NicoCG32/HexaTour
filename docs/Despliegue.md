@@ -4,7 +4,17 @@
 
 ## Estado
 
-El empaquetado local y el workflow manual de GitHub Pages están preparados. **No hay una publicación ni una URL pública verificada.** La inspección del repositorio el 2026-10-07 indica Pages sin configurar; el workflow todavía debe incorporarse a la rama remota para ejecutarse allí.
+La [demo pública](https://nicocg32.github.io/HexaTour/) está publicada en GitHub Pages y fue comprobada por HTTPS el **2026-10-07**. Pages usa fuente `workflow`, sin dominio personalizado y con HTTPS obligatorio. El workflow continúa exclusivamente manual; un push no publica por sí solo.
+
+| Registro de la primera versión verificada | Valor |
+| --- | --- |
+| Fuente publicada | [aa9f3ce](https://github.com/NicoCG32/HexaTour/commit/aa9f3ce608107f89cb6559ad96b1c00175418559) |
+| Revisión previa sin publicar | [37715192073](https://github.com/NicoCG32/HexaTour/actions/runs/37715192073) |
+| Publicación aprobada | [37715247153](https://github.com/NicoCG32/HexaTour/actions/runs/37715247153) |
+| SHA-256 de demo-manifest.json | `6e12fa9814c17ced6257794a6d217bbc369805f6a62dad59cc7869bd6bfcb445` |
+| Artefacto estático | 275 archivos; todos los cuerpos HTTPS coinciden con el artefacto desplegado |
+
+Las 27 regresiones pasaron en Linux. El recorrido público comprobó las nueve categorías en ambas vistas, las cinco entradas con parámetro ausente/0/1, ficha y ruta de Universidad a 320/390/1280 píxeles y acciones por teclado. Impresión simulada, PDF deshabilitado y urgencias sin SMS; consola sin errores ni advertencias. El inventario de recursos observado no contiene `/api/`; no es una traza HTTP exhaustiva ni sustituye una prueba del montaje físico.
 
 El montaje físico usa `web/www` en la SD y conserva sus acciones habituales. La distribución pública usa una copia generada con demo forzada. Un despliegue web no actualiza firmware ni SD.
 
@@ -58,4 +68,6 @@ Cuando los cambios revisados estén confirmados y disponibles en `main` remoto:
 
 Registrar commit publicado, ID de ejecución, URL real, fecha y huella del manifiesto después de comprobar el sitio. La huella de archivos identifica el contenido de una copia; un HEAD anterior no representa cambios locales aún sin confirmar.
 
-Para recuperar una versión, restaurar en `main` el contenido de una fuente previamente verificada, reconstruir/revisar la demo y publicar mediante el mismo workflow. No depender del artefacto remoto como copia permanente: expira al día. Conservar fuente y manifiesto de la versión aprobada. La actualización de SD se realiza por el [procedimiento del montaje](manual-proveedor.md#actualizacion-de-contenidos), independientemente de Pages.
+Para recuperar una versión, restaurar en `main` los archivos del portal, empaquetador, pruebas y workflow de una fuente previamente verificada, confirmar/subir la restauración sin reescribir historial, reconstruir/revisar y publicar mediante el mismo workflow. La primera fuente comprobada es `aa9f3ce608107f89cb6559ad96b1c00175418559`; cotejar el manifiesto con la huella registrada arriba. El procedimiento está documentado, no se ensayó una reversión del sitio público.
+
+No depender del artefacto remoto como copia permanente: expira al día. Conservar fuente y manifiesto de la versión aprobada. La actualización de SD se realiza por el [procedimiento del montaje](manual-proveedor.md#actualizacion-de-contenidos), independientemente de Pages.

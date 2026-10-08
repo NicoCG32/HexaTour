@@ -108,18 +108,18 @@ sequenceDiagram
 
 La descarga PDF utiliza el texto y las imágenes de la SD en el ESP32, sin pasar por UNO/ticketera. El mock sustituye los participantes físicos por respuestas de prueba; no confirma la secuencia serial.
 
-## Demo disponible y distribución propuesta
+## Demo disponible y distribución pública
 
-El checkout activa demo explícitamente por URL; la copia generada por build_demo.py la fuerza mediante una marca en todas las entradas HTML. Se comprobó sobre un servidor estático local. El workflow manual preparado para Pages publica sólo esa copia, sin ejecutar firmware, servidor Python o impresora. La modalidad elegida es PDF no disponible; la publicación sigue pendiente. [Guía de distribución](Despliegue.md).
+El checkout activa demo explícitamente por URL; la copia generada por build_demo.py la fuerza mediante una marca en todas las entradas HTML. Se comprobó localmente y en la [demo pública de Pages](https://nicocg32.github.io/HexaTour/). El workflow manual publica sólo esa copia, sin ejecutar firmware, servidor Python o impresora. La modalidad elegida es PDF no disponible; impresión y urgencias son simulaciones locales. [Versión y guía de distribución](Despliegue.md).
 
 ```mermaid
 flowchart LR
     subgraph Fuente["Fuente y preparación"]
         G["Git: portal, datos e imágenes"] --> V["Revisar contenido y verificar rutas"]
-        V --> D["Artefacto: web/www con modo demo"]
+        V --> D["Artefacto: dist/demo con modo forzado"]
     end
-    D --> H["Hosting estático por seleccionar"]
-    subgraph Publico["Experiencia demo propuesta"]
+    D --> H["GitHub Pages: HTTPS, /HexaTour/"]
+    subgraph Publico["Experiencia demo pública"]
         H --> B["Navegador: categorías, fichas y rutas"]
         B --> I["Impresión simulada explícita"]
         B --> P["PDF no disponible en demo"]
