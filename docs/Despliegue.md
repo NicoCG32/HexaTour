@@ -43,7 +43,7 @@ La raíz actual tiene 275 archivos. Se comprueban también scripts, estilos e im
 1. `build` usa Python 3.12, ejecuta las regresiones y genera `dist/demo`. Sube exclusivamente esa carpeta como artefacto `github-pages`, con retención de un día.
 2. `deploy` sólo corre si `publish=true` y la rama es `main`. Depende del build aprobado, usa el entorno `github-pages` y expone la URL real como `page_url`.
 
-El permiso global es `contents: read`; `pages: write` e `id-token: write` se conceden sólo al job de publicación. Las acciones oficiales son checkout v6, setup-python v6, upload-pages-artifact v4, configure-pages v5 y deploy-pages v4. [Contrato oficial de workflows Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+El permiso global es `contents: read`; `pages: write` e `id-token: write` se conceden sólo al job de publicación. Las acciones oficiales son checkout v6, setup-python v6, upload-pages-artifact v5, configure-pages v5 y deploy-pages v4. La subida usa v5 para admitir `include-hidden-files` y conservar `.nojekyll` junto con los archivos del manifiesto. [Contrato oficial de workflows Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) · [Versión de la acción de subida](https://github.com/actions/upload-pages-artifact/releases/tag/v5.0.0).
 
 ## Activar y publicar
 
