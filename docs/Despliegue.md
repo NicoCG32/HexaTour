@@ -16,6 +16,8 @@ La [demo pública](https://nicocg32.github.io/HexaTour/) está publicada en GitH
 
 Las 27 regresiones pasaron en Linux. El recorrido público comprobó las nueve categorías en ambas vistas, las cinco entradas con parámetro ausente/0/1, ficha y ruta de Universidad a 320/390/1280 píxeles y acciones por teclado. Impresión simulada, PDF deshabilitado y urgencias sin SMS; consola sin errores ni advertencias. El inventario de recursos observado no contiene `/api/`; no es una traza HTTP exhaustiva ni sustituye una prueba del montaje físico.
 
+Actualización **2026-10-08**: [fuente e627bf1](https://github.com/NicoCG32/HexaTour/commit/e627bf1343a8f8d180d8caa644418ee0ec3bb70e), [publicación 37860351604](https://github.com/NicoCG32/HexaTour/actions/runs/37860351604), 29 pruebas aprobadas en Linux y 276 recursos HTTPS cotejados con el manifiesto. Se añadió [LICENSE.txt](https://nicocg32.github.io/HexaTour/LICENSE.txt), copia de la MIT del proyecto. Los hashes de todos los archivos de la versión anterior se conservaron; el navegador no se repitió porque HTML, scripts y estilos son idénticos. SHA-256 del manifiesto actual: `e40c04d39eda5e033abf19771b444443b240bf8d5b2365bcb9b22634d230c48a`.
+
 El montaje físico usa `web/www` en la SD y conserva sus acciones habituales. La distribución pública usa una copia generada con demo forzada. Un despliegue web no actualiza firmware ni SD.
 
 ## Generar y revisar localmente
@@ -69,6 +71,6 @@ Cuando los cambios revisados estén confirmados y disponibles en `main` remoto:
 
 Registrar commit publicado, ID de ejecución, URL real, fecha y huella del manifiesto después de comprobar el sitio. La huella de archivos identifica el contenido de una copia; un HEAD anterior no representa cambios locales aún sin confirmar.
 
-Para recuperar una versión, restaurar en `main` los archivos del portal, empaquetador, pruebas y workflow de una fuente previamente verificada, confirmar/subir la restauración sin reescribir historial, reconstruir/revisar y publicar mediante el mismo workflow. La primera fuente comprobada es `aa9f3ce608107f89cb6559ad96b1c00175418559`; cotejar el manifiesto con la huella registrada arriba. El procedimiento está documentado, no se ensayó una reversión del sitio público.
+Para recuperar una versión, restaurar en `main` los archivos del portal, empaquetador, pruebas y workflow de una fuente previamente verificada, confirmar/subir la restauración sin reescribir historial, reconstruir/revisar y publicar mediante el mismo workflow. La referencia actual con licencia incluida es `e627bf1343a8f8d180d8caa644418ee0ec3bb70e`; conservar `LICENSE` y su inclusión en el artefacto, y cotejar el manifiesto con la huella de esa publicación. La primera fuente histórica fue `aa9f3ce608107f89cb6559ad96b1c00175418559`. El procedimiento está documentado, no se ensayó una reversión del sitio público.
 
 No depender del artefacto remoto como copia permanente: expira al día. Conservar fuente y manifiesto de la versión aprobada. La actualización de SD se realiza por el [procedimiento del montaje](manual-proveedor.md#actualizacion-de-contenidos), independientemente de Pages.
