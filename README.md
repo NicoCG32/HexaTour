@@ -6,7 +6,7 @@ Video promocional: https://www.youtube.com/shorts/Zw-bziu8veU
 
 ## Estado de la entrega
 
-Prototipo de curso cerrado. Puedes explorar la [demo pública sin hardware](https://nicocg32.github.io/HexaTour/), publicada y comprobada por HTTPS el 2026-10-07. Muestra datos de ejemplo e impresión simulada; PDF no disponible y urgencias sin envío. La interfaz también puede probarse con el mock Python; el portal cautivo y la impresión real requieren el montaje. Ambos firmwares compilaron el 2026-10-08 con una [base de versiones fijas](firmware/Compilacion.md); la comprobación física sigue pendiente.
+Prototipo de curso cerrado. Puedes explorar la [demo pública sin hardware](https://nicocg32.github.io/HexaTour/), publicada y comprobada por HTTPS el 2026-10-07. Muestra datos de ejemplo e impresión simulada; PDF no disponible y urgencias sin envío. La interfaz también puede probarse con el mock Python; el portal cautivo y la impresión real requieren el montaje. El responsable confirmó que el montaje original funcionaba con el circuito presentado. Ambos firmwares compilaron el 2026-10-08 con una base nueva de versiones fijas; [registro del montaje y alcance de la revalidación](firmware/Compilacion.md#montaje-original-y-revalidación).
 
 ## Tabla de contenidos
 

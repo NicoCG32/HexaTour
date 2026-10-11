@@ -48,19 +48,23 @@ La RAM indicada corresponde a variables globales; no mide el consumo dinámico m
 
 Con `--warnings all` se conservaron advertencias: `DynamicJsonDocument` de ArduinoJson está obsoleto; LiquidCrystal_I2C usa macros binarias antiguas y declara `architectures=all`; Adafruit y el core AVR tienen variables/parámetros sin usar. No se modificaron las librerías para ocultar esas advertencias. El resultado acredita compilación y enlace, no funcionamiento del LCD, memoria bajo carga o hardware real.
 
-## Prueba física pendiente
+## Montaje original y revalidación
 
-La compilación sólo comprueba construcción y enlace del programa. Para acreditar el montaje, registrar fecha, modelo/variante de cada placa, ajustes de memoria/USB, fuente y conexiones contrastadas con el circuito, versión/commit cargado y estos resultados:
+El **2026-10-10**, el responsable del proyecto confirmó que había montado el circuito presentado y conservado en el repositorio, y que el conjunto funcionaba correctamente. Se registra como **montaje original funcional según declaración del responsable**. La fecha del ensayo original, las versiones del entorno y el commit/binario cargado no están identificados; la declaración no es una nueva prueba realizada durante esta revisión.
 
-| Prueba | Criterio | Resultado |
+El circuito de referencia es [HexaTourCircuito.drawio](../docs/diagramas/HexaTourCircuito.drawio), con sus [exportaciones](../docs/README.md#circuito-y-fuentes-editables). La compilación del 2026-10-08 comprueba construcción y enlace con una base nueva de versiones. Esa base no se ha cargado y probado físicamente durante la revisión.
+
+Para repetir la validación con la base actual cuando se vuelva a disponer del montaje, registrar fecha, modelo/variante de cada placa, ajustes de memoria/USB, conexiones, versión/commit cargado y los resultados siguientes. Esta tabla es una guía de revalidación; no sustituye la declaración de funcionamiento del prototipo original ni representa resultados detallados de aquel ensayo.
+
+| Prueba | Criterio | Revalidación con la base actual |
 | --- | --- | --- |
-| SD y LCD | `/www` completo, SD montada y estados visibles | Pendiente |
-| Wi-Fi y portal cautivo | AP accesible y detección de portal en un dispositivo real | Pendiente |
-| Catálogo | Categoría, ficha, imagen principal y ruta cargan desde SD | Pendiente |
-| PDF ESP32 | Descarga abre correctamente y contiene texto/imagen esperados | Pendiente |
-| UART ESP32–UNO | STATUS/PRINT/DONE observados con el mismo identificador de trabajo | Pendiente |
-| Impresora | Ticket legible y confirmación DONE después de terminar | Pendiente |
-| Espera y fallo | Equipo no disponible o sin respuesta muestra el estado real, sin afirmar impresión completada | Pendiente |
+| SD y LCD | `/www` completo, SD montada y estados visibles | No realizada |
+| Wi-Fi y portal cautivo | AP accesible y detección de portal en un dispositivo real | No realizada |
+| Catálogo | Categoría, ficha, imagen principal y ruta cargan desde SD | No realizada |
+| PDF ESP32 | Descarga abre correctamente y contiene texto/imagen esperados | No realizada |
+| UART ESP32–UNO | STATUS/PRINT/DONE observados con el mismo identificador de trabajo | No realizada |
+| Impresora | Ticket legible y confirmación DONE después de terminar | No realizada |
+| Espera y fallo | Equipo no disponible o sin respuesta muestra el estado real, sin afirmar impresión completada | No realizada |
 
 No activar SMS sin un destinatario acordado y configuración local válida. La demo de Pages tiene su propia copia forzada y no sustituye estas pruebas. Mantener los datos turísticos como ejemplos mientras no se verifiquen sus fuentes.
 

@@ -20,7 +20,7 @@ HexaTour es un prototipo académico de orientación turística rural con portal 
 | Conocer procedencia y alcance de los ejemplos mostrados | [Contenido de la demo](Contenido-demo.md) |
 | Puesta en marcha y mantenimiento del equipo | [Manual del proveedor](manual-proveedor.md) |
 
-Ambos firmwares tienen una [base de compilación comprobada con versiones fijas](../firmware/Compilacion.md); la carga y prueba física siguen pendientes. Los datos turísticos son ejemplos sin verificación de vigencia; la procedencia gráfica declarada y las condiciones de presentación están en [Contenido de la demo](Contenido-demo.md). La [demo pública](https://nicocg32.github.io/HexaTour/) fue comprobada por HTTPS el 2026-10-07; [versión publicada y recuperación](Despliegue.md#estado).
+Ambos firmwares tienen una [base de compilación comprobada con versiones fijas](../firmware/Compilacion.md). El montaje original funcionaba según declaración del responsable; la [revalidación con la base nueva](../firmware/Compilacion.md#montaje-original-y-revalidación) no se ha realizado. Los datos turísticos son ejemplos sin verificación de vigencia; la procedencia gráfica declarada y las condiciones de presentación están en [Contenido de la demo](Contenido-demo.md). La [demo pública](https://nicocg32.github.io/HexaTour/) fue comprobada por HTTPS el 2026-10-07; [versión publicada y recuperación](Despliegue.md#estado).
 
 ## Circuito y fuentes editables
 

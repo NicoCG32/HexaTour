@@ -119,7 +119,7 @@ Versiones declaradas por los archivos `library.properties` incluidos:
 | LiquidCrystal_I2C | 2.0.0 |
 | Adafruit Thermal Printer Library | 1.4.1 |
 
-Ambos firmwares compilaron el 2026-10-08 con Arduino CLI 1.5.1, core ESP32 3.3.12 y AVR 1.8.8, usando estas librerías locales. Las versiones del entorno original no están disponibles; se documenta una base nueva. [Perfiles, comandos, memoria y advertencias](Compilacion.md). No se cargó firmware en placas ni se verificó el montaje físico. [Arquitectura y límites](../docs/Arquitectura.md).
+Ambos firmwares compilaron el 2026-10-08 con Arduino CLI 1.5.1, core ESP32 3.3.12 y AVR 1.8.8, usando estas librerías locales. Las versiones del entorno original no están disponibles; se documenta una base nueva. [Perfiles, comandos, memoria y advertencias](Compilacion.md). El responsable confirmó que el montaje original funcionaba con el circuito presentado; durante esta revisión no se cargaron los nuevos binarios ni se repitió esa prueba. [Montaje original y revalidación](Compilacion.md#montaje-original-y-revalidación).
 
 ## Errores comunes
 
