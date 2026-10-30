@@ -1,8 +1,36 @@
+<div align="center">
+
+<img src="web/www/img/map/logoHexaTour.png" alt="Identidad visual de HexaTour" width="140" />
+
 # HexaTour
+
+**Orientación turística donde la conexión no llega.**
+
+[![Estado: Prototipo de curso](https://img.shields.io/badge/Estado-Prototipo%20de%20curso-26719D?style=flat-square&labelColor=263244)](#sobre-el-proyecto) [![Plataforma: ESP32 / Arduino](https://img.shields.io/badge/Plataforma-ESP32%20%2F%20Arduino-386B8F?style=flat-square&labelColor=263244)](#usar-o-descargar) [![Licencia: MIT](https://img.shields.io/badge/Licencia-MIT-596273?style=flat-square&labelColor=263244)](LICENSING.md)
+
+[![ESP32 S3](https://img.shields.io/badge/ESP32%20S3-B42B2B?style=for-the-badge&logo=espressif&logoColor=FFFFFF)](#tecnologías) [![Arduino](https://img.shields.io/badge/Arduino-007D85?style=for-the-badge&logo=arduino&logoColor=FFFFFF)](#tecnologías) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=20232A)](#tecnologías) [![Python 3](https://img.shields.io/badge/Python%203-3776AB?style=for-the-badge&logo=python&logoColor=FFFFFF)](#tecnologías)
+
+[Abrir aplicación](https://nicocg32.github.io/HexaTour/) · [Documentación](docs/README.md) · [Arquitectura](docs/01-arquitectura-general.md) · [Inicio rápido](#ejecutar-desde-el-código)
+
+</div>
+
+---
+
+## Sobre el proyecto
 
 Prototipo de orientación turística rural sin Internet: un portal cautivo en ESP32-S3 muestra puntos de interés y un Arduino UNO controla la impresión de indicaciones. Incluye una demo web para explorar sin hardware.
 
 **Estado:** Prototipo de curso cerrado. La demo utiliza datos de ejemplo e impresión simulada; no ofrece PDF ni envío de urgencias. No hay instaladores publicados en GitHub Releases.
+
+## Tecnologías
+
+| Área                    | Tecnologías y responsabilidad                                              |
+| ----------------------- | -------------------------------------------------------------------------- |
+| **Hardware y firmware** | ESP32-S3 y Arduino UNO; C++/Arduino, SD y enlace serial.                   |
+| **Portal**              | HTML, CSS y JavaScript; catálogo y fichas JSON en la SD.                   |
+| **Herramientas**        | Python 3 para backend simulado, validación y preparación de demo estática. |
+
+> **Enfoque técnico:** Portal local y control de impresora separados; demo web con simulación explícita.
 
 ## Usar o descargar
 
