@@ -1,6 +1,9 @@
 <div align="center">
 
-<img src="web/www/img/map/logoHexaTour.png" alt="Identidad visual de HexaTour" width="140" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="branding/hexatour-banner-oscuro.webp" />
+  <img src="branding/hexatour-banner-claro.webp" alt="Identidad visual de HexaTour" width="100%" />
+</picture>
 
 # HexaTour
 
@@ -56,6 +59,8 @@ Abre [visitante](http://localhost:8000/visitor/) u [operador](http://localhost:8
 | Técnica             | [Arquitectura y diagramas](docs/01-arquitectura-general.md) · [Dominio y datos](docs/04-base-de-datos.md)                                                                        |
 | Desarrollo          | [Etapas y metodología](docs/17-desarrollo-y-metodologia.md) · [Proyección](docs/15-escalabilidad-y-nuevos-mercados.md) · [Costos CLP/USD](docs/18-analisis-economico-clp-usd.md) |
 | Académica/formativa | [Contexto e informes originales](docs/academica/README.md)                                                                                                                       |
+
+[Identidad visual](branding/README.md): logos, banners y variantes de aplicación.
 
 ## Licencia y créditos
 

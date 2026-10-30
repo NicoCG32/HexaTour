@@ -1,30 +1,127 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>HexaTour — Portal Visitante</title>
-<link rel="stylesheet" href="../assets/css/base.css"/>
-<link rel="stylesheet" href="../assets/css/visitor.css"/>
-<link rel="preload" as="image" href="../img/mapageneral.jpg"/>
-</head>
-<body><div class="wrap">
-<header><img alt="HexaTour" decoding="async" loading="lazy" src="../img/map/logoHexaTour.png"/><h1><span class="line1">HexaTour</span><br/><span class="line2">Portal Visitante</span></h1></header>
-<p class="sub">Elige una categoría para ver lugares y descargar la ruta.</p>
-<div class="grid" id="categorias">
-<button class="btn-cat rest" data-cat="Restaurantes"><img alt="" decoding="async" loading="lazy" src="../img/map/logoRestaurantes.png"/><span>Restaurantes</span></button>
-<button class="btn-cat hosp" data-cat="Hospedajes"><img alt="" decoding="async" loading="lazy" src="../img/map/logoHospedajes.png"/><span>Hospedajes</span></button>
-<button class="btn-cat plaz" data-cat="Plazas"><img alt="" decoding="async" loading="lazy" src="../img/map/logoPlazas.png"/><span>Plazas</span></button>
-<button class="btn-cat rios" data-cat="Ríos"><img alt="" decoding="async" loading="lazy" src="../img/map/logoRios.png"/><span>Ríos</span></button>
-<button class="btn-cat pisq" data-cat="Pisqueras"><img alt="" decoding="async" loading="lazy" src="../img/map/logoPisqueras.png"/><span>Pisqueras</span></button>
-<button class="btn-cat camp" data-cat="Campings"><img alt="" decoding="async" loading="lazy" src="../img/map/logoCampings.png"/><span>Campings</span></button>
-<button class="btn-cat feri" data-cat="Ferias Artesanales"><img alt="" decoding="async" loading="lazy" src="../img/map/logoFerias.png"/><span>Ferias</span></button>
-<button class="btn-cat serv" data-cat="Servicios"><img alt="" decoding="async" loading="lazy" src="../img/map/logoServicios.png"/><span>Servicios</span></button>
-<button class="btn-cat uni" data-cat="Universidad"><img alt="" decoding="async" loading="lazy" src="../img/map/logoUniversidad.png"/><span>Universidad</span></button>
-<button class="btn-cat urgn" data-cat="Urgencia"><img alt="" decoding="async" loading="lazy" src="../img/map/logoUrgencia.png"/><span>Urgencia</span></button>
-</div>
-<div class="card"><img alt="Mapa general" class="map" decoding="async" fetchpriority="high" loading="eager" src="../img/mapageneral.jpg"/></div>
-</div>
-<script src="../assets/js/common.js" defer></script>
-<script src="../assets/js/visitor-index.js" defer></script>
-</body></html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>HexaTour — Portal Visitante</title>
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/visitor.css" />
+    <link rel="preload" as="image" href="../img/mapageneral.jpg" />
+    <link rel="icon" type="image/png" href="../assets/brand/favicon.png" />
+    <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <img
+          alt="HexaTour"
+          decoding="async"
+          loading="lazy"
+          src="../img/map/logoHexaTour.png"
+        />
+        <h1>
+          <span class="line1">HexaTour</span><br /><span class="line2"
+            >Portal Visitante</span
+          >
+        </h1>
+      </header>
+      <p class="sub">
+        Elige una categoría para ver lugares y descargar la ruta.
+      </p>
+      <div class="grid" id="categorias">
+        <button class="btn-cat rest" data-cat="Restaurantes">
+          <img
+            alt=""
+            decoding="async"
+            loading="lazy"
+            src="../img/map/logoRestaurantes.png"
+          /><span>Restaurantes</span>
+        </button>
+        <button class="btn-cat hosp" data-cat="Hospedajes">
+          <img
+            alt=""
+            decoding="async"
+            loading="lazy"
+            src="../img/map/logoHospedajes.png"
+          /><span>Hospedajes</span>
+        </button>
+        <button class="btn-cat plaz" data-cat="Plazas">
+          <img
+            alt=""
+            decoding="async"
+            loading="lazy"
+            src="../img/map/logoPlazas.png"
+          /><span>Plazas</span>
+        </button>
+        <button class="btn-cat rios" data-cat="Ríos">
+          <img
+            alt=""
+            decoding="async"
+            loading="lazy"
+            src="../img/map/logoRios.png"
+          /><span>Ríos</span>
+        </button>
+        <button class="btn-cat pisq" data-cat="Pisqueras">
+          <img
+            alt=""
+            decoding="async"
+            loading="lazy"
+            src="../img/map/logoPisqueras.png"
+          /><span>Pisqueras</span>
+        </button>
+        <button class="btn-cat camp" data-cat="Campings">
+          <img
+            alt=""
+            decoding="async"
+            loading="lazy"
+            src="../img/map/logoCampings.png"
+          /><span>Campings</span>
+        </button>
+        <button class="btn-cat feri" data-cat="Ferias Artesanales">
+          <img
+            alt=""
+            decoding="async"
+            loading="lazy"
+            src="../img/map/logoFerias.png"
+          /><span>Ferias</span>
+        </button>
+        <button class="btn-cat serv" data-cat="Servicios">
+          <img
+            alt=""
+            decoding="async"
+            loading="lazy"
+            src="../img/map/logoServicios.png"
+          /><span>Servicios</span>
+        </button>
+        <button class="btn-cat uni" data-cat="Universidad">
+          <img
+            alt=""
+            decoding="async"
+            loading="lazy"
+            src="../img/map/logoUniversidad.png"
+          /><span>Universidad</span>
+        </button>
+        <button class="btn-cat urgn" data-cat="Urgencia">
+          <img
+            alt=""
+            decoding="async"
+            loading="lazy"
+            src="../img/map/logoUrgencia.png"
+          /><span>Urgencia</span>
+        </button>
+      </div>
+      <div class="card">
+        <img
+          alt="Mapa general"
+          class="map"
+          decoding="async"
+          fetchpriority="high"
+          loading="eager"
+          src="../img/mapageneral.jpg"
+        />
+      </div>
+    </div>
+    <script src="../assets/js/common.js" defer></script>
+    <script src="../assets/js/visitor-index.js" defer></script>
+  </body>
+</html>

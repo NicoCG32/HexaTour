@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024"><title>HexaTour — Orientación turística sin conexión</title><defs>
+ <linearGradient id="night" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0D2440"/><stop offset=".57" stop-color="#17385C"/><stop offset="1" stop-color="#0B243F"/></linearGradient>
+ <linearGradient id="day" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F8FCFE"/><stop offset=".64" stop-color="#EAF5F9"/><stop offset="1" stop-color="#D9EBF5"/></linearGradient>
+ <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5AB6F1"/><stop offset=".45" stop-color="#348DCF"/><stop offset="1" stop-color="#1969B1"/></linearGradient>
+ <linearGradient id="tile2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#65C3F8"/><stop offset=".48" stop-color="#3D9CDF"/><stop offset="1" stop-color="#2079BE"/></linearGradient>
+ <linearGradient id="central" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#396CA4"/><stop offset=".5" stop-color="#2A5284"/><stop offset="1" stop-color="#173A69"/></linearGradient>
+ <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFE3A1"/><stop offset=".44" stop-color="#F5B347"/><stop offset="1" stop-color="#D9902F"/></linearGradient>
+ <radialGradient id="blueglow"><stop stop-color="#54B7ED" stop-opacity=".29"/><stop offset="1" stop-color="#54B7ED" stop-opacity="0"/></radialGradient>
+ <radialGradient id="yellowglow"><stop stop-color="#FFD385" stop-opacity=".2"/><stop offset="1" stop-color="#FFD385" stop-opacity="0"/></radialGradient>
+ <pattern id="dots" width="45" height="45" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#75BDDE" opacity=".20"/></pattern>
+ <filter id="softshadow" x="-40%" y="-50%" width="180%" height="200%"><feGaussianBlur stdDeviation="16"/></filter>
+ </defs><rect x="19" y="19" width="986" height="986" rx="208" fill="url(#day)"/>
+ <rect x="39" y="39" width="946" height="946" rx="189" fill="none" stroke="#9AC7E3" stroke-width="4" opacity=".27"/>
+ <clipPath id="app-rounded-clip"><rect x="19" y="19" width="986" height="986" rx="208"/></clipPath>
+ <circle cx="489" cy="472" r="485" fill="url(#blueglow)" clip-path="url(#app-rounded-clip)"/>
+ <g transform="translate(490 497) scale(1.76)"><g transform="scale(1)"><g>
+ <polygon points="0.0,-224.0 72.7,-182.0 72.7,-98.0 0.0,-56.0 -72.7,-98.0 -72.7,-182.0" fill="#102A4A" stroke="#112D52" stroke-width="9" stroke-linejoin="round"/>
+ <polygon points="0.0,-220.0 65.8,-182.0 65.8,-106.0 0.0,-68.0 -65.8,-106.0 -65.8,-182.0" fill="url(#tile)" stroke="#244C77" stroke-width="2" stroke-linejoin="round"/>
+ <path d="M-61.5 -179.5 L0.0 -215.0 L61.5 -179.5" stroke="#B2E8FF" stroke-width="4" stroke-opacity=".75" fill="none" stroke-linecap="round"/>
+ <path d="M61.5 -108.5 L0.0 -73.0 L-61.5 -108.5" stroke="#115189" stroke-width="4" stroke-opacity=".55" fill="none" stroke-linecap="round"/>
+ </g><g>
+ <polygon points="-125.0,-152.0 -52.3,-110.0 -52.3,-26.0 -125.0,16.0 -197.7,-26.0 -197.7,-110.0" fill="#102A4A" stroke="#112D52" stroke-width="9" stroke-linejoin="round"/>
+ <polygon points="-125.0,-148.0 -59.2,-110.0 -59.2,-34.0 -125.0,4.0 -190.8,-34.0 -190.8,-110.0" fill="url(#tile2)" stroke="#244C77" stroke-width="2" stroke-linejoin="round"/>
+ <path d="M-186.5 -107.5 L-125.0 -143.0 L-63.5 -107.5" stroke="#B2E8FF" stroke-width="4" stroke-opacity=".75" fill="none" stroke-linecap="round"/>
+ <path d="M-63.5 -36.5 L-125.0 -1.0 L-186.5 -36.5" stroke="#115189" stroke-width="4" stroke-opacity=".55" fill="none" stroke-linecap="round"/>
+ </g><g>
+ <polygon points="-125.0,-8.0 -52.3,34.0 -52.3,118.0 -125.0,160.0 -197.7,118.0 -197.7,34.0" fill="#102A4A" stroke="#112D52" stroke-width="9" stroke-linejoin="round"/>
+ <polygon points="-125.0,-4.0 -59.2,34.0 -59.2,110.0 -125.0,148.0 -190.8,110.0 -190.8,34.0" fill="url(#tile)" stroke="#244C77" stroke-width="2" stroke-linejoin="round"/>
+ <path d="M-186.5 36.5 L-125.0 1.0 L-63.5 36.5" stroke="#B2E8FF" stroke-width="4" stroke-opacity=".75" fill="none" stroke-linecap="round"/>
+ <path d="M-63.5 107.5 L-125.0 143.0 L-186.5 107.5" stroke="#115189" stroke-width="4" stroke-opacity=".55" fill="none" stroke-linecap="round"/>
+ </g><g>
+ <polygon points="0.0,64.0 72.7,106.0 72.7,190.0 0.0,232.0 -72.7,190.0 -72.7,106.0" fill="#102A4A" stroke="#112D52" stroke-width="9" stroke-linejoin="round"/>
+ <polygon points="0.0,68.0 65.8,106.0 65.8,182.0 0.0,220.0 -65.8,182.0 -65.8,106.0" fill="url(#central)" stroke="#244C77" stroke-width="2" stroke-linejoin="round"/>
+ <path d="M-61.5 108.5 L0.0 73.0 L61.5 108.5" stroke="#B2E8FF" stroke-width="4" stroke-opacity=".75" fill="none" stroke-linecap="round"/>
+ <path d="M61.5 179.5 L0.0 215.0 L-61.5 179.5" stroke="#115189" stroke-width="4" stroke-opacity=".55" fill="none" stroke-linecap="round"/>
+ </g><g>
+ <polygon points="125.0,-8.0 197.7,34.0 197.7,118.0 125.0,160.0 52.3,118.0 52.3,34.0" fill="#102A4A" stroke="#112D52" stroke-width="9" stroke-linejoin="round"/>
+ <polygon points="125.0,-4.0 190.8,34.0 190.8,110.0 125.0,148.0 59.2,110.0 59.2,34.0" fill="url(#tile)" stroke="#244C77" stroke-width="2" stroke-linejoin="round"/>
+ <path d="M63.5 36.5 L125.0 1.0 L186.5 36.5" stroke="#B2E8FF" stroke-width="4" stroke-opacity=".75" fill="none" stroke-linecap="round"/>
+ <path d="M186.5 107.5 L125.0 143.0 L63.5 107.5" stroke="#115189" stroke-width="4" stroke-opacity=".55" fill="none" stroke-linecap="round"/>
+ </g><g>
+ <polygon points="0.0,-80.0 72.7,-38.0 72.7,46.0 0.0,88.0 -72.7,46.0 -72.7,-38.0" fill="#102A4A" stroke="#112D52" stroke-width="9" stroke-linejoin="round"/>
+ <polygon points="0.0,-76.0 65.8,-38.0 65.8,38.0 0.0,76.0 -65.8,38.0 -65.8,-38.0" fill="url(#central)" stroke="#244C77" stroke-width="2" stroke-linejoin="round"/>
+ <path d="M-61.5 -35.5 L0.0 -71.0 L61.5 -35.5" stroke="#B2E8FF" stroke-width="4" stroke-opacity=".75" fill="none" stroke-linecap="round"/>
+ <path d="M61.5 35.5 L0.0 71.0 L-61.5 35.5" stroke="#115189" stroke-width="4" stroke-opacity=".55" fill="none" stroke-linecap="round"/>
+ </g><g transform="translate(0 0) scale(0.56)">
+ <path d="M0 -51 C-34 -51 -57 -26 -57 7 C-57 43 -18 76 0 99 C19 76 57 43 57 7 C57 -26 34 -51 0 -51Z" fill="url(#amber)" stroke="#15375D" stroke-width="10" stroke-linejoin="round"/>
+ <circle cx="0" cy="7" r="23" fill="#194675" stroke="#FFE7B9" stroke-width="4"/>
+ <circle cx="0" cy="7" r="7" fill="#A7DCF4"/>
+ </g><g transform="translate(210 -174) rotate(25) scale(0.83)">
+ <path d="M -65 15 Q-95 11 -112 -5" fill="none" stroke="#FDBE5E" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 13" opacity=".85"/>
+ <ellipse cx="-10" cy="-23" rx="21" ry="34" transform="rotate(-32 -10 -23)" fill="#D9F6FF" stroke="#68BBD8" stroke-width="4" opacity=".9"/>
+ <ellipse cx="25" cy="-22" rx="21" ry="31" transform="rotate(32 25 -22)" fill="#E8F9FF" stroke="#68BBD8" stroke-width="4" opacity=".9"/>
+ <ellipse cx="8" cy="19" rx="40" ry="28" fill="url(#amber)" stroke="#173657" stroke-width="6"/>
+ <path d="M -5 -6 Q -16 22 -5 46 M18 -6 Q8 22 20 46" stroke="#173657" stroke-width="10" fill="none"/>
+ <circle cx="-34" cy="18" r="16" fill="#F7D07B" stroke="#173657" stroke-width="5"/>
+ <circle cx="-39" cy="14" r="3.5" fill="#173657"/>
+ <path d="M-44 3Q-53 -14 -61 -9 M-31 4Q-30 -13 -21 -11" fill="none" stroke="#173657" stroke-width="3" stroke-linecap="round"/>
+ <path d="M49 18 L66 20 L49 28" fill="#EFA845" stroke="#173657" stroke-width="3" stroke-linejoin="round"/>
+ </g></g></g>
+ <path d="M350 893 H675" stroke="#F5B547" stroke-width="8" stroke-linecap="round" opacity=".8"/>
+ </svg>
