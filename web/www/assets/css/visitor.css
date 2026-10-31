@@ -20,7 +20,7 @@
 }
 .wrap{max-width:480px;margin:0 auto;padding:16px}
 header{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:12px}
-header img{width:250px;height:auto}
+header img{width:clamp(4rem,16vw,6rem);height:auto;aspect-ratio:1;object-fit:contain;flex-shrink:0}
 .wrap h1{font-size:1.35rem;margin:0;text-align:center}
 .wrap h1 .line1{font-weight:800}
 .wrap h1 .line2{font-weight:700}

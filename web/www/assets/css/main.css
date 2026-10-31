@@ -21,7 +21,7 @@
 .layout{display:grid;grid-template-columns:2fr 1.2fr;gap:16px;max-width:1300px;margin:0 auto;padding:16px}
 .left{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:20px;min-height:72vh;box-shadow:0 8px 24px rgba(0,0,0,.06)}
 .brand{display:flex;align-items:center;gap:16px;margin-bottom:12px}
-.brand img.logo{width:250px;height:auto;display:block}
+.brand img.logo{width:clamp(4rem,16vw,6rem);height:auto;aspect-ratio:1;object-fit:contain;flex-shrink:0;display:block}
 .title h1{margin:0;font-size:2rem;line-height:1.05}
 .title .l1{font-weight:900}
 .title .l2{font-weight:700;color:var(--muted)}

@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="branding/hexatour-banner-oscuro.webp" />
-  <img src="branding/hexatour-banner-claro.webp" alt="Identidad visual de HexaTour" width="100%" />
+  <source media="(prefers-color-scheme: dark)" srcset="branding/banners/hexatour-banner-oscuro.webp" />
+  <img src="branding/banners/hexatour-banner-claro.webp" alt="Identidad visual de HexaTour" width="100%" />
 </picture>
 
 # HexaTour

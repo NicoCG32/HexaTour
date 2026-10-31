@@ -1,41 +1,384 @@
 {
   "schemaVersion": 1,
   "project": "HexaTour",
-  "bannerLight": "hexatour-banner-claro.webp",
-  "bannerDark": "hexatour-banner-oscuro.webp",
+  "bannerLight": "banners/hexatour-banner-claro.webp",
+  "bannerDark": "banners/hexatour-banner-oscuro.webp",
   "resources": [
-    "apple-touch-icon-180.png",
-    "favicon-32.png",
-    "favicon-64.png",
-    "hexatour-banner-claro-alta-resolucion.png",
-    "hexatour-banner-claro.png",
-    "hexatour-banner-claro.svg",
-    "hexatour-banner-claro.webp",
-    "hexatour-banner-oscuro-alta-resolucion.png",
-    "hexatour-banner-oscuro.png",
-    "hexatour-banner-oscuro.svg",
-    "hexatour-banner-oscuro.webp",
-    "hexatour-icono-app-claro.png",
-    "hexatour-icono-app-claro.svg",
-    "hexatour-icono-app-oscuro.png",
-    "hexatour-icono-app-oscuro.svg",
-    "hexatour-isotipo-transparente-alta-resolucion.png",
-    "hexatour-isotipo-transparente.png",
-    "hexatour-isotipo-transparente.svg",
-    "hexatour-isotipo-transparente.webp",
-    "hexatour-logo-horizontal-alta-resolucion.png",
-    "hexatour-logo-horizontal-dark.png",
-    "hexatour-logo-horizontal-dark.svg",
-    "hexatour-logo-horizontal.png",
-    "hexatour-logo-horizontal.svg",
-    "hexatour-logo-horizontal.webp",
-    "hexatour-logo-vertical.png",
-    "hexatour-logo-vertical.svg",
-    "hexatour-portada-cuadrada-clara.png",
-    "hexatour-portada-cuadrada-clara.svg",
-    "hexatour-portada-cuadrada-oscura.png",
-    "hexatour-portada-cuadrada-oscura.svg",
-    "icon-192.png",
-    "icon-512.png"
-  ]
+    "banners/hexatour-banner-claro-alta-resolucion.png",
+    "banners/hexatour-banner-claro.png",
+    "banners/hexatour-banner-claro.svg",
+    "banners/hexatour-banner-claro.webp",
+    "banners/hexatour-banner-oscuro-alta-resolucion.png",
+    "banners/hexatour-banner-oscuro.png",
+    "banners/hexatour-banner-oscuro.svg",
+    "banners/hexatour-banner-oscuro.webp",
+    "iconos/apple-touch-icon-180.png",
+    "iconos/favicon-32.png",
+    "iconos/favicon-64.png",
+    "iconos/hexatour-icono-app-claro.png",
+    "iconos/hexatour-icono-app-claro.svg",
+    "iconos/hexatour-icono-app-oscuro.png",
+    "iconos/hexatour-icono-app-oscuro.svg",
+    "iconos/icon-192.png",
+    "iconos/icon-512.png",
+    "logos/hexatour-isotipo-transparente-alta-resolucion.png",
+    "logos/hexatour-isotipo-transparente.png",
+    "logos/hexatour-isotipo-transparente.svg",
+    "logos/hexatour-isotipo-transparente.webp",
+    "logos/hexatour-logo-horizontal-alta-resolucion.png",
+    "logos/hexatour-logo-horizontal-dark.png",
+    "logos/hexatour-logo-horizontal-dark.svg",
+    "logos/hexatour-logo-horizontal.png",
+    "logos/hexatour-logo-horizontal.svg",
+    "logos/hexatour-logo-horizontal.webp",
+    "logos/hexatour-logo-vertical.png",
+    "logos/hexatour-logo-vertical.svg",
+    "portadas/hexatour-portada-cuadrada-clara.png",
+    "portadas/hexatour-portada-cuadrada-clara.svg",
+    "portadas/hexatour-portada-cuadrada-oscura.png",
+    "portadas/hexatour-portada-cuadrada-oscura.svg"
+  ],
+  "groups": {
+    "logos": [
+      "logos/hexatour-isotipo-transparente-alta-resolucion.png",
+      "logos/hexatour-isotipo-transparente.png",
+      "logos/hexatour-isotipo-transparente.svg",
+      "logos/hexatour-isotipo-transparente.webp",
+      "logos/hexatour-logo-horizontal-alta-resolucion.png",
+      "logos/hexatour-logo-horizontal-dark.png",
+      "logos/hexatour-logo-horizontal-dark.svg",
+      "logos/hexatour-logo-horizontal.png",
+      "logos/hexatour-logo-horizontal.svg",
+      "logos/hexatour-logo-horizontal.webp",
+      "logos/hexatour-logo-vertical.png",
+      "logos/hexatour-logo-vertical.svg"
+    ],
+    "iconos": [
+      "iconos/apple-touch-icon-180.png",
+      "iconos/favicon-32.png",
+      "iconos/favicon-64.png",
+      "iconos/hexatour-icono-app-claro.png",
+      "iconos/hexatour-icono-app-claro.svg",
+      "iconos/hexatour-icono-app-oscuro.png",
+      "iconos/hexatour-icono-app-oscuro.svg",
+      "iconos/icon-192.png",
+      "iconos/icon-512.png"
+    ],
+    "banners": [
+      "banners/hexatour-banner-claro-alta-resolucion.png",
+      "banners/hexatour-banner-claro.png",
+      "banners/hexatour-banner-claro.svg",
+      "banners/hexatour-banner-claro.webp",
+      "banners/hexatour-banner-oscuro-alta-resolucion.png",
+      "banners/hexatour-banner-oscuro.png",
+      "banners/hexatour-banner-oscuro.svg",
+      "banners/hexatour-banner-oscuro.webp"
+    ],
+    "portadas": [
+      "portadas/hexatour-portada-cuadrada-clara.png",
+      "portadas/hexatour-portada-cuadrada-clara.svg",
+      "portadas/hexatour-portada-cuadrada-oscura.png",
+      "portadas/hexatour-portada-cuadrada-oscura.svg"
+    ],
+    "referencias": []
+  },
+  "metadata": {
+    "banners/hexatour-banner-claro-alta-resolucion.png": {
+      "format": "png",
+      "bytes": 925832,
+      "sha256": "5bf49b22253fdabb4f3b660d47145f2bfa9907312cb21b1354a040d8688ef37e",
+      "width": 3600,
+      "height": 1470,
+      "scalable": false,
+      "alpha": true
+    },
+    "banners/hexatour-banner-claro.png": {
+      "format": "png",
+      "bytes": 551910,
+      "sha256": "084e2909ac48559b47920fc9df4f6d755fdee43995b4de393801ca54e26950a3",
+      "width": 2400,
+      "height": 980,
+      "scalable": false,
+      "alpha": true
+    },
+    "banners/hexatour-banner-claro.svg": {
+      "format": "svg",
+      "bytes": 30076,
+      "sha256": "ec47b9e7c62baf70e93539ad5b673cc966ea283fa093abaaab7cf86cf3548b68",
+      "width": 2400.0,
+      "height": 980.0,
+      "viewBox": [0.0, 0.0, 2400.0, 980.0],
+      "scalable": true
+    },
+    "banners/hexatour-banner-claro.webp": {
+      "format": "webp",
+      "bytes": 92708,
+      "sha256": "4e47f7a516ab8660010f3657b5937ee83f6e0dd4acf079497c86bbc61776f8d9",
+      "width": 2400,
+      "height": 980,
+      "scalable": false,
+      "alpha": true
+    },
+    "banners/hexatour-banner-oscuro-alta-resolucion.png": {
+      "format": "png",
+      "bytes": 1058789,
+      "sha256": "7fe8112f2f79edc9bc46d6582d292eed1c4ec53b4ef24fc411b2a84f723c9ddb",
+      "width": 3600,
+      "height": 1470,
+      "scalable": false,
+      "alpha": true
+    },
+    "banners/hexatour-banner-oscuro.png": {
+      "format": "png",
+      "bytes": 639080,
+      "sha256": "99ae719e5ec165c68830a74cbc0b1b3077d494531d48b9bbb4b53a96d2becd6c",
+      "width": 2400,
+      "height": 980,
+      "scalable": false,
+      "alpha": true
+    },
+    "banners/hexatour-banner-oscuro.svg": {
+      "format": "svg",
+      "bytes": 30079,
+      "sha256": "241a5a5142dadae1ea1137337fc55777d36fa79a4c3b4f86334b1727a4235b88",
+      "width": 2400.0,
+      "height": 980.0,
+      "viewBox": [0.0, 0.0, 2400.0, 980.0],
+      "scalable": true
+    },
+    "banners/hexatour-banner-oscuro.webp": {
+      "format": "webp",
+      "bytes": 96042,
+      "sha256": "bfde6b257f66616af0829c39c142dde652dc810bcc079b98af028522c96f4662",
+      "width": 2400,
+      "height": 980,
+      "scalable": false,
+      "alpha": true
+    },
+    "iconos/apple-touch-icon-180.png": {
+      "format": "png",
+      "bytes": 33425,
+      "sha256": "a6f59b5d3016aeb5f992763259404f0a0fb03fc14ca0e0f68395a7a3e74a5d1d",
+      "width": 180,
+      "height": 180,
+      "scalable": false,
+      "alpha": true
+    },
+    "iconos/favicon-32.png": {
+      "format": "png",
+      "bytes": 2468,
+      "sha256": "6e50afdd05cc9edd79e9b70375baca3cca4669d2d573f407b79e8a3d67ff3a48",
+      "width": 32,
+      "height": 32,
+      "scalable": false,
+      "alpha": true
+    },
+    "iconos/favicon-64.png": {
+      "format": "png",
+      "bytes": 7022,
+      "sha256": "7909736ae216557bc757c762749fff3dbbf7b81145a6a5d88dbf9f8ed6c2f378",
+      "width": 64,
+      "height": 64,
+      "scalable": false,
+      "alpha": true
+    },
+    "iconos/hexatour-icono-app-claro.png": {
+      "format": "png",
+      "bytes": 313570,
+      "sha256": "5f8424e65b9b1b8a13543bbeae1398847942559ac98d7a1c4b501f71c44b8602",
+      "width": 1024,
+      "height": 1024,
+      "scalable": false,
+      "alpha": true
+    },
+    "iconos/hexatour-icono-app-claro.svg": {
+      "format": "svg",
+      "bytes": 7527,
+      "sha256": "0c40748618e40b1a9e4dd450b06b0e61e3604ee5aca660e80287ac30d76ff122",
+      "width": 1024.0,
+      "height": 1024.0,
+      "viewBox": [0.0, 0.0, 1024.0, 1024.0],
+      "scalable": true
+    },
+    "iconos/hexatour-icono-app-oscuro.png": {
+      "format": "png",
+      "bytes": 323561,
+      "sha256": "fad3f85bb125b8bfa73d701bf60ffd15f859eae5ad658d40dc689ff2bc6cd3e9",
+      "width": 1024,
+      "height": 1024,
+      "scalable": false,
+      "alpha": true
+    },
+    "iconos/hexatour-icono-app-oscuro.svg": {
+      "format": "svg",
+      "bytes": 7529,
+      "sha256": "38854286a3de717b4bafc5e3e39bc9772d530b7c8578ad7885c6517194f6e7e9",
+      "width": 1024.0,
+      "height": 1024.0,
+      "viewBox": [0.0, 0.0, 1024.0, 1024.0],
+      "scalable": true
+    },
+    "iconos/icon-192.png": {
+      "format": "png",
+      "bytes": 36929,
+      "sha256": "f30cdcac9e257230597659cee1371cb26b26f22ac92ed6b7e54716543fc53fb0",
+      "width": 192,
+      "height": 192,
+      "scalable": false,
+      "alpha": true
+    },
+    "iconos/icon-512.png": {
+      "format": "png",
+      "bytes": 131697,
+      "sha256": "7d82f0c0de2d35031c40e8f9d2e2b47fb78d76a86fa20beeffb86596b999cbc1",
+      "width": 512,
+      "height": 512,
+      "scalable": false,
+      "alpha": true
+    },
+    "logos/hexatour-isotipo-transparente-alta-resolucion.png": {
+      "format": "png",
+      "bytes": 494038,
+      "sha256": "a4a21f8e54b661fe30866f45b40e42a81f3c4c2db48279ce63ffdb4c0df2259b",
+      "width": 2048,
+      "height": 2048,
+      "scalable": false,
+      "alpha": true
+    },
+    "logos/hexatour-isotipo-transparente.png": {
+      "format": "png",
+      "bytes": 168208,
+      "sha256": "397e04ed3798021eb1424781f1f2cf71ffbda5ecaf788dade26725b0c7ed4364",
+      "width": 960,
+      "height": 960,
+      "scalable": false,
+      "alpha": true
+    },
+    "logos/hexatour-isotipo-transparente.svg": {
+      "format": "svg",
+      "bytes": 7039,
+      "sha256": "7fb8b78b1fa1d796cc76976962bf644d23b321e4d658a9cb52254877dff58d5d",
+      "width": 960.0,
+      "height": 960.0,
+      "viewBox": [0.0, 0.0, 960.0, 960.0],
+      "scalable": true
+    },
+    "logos/hexatour-isotipo-transparente.webp": {
+      "format": "webp",
+      "bytes": 41254,
+      "sha256": "58071e1d63f80854927c53694d7a6cecf019c1406404bf62664f710e860c108e",
+      "width": 960,
+      "height": 960,
+      "scalable": false,
+      "alpha": true
+    },
+    "logos/hexatour-logo-horizontal-alta-resolucion.png": {
+      "format": "png",
+      "bytes": 197179,
+      "sha256": "30f0db2ab023ecad134083c9971e4dc1722352a7e34b0f7752d5afa948ad1ba7",
+      "width": 2880,
+      "height": 834,
+      "scalable": false,
+      "alpha": true
+    },
+    "logos/hexatour-logo-horizontal-dark.png": {
+      "format": "png",
+      "bytes": 111177,
+      "sha256": "697ae9bdf1b316b3d7933cef45bd4ffd9044de6644a3ee73b46998765de2262a",
+      "width": 1900,
+      "height": 550,
+      "scalable": false,
+      "alpha": true
+    },
+    "logos/hexatour-logo-horizontal-dark.svg": {
+      "format": "svg",
+      "bytes": 14575,
+      "sha256": "7c1f7e3adc0519191f85542e0d4a1fb99c869ed39871fc26f0ccf3184a5603e1",
+      "width": 1900.0,
+      "height": 550.0,
+      "viewBox": [0.0, 0.0, 1900.0, 550.0],
+      "scalable": true
+    },
+    "logos/hexatour-logo-horizontal.png": {
+      "format": "png",
+      "bytes": 113629,
+      "sha256": "a3281f4ea88e4185b2960a5dff6d3ebfa00d444dc6100072e391c75d45a0131e",
+      "width": 1900,
+      "height": 550,
+      "scalable": false,
+      "alpha": true
+    },
+    "logos/hexatour-logo-horizontal.svg": {
+      "format": "svg",
+      "bytes": 14575,
+      "sha256": "c38d955f21c05c5fc03d998f502a145492672aa8ac907bf4d95baabbc52c75fd",
+      "width": 1900.0,
+      "height": 550.0,
+      "viewBox": [0.0, 0.0, 1900.0, 550.0],
+      "scalable": true
+    },
+    "logos/hexatour-logo-horizontal.webp": {
+      "format": "webp",
+      "bytes": 41118,
+      "sha256": "02f9ff7ba1137a4aeb1aae55eb259403ab9a02543aee29126b2d2202793e6729",
+      "width": 1900,
+      "height": 550,
+      "scalable": false,
+      "alpha": true
+    },
+    "logos/hexatour-logo-vertical.png": {
+      "format": "png",
+      "bytes": 211066,
+      "sha256": "3894688707483624c20ee2ebccc35b12bb3ef1d72b23c5640afd1cf41e4102f6",
+      "width": 1200,
+      "height": 1200,
+      "scalable": false,
+      "alpha": true
+    },
+    "logos/hexatour-logo-vertical.svg": {
+      "format": "svg",
+      "bytes": 13221,
+      "sha256": "23a6a98feaa5572a6560420f29cb8baed652c61094b9037d7507a6a2ae4c5e9d",
+      "width": 1200.0,
+      "height": 1200.0,
+      "viewBox": [0.0, 0.0, 1200.0, 1200.0],
+      "scalable": true
+    },
+    "portadas/hexatour-portada-cuadrada-clara.png": {
+      "format": "png",
+      "bytes": 346107,
+      "sha256": "c0263160f144c468316c383ed8c8cfa35b8cd6c4edf235c3ca551f92a5c2a05c",
+      "width": 1200,
+      "height": 1200,
+      "scalable": false,
+      "alpha": true
+    },
+    "portadas/hexatour-portada-cuadrada-clara.svg": {
+      "format": "svg",
+      "bytes": 12659,
+      "sha256": "54c9b6808a8b1909a6ec8a6e2b05faf05953829799299038a97c88e7251059fc",
+      "width": 1200.0,
+      "height": 1200.0,
+      "viewBox": [0.0, 0.0, 1200.0, 1200.0],
+      "scalable": true
+    },
+    "portadas/hexatour-portada-cuadrada-oscura.png": {
+      "format": "png",
+      "bytes": 362885,
+      "sha256": "fb893512bee3ea27f478916f2fa090b5629d06a5621dee48a431d80fdc6b2c63",
+      "width": 1200,
+      "height": 1200,
+      "scalable": false,
+      "alpha": true
+    },
+    "portadas/hexatour-portada-cuadrada-oscura.svg": {
+      "format": "svg",
+      "bytes": 12661,
+      "sha256": "4f58d7ef8f1bcdc3e415ff320882ef705dd98f857fd56fa27397a23d11dcef33",
+      "width": 1200.0,
+      "height": 1200.0,
+      "viewBox": [0.0, 0.0, 1200.0, 1200.0],
+      "scalable": true
+    }
+  }
 }
