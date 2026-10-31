@@ -29,6 +29,7 @@ Este README documenta el firmware y sus ajustes clave. Incluye que microcontrola
 ## Pines usados
 
 ### ESP32 (HexaTour.ino)
+
 - SD (SPI):
   - SCK: GPIO 12
   - MISO: GPIO 13
@@ -42,6 +43,7 @@ Este README documenta el firmware y sus ajustes clave. Incluye que microcontrola
   - ESP32 TX2: GPIO 17 (hacia UNO RX 10)
 
 ### Arduino UNO (ImpresoraUNO.ino)
+
 - Enlace con ESP32 (SoftwareSerial):
   - UNO RX: 10 (desde ESP32 TX2)
   - UNO TX: 11 (hacia ESP32 RX2)
@@ -82,10 +84,12 @@ En [firmware/esp32/HexaTour/HexaTour.ino](esp32/HexaTour/HexaTour.ino):
 - Pagina inicial del portal: `START_FILE`
 
 Logo para PDF de ruta:
+
 - Ruta esperada en SD: /www/img/map/logo.jpg
 - Funcion: `findLogoJpeg()`
 
 Endpoints relevantes:
+
 - `/api/print-ruta?cat=<categoria>&slug=<slug>&name=<nombre>`
 - `/api/route-pdf?cat=<categoria>&slug=<slug>&name=<nombre>&dl=1`
 
@@ -99,6 +103,7 @@ Mensajes de una linea (terminadas en `\n`):
 - `DONE|<jobId>` (UNO -> ESP32): confirma impresion finalizada.
 
 Notas:
+
 - El texto de impresion usa `\n` como salto de linea.
 - El UNO ignora un PRINT si esta ocupado o si el jobId es repetido.
 
@@ -107,19 +112,20 @@ Notas:
 El proyecto usa librerias locales en [firmware/librerias](librerias) para evitar depender del gestor del IDE.
 
 Librerias utilizadas:
+
 - ArduinoJson
 - LiquidCrystal_I2C
 - Adafruit_Thermal_Printer_Library
 
 Versiones declaradas por los archivos `library.properties` incluidos:
 
-| Libreria | Version |
-| --- | --- |
-| ArduinoJson | 7.4.2 |
-| LiquidCrystal_I2C | 2.0.0 |
-| Adafruit Thermal Printer Library | 1.4.1 |
+| Libreria                         | Version |
+| -------------------------------- | ------- |
+| ArduinoJson                      | 7.4.2   |
+| LiquidCrystal_I2C                | 2.0.0   |
+| Adafruit Thermal Printer Library | 1.4.1   |
 
-Ambos firmwares compilaron el 2026-10-08 con Arduino CLI 1.5.1, core ESP32 3.3.12 y AVR 1.8.8, usando estas librerías locales. Las versiones del entorno original no están disponibles; se documenta una base nueva. [Perfiles, comandos, memoria y advertencias](Compilacion.md). El responsable confirmó que el montaje original funcionaba con el circuito presentado; durante esta revisión no se cargaron los nuevos binarios ni se repitió esa prueba. [Montaje original y revalidación](Compilacion.md#montaje-original-y-revalidación).
+Ambos firmwares compilaron el 2026-10-08 con Arduino CLI 1.5.1, core ESP32 3.3.12 y AVR 1.8.8, usando estas librerías locales. Las versiones del entorno original no están disponibles; se documenta una base nueva. [Perfiles, comandos, memoria y advertencias](Compilacion.md). El circuito documenta el montaje original. Los binarios de la base de compilación actual requieren una nueva prueba física. [Montaje original y revalidación](Compilacion.md#montaje-original-y-revalidación).
 
 ## Errores comunes
 

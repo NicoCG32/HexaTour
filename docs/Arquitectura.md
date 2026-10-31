@@ -1,19 +1,19 @@
 # Arquitectura de HexaTour
 
-[Índice técnico](README.md) · [Ejecución y pruebas](../README.md#guia-rapida) · [Formato de datos](Formato-de-datos.md)
+[Índice técnico](README.md) · [Ejecución y pruebas](../README.md#ejecutar-desde-el-código) · [Formato de datos](Formato-de-datos.md)
 
 ## Contexto y modos de ejecución
 
 El montaje crea una red Wi-Fi local para consultar información sin Internet. El ESP32-S3 sirve el portal y las fichas desde la SD, genera PDF y coordina los trabajos de impresión; el Arduino UNO controla la ticketera. El navegador ejecuta HTML, CSS y JavaScript sin framework ni proceso de build.
 
-| Componente | Responsabilidad | Fuente |
-| --- | --- | --- |
-| Portal web | Categorías, fichas, imágenes y solicitudes de acciones | [web/www](../web/www) |
-| Cliente de contenidos | Leer listas y POI; resolver imágenes y campos | [common.js](../web/www/assets/js/common.js) |
-| ESP32-S3 | Wi-Fi AP, DNS cautivo, HTTP, lectura SD, PDF y coordinación serial | [HexaTour.ino](../firmware/esp32/HexaTour/HexaTour.ino) |
-| SD | HTML/CSS/JS, JSON e imágenes bajo `/www` | [Contenido para SD](../web/www) |
-| Arduino UNO | Estado de disponibilidad, impresión y confirmación final | [ImpresoraUNO.ino](../firmware/uno/ImpresoraUNO/ImpresoraUNO.ino) |
-| Mock Python | Servir archivos locales y simular API para pruebas | [server.py](../tools/backend-local/server.py) |
+| Componente            | Responsabilidad                                                    | Fuente                                                            |
+| --------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------- |
+| Portal web            | Categorías, fichas, imágenes y solicitudes de acciones             | [web/www](../web/www)                                             |
+| Cliente de contenidos | Leer listas y POI; resolver imágenes y campos                      | [common.js](../web/www/assets/js/common.js)                       |
+| ESP32-S3              | Wi-Fi AP, DNS cautivo, HTTP, lectura SD, PDF y coordinación serial | [HexaTour.ino](../firmware/esp32/HexaTour/HexaTour.ino)           |
+| SD                    | HTML/CSS/JS, JSON e imágenes bajo `/www`                           | [Contenido para SD](../web/www)                                   |
+| Arduino UNO           | Estado de disponibilidad, impresión y confirmación final           | [ImpresoraUNO.ino](../firmware/uno/ImpresoraUNO/ImpresoraUNO.ino) |
+| Mock Python           | Servir archivos locales y simular API para pruebas                 | [server.py](../tools/backend-local/server.py)                     |
 
 Vista del montaje implementado; los pines y voltajes se consultan en la [guía de firmware](../firmware/README.md) y el [circuito](diagramas/HexaTourCircuito.drawio).
 
@@ -56,13 +56,13 @@ Un hosting que sirve sólo `web/www` permite leer archivos estáticos, pero no i
 
 ## Acciones por vista en la implementación actual
 
-| Vista / acción | Resultado real | Fuente |
-| --- | --- | --- |
-| Visitante: descargar indicaciones | Navegación a `/api/route-pdf` con `dl=1` | [visitor-lugar.js](../web/www/assets/js/visitor-lugar.js) |
-| Operador: imprimir indicaciones | Solicitud a `/api/print-ruta` | [main-lugar.js](../web/www/assets/js/main-lugar.js) |
-| Ambas: ver ruta | Carga de `images.route` o ruta de imagen convencional | Los dos scripts de ficha |
-| Visitante: urgencia | Sin configuración muestra SMS no configurado; con destinatario y punto válidos, tras confirmar abre SMS preparado; el usuario debe enviarlo desde su app | visitor-lugar.js |
-| Operador: urgencia | Tras confirmar, muestra mensaje local; no realiza llamada ni envío | main-lugar.js |
+| Vista / acción                    | Resultado real                                                                                                                                           | Fuente                                                    |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| Visitante: descargar indicaciones | Navegación a `/api/route-pdf` con `dl=1`                                                                                                                 | [visitor-lugar.js](../web/www/assets/js/visitor-lugar.js) |
+| Operador: imprimir indicaciones   | Solicitud a `/api/print-ruta`                                                                                                                            | [main-lugar.js](../web/www/assets/js/main-lugar.js)       |
+| Ambas: ver ruta                   | Carga de `images.route` o ruta de imagen convencional                                                                                                    | Los dos scripts de ficha                                  |
+| Visitante: urgencia               | Sin configuración muestra SMS no configurado; con destinatario y punto válidos, tras confirmar abre SMS preparado; el usuario debe enviarlo desde su app | visitor-lugar.js                                          |
+| Operador: urgencia                | Tras confirmar, muestra mensaje local; no realiza llamada ni envío                                                                                       | main-lugar.js                                             |
 
 Esta tabla y la [guía web](../web/README.md#paginas-del-portal) describen las acciones del modo habitual. El operador confirma un aviso local y su resultado aclara que no se realizó llamada ni envío. En visitante, abrir la app de mensajes tampoco confirma envío ni recepción; el destinatario y punto vienen vacíos y requieren configuración local. En demo, ambas vistas de urgencia muestran sólo mensajes locales sin abrir esa app.
 
@@ -140,8 +140,8 @@ flowchart LR
     E --> Q["Comprobar portal, PDF e impresión físicos"]
 ```
 
-La SD debe contener `/www`; actualizar un sitio público no actualiza ese almacenamiento ni los sketches. La [compilación de ambos firmwares con versiones fijas](../firmware/Compilacion.md) está comprobada. El responsable confirmó el funcionamiento del montaje original con el circuito presentado; no se ha repetido la prueba física con la base nueva. La fuente editable del circuito permanece en [HexaTourCircuito.drawio](diagramas/HexaTourCircuito.drawio), con sus [vistas exportadas](README.md#circuito-y-fuentes-editables).
+La SD debe contener `/www`; actualizar un sitio público no actualiza ese almacenamiento ni los sketches. La [compilación de ambos firmwares con versiones fijas](../firmware/Compilacion.md) está comprobada. El circuito documenta el montaje original. Los binarios de la base de compilación actual requieren una nueva prueba física. La fuente editable del circuito permanece en [HexaTourCircuito.drawio](diagramas/HexaTourCircuito.drawio), con sus [vistas exportadas](README.md#circuito-y-fuentes-editables).
 
 ## Límites de la entrega
 
-Las comprobaciones de esta revisión cubren API mock, datos, demo pública y compilación/enlace de ambos firmwares. Además, se registra la declaración del responsable de que el montaje original funcionaba. La base de compilación es nueva: no se conocen las versiones del entorno original y no se ha revalidado físicamente con los binarios actuales. El alcance y la guía para repetir esa prueba están en [montaje original y revalidación](../firmware/Compilacion.md#montaje-original-y-revalidación). El portal no calcula rutas geográficas en vivo; muestra texto e imágenes almacenados. Los tiempos, horarios, alertas y descuentos no constituyen información turística verificada por la prueba técnica.
+Las comprobaciones disponibles cubren API mock, datos, demo pública y compilación/enlace de ambos firmwares. La base de compilación es nueva: no se conocen las versiones del entorno original y no se ha revalidado físicamente con los binarios actuales. El alcance y la guía para repetir esa prueba están en [montaje original y revalidación](../firmware/Compilacion.md#montaje-original-y-revalidación). El portal no calcula rutas geográficas en vivo; muestra texto e imágenes almacenados. Los tiempos, horarios, alertas y descuentos no constituyen información turística verificada por la prueba técnica.

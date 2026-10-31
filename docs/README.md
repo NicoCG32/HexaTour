@@ -1,68 +1,55 @@
 # Documentación de HexaTour
 
-<!-- DOCUMENTACION:indice-niveles-2026-10-29:BEGIN -->
+Prototipo de orientación turística con portal local, firmware y demo web. La demo permite recorrer la interfaz sin hardware y simula o deshabilita las acciones físicas.
 
-## Documentación por cuatro niveles — 2026-10-29
+## Documentación por cuatro tipos
 
-Revisión documental: 2026-10-29. Base `3ebc11f12a86` en `main`; árbol inicialmente limpio. La inspección de fuentes no sustituye pruebas de ejecución.
+| Tipo                    | Qué encontrarás                                                 | Por dónde empezar                                                                                                                                |
+| ----------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| General                 | Problemática, público, solución y motivación personal           | [Propuesta](00-problematica-cliente-y-valor.md) · [Origen](16-motivacion-y-contexto.md)                                                          |
+| Técnica                 | Arquitectura, dominio, datos, interfaz y puesta en marcha       | [Arquitectura](01-arquitectura-general.md) · [Instalación](09-instalacion-y-despliegue.md)                                                       |
+| Desarrollo del proyecto | Etapas, metodología, justificación, proyección y costos CLP/USD | [Metodología](17-desarrollo-y-metodologia.md) · [Proyección](15-escalabilidad-y-nuevos-mercados.md) · [Costos](18-analisis-economico-clp-usd.md) |
+| Académica/formativa     | Contexto del curso, informes y anexos de la etapa formativa     | [Catálogo académico](academica/README.md)                                                                                                        |
 
-**Estado y alcance:** Prototipo académico cerrado con demo sin hardware y compilación de firmware documentadas. La impresión, SD y portal cautivo pertenecen al montaje local; la demo simula o deshabilita esas acciones.
+## Rutas de lectura
 
-| Nivel                      | Pregunta principal                                                    | Lectura                                                  |
-| -------------------------- | --------------------------------------------------------------------- | -------------------------------------------------------- |
-| 1. General                 | Qué problema, para quién, qué solución y por qué lo eligió el creador | 00, 02, 03 y 16                                          |
-| 2. Técnica                 | Cómo funciona, entidades, persistencia y ejecución                    | 01, 04, 05, 06, 07, 08 y 09                              |
-| 3. Desarrollo del proyecto | Cómo se llegó, por qué corresponde y qué cuesta continuar             | 17, 15 y 18                                              |
-| 4. Académica/formativa     | Qué se entregó en un curso y a qué etapa pertenece                    | [Documentación académica/formativa](academica/README.md) |
+- **Conocer el proyecto:** [propuesta](00-problematica-cliente-y-valor.md) → [motivación](16-motivacion-y-contexto.md) → [funcionalidades](02-funcionalidades.md).
+- **Utilizarlo o desplegarlo:** [recorrido](03-flujo-de-usuario.md) → [instalación](09-instalacion-y-despliegue.md).
+- **Desarrollar o contribuir:** [arquitectura](01-arquitectura-general.md) → [dominio y datos](04-base-de-datos.md) → [reglas](05-motor-o-nucleo-de-negocio.md).
+- **Evaluar su evolución:** [metodología](17-desarrollo-y-metodologia.md) → [proyección](15-escalabilidad-y-nuevos-mercados.md) → [costos](18-analisis-economico-clp-usd.md).
 
-### Rutas por lector
+## Tabla de contenidos
 
-- **Dirección/cliente/responsable:** 00 → 16 → 01 → 15 → 18.
-- **Desarrollo/técnica:** 01 → 04 → 05 → 06 → 09; complementar con las guías especializadas conservadas.
-- **Producto/operaciones:** 00 → 02 → 03 → 07 → 08 → 17.
-- **Académica/formativa:** contexto de 16 y catálogo del nivel 4 cuando corresponda; contrastar luego con la arquitectura vigente.
+| Capítulo | Documento                                                                          |
+| -------- | ---------------------------------------------------------------------------------- |
+| 00       | [Problemática, cliente y solución](00-problematica-cliente-y-valor.md)             |
+| 01       | [Arquitectura por niveles](01-arquitectura-general.md)                             |
+| 02       | [Catálogo funcional](02-funcionalidades.md)                                        |
+| 03       | [Recorrido y estados](03-flujo-de-usuario.md)                                      |
+| 04       | [Dominio, entidades y persistencia](04-base-de-datos.md)                           |
+| 05       | [Reglas y núcleo](05-motor-o-nucleo-de-negocio.md)                                 |
+| 06       | [Integraciones y asistencia](06-capa-de-ia-o-analisis.md)                          |
+| 07       | [Diseño y accesibilidad](07-diseno-e-identidad.md)                                 |
+| 08       | [Salidas y entregables](08-exportacion-e-informes.md)                              |
+| 09       | [Puesta en marcha y distribución](09-instalacion-y-despliegue.md)                  |
+| 15       | [Justificación, proyección y escalabilidad](15-escalabilidad-y-nuevos-mercados.md) |
+| 16       | [Motivación personal y contexto](16-motivacion-y-contexto.md)                      |
+| 17       | [Etapas y metodología](17-desarrollo-y-metodologia.md)                             |
+| 18       | [Escenarios económicos CLP / USD](18-analisis-economico-clp-usd.md)                |
 
-| Capítulo | Documento                                                                          | Nivel                   |
-| -------- | ---------------------------------------------------------------------------------- | ----------------------- |
-| 00       | [Problemática, cliente y solución](00-problematica-cliente-y-valor.md)             | general                 |
-| 01       | [Arquitectura por niveles](01-arquitectura-general.md)                             | técnica                 |
-| 02       | [Catálogo funcional](02-funcionalidades.md)                                        | general / técnica       |
-| 03       | [Recorrido y estados](03-flujo-de-usuario.md)                                      | general / técnica       |
-| 04       | [Dominio, entidades y persistencia](04-base-de-datos.md)                           | técnica                 |
-| 05       | [Reglas y núcleo](05-motor-o-nucleo-de-negocio.md)                                 | técnica                 |
-| 06       | [Integraciones y asistencia](06-capa-de-ia-o-analisis.md)                          | técnica                 |
-| 07       | [Diseño y accesibilidad](07-diseno-e-identidad.md)                                 | técnica / producto      |
-| 08       | [Salidas y entregables](08-exportacion-e-informes.md)                              | técnica                 |
-| 09       | [Puesta en marcha y distribución](09-instalacion-y-despliegue.md)                  | técnica                 |
-| 15       | [Justificación, proyección y escalabilidad](15-escalabilidad-y-nuevos-mercados.md) | desarrollo del proyecto |
-| 16       | [Motivación personal y contexto](16-motivacion-y-contexto.md)                      | general                 |
-| 17       | [Etapas y metodología](17-desarrollo-y-metodologia.md)                             | desarrollo del proyecto |
-| 18       | [Escenarios económicos CLP / USD](18-analisis-economico-clp-usd.md)                | desarrollo del proyecto |
+## Guías especializadas
 
-Los nuevos capítulos complementan las fuentes especializadas existentes; no reemplazan contratos detallados por resúmenes. Los originales académicos se conservan intactos. La documentación del desarrollo describe etapas/metodología del producto y no contiene instrucciones o conversaciones internas.
-<!-- DOCUMENTACION:indice-niveles-2026-10-29:END -->
-
-HexaTour es un prototipo académico de orientación turística rural con portal local, contenido en tarjeta SD, generación de PDF e impresión térmica. Esta documentación describe la implementación disponible y distingue la prueba con mock del montaje físico.
-
-## Por dónde empezar
-
-| Necesidad                                                 | Documento                                                                                                                                                                                                                   |
-| --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Ejecutar la web sin hardware o preparar el montaje        | [README del proyecto](../README.md#guia-rapida)                                                                                                                                                                             |
-| Entender componentes, acciones y límites                  | [Arquitectura](Arquitectura.md)                                                                                                                                                                                             |
-| Distinguir montaje físico, mock y demo disponible         | [Contexto](Arquitectura.md#contexto-y-modos-de-ejecución) · [Flujo de impresión](Arquitectura.md#flujo-de-datos-y-aceptación-de-impresión) · [Distribución pública](Arquitectura.md#demo-disponible-y-distribución-pública) |
-| Editar categorías, fichas e imágenes de forma coherente   | [Formato de datos](Formato-de-datos.md)                                                                                                                                                                                     |
-| Validar catálogo y recursos sin servidor                  | [Validación local y regresiones](Formato-de-datos.md#validación-local)                                                                                                                                                      |
-| Actualizar contenido y probar el portal                   | [Guía web](../web/README.md)                                                                                                                                                                                                |
-| Pines, configuración y protocolo ESP32–UNO                | [Guía de firmware](../firmware/README.md)                                                                                                                                                                                   |
-| Compilar con versiones fijas y registrar la prueba física | [Compilación del firmware](../firmware/Compilacion.md)                                                                                                                                                                      |
-| Servidor de prueba, API mock y smoke                      | [Backend local](../tools/backend-local/README.md)                                                                                                                                                                           |
-| Explorar en modo demo sin API ni hardware                 | [Demo: activación y recorrido](Demo.md)                                                                                                                                                                                     |
-| Preparar la copia pública y desplegarla en Pages          | [Distribución y despliegue](Despliegue.md)                                                                                                                                                                                  |
-| Conocer procedencia y alcance de los ejemplos mostrados   | [Contenido de la demo](Contenido-demo.md)                                                                                                                                                                                   |
-| Puesta en marcha y mantenimiento del equipo               | [Manual del proveedor](manual-proveedor.md)                                                                                                                                                                                 |
-
-Ambos firmwares tienen una [base de compilación comprobada con versiones fijas](../firmware/Compilacion.md). El montaje original funcionaba según declaración del responsable; la [revalidación con la base nueva](../firmware/Compilacion.md#montaje-original-y-revalidación) no se ha realizado. Los datos turísticos son ejemplos sin verificación de vigencia; la procedencia gráfica declarada y las condiciones de presentación están en [Contenido de la demo](Contenido-demo.md). La [demo pública](https://nicocg32.github.io/HexaTour/) fue comprobada por HTTPS el 2026-10-07; [versión publicada y recuperación](Despliegue.md#estado).
+- [Arquitectura de HexaTour](Arquitectura.md).
+- [Contenido de la demo](Contenido-demo.md).
+- [Demo sin hardware](Demo.md).
+- [Distribuir la demo estática](Despliegue.md).
+- [Formato de datos del portal](Formato-de-datos.md).
+- [Manual del proveedor - HexaTour](manual-proveedor.md).
+- [Referencia ampliada de uso](Referencia-de-uso.md).
+- [HexaTourCircuito.drawio](diagramas/HexaTourCircuito.drawio).
+- [SVG](diagramas/HexaTourCircuito.svg).
+- [PNG](diagramas/HexaTourCircuito.png).
+- [JPG](diagramas/HexaTourCircuito.jpg).
 
 ## Circuito y fuentes editables
 
@@ -82,10 +69,6 @@ Estos informes y anexos registran el desarrollo del curso. Las instrucciones de 
 | Entrevistas en bruto                    | [PDF](informes/Anexo.%20Entrevistas%20en%20bruto.pdf)                                                                                                                                                                                                                                                                                               |
 | Cliente Ideal                           | [PDF](informes/Anexo.%20Cliente%20Ideal.pdf)                                                                                                                                                                                                                                                                                                        |
 
-<!-- INDICE:uso-y-licencia -->
+## Uso y distribución
 
-## Uso, distribución y condiciones
-
-- [Entrada y descargas](../README.md).
-- [Licencia, créditos y reutilización](../LICENSING.md).
-- [Referencia ampliada de uso](Referencia-de-uso.md).
+[Presentación y descargas](../README.md) · [Licencia y créditos](../LICENSING.md).

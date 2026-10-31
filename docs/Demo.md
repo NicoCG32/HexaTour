@@ -44,8 +44,8 @@ La revisión local del 2026-10-07 cubrió las 27 fichas en ambas vistas y bases 
 
 Los menús y una ficha representativa de cada vista/base se comprobaron a 320, 390 y 1280 píxeles sin desbordamiento horizontal. Categoría, ficha, Ruta, Simular impresión, Volver y cambio de vista se activaron con Enter; Tab entre enlaces de vista mostró foco visible. Esto comprueba anchos de navegador, no dispositivos móviles físicos ni una auditoría completa de accesibilidad.
 
-Los 273 archivos estáticos sin `.gz` respondieron correctamente desde ambas bases (546 solicitudes de recursos). La prueba no registró errores de consola ni respuestas HTTP de error. El smoke de la API mock había pasado 3/3; sus componentes no cambiaron en esta revisión.
+Los 273 archivos estáticos sin `.gz` respondieron correctamente desde ambas bases (546 solicitudes de recursos). La prueba no registró errores de consola ni respuestas HTTP de error. El smoke de la API mock había pasado 3/3.
 
 La revisión posterior de Pages comprobó los 275 recursos del artefacto por HTTPS, las cinco entradas con demo ausente/0/1, los nueve menús de categoría en ambas vistas y la ficha/ruta Universidad a 320/390/1280 píxeles. Impresión simulada y urgencias se activaron con Enter; PDF permaneció deshabilitado. La consola no registró errores/advertencias y el inventario de recursos observado no contiene `/api/`. Esta observación no es una traza HTTP exhaustiva. [Registro de publicación](Despliegue.md#estado).
 
-Esto no valida impresión física, SMS con destinatario configurado, compilación del firmware ni exactitud turística. La procedencia gráfica declarada por el responsable está registrada en [Contenido de la demo](Contenido-demo.md#recursos-gráficos); no fue una comprobación independiente de titularidad.
+Esto no valida impresión física, SMS con destinatario configurado, compilación del firmware ni exactitud turística. Consulta la procedencia y las condiciones de los recursos en [Contenido de la demo](Contenido-demo.md#recursos-gráficos).

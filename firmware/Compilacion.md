@@ -4,16 +4,16 @@
 
 ## Base de reproducción
 
-Esta base se establece el **2026-10-08**. Las versiones del entorno usado originalmente en el montaje no están disponibles; estos perfiles definen una base nueva de compilación. No se usó Arduino IDE ni se cargaron binarios en placas durante esta revisión.
+Esta base se establece el **2026-10-08**. Las versiones del entorno usado originalmente en el montaje no están disponibles; estos perfiles definen una base nueva de compilación. Los perfiles y resultados de este documento corresponden a Arduino CLI; la carga y prueba en las placas se realiza por separado.
 
-| Componente | Versión o selección |
-| --- | --- |
-| Arduino CLI | 1.5.1 |
-| UNO | Arduino AVR Boards 1.8.8, `arduino:avr:uno` |
-| ESP32-S3 | Espressif Arduino ESP32 3.3.12, `esp32:esp32:esp32s3` |
-| ArduinoJson local | 7.4.2 |
-| LiquidCrystal_I2C local | 2.0.0 |
-| Adafruit Thermal Printer Library local | 1.4.1 |
+| Componente                             | Versión o selección                                   |
+| -------------------------------------- | ----------------------------------------------------- |
+| Arduino CLI                            | 1.5.1                                                 |
+| UNO                                    | Arduino AVR Boards 1.8.8, `arduino:avr:uno`           |
+| ESP32-S3                               | Espressif Arduino ESP32 3.3.12, `esp32:esp32:esp32s3` |
+| ArduinoJson local                      | 7.4.2                                                 |
+| LiquidCrystal_I2C local                | 2.0.0                                                 |
+| Adafruit Thermal Printer Library local | 1.4.1                                                 |
 
 Los [perfiles del ESP32-S3](esp32/HexaTour/sketch.yaml) y [UNO](uno/ImpresoraUNO/sketch.yaml) fijan las versiones de los cores y usan las librerías incluidas en `firmware/librerias`. No descargan otra copia de esas librerías. La fuente de cada sketch queda en una carpeta con su mismo nombre, como requiere Arduino. Los includes convencionales permiten que Arduino descubra y compile también los archivos C++ de las librerías.
 
@@ -31,17 +31,17 @@ arduino-cli compile --profile esp32-s3 --warnings all --jobs 4 --output-dir buil
 
 La primera ejecución necesita Internet para obtener los cores y herramientas fijados. Los perfiles de Arduino CLI usan su almacenamiento aislado de plataformas, conservando las versiones indicadas aunque existan otras instalaciones. Puedes indicar una configuración de CLI propia con `--config-file`; los perfiles no contienen rutas absolutas de este equipo. `build/` está ignorado por Git y no se usa para publicar la demo.
 
-En Windows, usa rutas cortas para el almacenamiento de herramientas y la compilación. La revisión necesitó un alias temporal de unidad para resolver `bits/c++config.h` con la toolchain ESP32; el archivo estaba presente. Acortar las rutas resolvió esa etapa sin modificar cabeceras del compilador. Los perfiles fijan dependencias y ajustes de placa; no se promete identidad binaria entre sistemas operativos o rutas de construcción diferentes.
+En Windows, usa rutas cortas para el almacenamiento de herramientas y la compilación. Si aparece un error de acceso a `bits/c++config.h` aun estando el archivo presente, acorta las rutas de herramientas y compilación antes de modificar cabeceras del compilador. Los perfiles fijan dependencias y ajustes de placa; no se promete identidad binaria entre sistemas operativos o rutas de construcción diferentes.
 
-En Arduino IDE, abre [HexaTour.ino](esp32/HexaTour/HexaTour.ino) o [ImpresoraUNO.ino](uno/ImpresoraUNO/ImpresoraUNO.ino), instala las versiones de core indicadas y registra las librerías locales. La comprobación de esta entrega usa CLI: no se atribuye un resultado de compilación a una versión del IDE sin probarla.
+En Arduino IDE, abre [HexaTour.ino](esp32/HexaTour/HexaTour.ino) o [ImpresoraUNO.ino](uno/ImpresoraUNO/ImpresoraUNO.ino), instala las versiones de core indicadas y registra las librerías locales. Los resultados de compilación incluidos aquí corresponden a CLI; comprueba el entorno si utilizas el IDE.
 
 ## Resultado de compilación
 
 Ambos perfiles compilaron y enlazaron correctamente el 2026-10-08 en Windows con Arduino CLI 1.5.1 y las versiones anteriores:
 
-| Perfil | Programa usado / máximo | RAM estática usada / máximo |
-| --- | --- | --- |
-| uno | 9.298 / 32.256 bytes (28%) | 635 / 2.048 bytes (31%) |
+| Perfil   | Programa usado / máximo           | RAM estática usada / máximo  |
+| -------- | --------------------------------- | ---------------------------- |
+| uno      | 9.298 / 32.256 bytes (28%)        | 635 / 2.048 bytes (31%)      |
 | esp32-s3 | 1.041.773 / 1.310.720 bytes (79%) | 48.440 / 327.680 bytes (14%) |
 
 La RAM indicada corresponde a variables globales; no mide el consumo dinámico máximo de impresión, PDF o cadenas. Los binarios se generan en `build/firmware`, fuera de Git.
@@ -50,21 +50,21 @@ Con `--warnings all` se conservaron advertencias: `DynamicJsonDocument` de Ardui
 
 ## Montaje original y revalidación
 
-El **2026-10-10**, el responsable del proyecto confirmó que había montado el circuito presentado y conservado en el repositorio, y que el conjunto funcionaba correctamente. Se registra como **montaje original funcional según declaración del responsable**. La fecha del ensayo original, las versiones del entorno y el commit/binario cargado no están identificados; la declaración no es una nueva prueba realizada durante esta revisión.
+El circuito conservado en el repositorio describe el montaje original del prototipo. La base de compilación actual utiliza versiones fijadas de las herramientas y necesita una nueva validación física.
 
-El circuito de referencia es [HexaTourCircuito.drawio](../docs/diagramas/HexaTourCircuito.drawio), con sus [exportaciones](../docs/README.md#circuito-y-fuentes-editables). La compilación del 2026-10-08 comprueba construcción y enlace con una base nueva de versiones. Esa base no se ha cargado y probado físicamente durante la revisión.
+El circuito de referencia es [HexaTourCircuito.drawio](../docs/diagramas/HexaTourCircuito.drawio), con sus [exportaciones](../docs/README.md#circuito-y-fuentes-editables). La compilación del 2026-10-08 comprueba construcción y enlace con una base nueva de versiones. La validación física de los binarios generados con esa base está pendiente.
 
-Para repetir la validación con la base actual cuando se vuelva a disponer del montaje, registrar fecha, modelo/variante de cada placa, ajustes de memoria/USB, conexiones, versión/commit cargado y los resultados siguientes. Esta tabla es una guía de revalidación; no sustituye la declaración de funcionamiento del prototipo original ni representa resultados detallados de aquel ensayo.
+Para repetir la validación con la base actual cuando se vuelva a disponer del montaje, registrar fecha, modelo/variante de cada placa, ajustes de memoria/USB, conexiones, versión/commit cargado y los resultados siguientes. Utiliza la siguiente matriz para registrar la prueba de los binarios que cargues en el montaje.
 
-| Prueba | Criterio | Revalidación con la base actual |
-| --- | --- | --- |
-| SD y LCD | `/www` completo, SD montada y estados visibles | No realizada |
-| Wi-Fi y portal cautivo | AP accesible y detección de portal en un dispositivo real | No realizada |
-| Catálogo | Categoría, ficha, imagen principal y ruta cargan desde SD | No realizada |
-| PDF ESP32 | Descarga abre correctamente y contiene texto/imagen esperados | No realizada |
-| UART ESP32–UNO | STATUS/PRINT/DONE observados con el mismo identificador de trabajo | No realizada |
-| Impresora | Ticket legible y confirmación DONE después de terminar | No realizada |
-| Espera y fallo | Equipo no disponible o sin respuesta muestra el estado real, sin afirmar impresión completada | No realizada |
+| Prueba                 | Criterio                                                                                      | Revalidación con la base actual |
+| ---------------------- | --------------------------------------------------------------------------------------------- | ------------------------------- |
+| SD y LCD               | `/www` completo, SD montada y estados visibles                                                | No realizada                    |
+| Wi-Fi y portal cautivo | AP accesible y detección de portal en un dispositivo real                                     | No realizada                    |
+| Catálogo               | Categoría, ficha, imagen principal y ruta cargan desde SD                                     | No realizada                    |
+| PDF ESP32              | Descarga abre correctamente y contiene texto/imagen esperados                                 | No realizada                    |
+| UART ESP32–UNO         | STATUS/PRINT/DONE observados con el mismo identificador de trabajo                            | No realizada                    |
+| Impresora              | Ticket legible y confirmación DONE después de terminar                                        | No realizada                    |
+| Espera y fallo         | Equipo no disponible o sin respuesta muestra el estado real, sin afirmar impresión completada | No realizada                    |
 
 No activar SMS sin un destinatario acordado y configuración local válida. La demo de Pages tiene su propia copia forzada y no sustituye estas pruebas. Mantener los datos turísticos como ejemplos mientras no se verifiquen sus fuentes.
 

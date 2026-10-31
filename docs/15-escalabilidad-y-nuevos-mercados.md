@@ -1,14 +1,6 @@
 # 15 — Justificación, proyección y escalabilidad
 
-<!-- DOCUMENTACION:nivel-2026-10-29:BEGIN -->
-
-**Nivel:** desarrollo del proyecto.
-
 ## Justificación y proyección
-
-Revisión documental: 2026-10-29. Base `3ebc11f12a86` en `main`; árbol inicialmente limpio. La inspección de fuentes no sustituye pruebas de ejecución.
-
-**Estado y alcance:** Prototipo académico cerrado con demo sin hardware y compilación de firmware documentadas. La impresión, SD y portal cautivo pertenecen al montaje local; la demo simula o deshabilita esas acciones.
 
 ### Ajuste entre problema y solución
 
@@ -24,14 +16,12 @@ Capacidad de encontrar indicaciones, cobertura sin internet y tasa de acciones f
 
 Las entidades, reglas y fronteras de [04-base-de-datos.md](04-base-de-datos.md) permiten evaluar reutilización. Cambiar un nombre o una categoría no prueba compatibilidad con otro sector: datos, permisos, reglas, operación y costos deben validarse de nuevo.
 
-### Extensiones de contexto: hipótesis, no mercados validados
+### Posibles líneas de evolución
 
 - Centros de interpretación
 - Senderos educativos
 - Museos con conectividad limitada
 - Ferias o recintos con información local
-
-No se atribuyen clientes, ventas, demanda ni superioridad sobre competidores sin evidencia. La primera validación consiste en una necesidad concreta, un flujo útil y disposición real a adoptarlo. Para juegos, el valor inicial es una experiencia disfrutable, no ahorro de horas ni una promesa educativa no ensayada.
 
 ### Límites y trade-offs
 
@@ -50,7 +40,6 @@ No se atribuyen clientes, ventas, demanda ni superioridad sobre competidores sin
 
 Las cifras CLP/USD, supuestos, sensibilidad y retorno se presentan en [18-analisis-economico-clp-usd.md](18-analisis-economico-clp-usd.md); no son una valoración comercial del repositorio.
 
-## Fuentes de implementación y contratos
+## Código y documentación relacionada
 
 [README.md](../README.md) · [docs/Arquitectura.md](Arquitectura.md) · [docs/Formato-de-datos.md](Formato-de-datos.md) · [docs/Despliegue.md](Despliegue.md) · [firmware/README.md](../firmware/README.md) · [tools/backend-local/README.md](../tools/backend-local/README.md).
-<!-- DOCUMENTACION:nivel-2026-10-29:END -->
