@@ -2,7 +2,7 @@
 
 [Índice técnico](README.md) · [Arquitectura](Arquitectura.md) · [Modo con mock](../tools/backend-local/README.md)
 
-La [demo pública en Pages](https://nicocg32.github.io/HexaTour/) está disponible y comprobada por HTTPS el 2026-10-07. Fuerza demo en todas sus entradas; las instrucciones siguientes describen también la prueba local del portal fuente.
+La [demo pública en Pages](https://nicocg32.github.io/HexaTour/) activa el modo demo en todas sus entradas. También puedes probar el portal localmente.
 
 ## Ejecutar y activar
 
@@ -34,18 +34,6 @@ No usar el servidor estático del primer comando para comprobar esas APIs. Para 
 
 ## Rutas y publicación
 
-La navegación deriva la raíz web de la ubicación del script compartido. Se comprobó una entrada en raíz y otra bajo `/HexaTour/` en un servidor estático temporal: la landing, los enlaces de vista, las fichas y las imágenes conservan su base.
+La navegación deriva la raíz web de la ubicación del script compartido. Las páginas, fichas e imágenes conservan la base del sitio, tanto en raíz como bajo `/HexaTour/`.
 
-Al servir el checkout `web/www`, la demo se activa por URL. La [copia pública generada](Despliegue.md#generar-y-revisar-localmente) inserta `hexatour-mode=demo` en las cinco entradas: `common.js` fuerza demo incluso sin parámetro o con `demo=0`. Conserva SMS vacío y excluye firmware, herramientas e informes. Pages publica esa copia mediante el workflow manual; [versión, ejecución y recuperación](Despliegue.md#estado).
-
-## Comprobación realizada
-
-La revisión local del 2026-10-07 cubrió las 27 fichas en ambas vistas y bases (108 recorridos), campos contrastados con sus JSON, imágenes principales y rutas decodificadas, 54 impresiones simuladas y PDF deshabilitado. Se probaron las tres urgencias en ambas vistas/bases y el estado SMS no configurado en visitante habitual. Ningún recorrido pidió `/api/*` ni abrió SMS.
-
-Los menús y una ficha representativa de cada vista/base se comprobaron a 320, 390 y 1280 píxeles sin desbordamiento horizontal. Categoría, ficha, Ruta, Simular impresión, Volver y cambio de vista se activaron con Enter; Tab entre enlaces de vista mostró foco visible. Esto comprueba anchos de navegador, no dispositivos móviles físicos ni una auditoría completa de accesibilidad.
-
-Los 273 archivos estáticos sin `.gz` respondieron correctamente desde ambas bases (546 solicitudes de recursos). La prueba no registró errores de consola ni respuestas HTTP de error. El smoke de la API mock había pasado 3/3.
-
-La revisión posterior de Pages comprobó los 275 recursos del artefacto por HTTPS, las cinco entradas con demo ausente/0/1, los nueve menús de categoría en ambas vistas y la ficha/ruta Universidad a 320/390/1280 píxeles. Impresión simulada y urgencias se activaron con Enter; PDF permaneció deshabilitado. La consola no registró errores/advertencias y el inventario de recursos observado no contiene `/api/`. Esta observación no es una traza HTTP exhaustiva. [Registro de publicación](Despliegue.md#estado).
-
-Esto no valida impresión física, SMS con destinatario configurado, compilación del firmware ni exactitud turística. Consulta la procedencia y las condiciones de los recursos en [Contenido de la demo](Contenido-demo.md#recursos-gráficos).
+Al servir el checkout `web/www`, la demo se activa por URL. La [copia pública generada](Despliegue.md#generar-y-revisar-localmente) inserta `hexatour-mode=demo` en las cinco entradas: `common.js` fuerza demo incluso sin parámetro o con `demo=0`. Conserva SMS vacío y excluye firmware, herramientas e informes. Pages publica esa copia mediante el [workflow manual](Despliegue.md#workflow-de-pages).

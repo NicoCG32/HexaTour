@@ -1,34 +1,28 @@
-# 17 — Etapas y metodología
+# 17 · Cómo desarrollé HexaTour y cómo continuar
 
-## Desarrollo del proyecto: etapas y método
+## El proyecto académico y el reparto del trabajo
 
-Diseño e innovación con exploración de problemática, entrevistas, priorización, propuesta, prototipado y verificación de montaje/software. Los informes/anexos académicos aportan fuentes de esa secuencia; no se reinterpretan como pruebas actuales de mercado.
+HexaTour nació en **Proyecto Diseño e Innovación** como propuesta del equipo **HexaCorp**. A partir de investigación sobre la orientación turística en sectores rurales, el grupo comparó alternativas y propuso un tótem de información local con posibilidad de imprimir indicaciones.
 
-### Etapas del proyecto
+Me encargué del desarrollo tecnológico: diseñé el circuito, escribí el firmware del ESP32-S3 y del Arduino UNO, desarrollé el portal web e integré las comunicaciones y periféricos.
 
-| Etapa        | Alcance                                                             |
-| ------------ | ------------------------------------------------------------------- |
-| Exploración  | Informe de problemática y anexos de entrevistas/cliente/empatía     |
-| Propuesta    | Informe de solución y priorización                                  |
-| Prototipo    | Portal, circuito, SD e impresión                                    |
-| Reproducción | Demo, mock y compilación; prueba física se distingue de compilación |
+Benjamín Esquivel y su padre construyeron la maqueta física. Los demás compañeros participaron principalmente en investigación, informes y presentaciones. El [contexto académico](academica/README.md) reúne los aportes y los roles del equipo.
 
-### Ciclo de trabajo y decisión
+## Desarrollo tecnológico y estado del repositorio
 
-1. Caracterizar una necesidad y un escenario observable.
-2. Revisar contratos, datos y límites del alcance.
-3. Implementar o prototipar el incremento apropiado a la etapa.
-4. Verificar el recorrido y sus errores relevantes; conservar resultados negativos.
-5. Decidir continuar, corregir, limitar o posponer y actualizar documentación vigente.
+El código está organizado en portal, catálogo JSON, firmware de las dos placas, simulador Python, validador de datos y empaquetador de la demo. El circuito y las [guías de compilación](../firmware/Compilacion.md) permiten preparar el montaje con versiones fijadas.
 
-Los siguientes incrementos siguen este ciclo y se contrastan con los criterios de aceptación del producto.
+Para continuar el desarrollo:
 
-### Cierre y continuidad
+1. **Definir contenido y recorrido:** qué lugares se presentan y qué indicaciones puede recibir el visitante.
+2. **Mantener consistencia:** categoría, slug, ficha, imágenes y botones deben concordar.
+3. **Probar sin hardware:** ejecutar el simulador, revisar la navegación y correr las pruebas Python.
+4. **Compilar cada placa:** construir ambos sketches y comprobar pines, bibliotecas, protocolo y límites.
+5. **Volver al montaje físico:** contrastar UART, impresión, LCD, SD y portal cautivo con una versión concreta.
+6. **Registrar resultados:** anotar versiones y resultados de las pruebas en el simulador y en el equipo.
 
-La entrega identifica fuente, plataforma, límites, guía de uso e integridad de datos/artefactos. Los informes académicos conservan su etapa, cuando aplican, y no se actualizan como si fueran manuales del runtime. La proyección no obliga a desarrollar extensiones antes de validar el núcleo.
+## Trabajo pendiente
 
-Justificación y prioridades: [15-escalabilidad-y-nuevos-mercados.md](15-escalabilidad-y-nuevos-mercados.md). Esfuerzo futuro y operación: [18-analisis-economico-clp-usd.md](18-analisis-economico-clp-usd.md).
+La siguiente etapa requiere repetir la prueba física con la base de compilación actual, revisar el acceso a las APIs y validar el contenido con responsables locales. Los criterios están en la [guía de puesta en marcha](09-instalacion-y-despliegue.md).
 
-## Código y documentación relacionada
-
-[README.md](../README.md) · [docs/Arquitectura.md](Arquitectura.md) · [docs/Formato-de-datos.md](Formato-de-datos.md) · [docs/Despliegue.md](Despliegue.md) · [firmware/README.md](../firmware/README.md) · [tools/backend-local/README.md](../tools/backend-local/README.md).
+[Reglas del sistema](05-motor-o-nucleo-de-negocio.md) · [Verificación y montaje](09-instalacion-y-despliegue.md) · [Proyección](15-escalabilidad-y-nuevos-mercados.md)

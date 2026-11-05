@@ -1,0 +1,32 @@
+sequenceDiagram
+  autonumber
+  actor O as Operador
+  participant W as Navegador
+  participant E as ESP32 / API
+  participant SD as Tarjeta SD
+  participant U as Arduino UNO
+  participant T as Ticketera
+  O->>W: Elegir categoría y lugar
+  W->>E: Solicitar lista y ficha
+  E->>SD: Leer JSON e imágenes
+  SD-->>E: Contenido
+  E-->>W: Datos del lugar
+  O->>W: Solicitar impresión
+  W->>E: GET /api/print-ruta?cat=...&slug=...
+  E->>SD: Obtener route.text
+  alt Ruta inexistente / ocupado / SD fallida
+    E-->>W: HTTP de error
+  else Trabajo aceptado
+    E-->>W: HTTP 200 «print job accepted»
+    Note over W,E: La aceptación no demuestra que el ticket esté listo
+    E->>U: STATUS?
+    U-->>E: STATUS|1 o STATUS|0
+    alt Disponible
+      E->>U: PRINT|id|texto
+      U->>T: Imprimir (bloqueante)
+      U->>U: Retorno de imprimirTexto()
+      U-->>E: DONE|id
+    else Ocupado o sin respuesta
+      Note over E,U: Cancelación o timeout en firmware
+    end
+  end

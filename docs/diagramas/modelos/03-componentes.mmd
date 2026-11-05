@@ -1,0 +1,16 @@
+flowchart LR
+  subgraph Frontend["Interfaz en navegador"]
+    Pages["Landing / visitante / operador"] --> JS["JavaScript · common + scripts de vista"]
+  end
+  subgraph Embedded["ESP32 · firmware"]
+    HTTP["WebServer · rutas y API"] --> JSON["Lectura de archivos y fichas SD"]
+    HTTP --> PDF["Generación de PDF"]
+    HTTP --> QUEUE["Máquina de estados de impresión"]
+  end
+  JS -->|"GET JSON e imágenes"| HTTP
+  JS -->|"Imprimir / descargar PDF"| HTTP
+  JSON --> SD[("/www/db + /www/img")]
+  PDF --> SD
+  QUEUE -->|"Serial2"| Uno["UNO · control de ticketera"]
+  classDef c fill:#254964,stroke:#254964,color:#fff;
+  class HTTP,PDF,QUEUE,Uno c;

@@ -1,26 +1,16 @@
-# 07 — Diseño y accesibilidad
+# 07 · Interfaz, identidad y accesibilidad
 
-## Identidad y experiencia de uso
+La interfaz intenta ser sencilla: elegir una categoría, identificar un lugar y consultar sus indicaciones. Hay dos recorridos diferenciados, **visitante** y **operador**, que comparten el catálogo pero no las mismas acciones.
 
-Portal de lectura simple con identidad turística y distinción de visitante/operador. Los estados de acción disponible, simulada o deshabilitada deben ser inequívocos. La usabilidad en un teléfono del visitante es parte del producto, no sólo de la presentación académica.
+## Decisiones visibles
 
-### Criterios verificables
+- Las páginas están realizadas en HTML, CSS y JavaScript, sin framework de interfaz ni servicio de fuentes externo requerido para el funcionamiento local.
+- Los botones y fichas mantienen una estructura reconocible en ambas vistas.
+- La demo debe llevar un **aviso persistente** que la distinga del montaje físico, con mensajes claros para impresión simulada, PDF deshabilitado y urgencias no enviadas.
+- El diseño utiliza los recursos incluidos en [`branding/`](../branding/README.md), con banners para tema claro/oscuro, logos, isotipo e iconos. La presentación principal selecciona el banner con `<picture>`.
 
-- Estados vacíos, carga, confirmación y error distinguibles por texto además de color.
-- Orden de foco, teclado y nombres accesibles cuando la plataforma los utilice.
-- Legibilidad y controles suficientes para el dispositivo objetivo; considerar área segura y ciclo de vida en móvil.
-- Evitar que animación, espera o respuesta tardía apliquen efectos ajenos a la selección vigente.
+## Criterios de revisión
 
-Comprueba estos criterios en los recorridos principales y en los tamaños de pantalla de la plataforma que vas a utilizar.
+Antes de presentar el prototipo, comprueba la navegación por teclado, el orden de foco, el contraste, la lectura desde teléfono, los mensajes de error y el comportamiento cuando falta una ficha o imagen.
 
-## Código y documentación relacionada
-
-[README.md](../README.md) · [docs/Arquitectura.md](Arquitectura.md) · [docs/Formato-de-datos.md](Formato-de-datos.md) · [docs/Despliegue.md](Despliegue.md) · [firmware/README.md](../firmware/README.md) · [tools/backend-local/README.md](../tools/backend-local/README.md).
-
-## Recursos de identidad y distribución
-
-[Catálogo de originales y variantes](../branding/README.md) · [Manifest de identidad](../branding/manifest.json).
-
-El portal mantiene el isotipo cuadrado en el espacio reservado al logo y añade favicon/Apple Touch a sus páginas. Las rutas relativas funcionan en SD, mock y demo; no cambian las categorías ni sus pictogramas.
-
-Los banners de presentación se seleccionan por tema en el README. Las aplicaciones incorporan sólo los recursos necesarios, con dimensiones/proporción estables; las variantes y originales permanecen en branding. La identidad visual no amplía funcionalidades ni cambia las condiciones de uso.
+Para modificar los archivos, consulta la [guía web](../web/README.md), los [estilos del portal](../web/www/assets/css/base.css) y el [catálogo de marca](../branding/README.md).

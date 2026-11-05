@@ -1,5 +1,14 @@
 .venv/
 
+# Documentación interna y paquetes de entrega
+/Agents/
+/.claude/
+/.codex/
+/docs actualizada/
+/INSTRUCCIONES_DE_ENTREGA.txt
+/ACTUALIZACION_CREDITOS.txt
+/docs/AUDITORIA_DOCUMENTAL.md
+
 # Python
 __pycache__/
 *.py[cod]

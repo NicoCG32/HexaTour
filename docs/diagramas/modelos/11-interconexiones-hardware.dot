@@ -1,0 +1,21 @@
+digraph HexaTour {
+ graph [fontname="DejaVu Sans", bgcolor="#f9fbfd", rankdir=LR, pad="0.35", nodesep="0.72", ranksep="1.2", splines=polyline, label="HexaTour · conexiones funcionales del prototipo", labelloc=t, fontsize=21, fontcolor="#203d53"];
+ node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=12, fontcolor="#213748", color="#7891a1", fillcolor="#eef4f7", penwidth=1.4, margin="0.25,0.19"];
+ edge [fontname="DejaVu Sans", fontsize=10, fontcolor="#3f5769", color="#668395", penwidth=1.6, arrowsize=0.7];
+ ESP [label="ESP32-S3\nWi-Fi / HTTP / SD / LCD\nUART Serial2", fillcolor="#dbeaf3", color="#437b99", penwidth=2];
+ UNO [label="Arduino UNO\nControl de impresión\nSoftwareSerial", fillcolor="#e2eee9", color="#4e8b78", penwidth=2];
+ SD [label="Módulo SD\n3,3 V · SPI", fillcolor="#f3ecdc", color="#b59757"];
+ LCD [label="LCD 16 × 2\nI²C · 3,3 V", fillcolor="#f3ecdc", color="#b59757"];
+ PRN [label="Impresora térmica TTL\nRX 3 · TX 2 (UNO)", fillcolor="#f7e4e0", color="#c07b6d"];
+ PWR [label="Fuente propia · 9 V\nSólo impresora", shape=note, fillcolor="#fff2dc", color="#c09947"];
+ GND [label="Tierra GND común\nentre módulos", shape=box, fillcolor="#f2f4f6", color="#8497a1"];
+ {rank=same; SD; LCD;} {rank=same; UNO; PWR;}
+ ESP -> SD [dir=both, label="SPI\nSCK 12 · MISO 13\nMOSI 11 · CS 10", color="#b59757"];
+ ESP -> LCD [dir=both, label="I²C\nSDA 8 · SCL 9", color="#b59757"];
+ ESP -> UNO [dir=both, label="UART 9600\nESP TX17 → UNO RX10\nUNO TX11 → ESP RX16\n(usar divisor 5 V → 3,3 V)", color="#4e8b78", penwidth=2];
+ UNO -> PRN [dir=both, label="Serial TTL\nUNO TX3 → RX impresora\nUNO RX2 ← TX impresora", color="#c07b6d"];
+ PWR -> PRN [label="Alimentación 9 V", color="#c09947"];
+ GND -> ESP [style=dashed, arrowhead=none, constraint=false];
+ GND -> UNO [style=dashed, arrowhead=none, constraint=false];
+ GND -> PRN [style=dashed, arrowhead=none, constraint=false];
+}

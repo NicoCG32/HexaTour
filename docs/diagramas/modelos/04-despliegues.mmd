@@ -1,0 +1,13 @@
+flowchart TB
+  SRC["Código y contenido del repositorio"] --> LOCAL["Montaje físico"]
+  SRC --> MOCK["PC · simulador Python"]
+  SRC --> BUILD["Empaquetador de demo"]
+  LOCAL --> FW["ESP32 + UNO + SD + impresora"]
+  MOCK --> PY["Servidor local con API simulada"]
+  BUILD --> PAGES["GitHub Pages · archivos estáticos"]
+  classDef source fill:#e8eef4,stroke:#72879a,color:#1d3447;
+  classDef physical fill:#dfeee9,stroke:#3a806f,color:#1a5143;
+  classDef demo fill:#f5efe2,stroke:#ae8e56,color:#60491c;
+  class SRC source;
+  class LOCAL,FW physical;
+  class MOCK,PY,BUILD,PAGES demo;

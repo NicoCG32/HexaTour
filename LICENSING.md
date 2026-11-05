@@ -1,7 +1,7 @@
 # Licencia, créditos y reutilización — HexaTour
 
-El código propio conserva la [licencia MIT](LICENSE) existente. Esa licencia permite uso comercial bajo sus condiciones; no exige negociar una compensación económica. La preferencia actual del mantenedor por recibir créditos y compensación no añade restricciones a los permisos ya concedidos.
+El código propio se distribuye bajo la [licencia MIT](LICENSE). Al reutilizarlo, conserva el aviso de copyright y el texto de la licencia.
 
-Conserva los avisos exigidos por la licencia y los créditos de otros autores. Las dependencias, librerías, recursos gráficos e informes con derechos propios conservan sus condiciones; la licencia del código no se utiliza para cambiar las de terceros ni para conceder derechos sobre marcas.
+Las dependencias, librerías, recursos gráficos e informes conservan las condiciones de sus respectivos autores. Consulta las licencias y atribuciones incluidas con cada recurso.
 
-Para nuevas adaptaciones o servicios contratados se pueden acordar alcance, autoría y compensación por separado. Ese acuerdo sería voluntario respecto de los usos que ya permite la licencia vigente. Contacto: [NicoCG32](https://github.com/NicoCG32).
+La adaptación, instalación y soporte pueden contratarse por separado, sin modificar los permisos de la licencia del código. Contacto: [NicoCG32](https://github.com/NicoCG32).

@@ -1,0 +1,12 @@
+flowchart LR
+  VIS["Visitante · navegador"] -->|"Wi-Fi local / HTTP"| TOTEM["HexaTour · punto local"]
+  OPE["Operador · navegador"] -->|"Portal /main y solicitudes"| TOTEM
+  TOTEM -->|"HTML, fichas, indicaciones"| VIS
+  TOTEM -->|"Indicaciones impresas"| PAPEL["Ticketera térmica"]
+  MANT["Responsable del punto"] -->|"Actualiza SD, firmware y consumibles"| TOTEM
+  classDef human fill:#eaf3f6,stroke:#386477,color:#163849;
+  classDef device fill:#203f57,stroke:#203f57,color:#ffffff;
+  classDef output fill:#f5eee0,stroke:#ac8b4e,color:#5b451c;
+  class VIS,OPE,MANT human;
+  class TOTEM device;
+  class PAPEL output;

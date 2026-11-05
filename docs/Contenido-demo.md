@@ -18,7 +18,7 @@ El código propio se distribuye bajo la [licencia MIT del proyecto](../LICENSE);
 
 ## SMS y acciones
 
-El portal ya no contiene un destinatario SMS de prueba. La configuración local `URGENCIA_SMS` de [visitor-lugar.js](../web/www/assets/js/visitor-lugar.js) tiene teléfono y punto vacíos. Sin ambos valores válidos, muestra **SMS no configurado** y no abre ninguna aplicación.
+La configuración local `URGENCIA_SMS` de [visitor-lugar.js](../web/www/assets/js/visitor-lugar.js) tiene teléfono y punto vacíos. Sin ambos valores válidos, muestra **SMS no configurado** y no abre ninguna aplicación.
 
 En demo, la urgencia siempre produce un mensaje local, incluso si existe una configuración local. La impresión también es simulada y el PDF aparece explícitamente no disponible. La configuración de un montaje no debe incorporarse al artefacto público.
 
@@ -26,4 +26,4 @@ En demo, la urgencia siempre produce un mensaje local, incluso si existe una con
 
 El contenido es presentable como demostración de prototipo, con el aviso de ejemplos visible. Antes de publicar, el empaquetado debe activar demo en **todas** las entradas HTML, incluso con enlaces directos o sin `demo=1`; comprobar sólo la landing no basta. La distribución debe contener únicamente la raíz web revisada, sin configuración SMS local, firmware, herramientas ni informes.
 
-El [empaquetador y workflow manual de Pages](Despliegue.md) distribuyen la [demo pública](https://nicocg32.github.io/HexaTour/), comprobada por HTTPS el 2026-10-07: la copia fuerza demo en todas las entradas y conserva SMS vacío. Servir directamente el checkout mantiene el modo habitual en URLs sin `demo=1`. La [guía de demo](Demo.md) describe el recorrido local/público y sus límites.
+El [empaquetador y workflow manual de Pages](Despliegue.md) preparan la copia que fuerza demo en todas las entradas y conserva SMS vacío. Servir directamente el checkout mantiene el modo habitual en URLs sin `demo=1`. La [guía de demo](Demo.md) describe ambos recorridos.

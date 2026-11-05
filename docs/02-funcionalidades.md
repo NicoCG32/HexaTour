@@ -1,19 +1,30 @@
-# 02 — Catálogo funcional
+# 02 · Funcionalidades por modalidad
 
-## Capacidades y límites
+El portal puede ejecutarse en el montaje, en un simulador local o como demo estática.
 
-**Disponibilidad:** Prototipo de orientación turística con portal local, firmware y demo web. La demo permite recorrer la interfaz sin hardware y simula o deshabilita las acciones físicas.
+| Capacidad | Montaje ESP32 + UNO (en código) | Simulador Python | Demo estática |
+| --- | --- | --- | --- |
+| Portal de visitante y operador | Sí, archivos desde SD | Sí, servidos desde PC | Sí |
+| Categorías, fichas e imágenes | Sí | Sí | Sí, datos de ejemplo |
+| Imagen y texto de indicaciones | Sí, si existe contenido | Sí | Sí |
+| Impresión térmica | Solicitud a UNO con protocolo y estados | Aceptación simulada | Mensaje de simulación; no envía API |
+| PDF de ruta | Endpoint del ESP32 | PDF de prueba simplificado | Deshabilitado |
+| Wi-Fi local y DNS cautivo | Implementados en ESP32 | No | No |
+| LCD de estado | Implementado en ESP32 | No | No |
+| Restricción de acceso a `/main/` | HTTP Basic en firmware | No | No |
+| Urgencia en visitante | Puede preparar SMS desde el dispositivo si fue configurado | Depende de la interfaz del cliente; no envía SMS | Sólo demostración local |
+| Urgencia en operador | Aviso local, sin llamada ni envío | Aviso local | Aviso local |
 
-| Módulo      | Capacidad / propósito                  | Caso borde o límite                      |
-| ----------- | -------------------------------------- | ---------------------------------------- |
-| Consulta    | Categorías y fichas de lugares         | Archivo ausente o contenido incompleto   |
-| Orientación | Texto e imagen de ruta                 | Imagen no disponible                     |
-| Montaje     | Portal, SD e impresión                 | Sin papel, equipo ocupado o fallo serial |
-| Operación   | Actualización de contenidos y firmware | Versiones y rutas coherentes             |
-| Demo        | Experiencia sin hardware               | Impresión simulada, PDF y SMS limitados  |
+## Límites de uso
 
-Las capacidades previstas se distinguen de las disponibles. Consulta los requisitos de la plataforma que vas a utilizar.
+- Los tiempos, horarios, alertas e imágenes del catálogo son **datos de ejemplo**, no información corroborada en terreno.
+- El portal **no usa geolocalización en vivo ni un motor de cálculo de rutas**.
+- Un `200 print job accepted` significa que el ESP32 aceptó la solicitud; **no demuestra que la impresora haya terminado**.
+- La acción de urgencia **no constituye un servicio de emergencias**. Abrir una app de SMS no significa que el mensaje se haya enviado o recibido.
+- Los binarios de la base de compilación actual requieren una [prueba física integrada](../firmware/Compilacion.md#montaje-original-y-revalidación).
 
-## Código y documentación relacionada
+## Aspiraciones de los informes
 
-[README.md](../README.md) · [docs/Arquitectura.md](Arquitectura.md) · [docs/Formato-de-datos.md](Formato-de-datos.md) · [docs/Despliegue.md](Despliegue.md) · [firmware/README.md](../firmware/README.md) · [tools/backend-local/README.md](../tools/backend-local/README.md).
+Funciones como multilenguaje, audioguía/NFC u otras expansiones estudiadas en el curso se consideran **propuestas históricas o posibilidades futuras**, no capacidades del portal actual.
+
+[Flujos y estados](03-flujo-de-usuario.md) · [Demo](Demo.md) · [Compilación](../firmware/Compilacion.md)

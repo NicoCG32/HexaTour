@@ -1,15 +1,18 @@
-# 06 — Integraciones y asistencia
+# 06 · Integraciones del sistema
 
-## Integraciones y límites de asistencia
+El portal utiliza contenido preparado manualmente y comunicación local entre sus componentes.
 
-| Servicio / integración | Finalidad / ejecución        | Contrato o límite                                   |
-| ---------------------- | ---------------------------- | --------------------------------------------------- |
-| ESP32/UNO              | Red local y protocolo serial | Estado de impresión y alimentación                  |
-| SD y ticketera         | Contenido y salida física    | Capacidad, consumibles y mantenimiento              |
-| GitHub Pages           | Demo estática                | Sin API física ni garantía de operación del montaje |
+## Componentes e interfaces
 
-Configura las credenciales privadas en el servidor o en el entorno de compilación, según la integración. Consulta la configuración, las cuotas y las condiciones del servicio antes de utilizarlo.
+| Integración | Uso | Dependencia |
+| --- | --- | --- |
+| Wi-Fi AP, DNS y HTTP del ESP32-S3 | Conectar y servir el portal local | Firmware, energía y hardware ESP32 |
+| SD por SPI | Leer páginas, JSON, imágenes y recursos de PDF | Tarjeta y módulo SD |
+| UART ESP32 ↔ UNO | Consultar estado y solicitar impresión | Cableado, niveles eléctricos y dos firmwares |
+| Serial TTL UNO ↔ ticketera | Imprimir el texto del trabajo | Fuente de la impresora, papel, enlace serial |
+| LCD I²C | Informar estados locales | Pantalla y cableado |
+| Aplicación SMS del visitante | Abrir un mensaje preparado sólo con configuración válida | Dispositivo con capacidad de SMS y acción del usuario |
+| Python `http.server` extendido | Simular endpoints sin hardware | PC de desarrollo, no forma parte del firmware |
+| GitHub Pages | Servir una demo estática | Acceso a Internet para abrir el sitio público; no controla hardware |
 
-## Código y documentación relacionada
-
-[README.md](../README.md) · [docs/Arquitectura.md](Arquitectura.md) · [docs/Formato-de-datos.md](Formato-de-datos.md) · [docs/Despliegue.md](Despliegue.md) · [firmware/README.md](../firmware/README.md) · [tools/backend-local/README.md](../tools/backend-local/README.md).
+[Arquitectura](01-arquitectura-general.md) · [Compilación y pines](../firmware/README.md)

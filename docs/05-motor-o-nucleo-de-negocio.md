@@ -1,23 +1,21 @@
-# 05 — Reglas y núcleo
+# 05 · Reglas del sistema y decisiones de diseño
 
-## Núcleo e invariantes
+El núcleo operativo resuelve contenido local, presenta indicaciones y coordina las solicitudes de impresión y PDF.
 
-- Un slug/categoría debe resolver a una ficha y sus recursos.
-- Agregar categoría al JSON no garantiza un botón nuevo si los HTML lo declaran de forma fija.
-- El modo demo debe impedir que un mensaje simulado se interprete como impresión real.
-- La falta de PDF o mensajería en la demo se comunica, no se sustituye por una petición fallida al equipo privado.
-- Los archivos comprimidos son artefactos derivados; sus fuentes sin comprimir deben permitir reproducir el montaje.
+## Reglas comprobables
 
-### Entradas, decisión y efectos
+| Regla | Dónde se aplica | Razón |
+| --- | --- | --- |
+| Resolver `category` y `slug` hacia archivos del catálogo | JavaScript y firmware ESP32 | Evita depender de una API remota. |
+| Rechazar o informar fichas/rutas inexistentes | Cliente, firmware y validador Python | No imprimir indicaciones sin contenido. |
+| Mantener coherentes índice, listas, fichas e imágenes | `test/validate_data.py` | Evitar enlaces rotos y datos incompletos. |
+| No aceptar otro ticket mientras el ESP32 está ocupado | `HexaTour.ino` | Evitar superposición de trabajos. |
+| Consultar disponibilidad del UNO antes de mandar el texto | Protocolo `STATUS?` | Distinguir aceptación web de posibilidad de imprimir. |
+| Ignorar un trabajo si su id coincide con el último atendido | Firmware UNO | Prevenir algunos duplicados simples; no es garantía de entrega exactamente una vez. |
+| Desactivar acciones físicas en demo | JavaScript y empaquetador | Evitar que el usuario confunda un mensaje con una impresión o un aviso real. |
 
-El recorrido de [03-flujo-de-usuario.md](03-flujo-de-usuario.md) proporciona entradas al núcleo. Las reglas anteriores determinan lo aceptado y sus efectos; UI y proveedores externos no deben sustituir silenciosamente esas decisiones. El modelo de [04-base-de-datos.md](04-base-de-datos.md) identifica los estados/referencias afectados.
+## Limitaciones relevantes
 
-Los documentos especializados enlazados detallan las fórmulas, parámetros y efectos de cada operación.
+La ruta es **texto e imagen previamente preparados**. Los tiempos a pie o en vehículo son campos informativos, no cálculos producidos por un servicio de mapas. Tampoco se mide el estado del papel, la calidad final del ticket ni la recepción de un SMS. El servidor de prueba puede aceptar un trabajo ficticio, mientras que el hardware tiene tiempos de respuesta y errores propios.
 
-### Pruebas con propósito
-
-Para comprobar el núcleo, cubre una operación válida, una entrada rechazada y la reapertura o repetición de la operación. Los comandos de prueba están en [instalación y despliegue](09-instalacion-y-despliegue.md).
-
-## Código y documentación relacionada
-
-[README.md](../README.md) · [docs/Arquitectura.md](Arquitectura.md) · [docs/Formato-de-datos.md](Formato-de-datos.md) · [docs/Despliegue.md](Despliegue.md) · [firmware/README.md](../firmware/README.md) · [tools/backend-local/README.md](../tools/backend-local/README.md).
+Para entender el orden preciso de decisiones, ver los [estados y secuencia de impresión](03-flujo-de-usuario.md) y la [arquitectura técnica ampliada](Arquitectura.md).

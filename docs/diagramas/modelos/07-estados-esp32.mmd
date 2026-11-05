@@ -1,0 +1,9 @@
+stateDiagram-v2
+  [*] --> ESP_IDLE
+  ESP_IDLE --> ESP_PREGUNTA_STATUS: API acepta trabajo
+  ESP_PREGUNTA_STATUS --> ESP_ESPERA_STATUS: Enviar STATUS?
+  ESP_ESPERA_STATUS --> ESP_ENVIA_PRINT: STATUS disponible
+  ESP_ESPERA_STATUS --> ESP_IDLE: Ocupado o timeout 3 s
+  ESP_ENVIA_PRINT --> ESP_ESPERA_DONE: Enviar PRINT
+  ESP_ESPERA_DONE --> ESP_IDLE: DONE con id correcto
+  ESP_ESPERA_DONE --> ESP_IDLE: Timeout 10 s (resultado incierto)

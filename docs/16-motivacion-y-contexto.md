@@ -1,17 +1,11 @@
-# 16 — Motivación personal y contexto
+# 16 · Por qué nació HexaTour
 
-## Origen del proyecto
+HexaTour nació en 2025, durante **Proyecto Diseño e Innovación** de la Universidad Católica del Norte. Éramos seis compañeros organizados como **HexaCorp**. Partimos investigando las dificultades de orientación turística rural y terminamos proponiendo un tótem capaz de ofrecer información local sin exigir que cada visitante tuviera Internet, con la opción de imprimir indicaciones.
 
-HexaTour nace en el curso Proyecto Diseño e Innovación, de 4 SCT, del cuarto semestre de Ingeniería Civil en Computación Informática de la Universidad Católica del Norte. Su origen combina la exploración de necesidades de orientación turística rural con diseño, prototipado e integración tecnológica.
+La parte que más me entusiasmó fue hacer funcionar la idea. Me encargué del diseño del circuito, la programación del ESP32-S3 y del Arduino UNO, el portal web y la integración de los componentes electrónicos.
 
-## Qué busca aportar
+**Benjamín Esquivel y su padre construyeron la maqueta física** que utilizamos para la presentación. Mis otros compañeros participaron principalmente en la investigación, los informes y las exposiciones. Yo también participé como presentador.
 
-Un ESP32-S3 ofrece un portal local con contenido en SD y coordina con Arduino UNO la impresión térmica de indicaciones. El visitante usa su navegador; el montaje combina red local, fichas y salida física. Una demo web separada comunica la experiencia con acciones simuladas.
+El repositorio conserva el prototipo, sus recursos y herramientas para probarlo. La demo web permite recorrer el portal sin montar las placas.
 
-## Cómo evaluar su aporte
-
-Capacidad de encontrar indicaciones, cobertura sin internet y tasa de acciones físicas completadas; mantenimiento por punto de información.
-
-[Problemática, público y solución](00-problematica-cliente-y-valor.md) · [Proyección](15-escalabilidad-y-nuevos-mercados.md).
-
-[Informes y contexto formativo](academica/README.md).
+[Equipo y documentos del curso](academica/README.md) · [Arquitectura y montaje](01-arquitectura-general.md) · [Cómo se desarrolló](17-desarrollo-y-metodologia.md)

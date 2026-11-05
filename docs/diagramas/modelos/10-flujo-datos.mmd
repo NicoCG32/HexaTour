@@ -1,0 +1,8 @@
+flowchart LR
+  UI["Botón de categoría en HTML"] --> LIST["db/categories/<id>.json"]
+  LIST --> SLUG["Elegir slug"]
+  SLUG --> POI["db/poi/<id>/<slug>.json"]
+  POI --> META["Mostrar campos, texto y rutas de imagen"]
+  META --> IMG["Cargar /img/ desde SD o servidor"]
+  classDef data fill:#e7f0ed,stroke:#4d877b,color:#215347;
+  class LIST,POI data;

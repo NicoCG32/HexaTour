@@ -1,39 +1,26 @@
-# 00 — Problemática, cliente y solución
+# 00 · Problema, público y propuesta
 
-## Síntesis general — HexaTour
+## El problema que investigamos
 
-**Disponibilidad:** Prototipo de orientación turística con portal local, firmware y demo web. La demo permite recorrer la interfaz sin hardware y simula o deshabilita las acciones físicas.
+Durante el curso estudiamos dificultades para orientarse en sectores de turismo rural de la Región de Coquimbo. Cuando la cobertura móvil falla o faltan señales claras, una ficha, un horario o unas indicaciones que dependen de Internet pueden dejar de servir justo cuando se necesitan. Los [informes originales](academica/README.md) reúnen las entrevistas y el análisis de esa etapa.
 
-### Problemática
+## La propuesta
 
-En recorridos turísticos rurales, la conectividad y la orientación pueden ser insuficientes. La información de lugares, rutas y servicios debe poder consultarse cerca del punto de uso y conservar una alternativa material sin depender de internet del visitante.
+HexaTour busca ofrecer un **punto de información local** al que el visitante se conecte mediante Wi-Fi y acceda con su navegador. La información reside en una SD conectada a un ESP32-S3. En el montaje, una impresora térmica controlada por un Arduino UNO permite entregar indicaciones impresas. El ESP32 también dispone de un endpoint para generar PDF.
 
-### Cliente, usuario y beneficiario
+Las indicaciones se preparan previamente y requieren actualización y validación por el responsable del lugar. El catálogo actual contiene ejemplos; los [límites de uso](02-funcionalidades.md#límites-de-uso) explican su alcance.
 
-| Perfil                         | Contexto                             | Necesidad                                            |
-| ------------------------------ | ------------------------------------ | ---------------------------------------------------- |
-| Usuario                        | Visitante de un circuito rural       | Consultar lugares y orientarse con baja conectividad |
-| Operador                       | Responsable del punto de información | Mantener contenido, equipo y consumibles             |
-| Beneficiario/cliente potencial | Organización turística local         | Evaluar cobertura y mantenimiento antes de adoptar   |
+## Personas involucradas en la experiencia
 
-### Solución y límites
+| Perfil | Qué necesita |
+| --- | --- |
+| **Visitante** | Encontrar un lugar, leer indicaciones y conservarlas cuando sea posible. |
+| **Operador de un punto** | Consultar contenido y, con la impresora disponible, solicitar un ticket. |
+| **Responsable del montaje** | Mantener la SD, alimentar placas y consumibles, revisar errores y actualizar fichas. |
+| **Organización que quisiera instalarlo** | Comprobar utilidad, costos y condiciones reales antes de adoptar el prototipo. |
 
-Un ESP32-S3 ofrece un portal local con contenido en SD y coordina con Arduino UNO la impresión térmica de indicaciones. El visitante usa su navegador; el montaje combina red local, fichas y salida física. Una demo web separada comunica la experiencia con acciones simuladas.
+## Criterio de utilidad
 
-### Por qué corresponde al problema
+El objetivo es que una persona encuentre indicaciones comprensibles sin depender de sus datos móviles. Para evaluarlo, se necesita observar consultas en condiciones reales, revisar el contenido con responsables locales y medir la disponibilidad de la impresora y el esfuerzo de mantenimiento.
 
-| Fricción / necesidad         | Mecanismo de la solución                                                    |
-| ---------------------------- | --------------------------------------------------------------------------- |
-| Conectividad insuficiente    | Los archivos y el portal residen en el equipo local                         |
-| Orientación sólo en pantalla | La impresión proporciona una copia física cuando el montaje está disponible |
-| Contenido disperso           | Categorías y fichas JSON organizan lugares con formato común                |
-
-### Validación pendiente o continua
-
-Capacidad de encontrar indicaciones, cobertura sin internet y tasa de acciones físicas completadas; mantenimiento por punto de información.
-
-Puedes conocer el origen del proyecto en [16-motivacion-y-contexto.md](16-motivacion-y-contexto.md); el análisis de costos y proyección se separa en [18-analisis-economico-clp-usd.md](18-analisis-economico-clp-usd.md).
-
-## Código y documentación relacionada
-
-[README.md](../README.md) · [docs/Arquitectura.md](Arquitectura.md) · [docs/Formato-de-datos.md](Formato-de-datos.md) · [docs/Despliegue.md](Despliegue.md) · [firmware/README.md](../firmware/README.md) · [tools/backend-local/README.md](../tools/backend-local/README.md).
+[Estado de las funcionalidades](02-funcionalidades.md) · [Contexto formativo](academica/README.md)

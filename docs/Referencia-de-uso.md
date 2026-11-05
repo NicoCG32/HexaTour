@@ -1,16 +1,16 @@
 # Referencia ampliada de uso
 
-Esta guía conserva las instrucciones detalladas del README anterior. Para el estado y las descargas vigentes consulta el [README principal](../README.md); para la licencia y créditos, [LICENSING](../LICENSING.md).
+Guía de ejecución, estructura del repositorio y resolución de problemas. Consulta también la [presentación del proyecto](../README.md) y la [licencia y créditos](../LICENSING.md).
 
-# HexaTour
+## HexaTour
 
 Prototipo de orientacion turistica rural que funciona sin Internet. Ofrece un portal cautivo con informacion de puntos de interes y permite imprimir indicaciones mediante una impresora termica. El sistema se basa en ESP32-S3 (portal, SD, PDF) y Arduino UNO (control de impresora).
 
-Video promocional: https://www.youtube.com/shorts/Zw-bziu8veU
+[Video promocional](https://www.youtube.com/shorts/Zw-bziu8veU).
 
 ## Estado de la entrega
 
-Prototipo de curso cerrado. Puedes explorar la [demo pública sin hardware](https://nicocg32.github.io/HexaTour/), publicada y comprobada por HTTPS el 2026-10-07. Muestra datos de ejemplo e impresión simulada; PDF no disponible y urgencias sin envío. La interfaz también puede probarse con el mock Python; el portal cautivo y la impresión real requieren el montaje. El circuito documenta el montaje original. Los binarios de la base de compilación actual requieren una nueva prueba física. Ambos firmwares compilaron el 2026-10-08 con una base nueva de versiones fijas; [registro del montaje y alcance de la revalidación](../firmware/Compilacion.md#montaje-original-y-revalidación).
+Prototipo académico con [demo pública sin hardware](https://nicocg32.github.io/HexaTour/). Muestra datos de ejemplo e impresión simulada, con PDF deshabilitado y urgencias sin envío. La interfaz también puede probarse con el simulador Python. El portal cautivo y la impresión real requieren el montaje; las pruebas pendientes con la base de compilación actual están en la [guía de firmware](../firmware/Compilacion.md#montaje-original-y-revalidación).
 
 ## Tabla de contenidos
 
@@ -34,7 +34,7 @@ El visitante consulta lugares y descarga PDF; el operador solicita impresion. [C
 
 ### Sin hardware
 
-Requiere Python 3.10 o posterior; la prueba local se ha ejecutado con Python 3.12.14. Ejecuta desde la raiz del repositorio, la carpeta que contiene este README, `firmware/`, `web/` y `tools/`:
+Requiere Python 3.10 o posterior. Ejecuta desde la raíz del repositorio, donde están `README.md`, `firmware/`, `web/` y `tools/`:
 
 ```bash
 python tools/backend-local/server.py --port 8000

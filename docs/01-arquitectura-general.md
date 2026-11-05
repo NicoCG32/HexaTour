@@ -1,71 +1,102 @@
-# 01 — Arquitectura por niveles
+# 01 · Arquitectura de HexaTour, por niveles
 
-## Arquitectura del sistema por niveles
+El proyecto se organiza en cuatro niveles: contexto, componentes físicos, software y despliegue. Cada diagrama describe el montaje o una de sus modalidades de prueba.
 
-### Nivel 1 — Contexto y fronteras de ejecución
+## Nivel 1 · Contexto
 
-```text
-[Visitante / navegador] -> [Wi-Fi local ESP32-S3]
-                                   |
-                           [Portal y API local]
-                             |            |
-                             v            v
-                      [SD: /www]      [Arduino UNO]
-                      HTML/JSON/img        |
-                                     [Ticketera]
-
-[Demo Pages] -> [Navegador: datos de muestra / simulación]
-[Mock Python] -> [Prueba de portal y endpoints sin hardware]
+```mermaid
+flowchart LR
+  VIS["Visitante · navegador"] -->|"Wi-Fi local / HTTP"| TOTEM["HexaTour · punto local"]
+  OPE["Operador · navegador"] -->|"Portal /main y solicitudes"| TOTEM
+  TOTEM -->|"HTML, fichas, indicaciones"| VIS
+  TOTEM -->|"Indicaciones impresas"| PAPEL["Ticketera térmica"]
+  MANT["Responsable del punto"] -->|"Actualiza SD, firmware y consumibles"| TOTEM
+  classDef human fill:#eaf3f6,stroke:#386477,color:#163849;
+  classDef device fill:#203f57,stroke:#203f57,color:#ffffff;
+  classDef output fill:#f5eee0,stroke:#ac8b4e,color:#5b451c;
+  class VIS,OPE,MANT human;
+  class TOTEM device;
+  class PAPEL output;
 ```
 
-Un ESP32-S3 ofrece un portal local con contenido en SD y coordina con Arduino UNO la impresión térmica de indicaciones. El visitante usa su navegador; el montaje combina red local, fichas y salida física. Una demo web separada comunica la experiencia con acciones simuladas.
+No se necesita conexión a Internet para consultar el contenido almacenado localmente. La aplicación de SMS, cuando está configurada, depende del dispositivo del visitante y de su servicio de mensajería; **no la envía el ESP32**.
 
-### Nivel 2 — Componentes y responsabilidades
+## Nivel 2 · Contenedores y hardware
 
-| Componente | Responsabilidad                       | Fuente                                                                                      |
-| ---------- | ------------------------------------- | ------------------------------------------------------------------------------------------- |
-| Portal     | HTML/CSS/JS para visitante y operador | [web/www](../web/www)                                                                       |
-| Contenidos | Categorías, POI e imágenes            | [web/www/db](../web/www/db)                                                                 |
-| Cliente    | Lectura y resolución de rutas         | [web/www/assets/js/common.js](../web/www/assets/js/common.js)                               |
-| ESP32      | Wi-Fi, HTTP, SD y coordinación        | [firmware/esp32/HexaTour/HexaTour.ino](../firmware/esp32/HexaTour/HexaTour.ino)             |
-| UNO        | Impresión y confirmación              | [firmware/uno/ImpresoraUNO/ImpresoraUNO.ino](../firmware/uno/ImpresoraUNO/ImpresoraUNO.ino) |
-| Mock       | API de prueba local                   | [tools/backend-local/server.py](../tools/backend-local/server.py)                           |
-
-Las flechas muestran el flujo de información entre componentes. Las transacciones y dependencias de código se detallan en los contratos de cada módulo.
-
-### Nivel 3 — Dominio, contratos y adaptadores
-
-Archivos JSON e imágenes en SD bajo /www; no hay base SQL ni RLS. Los conteos/listas y las fichas deben ser coherentes. El mock usa las fuentes del sitio; una simulación no certifica DNS cautivo, autenticación del operador ni ejecución serial real.
-
-- Un slug/categoría debe resolver a una ficha y sus recursos.
-- Agregar categoría al JSON no garantiza un botón nuevo si los HTML lo declaran de forma fija.
-- El modo demo debe impedir que un mensaje simulado se interprete como impresión real.
-
-Consultar [04-base-de-datos.md](04-base-de-datos.md) para entidades, cardinalidades y representación; [05-motor-o-nucleo-de-negocio.md](05-motor-o-nucleo-de-negocio.md) para invariantes. Las piezas marcadas como propuestas pertenecen al diseño del prototipo.
-
-### Nivel 4 — Despliegue y distribución
-
-**Destino:** Montaje ESP32/UNO + Demo web estática.
-
-```text
-[Revisión de fuente] -> [Verificación de su plataforma] -> [Build / artefacto]
-                                                                  |
-                                                          [Instalación / hosting]
-                                                                  |
-                                                          [Usuario y sus datos]
+```mermaid
+flowchart TB
+  B["Navegador · HTML / CSS / JS"] -->|"HTTP local"| E["ESP32-S3 · AP Wi-Fi, DNS y servidor web"]
+  subgraph Equipo["Equipo HexaTour"]
+    E <-->|"Archivos y catálogos"| SD[("Tarjeta SD · /www")]
+    E --> LCD["LCD 16 × 2 · I²C"]
+    E <-->|"UART · STATUS / PRINT / DONE"| UNO["Arduino UNO · firmware impresora"]
+    UNO -->|"Serial TTL"| T["Impresora térmica"]
+  end
+  classDef core fill:#234761,stroke:#234761,color:white;
+  classDef storage fill:#e7f1ee,stroke:#377d70,color:#214d44;
+  classDef peripheral fill:#f6efe3,stroke:#b58d50,color:#614920;
+  class E,UNO core;
+  class SD storage;
+  class LCD,T peripheral;
 ```
 
-La demo de Pages contiene una copia estática del portal. El montaje local utiliza su propia tarjeta SD y los firmwares de ESP32 y UNO; actualiza cada componente siguiendo la guía correspondiente. El capítulo [09-instalacion-y-despliegue.md](09-instalacion-y-despliegue.md) concreta la puesta en marcha.
+El **ESP32-S3** hospeda el portal y los endpoints `/api/print-ruta` y `/api/route-pdf`. La **SD** contiene el HTML, scripts, JSON e imágenes. El **UNO** no sirve páginas: recibe una orden serial y controla la impresora. La pantalla LCD informa estados del dispositivo.
 
-### Calidad y límites arquitectónicos
+El mapa de conexiones resume los pines declarados por los sketches:
 
-- Actualización de contenido turístico
-- Energía, SD, impresora y consumibles
-- Confundir información de ejemplo con orientación validada
-- Operación del portal cautivo en equipos de visitantes
+![Conexiones principales del ESP32-S3, Arduino UNO, LCD, módulo SD e impresora](diagramas/HexaTourConexionesRevisadas.svg)
 
-El rendimiento y la capacidad dependen del entorno de ejecución. Consulta las guías de instalación y las limitaciones de cada plataforma antes de desplegar.
+**Cableado:** [plano Draw.io original](diagramas/HexaTourCircuito.drawio) · [SVG](diagramas/HexaTourCircuito.svg) · [pines y alimentación](../firmware/README.md#pines-usados). Verifica alimentación y niveles eléctricos en el montaje antes de energizarlo.
 
-## Código y documentación relacionada
+## Nivel 3 · Componentes y responsabilidades de software
 
-[README.md](../README.md) · [docs/Arquitectura.md](Arquitectura.md) · [docs/Formato-de-datos.md](Formato-de-datos.md) · [docs/Despliegue.md](Despliegue.md) · [firmware/README.md](../firmware/README.md) · [tools/backend-local/README.md](../tools/backend-local/README.md).
+```mermaid
+flowchart LR
+  subgraph Frontend["Interfaz en navegador"]
+    Pages["Landing / visitante / operador"] --> JS["JavaScript · common + scripts de vista"]
+  end
+  subgraph Embedded["ESP32 · firmware"]
+    HTTP["WebServer · rutas y API"] --> JSON["Lectura de archivos y fichas SD"]
+    HTTP --> PDF["Generación de PDF"]
+    HTTP --> QUEUE["Máquina de estados de impresión"]
+  end
+  JS -->|"GET JSON e imágenes"| HTTP
+  JS -->|"Imprimir / descargar PDF"| HTTP
+  JSON --> SD[("/www/db + /www/img")]
+  PDF --> SD
+  QUEUE -->|"Serial2"| Uno["UNO · control de ticketera"]
+  classDef c fill:#254964,stroke:#254964,color:#fff;
+  class HTTP,PDF,QUEUE,Uno c;
+```
+
+La navegación y los botones están definidos en páginas HTML. El archivo [`db/index.json`](../web/www/db/index.json) **no genera por sí solo los botones de categorías**. El navegador obtiene listas y fichas JSON con [`common.js`](../web/www/assets/js/common.js). Los scripts [`visitor-lugar.js`](../web/www/assets/js/visitor-lugar.js) y [`main-lugar.js`](../web/www/assets/js/main-lugar.js) resuelven las acciones de cada perfil.
+
+## Nivel 4 · Tres despliegues distintos
+
+```mermaid
+flowchart TB
+  SRC["Código y contenido del repositorio"] --> LOCAL["Montaje físico"]
+  SRC --> MOCK["PC · simulador Python"]
+  SRC --> BUILD["Empaquetador de demo"]
+  LOCAL --> FW["ESP32 + UNO + SD + impresora"]
+  MOCK --> PY["Servidor local con API simulada"]
+  BUILD --> PAGES["GitHub Pages · archivos estáticos"]
+  classDef source fill:#e8eef4,stroke:#72879a,color:#1d3447;
+  classDef physical fill:#dfeee9,stroke:#3a806f,color:#1a5143;
+  classDef demo fill:#f5efe2,stroke:#ae8e56,color:#60491c;
+  class SRC source;
+  class LOCAL,FW physical;
+  class MOCK,PY,BUILD,PAGES demo;
+```
+
+La demo estática se genera desde `web/www` y usa controles explícitos de simulación; **no contiene un servidor Python ni una API de impresión**. El simulador permite probar la web y endpoints en un PC. El montaje real depende de SD, alimentación y placas; publicar una versión en Pages no actualiza su contenido.
+
+## Fronteras de confianza y limitaciones
+
+1. **Panel de operador:** el ESP32 aplica HTTP Basic al servir `/main/`; eso **no equivale** a autorizar todas las operaciones. Los handlers de impresión y PDF no se protegen por el mismo chequeo. Las credenciales se encuentran definidas en el firmware y deben cambiarse antes de una instalación expuesta.
+2. **Red local:** el montaje usa HTTP; las contraseñas de ejemplo y la autenticación básica no son suficientes para operar en un entorno no confiable.
+3. **Catálogo:** un JSON correcto técnicamente no equivale a indicaciones reales verificadas; hay que revisarlas antes de instalar el punto.
+4. **Salida física:** la aceptación HTTP es anterior al protocolo `STATUS?` → `PRINT` → `DONE`. Un timeout después de enviar puede dejar desconocido si se imprimió.
+5. **Prueba del montaje:** la [guía de compilación](../firmware/Compilacion.md#montaje-original-y-revalidación) registra las comprobaciones físicas pendientes con la base actual.
+
+La [arquitectura ampliada](Arquitectura.md) documenta endpoints y contrato serial; [flujos y estados](03-flujo-de-usuario.md) muestra las secuencias completas; [formato de datos](Formato-de-datos.md) define las validaciones.

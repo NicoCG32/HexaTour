@@ -4,19 +4,7 @@
 
 ## Estado
 
-La [demo pública](https://nicocg32.github.io/HexaTour/) está publicada en GitHub Pages y fue comprobada por HTTPS el **2026-10-07**. Pages usa fuente `workflow`, sin dominio personalizado y con HTTPS obligatorio. El workflow continúa exclusivamente manual; un push no publica por sí solo.
-
-| Registro de la primera versión verificada | Valor |
-| --- | --- |
-| Fuente publicada | [aa9f3ce](https://github.com/NicoCG32/HexaTour/commit/aa9f3ce608107f89cb6559ad96b1c00175418559) |
-| Revisión previa sin publicar | [37715192073](https://github.com/NicoCG32/HexaTour/actions/runs/37715192073) |
-| Publicación aprobada | [37715247153](https://github.com/NicoCG32/HexaTour/actions/runs/37715247153) |
-| SHA-256 de demo-manifest.json | `6e12fa9814c17ced6257794a6d217bbc369805f6a62dad59cc7869bd6bfcb445` |
-| Artefacto estático | 275 archivos; todos los cuerpos HTTPS coinciden con el artefacto desplegado |
-
-Las 27 regresiones pasaron en Linux. El recorrido público comprobó las nueve categorías en ambas vistas, las cinco entradas con parámetro ausente/0/1, ficha y ruta de Universidad a 320/390/1280 píxeles y acciones por teclado. Impresión simulada, PDF deshabilitado y urgencias sin SMS; consola sin errores ni advertencias. El inventario de recursos observado no contiene `/api/`; no es una traza HTTP exhaustiva ni sustituye una prueba del montaje físico.
-
-Actualización **2026-10-08**: [fuente e627bf1](https://github.com/NicoCG32/HexaTour/commit/e627bf1343a8f8d180d8caa644418ee0ec3bb70e), [publicación 37860351604](https://github.com/NicoCG32/HexaTour/actions/runs/37860351604), 29 pruebas aprobadas en Linux y 276 recursos HTTPS cotejados con el manifiesto. Se añadió [LICENSE.txt](https://nicocg32.github.io/HexaTour/LICENSE.txt), copia de la MIT del proyecto. Los hashes de todos los archivos de la versión anterior se conservaron; el navegador no se repitió porque HTML, scripts y estilos son idénticos. SHA-256 del manifiesto actual: `e40c04d39eda5e033abf19771b444443b240bf8d5b2365bcb9b22634d230c48a`.
+La [demo pública](https://nicocg32.github.io/HexaTour/) se aloja en GitHub Pages. El workflow se ejecuta manualmente; un push no publica por sí solo.
 
 El montaje físico usa `web/www` en la SD y conserva sus acciones habituales. La distribución pública usa una copia generada con demo forzada. Un despliegue web no actualiza firmware ni SD.
 
@@ -47,7 +35,7 @@ Abre http://localhost:8000/ y las entradas `/visitor/`, `/main/`, `/visitor/luga
 | `LICENSE.txt` | Copia exacta de la licencia raíz del código propio; incluida también en los hashes y en la huella fuente |
 | `demo-manifest.json` | Modo, entradas, resumen de catálogo, huella del conjunto fuente seleccionado y hashes SHA-256 de los archivos generados; el propio manifiesto no incluye su hash |
 
-Desde la adopción de MIT el 2026-10-08, la raíz generada tiene 276 archivos, incluida `LICENSE.txt`; la primera publicación registrada arriba tenía 275. Se comprueban también scripts, estilos e imágenes referenciados por el HTML. Una nueva entrada HTML o asset debe incorporarse al contrato del empaquetador y comprobarse antes de distribuirlo. Herramientas, pruebas, firmware, documentación, informes, archivos ocultos locales y scripts ajenos a la lista no forman parte del artefacto.
+El empaquetador comprueba también los scripts, estilos e imágenes referenciados por el HTML. Una nueva entrada HTML o recurso debe incorporarse a su lista y comprobarse antes de distribuirlo. Herramientas, pruebas, firmware, documentación, informes y archivos ocultos locales quedan fuera del artefacto.
 
 ## Workflow de Pages
 
@@ -69,8 +57,8 @@ Cuando los cambios revisados estén confirmados y disponibles en `main` remoto:
 
 ## Registro y recuperación
 
-Registrar commit publicado, ID de ejecución, URL real, fecha y huella del manifiesto después de comprobar el sitio. La huella de archivos identifica el contenido de una copia; un HEAD anterior no representa cambios locales aún sin confirmar.
+Conservar el commit publicado, la ejecución de Actions y el manifiesto permite identificar la versión desplegada.
 
-Para recuperar una versión, restaurar en `main` los archivos del portal, empaquetador, pruebas y workflow de una fuente previamente verificada, confirmar/subir la restauración sin reescribir historial, reconstruir/revisar y publicar mediante el mismo workflow. La referencia actual con licencia incluida es `e627bf1343a8f8d180d8caa644418ee0ec3bb70e`; conservar `LICENSE` y su inclusión en el artefacto, y cotejar el manifiesto con la huella de esa publicación. La primera fuente histórica fue `aa9f3ce608107f89cb6559ad96b1c00175418559`. El procedimiento está documentado, no se ensayó una reversión del sitio público.
+Para recuperar una versión, restaura en `main` los archivos del portal, empaquetador, pruebas y workflow de un commit previamente probado. Confirma la restauración sin reescribir el historial, genera y revisa el artefacto, y publícalo mediante el mismo workflow. Conserva `LICENSE` y su inclusión en el artefacto.
 
 No depender del artefacto remoto como copia permanente: expira al día. Conservar fuente y manifiesto de la versión aprobada. La actualización de SD se realiza por el [procedimiento del montaje](manual-proveedor.md#actualizacion-de-contenidos), independientemente de Pages.

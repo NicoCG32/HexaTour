@@ -127,7 +127,7 @@ flowchart LR
     end
 ```
 
-El artefacto publicable se limita al contenido web revisado. Diagramas, informes, firmware y herramientas de desarrollo no son parte de esa raíz estática. El recorrido local no acredita una publicación ni la vigencia/autorización de todo el contenido. [Demo.md](Demo.md) distingue el checkout activado por parámetro y la copia pública que fuerza simulación independientemente de la URL.
+El artefacto publicable contiene el portal y su catálogo de ejemplo. Diagramas, informes, firmware y herramientas de desarrollo quedan fuera de esa raíz estática. La [guía de demo](Demo.md) explica la activación por parámetro y el modo forzado de la copia pública.
 
 Para el equipo físico, la distribución es distinta y conserva su propia frontera:
 

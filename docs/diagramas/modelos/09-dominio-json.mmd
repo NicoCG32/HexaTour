@@ -1,0 +1,31 @@
+erDiagram
+  CATALOGO ||--o{ CATEGORIA : "declara"
+  CATEGORIA ||--o{ LUGAR : "enumera"
+  LUGAR ||--|| INDICACIONES : "contiene"
+  LUGAR ||--o{ RECURSO_IMAGEN : "referencia"
+  INDICACIONES ||--o| RECURSO_IMAGEN : "puede mostrar"
+  TRABAJO_IMPRESION }o--|| LUGAR : "solicita ruta de"
+  CATALOGO {
+    int version
+  }
+  CATEGORIA {
+    string id PK
+    string label
+    int count
+  }
+  LUGAR {
+    string category PK
+    string slug PK
+    string name
+    object fields
+  }
+  INDICACIONES {
+    string text
+  }
+  RECURSO_IMAGEN {
+    string path
+  }
+  TRABAJO_IMPRESION {
+    int jobId
+    string estado
+  }

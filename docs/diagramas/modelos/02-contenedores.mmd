@@ -1,0 +1,14 @@
+flowchart TB
+  B["Navegador · HTML / CSS / JS"] -->|"HTTP local"| E["ESP32-S3 · AP Wi-Fi, DNS y servidor web"]
+  subgraph Equipo["Equipo HexaTour"]
+    E <-->|"Archivos y catálogos"| SD[("Tarjeta SD · /www")]
+    E --> LCD["LCD 16 × 2 · I²C"]
+    E <-->|"UART · STATUS / PRINT / DONE"| UNO["Arduino UNO · firmware impresora"]
+    UNO -->|"Serial TTL"| T["Impresora térmica"]
+  end
+  classDef core fill:#234761,stroke:#234761,color:white;
+  classDef storage fill:#e7f1ee,stroke:#377d70,color:#214d44;
+  classDef peripheral fill:#f6efe3,stroke:#b58d50,color:#614920;
+  class E,UNO core;
+  class SD storage;
+  class LCD,T peripheral;

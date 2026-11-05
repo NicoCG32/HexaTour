@@ -1,0 +1,6 @@
+stateDiagram-v2
+  [*] --> Disponible
+  Disponible --> Disponible: STATUS? / responder STATUS|1
+  Disponible --> Imprimiendo: PRINT con id nuevo
+  Disponible --> Disponible: PRINT duplicado / ignorar
+  Imprimiendo --> Disponible: Terminar impresión y emitir DONE

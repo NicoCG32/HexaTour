@@ -1,35 +1,43 @@
-# 09 — Puesta en marcha y distribución
+# 09 · Puesta en marcha y comprobaciones
 
-## Puesta en marcha y distribución por plataforma
+El repositorio permite probar el portal en un PC, generar una demo estática o preparar el montaje físico.
 
-**Disponibilidad:** Prototipo de orientación turística con portal local, firmware y demo web. La demo permite recorrer la interfaz sin hardware y simula o deshabilita las acciones físicas.
+## A. Explorar y probar el portal desde un PC
 
-**Destinos:** Montaje ESP32/UNO + Demo web estática.
+Se necesita Python 3.10+:
 
-Montaje/portal con toolchains propios; seguir las versiones y rutas de las guías específicas.
+```bash
+python tools/backend-local/server.py --root web/www --port 8000
+```
 
-Los comandos de backend, firmware y simulación se describen en las guías relacionadas. Elige la modalidad que corresponda a tu montaje o entorno de demostración.
+Abrir `http://localhost:8000/visitor/` o `http://localhost:8000/main/`. El backend simula los endpoints de impresión y PDF, sin autenticación del operador, impresora física ni DNS cautivo.
 
-### Secuencia de puesta en marcha
+## B. Validar datos y preparar la demo
 
-1. Preparar el runtime/editor y la configuración que indiquen las fuentes enlazadas; usar valores de prueba y restaurar el lockfile apropiado.
-2. Ejecutar la modalidad local y sus comprobaciones existentes desde la carpeta indicada por esa guía. No confundir preview web con el runtime nativo o montaje físico.
-3. Construir/instalar el artefacto de ese target y comprobar recorrido principal, error relevante y reapertura/actualización antes de declararlo entregado.
+Desde la raíz:
 
-Ejecuta los comandos de comprobación antes de distribuir una compilación. Puedes consultar sus resultados remotos en la pestaña Actions del repositorio.
+```bash
+python -m unittest discover -s test -p 'test_*.py'
+python tools/build_demo.py --output dist/demo
+```
 
-### Datos, servicios y distribución
+El empaquetador valida el catálogo y genera una copia con modo demo forzado en todas sus entradas. La salida debe ser una carpeta nueva; si `dist/demo` ya existe, elige otra con `--output`. La [guía de publicación](Despliegue.md) explica el proceso local y el workflow de GitHub Pages.
 
-Archivos JSON e imágenes en SD bajo /www; no hay base SQL ni RLS. Los conteos/listas y las fichas deben ser coherentes. El mock usa las fuentes del sitio; una simulación no certifica DNS cautivo, autenticación del operador ni ejecución serial real.
+Puedes abrir la demo pública desde el [README](../README.md).
 
-La demo de Pages contiene una copia estática del portal. El montaje local utiliza su propia tarjeta SD y los firmwares de ESP32 y UNO; actualiza cada componente siguiendo la guía correspondiente.
+## C. Reproducir el montaje físico
 
-GitHub Releases distribuye los archivos de cada versión. Los servicios de servidor se despliegan por separado; consulta la guía de la plataforma para instalar o alojar la aplicación.
+1. Revisar [componentes, pines y alimentación](../firmware/README.md) y el [circuito editable](diagramas/HexaTourCircuito.drawio). No alimentar la ticketera desde la placa: la guía indica fuente separada.
+2. Preparar la tarjeta SD con la carpeta `www` del repositorio en `/www` y comprobar las rutas del catálogo.
+3. Compilar y cargar el sketch del [ESP32-S3](../firmware/esp32/HexaTour/HexaTour.ino) y del [UNO](../firmware/uno/ImpresoraUNO/ImpresoraUNO.ino) siguiendo las [versiones y comandos documentados](../firmware/Compilacion.md).
+4. **Cambiar las credenciales de ejemplo del Wi-Fi y el operador** antes de cualquier instalación fuera de un banco de pruebas. El portal usa HTTP y no constituye una interfaz administrativa segura en una red compartida.
+5. Comprobar alimentación, SD, conexión local, navegación, LCD, respuesta `STATUS` y una impresión real hasta `DONE`.
+6. Revisar con responsables locales todas las indicaciones, horarios y alertas antes de ofrecer el contenido al público.
 
-### Recuperación
+La [guía de compilación](../firmware/Compilacion.md#montaje-original-y-revalidación) registra la base de octubre de 2026 y las pruebas físicas pendientes con esos binarios.
 
-Conservar el artefacto anterior y su procedencia. Retroceder código no revierte automáticamente datos o migraciones. Revisar compatibilidad de guardado/snapshot y restauración antes de instalar una versión antigua. Consulta las notas de la versión para conocer los requisitos y límites de la entrega.
+## Recuperación y versiones
 
-## Código y documentación relacionada
+Conservar copia verificada de la SD, sketches, configuración usada y artefactos de prueba. Una actualización de GitHub Pages **no actualiza** la tarjeta del montaje. Si una versión falla, volver a una combinación previamente probada de firmware y contenido; no mezclar sketches/catálogo sin repetir la validación.
 
-[README.md](../README.md) · [docs/Arquitectura.md](Arquitectura.md) · [docs/Formato-de-datos.md](Formato-de-datos.md) · [docs/Despliegue.md](Despliegue.md) · [firmware/README.md](../firmware/README.md) · [tools/backend-local/README.md](../tools/backend-local/README.md).
+[Manual del proveedor](manual-proveedor.md) · [despliegue de demo](Despliegue.md) · [simulador](../tools/backend-local/README.md)

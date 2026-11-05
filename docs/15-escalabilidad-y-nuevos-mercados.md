@@ -1,45 +1,22 @@
-# 15 — Justificación, proyección y escalabilidad
+# 15 · Límites y posibilidades de continuidad
 
-## Justificación y proyección
+La información local es la base más reutilizable de HexaTour: un equipo contiene sus propios textos e imágenes y ofrece una consulta sencilla sin depender de un servicio remoto. La impresión añade requisitos de alimentación, repuestos y consumibles.
 
-### Ajuste entre problema y solución
+## Antes de instalar otro punto
 
-| Necesidad                    | Razón del diseño                                                            |
-| ---------------------------- | --------------------------------------------------------------------------- |
-| Conectividad insuficiente    | Los archivos y el portal residen en el equipo local                         |
-| Orientación sólo en pantalla | La impresión proporciona una copia física cuando el montaje está disponible |
-| Contenido disperso           | Categorías y fichas JSON organizan lugares con formato común                |
+Antes de ampliar funciones, hace falta revisar rutas con un responsable local, verificar el portal cautivo en distintos teléfonos, reforzar el acceso al panel y las APIs, reproducir la compilación y completar una impresión con el hardware actual.
 
-Capacidad de encontrar indicaciones, cobertura sin internet y tasa de acciones físicas completadas; mantenimiento por punto de información.
+## Dónde podría explorarse
 
-### Qué se puede abstraer y qué no
+Centros de interpretación, museos, ferias o senderos educativos podrían aprovechar una consulta local. Cada caso requiere evaluar contenidos, accesibilidad, energía, instalación y quién asume su actualización.
 
-Las entidades, reglas y fronteras de [04-base-de-datos.md](04-base-de-datos.md) permiten evaluar reutilización. Cambiar un nombre o una categoría no prueba compatibilidad con otro sector: datos, permisos, reglas, operación y costos deben validarse de nuevo.
+## Prioridades
 
-### Posibles líneas de evolución
+| Orden | Trabajo | Criterio observable |
+| --- | --- | --- |
+| 1 | Validación física integrada | Portal, SD, LCD y ticketera funcionan con el mismo montaje y versiones documentadas. |
+| 2 | Seguridad y operación | Credenciales no predeterminadas, acceso a endpoints revisado, manejo de fallos y mantenimiento definido. |
+| 3 | Validación de contenidos | Indicaciones y horarios aprobados por responsables del lugar, con fecha de actualización. |
+| 4 | Adaptación a otro recinto | Un caso de uso concreto justifica cambios en diseño y presupuesto. |
 
-- Centros de interpretación
-- Senderos educativos
-- Museos con conectividad limitada
-- Ferias o recintos con información local
-
-### Límites y trade-offs
-
-- Actualización de contenido turístico
-- Energía, SD, impresora y consumibles
-- Confundir información de ejemplo con orientación validada
-- Operación del portal cautivo en equipos de visitantes
-
-### Prioridad de inversión
-
-| Prioridad   | Iniciativa                                                     | Impacto a comprobar                                                                                                                         | Criterio económico                                                    |
-| ----------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| Alta        | Reproducción de un punto y medición de operación/mantenimiento | Capacidad de encontrar indicaciones, cobertura sin internet y tasa de acciones físicas completadas; mantenimiento por punto de información. | Rango de esfuerzo y costo en capítulo 18; no presupuesto comprometido |
-| Media       | Reproducción, soporte y recuperación por plataforma            | Menos fallos de entrega y pérdida de datos                                                                                                  | Costo recurrente separado de implementación                           |
-| Estratégica | Validar una extensión/forma de sostenimiento                   | Uso y aceptación fuera del contexto inicial                                                                                                 | Investigar costos, demanda y condiciones antes de monetizar           |
-
-Las cifras CLP/USD, supuestos, sensibilidad y retorno se presentan en [18-analisis-economico-clp-usd.md](18-analisis-economico-clp-usd.md); no son una valoración comercial del repositorio.
-
-## Código y documentación relacionada
-
-[README.md](../README.md) · [docs/Arquitectura.md](Arquitectura.md) · [docs/Formato-de-datos.md](Formato-de-datos.md) · [docs/Despliegue.md](Despliegue.md) · [firmware/README.md](../firmware/README.md) · [tools/backend-local/README.md](../tools/backend-local/README.md).
+Las partidas para evaluar una instalación están en [18 · Costos](18-analisis-economico-clp-usd.md).
