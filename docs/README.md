@@ -7,7 +7,7 @@ Guías para conocer el proyecto, probar el portal y reproducir el montaje. La [m
 | Área | Qué responde | Documentos |
 | --- | --- | --- |
 | **General** | Qué problema aborda, a quién sirve y qué ofrece. | [00 Problema](00-problematica-cliente-y-valor.md), [02 Capacidades](02-funcionalidades.md), [16 Origen](16-motivacion-y-contexto.md) |
-| **Técnica** | Cómo se conectan sus piezas, qué datos se usan y cómo se comporta el sistema. | [01 Arquitectura](01-arquitectura-general.md), [03 Flujos](03-flujo-de-usuario.md), [04 Datos](04-base-de-datos.md), [05 Reglas](05-motor-o-nucleo-de-negocio.md), [06 Integraciones](06-capa-de-ia-o-analisis.md), [07 UX](07-diseno-e-identidad.md), [08 Salidas](08-exportacion-e-informes.md) |
+| **Técnica** | Cómo se conectan sus piezas, qué datos se usan y cómo se comporta el sistema. | [01 Arquitectura](01-arquitectura-general.md), [03 Flujos](03-flujo-de-usuario.md), [04 Datos](04-base-de-datos.md), [05 Reglas](05-motor-o-nucleo-de-negocio.md), [06 Integraciones](06-integraciones-del-sistema.md), [07 UX](07-diseno-e-identidad.md), [08 Salidas](08-exportacion-e-informes.md) |
 | **Desarrollo** | Cómo probarlo, reconstruirlo, modificarlo y evaluar su continuidad. | [09 Ejecución](09-instalacion-y-despliegue.md), [17 Proceso](17-desarrollo-y-metodologia.md), [15 Evolución](15-escalabilidad-y-nuevos-mercados.md), [18 Costos](18-analisis-economico-clp-usd.md) |
 | **Académica / formativa** | Qué se investigó en 2025, quiénes participaron y qué se entregó. | [Curso, equipo, informes y anexos](academica/README.md) |
 
