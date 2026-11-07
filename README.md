@@ -21,6 +21,21 @@
 
 HexaTour es un prototipo de orientación turística rural que permite consultar lugares e indicaciones sin Internet. Un ESP32-S3 sirve el portal y el contenido desde una tarjeta SD; un Arduino UNO controla la impresión térmica. El repositorio incluye el firmware, el portal, diagramas y herramientas para reproducirlo. La demo web permite explorar la experiencia sin hardware con datos de ejemplo.
 
+## Estado real del proyecto
+
+| Nivel | Qué significa en esta versión |
+| --- | --- |
+| ✅ **Implementado** | Firmware ESP32-S3/Arduino UNO, portal de información y contenido en SD; hay simulador local y [demo estática](https://nicocg32.github.io/HexaTour/) para explorar la experiencia sin hardware. |
+| 🧪 **En validación** | El montaje físico integrado, impresión real, comportamiento del portal cautivo en distintos teléfonos y seguridad de los endpoints requieren pruebas reproducibles. |
+| 🧭 **Posible evolución** | Instalación en otros recintos, actualización de contenidos locales y operación sostenida, sujetas a validación con responsables del lugar. |
+
+<details>
+<summary><strong>Cómo leer este estado</strong></summary>
+
+Una función **implementada** existe en el código o en los artefactos del proyecto, pero eso no acredita automáticamente todas sus pruebas. «En validación» identifica capacidades todavía sujetas a comprobaciones; «pendiente» no es una promesa de entrega. El alcance se contrasta con el código, los informes originales y las releases de cada versión.
+
+</details>
+
 ## Sobre el proyecto
 
 HexaTour surgió en 2025, durante **Proyecto Diseño e Innovación** de la Universidad Católica del Norte. El equipo **HexaCorp** investigó las dificultades de orientación en sectores rurales de la Región de Coquimbo y propuso un punto de información local con indicaciones en pantalla y papel. El [contexto formativo](docs/academica/README.md) reúne al equipo y sus entregas.
