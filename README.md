@@ -12,7 +12,7 @@
 
 [![ESP32 S3](https://img.shields.io/badge/ESP32%20S3-B42B2B?style=for-the-badge&logo=espressif&logoColor=FFFFFF)](#tecnologías) [![Arduino](https://img.shields.io/badge/Arduino-007D85?style=for-the-badge&logo=arduino&logoColor=FFFFFF)](#tecnologías) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=20232A)](#tecnologías) [![Python 3](https://img.shields.io/badge/Python%203-3776AB?style=for-the-badge&logo=python&logoColor=FFFFFF)](#tecnologías)
 
-[**Explorar la demo**](https://nicocg32.github.io/HexaTour/) · [**Documentación**](docs/README.md) · [**Arquitectura**](docs/01-arquitectura-general.md) · [**Montaje**](firmware/README.md)
+[**Explorar la demo**](https://nicocg32.github.io/HexaTour/) · [**Documentación**](docs/README.md) · [**Arquitectura**](docs/01-arquitectura-general.md) · [**Costos y viabilidad**](docs/18-analisis-economico-clp-usd.md) · [**Montaje**](firmware/README.md)
 </div>
 
 ---
@@ -49,6 +49,16 @@ HexaTour surgió en 2025, durante **Proyecto Diseño e Innovación** de la Unive
 | **Demo web** | Catálogo de ejemplo, impresión simulada, PDF deshabilitado y avisos de urgencia locales. |
 
 Las indicaciones están redactadas previamente. El catálogo actual contiene datos de ejemplo y la opción de urgencia no presta asistencia. Consulta el [alcance de cada modalidad](docs/02-funcionalidades.md) y las [pruebas pendientes del montaje](firmware/Compilacion.md#montaje-original-y-revalidación).
+
+## Conveniencia y posible rentabilidad
+
+La idea tiene una fortaleza concreta: **servir fichas, fotografías e indicaciones desde una SD por una red Wi-Fi local**, sin exigir Internet al visitante ni un servicio de nube para el catálogo. La posibilidad de imprimir instrucciones añade una alternativa tangible, aunque también requiere energía, papel y mantenimiento.
+
+Para un recinto turístico, **la conveniencia aún debe demostrarse** midiendo tareas completadas, información correcta, fallos y tiempo útil de atención. Para quien lo comercialice, **la rentabilidad requiere medir el costo de fabricar, instalar, actualizar y mantener** el punto. Tener firmware propio con licencia MIT no elimina la factura de la pantalla, la estructura, la ticketera ni el soporte.
+
+El [estudio económico ampliado](docs/18-analisis-economico-clp-usd.md) muestra costos omitidos por un presupuesto solo electrónico, referencias externas de tótems comerciales **no equivalentes**, margen de contribución, punto de equilibrio, mantenimiento y retorno posible para ambas partes. Los números de ejemplo son **hipótesis, no precios ni utilidades observadas**. La [investigación de mercado](docs/19-mercado-y-validacion-comercial.md) relaciona HexaTour con brechas rurales documentadas por la Subsecretaría de Turismo, sin convertir automáticamente turistas en clientes.
+
+**Prioridad para justificar una instalación:** [revalidación física, seguridad y piloto supervisado](docs/20-validacion-operativa-y-pilotos.md). Las fichas actuales contienen ejemplos, el botón de urgencia no presta rescate y el montaje con los binarios compilados en 2026 no tiene una validación física integral acreditada.
 
 ## Tecnologías
 
@@ -87,8 +97,8 @@ Para preparar las placas, sigue la [guía de compilación](firmware/Compilacion.
 | --- | --- |
 | **General** | [Problema y propuesta](docs/00-problematica-cliente-y-valor.md) · [Estado funcional](docs/02-funcionalidades.md) |
 | **Técnica** | [Arquitectura](docs/01-arquitectura-general.md) · [Flujos y estados](docs/03-flujo-de-usuario.md) · [JSON y dominio](docs/04-base-de-datos.md) |
-| **Desarrollo** | [Proceso](docs/17-desarrollo-y-metodologia.md) · [Puesta en marcha](docs/09-instalacion-y-despliegue.md) |
-| **Académica** | [Equipo, curso e informes originales](docs/academica/README.md) |
+| **Desarrollo** | [Proceso](docs/17-desarrollo-y-metodologia.md) · [Costos](docs/18-analisis-economico-clp-usd.md) · [Mercado](docs/19-mercado-y-validacion-comercial.md) · [Pilotos](docs/20-validacion-operativa-y-pilotos.md) |
+| **Académica** | [Equipo, curso e informes originales](docs/academica/README.md) · [Trazabilidad de evidencias](docs/academica/02-lectura-critica-de-los-informes.md) |
 
 [**Índice completo**](docs/README.md) · [**Manual técnico del proveedor**](docs/manual-proveedor.md) · [**Recursos gráficos**](branding/README.md)
 
