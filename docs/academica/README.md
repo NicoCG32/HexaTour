@@ -38,7 +38,9 @@ Las versiones **DOCX editables** de ambos informes se conservan junto con los PD
 
 ## Lectura de los presupuestos y la autoría
 
-Los informes y anexos contienen propuestas, alternativas y referencias de costos de la entrega universitaria. Su existencia está verificada en el repositorio, pero **el contenido binario de los PDF/DOCX no pudo extraerse directamente** en esta auditoría. No se atribuyen por eso montos ni resultados exactos al informe sin cotejo de su tabla y página.
+El **PDF completo del Informe N.º 2** fue revisado directamente en noviembre de 2026 y contrastado con la copia publicada: **son idénticos** (blob Git `27f8a8afd9b884a89a002bf8c5999a88cb0e28d0`). Su **§9.4, páginas impresas 17–18 (PDF 18–19)** recoge cuatro **costos preliminares de 2025**: **interior con botonera $239.000–$471.000; interior táctil $380.000–$850.000; exterior con botonera $1.921.000–$3.963.000; exterior táctil $2.655.000–$5.831.000 (CLP)**. También propone gasto de papel, energía y horas de mantenimiento; **no acredita facturas, ingresos ni utilidades**.
+
+La [lectura crítica del informe](02-lectura-critica-de-los-informes.md) conserva los seis autores y coteja presupuestos, investigación del problema, variantes, metas y limitaciones con el software actual. El [estudio económico](../18-analisis-economico-clp-usd.md) separa estos valores históricos de **supuestos financieros posteriores** y la [validación](../20-validacion-operativa-y-pilotos.md) distingue metas académicas de mediciones logradas. Los anexos y el Informe N.º 1 siguen preservados; **no se infiere que se hayan verificado sus resultados primarios desde el segundo informe**.
 
 La [lectura crítica y tabla de cifras pendientes](02-lectura-critica-de-los-informes.md) distingue la investigación y roles del equipo de lo implementado en los sketches, portal y simulador. El [estudio económico](../18-analisis-economico-clp-usd.md) propone **supuestos independientes y explícitos**, con costos variables, mantenimiento y punto de equilibrio. No son ventas o beneficios del curso.
 
