@@ -19,6 +19,12 @@ Las indicaciones se preparan previamente y requieren actualización y validació
 | **Responsable del montaje** | Mantener la SD, alimentar placas y consumibles, revisar errores y actualizar fichas. |
 | **Organización que quisiera instalarlo** | Comprobar utilidad, costos y condiciones reales antes de adoptar el prototipo. |
 
+## Conveniencia: comparación antes que promesa
+
+El primer valor que queremos evaluar es si **una consulta local funciona donde una página remota no está disponible** y si las instrucciones impresas ayudan a seguir un recorrido previamente validado. Eso no implica que un tótem sea siempre mejor que señalética o folletos. Para algunos recintos una solución física sin electrónica puede ser más barata y robusta.
+
+Las brechas de infraestructura en turismo rural están documentadas por la [Subsecretaría de Turismo](https://www.subturismo.gob.cl/wp-content/uploads/2025/07/plan-turismo-y-desarrollo-rural.pdf), pero **no existe demanda pagadora demostrada de HexaTour**. El [estudio de mercado](19-mercado-y-validacion-comercial.md) identifica segmentos y sustitutos, y el [análisis de costos](18-analisis-economico-clp-usd.md) separa el beneficio al visitante del margen del proveedor.
+
 ## Criterio de utilidad
 
 El objetivo es que una persona encuentre indicaciones comprensibles sin depender de sus datos móviles. Para evaluarlo, se necesita observar consultas en condiciones reales, revisar el contenido con responsables locales y medir la disponibilidad de la impresora y el esfuerzo de mantenimiento.
