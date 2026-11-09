@@ -40,6 +40,8 @@ flowchart TB
   class LCD,T peripheral;
 ```
 
+**Montaje académico real, según el responsable técnico:** la **tableta ubicada en la maqueta abría en el navegador la vista local de administración/operador**, conectada por Wi-Fi al ESP32-S3. La tableta **no alojaba el servidor** ni era una pantalla integrada de control directo del ESP32. Su marca, versión y precio original no están documentados; podría reemplazarse por otra tableta compatible con navegador y Wi-Fi, previa prueba de presentación y acceso. El material y valor estimado de reposición se desglosan en [la BOM académica](academica/03-costeo-maqueta-fisica.md). **La presencia de un usuario administrador en el prototipo no acredita autorización segura de todas las APIs**.
+
 El **ESP32-S3** hospeda el portal y los endpoints `/api/print-ruta` y `/api/route-pdf`. La **SD** contiene el HTML, scripts, JSON e imágenes. El **UNO** no sirve páginas: recibe una orden serial y controla la impresora. La pantalla LCD informa estados del dispositivo.
 
 El mapa de conexiones resume los pines declarados por los sketches:

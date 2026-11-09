@@ -23,6 +23,12 @@ El curso fue impartido por **Alejandro Paolini Godoy** en el paralelo C2.
 | **Benjamín Esquivel y su padre** | Construcción de la maqueta física utilizada para presentar HexaTour. |
 | **Otros integrantes de HexaCorp** | Participación principalmente en investigación, elaboración de informes y presentaciones del proyecto. |
 
+## Cómo se presentó la maqueta real
+
+**Aclaración directa del responsable tecnológico (9-11-2026):** la interfaz principal era **una tableta personal de Pablo Guzmán, prestada temporalmente al proyecto** (sin compra por HexaCorp), conectada al portal local con acceso de administración/operador. En el cuerpo de madera se usaron **ESP32-S3, UNO, LCD, protoboard/cables, SD y lector, impresora TTL y madera pintada**. La impresora costó **aproximadamente $23.000 CLP** y **madera y pintura no superaron $60.000**. **Benjamín Esquivel y su padre aportaron la mano de obra de carpintería sin cobrar**. Según el recuerdo del responsable técnico, **la fabricación tomó aproximadamente un día, y posiblemente otro día calendario por el secado de la pintura**. Eso no significa dos jornadas laborales: el gasto del equipo por esa mano de obra fue **$0**, pero una réplica debe valorarla. No conocemos las horas activas de cada persona ni el modelo y costo original de la tableta.
+
+La [**reconstrucción de materiales y precios referenciales actuales**](03-costeo-maqueta-fisica.md) muestra el inventario observado, una tabla de reposición sin duplicar cables ni protoboard, **sensibilidad de carpintería a precios indicativos de 2026** y los demás costos que faltan para llegar a un costo comercial real. **No confundir con los cuatro presupuestos preliminares del Informe N.º 2.**
+
 ## Entregables de esa etapa
 
 | Documento | Para qué sirve |
@@ -35,5 +41,15 @@ El curso fue impartido por **Alejandro Paolini Godoy** en el paralelo C2.
 | [Entrevistas en bruto](../informes/Anexo.%20Entrevistas%20en%20bruto.pdf) | Material de investigación utilizado durante el curso. |
 
 Las versiones **DOCX editables** de ambos informes se conservan junto con los PDF en [`docs/informes/`](../informes/). Las condiciones de reutilización están en [licencia y créditos](../../LICENSING.md).
+
+## Lectura de los presupuestos y la autoría
+
+El **PDF completo del Informe N.º 2** fue revisado directamente en noviembre de 2026 y contrastado con la copia publicada: **son idénticos** (blob Git `27f8a8afd9b884a89a002bf8c5999a88cb0e28d0`). Su **§9.4, páginas impresas 17–18 (PDF 18–19)** recoge cuatro **costos preliminares de 2025**: **interior con botonera $239.000–$471.000; interior táctil $380.000–$850.000; exterior con botonera $1.921.000–$3.963.000; exterior táctil $2.655.000–$5.831.000 (CLP)**. También propone gasto de papel, energía y horas de mantenimiento; **no acredita facturas, ingresos ni utilidades**.
+
+La [lectura crítica del informe](02-lectura-critica-de-los-informes.md) conserva los seis autores y coteja presupuestos, investigación del problema, variantes, metas y limitaciones con el software actual. El [estudio económico](../18-analisis-economico-clp-usd.md) separa estos valores históricos de **supuestos financieros posteriores** y la [validación](../20-validacion-operativa-y-pilotos.md) distingue metas académicas de mediciones logradas. Los anexos y el Informe N.º 1 siguen preservados; **no se infiere que se hayan verificado sus resultados primarios desde el segundo informe**.
+
+La [lectura crítica y tabla de cifras pendientes](02-lectura-critica-de-los-informes.md) distingue la investigación y roles del equipo de lo implementado en los sketches, portal y simulador. El [estudio económico](../18-analisis-economico-clp-usd.md) propone **supuestos independientes y explícitos**, con costos variables, mantenimiento y punto de equilibrio. No son ventas o beneficios del curso.
+
+La licencia MIT del código propio **no convierte automáticamente los informes, entrevistas, mapas, imágenes o maqueta grupal en materiales de libre explotación**.
 
 Consulta también el [origen del proyecto](../16-motivacion-y-contexto.md), el [proceso de desarrollo](../17-desarrollo-y-metodologia.md) y la [documentación técnica](../README.md).

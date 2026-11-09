@@ -25,4 +25,4 @@ Para continuar el desarrollo:
 
 La siguiente etapa requiere repetir la prueba física con la base de compilación actual, revisar el acceso a las APIs y validar el contenido con responsables locales. Los criterios están en la [guía de puesta en marcha](09-instalacion-y-despliegue.md).
 
-[Reglas del sistema](05-motor-o-nucleo-de-negocio.md) · [Verificación y montaje](09-instalacion-y-despliegue.md) · [Proyección](15-escalabilidad-y-nuevos-mercados.md)
+[Reglas del sistema](05-motor-o-nucleo-de-negocio.md) · [Verificación y montaje](09-instalacion-y-despliegue.md) · [Proyección](15-escalabilidad-y-nuevos-mercados.md) · [Viabilidad](18-analisis-economico-clp-usd.md) · [Plan de piloto](20-validacion-operativa-y-pilotos.md)
