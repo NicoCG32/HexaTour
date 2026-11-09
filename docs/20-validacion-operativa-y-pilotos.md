@@ -79,6 +79,21 @@ No usar la aprobación académica como sinónimo de aprobación de seguridad el�
 
 **Sin mediciones, no fijar porcentajes de éxito o ROI.** Registrar sesiones incompletas, papel agotado, rutas incorrectas y desconexiones; no filtrar esos casos para presentar una demostración más favorable.
 
+### Metas académicas recuperadas del informe final
+
+El [Informe N.º 2, §9.7 (página impresa 20 / PDF 21)](informes/Informe%20N%C2%B02.%20Hexatour%2C%20la%20soluci%C3%B3n.pdf) fija **objetivos para evaluar el éxito**, no resultados obtenidos:
+
+| Indicador académico | Meta del informe | Protocolo que todavía falta |
+| --- | --- | --- |
+| Tiempo de desorientación | **30 % de reducción** | Medir tareas equivalentes con y sin HexaTour, tiempos y participantes |
+| Satisfacción | **≥80 %** de valoraciones **≥8/10** | Encuesta después de completar un recorrido real |
+| Retorno o recomendación | **≥70 %** de disposición favorable | Pregunta clara, universo y conteos observados |
+| Uso de funciones avanzadas | **≥50 %** de interacciones con NFC/impresión y otros recursos | Eventos por sesión y confirmación de salida física |
+
+No escribir que HexaTour **ya alcanzó** estos umbrales ni usarlos como ahorro económico hasta medirlos. El [informe original](academica/02-lectura-critica-de-los-informes.md) también contiene una descripción contradictoria de la **impresión del prototipo académico** (montaje con impresora vs. exclusión de la impresora física de esa demo); las pruebas deben distinguir explícitamente **ticket por pantalla**, **aceptación API** y **papel realmente producido**.
+
+**Muestreo comercial necesario:** además del KPI del turista, medir costo efectivo por montaje interior/exterior, visita de mantenimiento, precio por rollo, consumo en kWh y disposición real de pago. El informe ya propone **2/4/6 rollos/mes** para escenarios de 30/60/100 tickets diarios, **6–12 kWh/mes interior** y **24–30 exterior** durante **10 h/día**; son **supuestos de operación, no resultados de laboratorio**. [Análisis económico reconciliado](18-analisis-economico-clp-usd.md).
+
 ## 6. Piloto comercial de bajo riesgo
 
 - **Etapa A — laboratorio:** reproducir hardware, resolver problemas de impresión y validación básica.
