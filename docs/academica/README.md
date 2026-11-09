@@ -25,9 +25,9 @@ El curso fue impartido por **Alejandro Paolini Godoy** en el paralelo C2.
 
 ## Cómo se presentó la maqueta real
 
-**Aclaración directa del responsable tecnológico (9-11-2026):** la interfaz principal era **una tableta convencional** conectada al **portal local** y utilizada con acceso de administración/operador. En el cuerpo construido por **Benjamín Esquivel y su padre** se utilizaron, además, **ESP32-S3, Arduino UNO, LCD, protoboard/cables, SD y lector, impresora térmica TTL y madera pintada**. La impresora se compró por **aproximadamente $23.000 CLP** y madera/pintura **no superaron $60.000**. El modelo/precio de la tableta original no fue confirmado.
+**Aclaración directa del responsable tecnológico (9-11-2026):** la interfaz principal era **una tableta personal de Pablo Guzmán, prestada temporalmente al proyecto** (sin compra por HexaCorp), conectada al portal local con acceso de administración/operador. En el cuerpo de madera se usaron **ESP32-S3, UNO, LCD, protoboard/cables, SD y lector, impresora TTL y madera pintada**. La impresora costó **aproximadamente $23.000 CLP** y **madera y pintura no superaron $60.000**. **Benjamín Esquivel y su padre aportaron la mano de obra de carpintería sin cobrar**: su desembolso fue cero para el grupo, pero **esa labor debe valorarse en cualquier presupuesto de réplica o venta**. No conocemos las horas-persona trabajadas ni el modelo y costo original de la tableta.
 
-La [**reconstrucción de materiales y precios referenciales actuales**](03-costeo-maqueta-fisica.md) muestra el inventario observado, una tabla de reposición sin doble contar cables y protoboard, y los costos que aún faltan para llegar a un costo comercial real. **No confundir con los cuatro presupuestos preliminares del Informe N.º 2.**
+La [**reconstrucción de materiales y precios referenciales actuales**](03-costeo-maqueta-fisica.md) muestra el inventario observado, una tabla de reposición sin duplicar cables ni protoboard, **sensibilidad de carpintería a precios indicativos de 2026** y los demás costos que faltan para llegar a un costo comercial real. **No confundir con los cuatro presupuestos preliminares del Informe N.º 2.**
 
 ## Entregables de esa etapa
 
