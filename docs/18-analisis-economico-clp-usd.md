@@ -12,23 +12,65 @@ La ventaja de arquitectura es razonable: **no hay API de rutas, mapas ni platafo
 
 **No planteamos sustituir a Google Maps, señalética normativa ni personal de rescate.** La información es **predefinida, no calcula trayectos reales**, y la funcionalidad SMS solo puede preparar un mensaje en el dispositivo del visitante, sin que el sistema asegure su envío. Para justificar económicamente un punto físico, necesitamos evaluar utilidad **en un recinto concreto**, no extrapolar el turismo regional a ventas.
 
-## 2. Qué dice —y qué no podemos concluir aún— del informe académico
+## 2. Antecedente económico primario: Informe N.º 2 de HexaCorp (2025)
 
-Los documentos [Informe 1 e Informe 2 de HexaCorp](academica/README.md) registran la investigación y estimaciones preliminares sobre diversas formas de tótem durante el curso. El repositorio conserva originales PDF y DOCX en `docs/informes/`.
+**Fuente primaria verificada:** [`docs/informes/Informe N°2. Hexatour, la solución.pdf`](informes/Informe%20N%C2%B02.%20Hexatour%2C%20la%20soluci%C3%B3n.pdf), **sección 9.4 «Análisis de costos (Preliminar)»**, **páginas impresas 17–18 (páginas 18–19 del PDF)**. Se cotejó el PDF completo compartido posteriormente con el PDF ya guardado en GitHub: **los bytes son idénticos (blob Git `27f8a8afd9b884a89a002bf8c5999a88cb0e28d0`)**. Por tanto ya es posible citar el informe original con precisión.
 
-**Límite de esta revisión:** se verificó la existencia de esos archivos y las referencias documentales que los describen, **pero la conexión de GitHub no permitió extraer su contenido binario textual**. Por tanto **no transcribo importes, supuestas ventas, porcentajes de retorno ni BOM como si hubieran sido leídos y verificados en el informe final**. Las tablas a continuación son **modelos nuevos, explícitamente hipotéticos**; se reemplazarán por cifras históricas comprobadas cuando se revise el informe original de forma íntegra. [Trazabilidad académica](academica/02-lectura-critica-de-los-informes.md).
+### 2.1 Costos preliminares de 2025 por versión
 
-### El perímetro del costo importa
+| Modelo **propuesto** en el informe | Partes destacadas | Rango histórico estimado **CLP** | Página |
+| --- | --- | ---: | --- |
+| **A.1 · Interior con pantalla táctil de 7”** | ESP32, pantalla, impresora térmica, NFC, fuente y mueble MDF/PLA | **$380.000–$850.000** | 17 / PDF 18 |
+| **A.2 · Interior con pantalla simple y botonera** | LCD 20×4, keypad 4×4, impresora, NFC, ESP32, fuente y mueble | **$239.000–$471.000** | 17 / PDF 18 |
+| **B.1 · Exterior con táctil de alto brillo de 15–22”** | Pantalla ≈1.000 nits, gabinete IP, sellos/visera, UPS, ventilación, impresora, NFC | **$2.655.000–$5.831.000** | 17 / PDF 18 |
+| **B.2 · Exterior con pantalla simple y botonera** | LCD/keypad o pantalla simple, gabinete IP, UPS, ventilación/filtros, impresora y NFC | **$1.921.000–$3.963.000** | 17 / PDF 18 |
 
-Tres productos de distinto tamaño no pueden compararse usando solo el precio de las dos placas:
+**Esta es la cotización preliminar del equipo en 2025, no el costo real del montaje construido.** El informe no acompaña en esa tabla facturas, lista de precios unitarios, cotizaciones vigentes, horas técnicas facturadas, desglose de impuestos ni margen comercial. **Tampoco es un precio de venta**. Sus cuatro configuraciones son **alternativas conceptuales**; el repositorio actual utiliza **ESP32-S3 + Arduino UNO y portal desde SD**, y no contiene una implementación final certificada de las cuatro.
 
-| Variante | Qué cambia en costo | Estado |
+La menor estimación corresponde al **modelo interior con botonera**. En cambio, los modelos exteriores incorporan pantalla/gabinete robusto, UPS y protección, que elevan significativamente la inversión. **No presupuestar un exterior completo con el costo del interior** ni asumir que el modelo físico académico acredita grado IP o uso en vía pública.
+
+### 2.2 Operación y mantenimiento tal como lo plantea el informe (2025)
+
+El apartado **9.4.2**, página impresa **18 (PDF 19)**, contiene parámetros de planificación útiles. **Son supuestos y procedimientos propuestos**, no consumos de laboratorio ni tickets observados:
+
+| Concepto | Hipótesis del informe | Cómo convertirla en gasto verificable |
 | --- | --- | --- |
-| **Portal local en equipos existentes** | Placas, SD, conexión, alimentación, preparación de contenido y soporte; la pantalla la aporta el visitante | Arquitectura en código; necesita ensayo integrado |
-| **Módulo con ticketera y LCD de estado** | Se agregan UNO, impresora térmica, fuente adecuada, papel, cableado, estructura y mantenimiento | Firmware y esquema disponibles; prueba física con la compilación actual pendiente |
-| **Tótem autónomo completo** | Además pantalla/terminal, estructura robusta, protección contra intemperie, instalación eléctrica y accesibilidad física | **No existe una especificación comercial validada**; no deducirla de la maqueta universitaria |
+| **Ticket térmico** | Ticket de **15 cm**; rollo de **80 m** ≈ **533 tickets** | Rollos consumidos × precio efectivo por rollo, con merma y fallos |
+| **30 tickets/día × 30 días** | **2 rollos/mes**, aproximadamente | `ceil(900/533)` = 2 |
+| **60 tickets/día × 30 días** | **4 rollos/mes**, aproximadamente | `ceil(1800/533)` = 4 |
+| **100 tickets/día × 30 días** | **6 rollos/mes**, aproximadamente | `ceil(3000/533)` = 6 |
+| **Electricidad interior** | **6–12 kWh/mes**, uso **10 h/día**, sin solar | kWh medidos × tarifa efectiva CLP/kWh |
+| **Electricidad exterior, alto brillo** | **24–30 kWh/mes**, uso **10 h/día**, sin solar | kWh medidos × tarifa efectiva CLP/kWh |
+| **Preventivo mensual** | **1–2 h/mes** | Horas reales × tarifa técnica + insumos |
+| **Preventivo trimestral** | **3–4 h/trimestre** | Prorratear cuando corresponda; registrar limpieza/controles |
+| **Contenido** | Editar **2–4 h/mes**; cargar y probar **1–2 h/mes**; traslado **2–4 h** cuando aplique | Tarifas diferenciadas de editor/técnico, viajes y periodicidad |
+| **Repuestos** | Cabezal/cutter, ventiladores/filtros, fuente/UPS, **10–20 tags NFC**, tornillería/sellos | Provisiones de stock, sustituciones reales y fallas registradas |
 
-La [maqueta presentada en el curso](academica/README.md) no constituye por sí misma un producto industrial para intemperie, instalado o con garantía.
+La lectura aritmética es simple: **80 metros / 0,15 metros = 533,33 tickets teóricos por rollo**. La cuenta supone tickets de exactamente 15 cm, sin encabezados de desperdicio, atascos ni corte fallido; en terreno el rendimiento puede ser menor. Del mismo modo, **6–12 kWh/mes en 300 h** equivale a **20–40 W promedio**, y **24–30 kWh/mes** a **80–100 W promedio**; son **potencias implícitas de los escenarios**, no lecturas reales del hardware.
+
+**[Derivación sin tiempos medidos]** Si se prorratea también el mantenimiento trimestral, sin viajes ni averías, la planificación sugiere **aprox. 5–9,33 h/mes por punto** entre preventivo mensual (1–2), trimestral (1–1,33) y actualización de contenidos (3–6). **No son horas facturadas, remuneraciones ni un contrato existente.** Falta agregar instalación inicial, garantía, incidencias, anualidades y desplazamientos cuando existan.
+
+**Gasto mensual mínimo a cotizar**, sin inventar precio de papel, electricidad ni valor hora:
+
+```text
+OPEX mensual (CLP) ≈
+  (rollos reales × precio por rollo)
+  + (kWh medidos × tarifa CLP/kWh)
+  + (horas de mantenimiento × valor hora técnico)
+  + (horas de edición × valor hora editor)
+  + traslado/viáticos cuando aplique
+  + repuestos efectivamente gastados y reservas justificadas
+```
+
+Sin tarifa eléctrica local, precio de rollo, incidencias y horas observadas **no existe un OPEX total en pesos acreditado**.
+
+### 2.3 Tres advertencias al comparar el informe con el repositorio
+
+1. **Proyecto académico vs producto final:** el informe especifica un **ESP32-WROOM-32** para un modelo de producto en su sección **9.3 (página impresa 15 / PDF 16)**, mientras que el firmware disponible está diseñado para **ESP32-S3**, y además se emplea un **Arduino UNO** para la impresión. **No son BOM ni arquitecturas equivalentes de fabricación.**
+2. **Funciones conceptuales vs demo:** en sección **10.2** aparece una impresora térmica en el montaje previsto, pero la sección **10.3** también clasifica la impresora física «fuera de esta demo» y describe una **impresión por pantalla** (página impresa 21 / PDF 22). Esta tensión histórica debe declararse, no resolverla inventando una prueba funcional del prototipo de 2025.
+3. **Resultado económico y metas:** una tabla de costos de compra no es un balance, y los objetivos de reducción de desorientación/satisfacción de la **sección 9.7 (PDF 21)** son **metas, no mejoras medidas**.
+
+[Lectura crítica completa del informe académico](academica/02-lectura-critica-de-los-informes.md).
 
 ## 3. Costos que deben presupuestarse
 
@@ -74,15 +116,15 @@ Punto de equilibrio en unidades =
 Resultado operativo del período =
   instalaciones cobradas × MC - costos fijos del período
 
-ROI real =
-  (beneficio neto atribuible de un período - inversión inicial)
-  / inversión inicial
-  [no confundir ingresos brutos o margen con beneficio neto]
+ROI sobre la inversión inicial (%) =
+  100 × (flujos netos acumulados después de costos recurrentes
+          - inversión inicial) / inversión inicial
+  [definir horizonte, impuestos, reposiciones y cobros reales]
 ```
 
 ### Sensibilidad ilustrativa — NO precios históricos ni estimaciones verificadas
 
-Para hacer el análisis falsable utilizo **[SUPUESTOS]**: costo variable **CLP 650.000** por un punto instalado básico con contenido inicial, y costos fijos de arranque/validación comercial **CLP 1.000.000** para el período. **No se pueden deducir estos montos de los informes binarios que no se pudieron leer.** La estructura, pantalla, garantía y demás condiciones exactas se desconocen.
+**[SUPUESTOS NUEVOS, NO DEL INFORME]** El siguiente ejemplo plantea un punto **interior hipotético** con costo variable total **CLP 650.000** (contenido/instalación incluidos, sin desglose empírico) y costos fijos de arranque/validación comercial **CLP 1.000.000** para el período. El valor de $650.000 cae dentro del **rango histórico del interior táctil ($380.000–$850.000)**, pero **eso no prueba que dicho rango incluya el mismo equipo, las horas, las protecciones o el contenido supuesto**. **Este ejercicio NO aplica a las variantes exteriores**, estimadas históricamente entre $1.921.000 y $5.831.000 según modelo. Ningún precio propuesto ha sido validado con compradores.
 
 | Precio neto hipotético del servicio instalado | Margen unitario matemático | Unidades de equilibrio |
 | ---: | ---: | ---: |
@@ -140,7 +182,7 @@ El beneficio podría ser **accesibilidad, experiencia turística y continuidad i
 
 ## 9. Decisiones mínimas para una evaluación real
 
-1. **Consultar íntegramente el Informe N.º 2** y registrar cada presupuesto histórico con página, fecha, unidad, alcance y composición. No reescribir el PDF original.
+1. **Hecho:** se revisó íntegramente el **Informe N.º 2** y se incorporaron **cuatro rangos de inversión por variante**, parámetros de papel, energía y dedicación, con páginas exactas. **Pendiente:** boletas y desglose de precios unitarios, impuestos e inclusión real de montaje/soporte. Conservar el PDF sin alteraciones.
 2. Recuperar **BOM, boletas y fotos** del montaje académico y aclarar si pantalla/tableta, estructura, impresora, fuentes y materiales fueron prestados, donados o comprados.
 3. Construir una **cotización actual comparable**, con 2–3 proveedores por componente y destino en Chile; moneda, IVA y plazos.
 4. Cronometrar ensamblaje, recarga de catálogo, corrección de fichas e instalación.
@@ -151,10 +193,10 @@ El beneficio podría ser **accesibilidad, experiencia turística y continuidad i
 
 ## Conclusión defendible
 
-**HexaTour es una arquitectura potencialmente costo-efectiva para orientación local de información predefinida, donde un punto con contenido en SD y Wi-Fi propio puede reducir la dependencia de servicios remotos.** La función de impresión y la posibilidad de reutilizar el código MIT abren un camino hacia productos y servicios adaptados al territorio. **No está demostrada su rentabilidad económica**, porque faltan presupuesto histórico verificado, lista de materiales actual, pruebas físicas integradas y precio/disposición de pago. La apuesta razonable es empezar con **un piloto de información útil**, no con la promesa de vender una red de tótems.
+**HexaTour ofrece una arquitectura potencialmente costo-efectiva para orientación local de información predefinida, donde un portal desde SD y Wi-Fi propio puede reducir la dependencia de servicios remotos.** El **informe original identifica un punto de entrada interior de $239.000–$471.000 (botonera) y uno táctil de $380.000–$850.000 en costos preliminares de 2025**, pero el exterior asciende a varios millones de pesos. La impresión y la licencia MIT abren vías de productos/servicios asociados. **La rentabilidad real no está demostrada:** no hay BOM facturada actual, prueba física integrada, precio aceptado ni costos operacionales observados. Empezar por un **piloto de interior o informativo supervisado** suele ser una hipótesis más prudente que prometer un gabinete exterior o una red.
 
 ### Procedencia y referencias
 
-- **Fuentes propias:** [Informe N.º 2 (PDF)](informes/Informe%20N%C2%B02.%20Hexatour%2C%20la%20soluci%C3%B3n.pdf) — **existencia verificada; importe no extraído**, [firmware/README](../firmware/README.md), [estado funcional](02-funcionalidades.md), [protocolo de impresión](03-flujo-de-usuario.md), [licencia](../LICENSING.md).
+- **Fuentes propias:** [Informe N.º 2 (PDF)](informes/Informe%20N%C2%B02.%20Hexatour%2C%20la%20soluci%C3%B3n.pdf) — **verificado directamente: §9.3, §9.4.1–9.4.2 y §10, páginas impresas 15, 17, 18 y 21**, [firmware/README](../firmware/README.md), [estado funcional](02-funcionalidades.md), [protocolo de impresión](03-flujo-de-usuario.md), [licencia](../LICENSING.md).
 - **Contexto territorial:** [Plan de Turismo en Territorios Rurales 2024–2035, Subsecretaría de Turismo](https://www.subturismo.gob.cl/wp-content/uploads/2025/07/plan-turismo-y-desarrollo-rural.pdf); [DataTurismo SERNATUR](https://www.sernatur.cl/dataturismo/); [CEPAL: conectividad efectiva Chile Digital 2035](https://www.cepal.org/es/publicaciones/69126-estrategia-transformacion-digital-chile-digital-2035-plan-conectividad-efectiva).
 - **Precios externos consultados, no equiparables:** [Tottem Chile](https://tottem.cl/totem-autoservicio/), [EC Group](https://www.ecgroup.cl/producto-detalle/totem-administrador-de-fila-nuevo.php).
