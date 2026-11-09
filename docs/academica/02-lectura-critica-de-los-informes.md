@@ -55,6 +55,12 @@ La metodología permite explicar por qué el equipo se inclinó por una solució
 
 El informe es una propuesta de producto amplio; el repositorio materializa una **arquitectura concreta y una demo**, no todos los recursos conceptuales de un gabinete exterior.
 
+### Precisiones posteriores aportadas sobre la maqueta real (2026)
+
+Una aclaración del **responsable tecnológico** permite precisar el montaje: **se empleó una tableta convencional para abrir el portal local mediante usuario de administración/operador**, en lugar de una pantalla industrial especializada. La maqueta contó con **ESP32-S3, Arduino UNO, LCD, protoboard y cables de kits, módulo y tarjeta SD, impresora térmica TTL y estructura de madera pintada**. La impresora costó **aproximadamente $23.000** en AliExpress y la madera/pintura **no sobrepasó $60.000**. **No se conoce la marca, costo real ni régimen de préstamo/compra de la tableta**.
+
+Esta es **evidencia testimonial del montaje**, **no** un dato derivado de una tabla del Informe N.º 2. También se preparó una [reconstrucción independiente del costo de reposición a precios de 2026](03-costeo-maqueta-fisica.md), distinta de los cuatro modelos conceptuales de 2025. La [arquitectura](../01-arquitectura-general.md) diferencia tableta como *cliente web* del ESP32 como servidor de archivos y APIs.
+
 ## 5. Presupuesto histórico: cuatro variantes reales del informe
 
 **Fuente:** §9.4.1 «Por tipo de HexaTour», página impresa **17 / PDF 18**.
@@ -103,7 +109,7 @@ La sección **§5** define a **SERNATUR como comprador ideal conceptual**, sin q
 
 ## 8. Fuentes auditables y faltantes reales
 
-**Verificadas:** PDF idéntico al del repositorio, secciones y páginas citadas, nombres/roles, cuatro presupuestos, parámetros operativos y metas académicas. **Pendientes reales:** lista de precios por componente, facturas, condiciones tributarias, fórmulas de matriz original en su XLSX, estimación de horas reales del montaje, pruebas del portal físico/ticketera y datos de pilotaje con visitantes.
+**Verificadas:** PDF idéntico al del repositorio, secciones y páginas citadas, nombres/roles, cuatro presupuestos, parámetros operativos y metas académicas. **Agregados por testimonio del responsable tecnológico (2026):** tableta como interfaz, periféricos del montaje, precio aproximado de impresora y tope de madera/pintura. **Pendientes reales:** boletas y costos exactos de otros componentes, propiedad de la tableta, condiciones tributarias, fórmulas de matriz original en su XLSX, horas efectivas, pruebas del portal físico/ticketera y datos de pilotaje con visitantes.
 
 No es necesario pedir de nuevo el Informe N.º 2: su información primaria ya está integrada, sin modificarlo. **Para precisar el costeo, el siguiente dato útil son las boletas/BOM o cotizaciones con fecha**, no más supuestos.
 
