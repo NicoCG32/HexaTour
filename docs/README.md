@@ -28,7 +28,7 @@ Guías para conocer el proyecto, probar el portal y reproducir el montaje. La [m
 - [20 · Seguridad, montaje integrado y diseño de pruebas con visitantes](20-validacion-operativa-y-pilotos.md).
 - [Lectura crítica del Informe N.º 2: presupuesto histórico verificado, autoría, matriz y KPI](academica/02-lectura-critica-de-los-informes.md).
 
-Las proyecciones económicas se distinguen del código funcional y de los resultados académicos. El contenido textual íntegro de los informes PDF/DOCX aún necesita cotejo directo para recuperar presupuestos históricos con sus páginas.
+Las proyecciones financieras **no se confunden con los costos preliminares del informe académico**. Se leyó y cotejó íntegramente el **Informe N.º 2 en PDF**, idéntico a la copia versionada en GitHub: permite citar directamente los **cuatro presupuestos 2025**, el consumo y mantenimiento esperados, así como los KPI propuestos. Todavía requieren evidencia independiente las **facturas, el costo de producción real, la validación física y los ingresos**.
 
 ## Guías de implementación
 
