@@ -12,6 +12,14 @@ HexaTour no pretende «digitalizar el turismo» en abstracto. Propone algo espec
 
 ## 2. Señales públicas de relevancia territorial — con fecha y alcance
 
+### Lo que encontró el equipo en 2025 — evidencia interna, no TAM
+
+En el [**Informe N.º 2 de HexaCorp**, §4 (PDF páginas 6–7)](informes/Informe%20N%C2%B02.%20Hexatour%2C%20la%20soluci%C3%B3n.pdf), el diagnóstico cita resultados de la investigación inicial: **56 %** identificó la **conectividad deficiente** como principal problema, **38 %** la **señalética insuficiente**, y **6 %** la **concentración turística**; también se comunica **21,54 %** de tiempo promedio sin Internet durante trayectos. **Son resultados del estudio universitario**, no mediciones de toda la población regional ni tasas de venta de un tótem. El Informe N.º 2 no desglosa aquí su marco muestral, cálculo ni representatividad; para evaluar la metodología completa hay que contrastar [Informe N.º 1 y entrevistas](academica/README.md).
+
+La sección **§5 (PDF página 8)** define **SERNATUR Región de Coquimbo como «cliente ideal»**. Es una **hipótesis de comprador institucional**, no un patrocinio, presupuesto comprometido, adquisición o interés validado. No presupuestar financiamiento ni licitación aprobada.
+
+La sección **§7 (PDF páginas 10–12)** documenta que el tótem se eligió después de comparar **cinco alternativas**, incluyendo audioguía NFC y dispensador; esa priorización es una **decisión académica**, no validación comparativa de ROI. Además, los pesos de la matriz impresa suman **1,1**, aunque el total declarado es **1**; el [capítulo académico](academica/02-lectura-critica-de-los-informes.md) conserva el puntaje original y explica por qué no debe presentarse la fórmula como auditada.
+
 ### Ruralidad y turismo: la oportunidad existe, pero no mide ventas
 
 El [Plan Turismo en Territorios Rurales 2024–2035](https://www.subturismo.gob.cl/wp-content/uploads/2025/07/plan-turismo-y-desarrollo-rural.pdf), publicado por la Subsecretaría de Turismo, señala **brechas de infraestructura, formalización y comercialización** en territorios rurales. Según clasificación comunal con datos del **Censo 2017**, el plan identifica **12 comunas rurales y 3 urbanas para la Región de Coquimbo**; **no** significa que las doce necesiten o comprarían un HexaTour. El plan indica que más del **50 % de los viajes turísticos internos** llegan a comunas rurales: **no equivale a personas sin señal móvil ni demanda por un kiosco**.
