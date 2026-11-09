@@ -2,15 +2,15 @@
 
 [← Índice académico](README.md) · [Viabilidad y costos](../18-analisis-economico-clp-usd.md) · [Arquitectura](../01-arquitectura-general.md) · [Informe original 2025](../informes/Informe%20N%C2%B02.%20Hexatour%2C%20la%20soluci%C3%B3n.pdf)
 
-> **Reconstrucción al 9 de noviembre de 2026.** Este capítulo incorpora información directa entregada por **Pablo Guzmán**, responsable técnico, acerca de lo que efectivamente se utilizó en la **maqueta universitaria**. Los precios de tiendas son **referencias de reposición en 2026**, NO importes que el grupo pagó en 2025. No se han suministrado facturas o modelos originales de tableta, Arduino y otros módulos.
+> **Reconstrucción al 9 de noviembre de 2026.** Este capítulo incorpora información directa entregada por **Pablo Guzmán**, responsable técnico, acerca de lo que efectivamente se utilizó en la **maqueta universitaria**. Los precios de tiendas son **referencias de reposición en 2026**, NO importes que el grupo pagó en 2025. No se han suministrado facturas o modelos originales de tableta, Arduino y otros módulos. **Precisión confirmada posteriormente:** la tableta era **propiedad personal de Pablo y fue prestada temporalmente al proyecto**, sin compra específica del equipo; **la fabricación de la estructura fue un aporte sin cobro de carpintería** por un integrante y su colaborador. El no haber pagado la mano de obra no elimina su costo económico en caso de reproducción profesional.
 
 ## 1. Así funcionaba el montaje de la presentación
 
 La **pantalla del tótem era una tableta convencional** que abría, en su navegador, el **portal local con usuario de administración/operador**. No era una pantalla táctil industrial específica, ni hay evidencia de un controlador de pantalla escrito para un modelo comercial concreto. **La tableta actuaba como cliente web**, no como servidor del catálogo. El **ESP32-S3** proporcionaba la red local/portal con contenido desde la tarjeta SD; el **Arduino UNO** se encargaba del firmware relacionado con la impresora TTL.
 
-El montaje **utilizó** un ESP32-S3, Arduino UNO, pantalla LCD, protoboard y cables típicos de kits, módulo y tarjeta SD, impresora térmica TTL, tableta y una estructura de madera pintada. El **precio aproximado de adquisición de la impresora en AliExpress fue CLP $23.000**. **La madera más la pintura no superaron CLP $60.000**: no está identificado el gasto exacto dentro de ese límite.
+El montaje **utilizó** un ESP32-S3, Arduino UNO, pantalla LCD, protoboard y cables típicos de kits, módulo y tarjeta SD, impresora térmica TTL, **una tableta personal prestada temporalmente por Pablo Guzmán** y una estructura de madera pintada. **No hubo desembolso del grupo para adquirir esa tableta**; su valor de reposición sigue siendo relevante para replicar la maqueta. El **precio aproximado de adquisición de la impresora en AliExpress fue CLP $23.000**. **La madera más la pintura no superaron CLP $60.000**: no se conoce el gasto exacto. **Ese tope no incluye el valor económico de la carpintería**, que fue aportada sin cobro al proyecto académico.
 
-El **montaje de la maqueta física** fue trabajo de **Benjamín Esquivel y su padre**; el diseño del circuito y la integración tecnológica se atribuyen a Pablo según la [documentación académica](README.md). Confirmar el uso de una tableta no cambia esos créditos.
+La **construcción física y trabajos de carpintería de la maqueta** estuvieron a cargo de **Benjamín Esquivel y su padre**, **sin cobro al equipo** según la aclaración aportada; el diseño del circuito y la integración tecnológica se atribuyen a Pablo según la [documentación académica](README.md). **Contribución no remunerada no significa que la labor careciera de valor**. Tampoco se conocen las horas aportadas por cada uno; no se inventa una dedicación ni se les atribuye una factura ficticia.
 
 ~~~
 Tableta convencional (navegador, vista operador)
@@ -30,14 +30,15 @@ ESP32-S3 (AP, portal y endpoints) <--> módulo y tarjeta SD
 
 | Componente | Evidencia disponible | Referencia de compra o costo (CLP) |
 | --- | --- | ---: |
-| **Tableta Android de entrada, 8,7–10,1″ aprox.** | Uso comprobado por testimonio; marca, tamaño y precio exacto original desconocidos | **$129.990–$189.990** (tabletas económicas [Samsung Galaxy A11, ABC](https://www.abc.cl/); [Lenovo M10/Tab, Falabella](https://www.falabella.com/falabella-cl/shop/tablet-lenovo-m10)) |
+| **Tableta Android de entrada, 8,7–10,1″ aprox.** | **Tableta personal de Pablo, prestada sin cobro al grupo**; costo de compra para HexaCorp: **$0 incremental**. Marca, tamaño y valor original desconocidos; valor de reposición no es cero | **$129.990–$189.990** (tabletas económicas [Samsung Galaxy A11, ABC](https://www.abc.cl/); [Lenovo M10/Tab, Falabella](https://www.falabella.com/falabella-cl/shop/tablet-lenovo-m10)) |
 | **Kit ESP32-S3, protoboard, jumpers y cable USB-C** | Placa, protoboard y cables confirmados; compra conjunta NO confirmada | **$14.990** ([Pinout](https://pinout.cl/producto/kit-esp32-s3-con-protoboard-830-cables-y-cable-usb-c)) |
 | **Arduino UNO compatible** | Placa confirmada; fabricante/costo original no confirmados | **$9.490** ([Neltume Robotics](https://neltumerobotics.cl/productos?category=placas)) |
 | **LCD 16×2 I²C** | Pantalla LCD confirmada; dimensiones exactas de la usada no especificadas | **$3.990** ([HUBOT](https://hubot.cl/producto/modulo-display-lcd-1602-con-interfaz-i2c-sku-282-1d1/)) |
 | **Lector microSD SPI** | Módulo SD confirmado | **$2.900** ([MechatronicStore](https://www.mechatronicstore.cl/modulo-lector-micro-sd-spi/)) |
 | **Tarjeta microSD** | Tarjeta confirmada; capacidad desconocida | **$7.990–$16.990**, referencias 16–32 GB ([pc Factory](https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/almacenamiento/memorias-flash)) |
 | **Impresora térmica TTL** | **Costo de compra aproximado**, indicado por Pablo | **~$23.000** en AliExpress (sin boleta adjunta; no es cotización actual) |
-| **Madera y pintura del tótem** | **Tope de gasto informado**, no monto exacto | **No más de $60.000** |
+| **Madera y pintura del tótem** | **Tope de gasto en materiales**, sin carpintería | **No más de $60.000** |
+| **Carpintería, armado y terminaciones** | **Trabajo aportado sin cobro por Benjamín Esquivel y su padre**; horas no documentadas | **Desembolso académico por ese trabajo: $0**; **costo económico: pendiente de horas × tarifa o cotización** |
 
 **No duplicar el costo de la protoboard ni de los cables**, que el kit ESP32-S3 de referencia ya incluye. Tampoco hay constancia de que el prototipo original utilizara esas marcas o capacidades: se seleccionaron para reproducir la función, no para inventar una factura.
 
@@ -57,28 +58,57 @@ Extremo máximo de ESTA SUMA PARCIAL con M=$60.000:
 $261.350 + $60.000 = $321.350 CLP
 ~~~
 
-**Interpretación:** los elementos enumerados, **antes de madera/pintura**, suman aproximadamente **$192.350–$261.350 CLP** con esas referencias. Con la madera y pintura hasta **$60.000**, la **suma parcial podría alcanzar $321.350**. El extremo inferior no es un «costo total mínimo» del proyecto: el costo exacto de la madera **no se conoce**.
+**Interpretación:** los elementos enumerados, **antes de madera/pintura**, suman aproximadamente **$192.350–$261.350 CLP** con esas referencias y **asignando valor de reposición a la tableta aunque no se compró para HexaTour**. Con la madera y pintura hasta **$60.000**, la **suma parcial podría alcanzar $321.350**. **No incluye mano de obra de carpintería**, ni otras partidas pendientes: **$321.350 NO es el costo comercial total ni el gasto en efectivo histórico**. El extremo inferior tampoco es un «costo total mínimo»: el costo exacto de la madera **no se conoce**.
 
-**Ejemplo solamente matemático:** si la madera y pintura hubiesen costado $40.000 —**dato NO aportado**— la suma sería $232.350–$301.350. Ese ejemplo no es una afirmación de pago.
+**La tableta prestada explica una reducción de desembolso académico, no una reducción del costo de reposición comercial.** No se resta su valor del modelo de reposición; simplemente se registra una salida de caja incremental de **$0** para el equipo en esa partida.
+
+### Carpintería: aporte no remunerado y valoración económica
+
+Para HexaCorp, **el desembolso atribuible a la mano de obra de carpintería fue $0**, porque la construcción fue un aporte de un compañero (Benjamín Esquivel) y su padre. Para **replicar el tótem por encargo**, se requiere presupuestar **corte y armado de madera, refuerzos, fijaciones, lijado, preparación, pintura y terminaciones** según el trabajo efectivamente realizado. **No hay registro de horas por persona ni presupuesto de taller**.
+
+```text
+Costo económico de la carpintería =
+  (horas-persona de Benjamín + horas-persona del colaborador) ×
+  tarifa referencial/hora aplicable
+  + cualquier traslado, alquiler de herramientas o consumible adicional
+  [descontar los materiales ya incluidos en "madera y pintura"]
+
+Costo económico de la maqueta =
+  suma de materiales y equipos a precio de reposición
+  + valor de mano de obra de carpintería
+  + trabajo técnico/ensayos y otros costos no incluidos
+```
+
+**Referencia pública solo orientativa:** una guía de [Obra Maestra, tabla de mano de obra 2026](https://obramaestra.com/guias/cuanto-cobrar-mano-de-obra-construccion-chile) publica **$10.000–$15.000 CLP por hora de carpintero**. Como contraste, [2x3 (30-05-2026)](https://www.2x3.cl/p/precios-carpintero) publica **$50.000–$150.000 CLP por trabajo general**, condicionado al tipo de encargo. **Son referencias externas generales, no cotizaciones específicas del tótem ni remuneraciones que recibieron sus constructores**.
+
+| Horas-persona **hipotéticas** de carpintería en total | A $10.000/h, ejemplo | A $15.000/h, ejemplo |
+| --- | ---: | ---: |
+| 8 h | $80.000 | $120.000 |
+| 16 h | $160.000 | $240.000 |
+| 24 h | $240.000 | $360.000 |
+
+**Las horas de la tabla son meras hipótesis de sensibilidad**: no implican que Benjamín y su padre hayan trabajado 8, 16 o 24 horas-persona. Si trabajaron simultáneamente, sumar tiempos **de ambos**, no solo duración calendario. Si la tarifa por trabajo incluye pintura/materiales, **no sumar el mismo concepto dos veces**. En un proyecto real, pedir 1–3 cotizaciones locales con fotos, dimensiones, estructura y terminaciones definidas.
+
+**Ejemplo de sensibilidad matemática:** con **16 horas-persona hipotéticas** y tarifa **$10.000/h**, la carpintería aportaría **$160.000 de valor económico** a la **canasta parcial** de $192.350–$321.350, lo que daría **$352.350–$481.350 antes de los demás costos faltantes**. **No es una factura histórica ni precio comercial recomendado**. La carpintería fácilmente puede representar más que la madera/pintura en estos supuestos, y explicar por qué el costo de caja de la maqueta subestima su valor de reproducción.
 
 ## 3. Por qué el costo total de fabricar y operar sigue sin estar cerrado
 
 Faltan precios confirmados de **fuente independiente para impresora**, alimentación de tableta, cable USB del UNO si no estaba disponible, adaptaciones de niveles 5 V/3,3 V, conectores/tornillos/soporte, transporte, energía, herramientas, fallos, consumibles y **horas de montaje y programación**. Algunos podrían estar incluidos en kits o reaprovechados; no se deben sumar dos veces, pero tampoco tratarlos como cero por defecto.
 
-Hay **dos contabilidades distintas**:
+Hay **tres contabilidades distintas**:
 
-- **Gasto histórico en efectivo de HexaCorp:** lo efectivamente comprado para la entrega. La tableta puede haber sido comprada, prestada o reutilizada, pero **no se indicó su modalidad de adquisición**. Solo el monto aproximado de la impresora y el límite de madera/pintura constan como antecedentes de costo.
-- **Costo de reposición del prototipo:** valor de adquirir componentes equivalentes en 2026, **incluida una tableta** aun cuando se utilizara una prestada. Sirve para estudiar viabilidad material de la maqueta.
+- **Desembolso histórico académico:** la tableta personal de Pablo se **prestó temporalmente** y **no se compró para el equipo ($0 adicional)**. Benjamín y su padre realizaron carpintería **sin cobrar ($0 desembolsado por ese trabajo)**. Sí se informa la compra aproximada de la impresora (**~$23.000**) y **un gasto conjunto de madera/pintura que no excedió $60.000**, pero faltan montos efectivos de otros materiales.
+- **Costo económico de reproducción:** incorporar tableta a valor de reposición, **carpintería y terminaciones a valor económico**, demás partes, electricidad, herramientas y trabajo tecnológico. Las aportaciones gratuitas **no son recursos cuyo uso carezca de costo de oportunidad**.
 - **Costo de producto comercial instalado:** añade fabricación repetible, contenido validado, seguridad, garantía, soporte, instalación y permisos. No se reduce a la tabla anterior.
 
 ## 4. Relación con los cuatro presupuestos del informe de 2025
 
 El [Informe N.º 2 de HexaCorp, sección 9.4.1](../informes/Informe%20N%C2%B02.%20Hexatour%2C%20la%20soluci%C3%B3n.pdf) estimaba **$239.000–$471.000** por la versión interior con botonera, **$380.000–$850.000** por la táctil de 7″, y **$1.921.000–$5.831.000** por variantes exteriores. Eran **configuraciones alternativas proyectadas**, no el inventario de la maqueta real.
 
-La maqueta con una **tableta convencional** puede resultar **más sencilla de replicar** que una pantalla táctil integrada fabricada a medida: aprovecha navegador, panel táctil y Wi-Fi de un equipo de consumo. Sin embargo, **sus referencias de componentes de 2026, su tabla parcial de materiales y los presupuestos conceptuales de 2025 no son directamente equiparables**; por eso no se declara un porcentaje de ahorro ni un ROI.
+La maqueta con una **tableta personal prestada por Pablo**, integrada como terminal convencional, puede resultar **más sencilla de replicar** que una pantalla táctil integrada fabricada a medida: aprovecha navegador, panel táctil y Wi-Fi de un equipo de consumo. Sin embargo, **sus referencias de componentes de 2026, su tabla parcial de materiales y los presupuestos conceptuales de 2025 no son directamente equiparables**; por eso no se declara un porcentaje de ahorro ni un ROI.
 
 ## 5. Formulación válida para presentar HexaTour
 
-> Para la maqueta académica usamos una tableta convencional como interfaz de administración del portal local. El resto del sistema se implementó con ESP32-S3, Arduino UNO, LCD, tarjeta SD, cables/protoboard y una impresora térmica TTL adquirida por cerca de **$23.000 CLP**. La estructura de madera y pintura **no superó $60.000 CLP**. Con precios de reposición consultados en Chile en noviembre de 2026, los componentes cotizados suman **$192.350–$261.350 antes de madera/pintura**, y podrían llegar a **$321.350** con el tope de esta última partida. **No incluye todo el costo de fabricar un producto comercial ni acredita rentabilidad.**
+> Para la maqueta académica utilicé **una tableta personal prestada temporalmente** como terminal para la vista de administración del portal local, **sin compra para el equipo**. La impresora térmica TTL costó cerca de **$23.000 CLP**, y la **madera y pintura no superaron $60.000 CLP**. **Benjamín Esquivel y su padre realizaron gratuitamente la carpintería del cuerpo físico**; eso permitió presentar el prototipo con menor desembolso, pero **no elimina el valor económico de esa mano de obra**. A precios referenciales de 2026, la canasta de componentes con tableta de reposición suma **$192.350–$261.350 antes de madera/pintura**, y hasta **$321.350 con el tope de esos materiales, sin carpintería ni otros pendientes**. **No es costo total comercial ni rentabilidad observada.**
 
 **Fuentes de referencia consultadas en noviembre de 2026:** [tabletas Lenovo en Falabella](https://www.falabella.com/falabella-cl/shop/tablet-lenovo-m10), [catálogo Falabella](https://www.falabella.com/falabella-cl/category/cat7230007/Tablets), [kit ESP32-S3 Pinout](https://pinout.cl/producto/kit-esp32-s3-con-protoboard-830-cables-y-cable-usb-c), [UNO compatible Neltume](https://neltumerobotics.cl/productos?category=placas), [LCD HUBOT](https://hubot.cl/producto/modulo-display-lcd-1602-con-interfaz-i2c-sku-282-1d1/), [lector MechatronicStore](https://www.mechatronicstore.cl/modulo-lector-micro-sd-spi/), [memorias pc Factory](https://www.pcfactory.cl/categoria/partes-y-piezas-componentes/almacenamiento/memorias-flash). Los precios son referenciales y pueden variar por proveedor, impuestos y disponibilidad.
