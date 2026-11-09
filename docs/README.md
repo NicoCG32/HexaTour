@@ -26,7 +26,7 @@ Guías para conocer el proyecto, probar el portal y reproducir el montaje. La [m
 - [18 · Costos, rentabilidad y sostenibilidad: prefactibilidad, escenarios y punto de equilibrio](18-analisis-economico-clp-usd.md).
 - [19 · Mercado, compradores posibles, sustitutos y evidencia externa](19-mercado-y-validacion-comercial.md).
 - [20 · Seguridad, montaje integrado y diseño de pruebas con visitantes](20-validacion-operativa-y-pilotos.md).
-- [Lectura crítica de la documentación del curso, autoría y cifras todavía por verificar](academica/02-lectura-critica-de-los-informes.md).
+- [Lectura crítica del Informe N.º 2: presupuesto histórico verificado, autoría, matriz y KPI](academica/02-lectura-critica-de-los-informes.md).
 
 Las proyecciones económicas se distinguen del código funcional y de los resultados académicos. El contenido textual íntegro de los informes PDF/DOCX aún necesita cotejo directo para recuperar presupuestos históricos con sus páginas.
 
