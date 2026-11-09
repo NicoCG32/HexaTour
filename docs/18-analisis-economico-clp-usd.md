@@ -76,17 +76,38 @@ Sin tarifa eléctrica local, precio de rollo, incidencias y horas observadas **n
 
 Un antecedente **posterior al informe de 2025** cambia la lectura de la viabilidad del prototipo: según el responsable tecnológico, **la maqueta presentada usó una tableta convencional para abrir el portal local con una cuenta de administración/operador**. No fue necesario desarrollar ni comprar una pantalla táctil industrial específica para esa muestra; la tableta era **un navegador cliente del ESP32-S3**, no el servidor del catálogo.
 
-La maqueta también utilizó **ESP32-S3, Arduino UNO, LCD, protoboard/jumpers de kit, módulo y tarjeta SD, ticketera TTL y madera/pintura**. Dos antecedentes de costo **directos del montaje**: **impresora térmica TTL ~CLP $23.000** adquirida en AliExpress y **madera más pintura ≤CLP $60.000**. No conocemos cuánto se pagó por la tableta ni si se compró, se reutilizó o se pidió prestada. Benjamín Esquivel y su padre construyeron la maqueta física; Pablo Guzmán desarrolló la integración tecnológica según [créditos de HexaCorp](academica/README.md).
+La maqueta también utilizó **ESP32-S3, Arduino UNO, LCD, protoboard/jumpers de kit, módulo y tarjeta SD, ticketera TTL y madera/pintura**. Dos antecedentes de costo **directos del montaje**: **impresora térmica TTL ~CLP $23.000** adquirida en AliExpress y **madera más pintura ≤CLP $60.000**. **La tableta era propiedad personal de Pablo Guzmán y fue prestada temporalmente al equipo**, sin desembolso de HexaCorp para comprar una nueva. **La carpintería de la maqueta fue aportada sin remuneración por Benjamín Esquivel y su padre**; ambos son aportes no monetarios para la entrega académica, no recursos gratuitos de replicar comercialmente. Benjamín Esquivel y su padre construyeron la maqueta física; Pablo Guzmán desarrolló la integración tecnológica según [créditos de HexaCorp](academica/README.md).
 
-Se preparó una [**BOM de reposición trazable, elemento por elemento**](academica/03-costeo-maqueta-fisica.md) con referencias chilenas consultadas el **9 de noviembre de 2026**. Para una tableta genérica de entrada, un **kit ESP32-S3 que ya incluye protoboard/jumpers**, UNO compatible, LCD I²C, lector y tarjeta SD, **más los $23.000 referidos por la impresora**, la **suma parcial de referencia, sin madera/pintura**, es **CLP $192.350–$261.350**. Si se agrega el **tope de $60.000** en madera/pintura, el extremo máximo de esa suma parcial alcanza **$321.350**. **No es gasto efectivamente pagado en 2025 ni costo total cerrado**: faltan eventualmente fuentes, cables/soportes especiales, traslados, trabajo y otros elementos.
+Se preparó una [**BOM de reposición trazable, elemento por elemento**](academica/03-costeo-maqueta-fisica.md) con referencias chilenas consultadas el **9 de noviembre de 2026**. Para una tableta genérica de entrada, un **kit ESP32-S3 que ya incluye protoboard/jumpers**, UNO compatible, LCD I²C, lector y tarjeta SD, **más los $23.000 referidos por la impresora**, la **suma parcial de referencia, sin madera/pintura**, es **CLP $192.350–$261.350**. Si se agrega el **tope de $60.000** en madera/pintura, el extremo máximo de esa suma parcial alcanza **$321.350**. **No es gasto efectivamente pagado en 2025 ni costo total cerrado**: la tableta fue prestada y la carpintería fue donada. Faltan eventualmente fuentes, cables/soportes especiales, traslados, **valor económico de carpintería** y trabajo técnico. **El tope de $60.000 corresponde exclusivamente a madera y pintura, no a mano de obra**.
 
 | Cifra | Qué representa |
 | --- | --- |
 | **$23.000 aprox.** | **Compra de la impresora**, informada directamente, sin boleta adjunta |
 | **No más de $60.000** | **Límite informado** de madera y pintura, no valor exacto |
-| **$129.990–$189.990** | **Reemplazo estimado de tableta** con precios observados de 2026, no su precio histórico |
+| **$0 de compra** | **Tableta personal prestada por Pablo** para HexaCorp: desembolso incremental por esa tableta; su valor económico **no es cero** |
+| **$0 pagado** | **Mano de obra de carpintería** aportada por Benjamín y su padre a la maqueta académica; valor de reproducción aún no medido |
+| **$129.990–$189.990** | **Reemplazo estimado de tableta** con precios observados de 2026, no gasto del equipo ni precio de adquisición original |
 | **$192.350–$261.350** | Suma de una canasta de **componentes referenciales** con impresora informada, **antes de madera/pintura** |
 | **$321.350** | Máximo aritmético de esa **canasta parcial** si madera/pintura alcanzara su tope; **no** máximo del costo total del proyecto |
+
+### Mano de obra de la maqueta: no desembolsada, pero económicamente significativa
+
+Para la entrega universitaria, **HexaCorp no compró la tableta de Pablo ni pagó la carpintería de Benjamín y su padre**. Esa colaboración hizo que el **gasto de caja** fuera menor que el **costo de reproducción del prototipo**. **No se deben capitalizar ni contabilizar como pago efectuado los aportes personales**; sí corresponde reconocerlos como recursos necesarios para fabricar otra unidad.
+
+**Referencia de mercado, NO cotización del proyecto:** [Obra Maestra 2026](https://obramaestra.com/guias/cuanto-cobrar-mano-de-obra-construccion-chile) publica **$10.000–$15.000 por hora de carpintero**, valores generales de orientación. Si se supone una dedicación *hipotética* de **8 horas-persona**, la carpintería aportaría **$80.000–$120.000 de costo económico**; con **16 horas-persona**, **$160.000–$240.000**. **Las horas trabajadas realmente por Benjamín y su padre no se conocen**; no se les atribuye ninguna tarifa cobrada. Para una cotización real, cuantificar horas-persona de cada uno, grado de terminación y presupuestos de taller, sin sumar dos veces madera, pintura o insumos.
+
+**Ejemplo enteramente hipotético:** 16 horas-persona × $10.000/h = **$160.000**. Sumadas a la canasta parcial de reposición de **$192.350–$321.350**, darían **$352.350–$481.350 antes de fuentes, herramientas, trabajo tecnológico, transporte y otros costos omitidos**. **No es costo pagado en 2025 ni un precio de venta sostenible acreditado**.
+
+```text
+Desembolso académico (tableta): $0 (préstamo temporal)
+Desembolso académico (carpintería): $0 (aporte de compañeros)
+Valor económico de réplica:
+  tableta a costo de reposición + materiales físicos
+  + horas-persona de carpintería × tarifa razonada
+  + electrónica, integración, seguridad, pruebas y operación
+```
+
+[Desglose y escenarios completos](academica/03-costeo-maqueta-fisica.md).
 
 ### Implicación en rentabilidad
 
@@ -203,7 +224,7 @@ El beneficio podría ser **accesibilidad, experiencia turística y continuidad i
 ## 9. Decisiones mínimas para una evaluación real
 
 1. **Hecho:** se revisó íntegramente el **Informe N.º 2** y se incorporaron **cuatro rangos de inversión por variante**, parámetros de papel, energía y dedicación, con páginas exactas. **Pendiente:** boletas y desglose de precios unitarios, impuestos e inclusión real de montaje/soporte. Conservar el PDF sin alteraciones.
-2. **Avance documental:** se confirmó que la maqueta **sí usó tableta convencional**, ESP32-S3, UNO, LCD, SD, ticketera TTL y estructura de madera pintada; la impresora **costó aproximadamente $23.000** y madera/pintura **no superaron $60.000**. **Pendiente:** conocer adquisición o préstamo de tableta, gasto exacto de estructura, fuentes, accesorios restantes y comprobantes. [BOM de reposición](academica/03-costeo-maqueta-fisica.md).
+2. **Avance documental:** la maqueta usó una **tableta personal prestada por Pablo ($0 de compra para el equipo)**, ESP32-S3, UNO, LCD, SD, ticketera TTL y madera pintada. La impresora costó **~$23.000** y madera/pintura no superaron **$60.000**. **Benjamín y su padre aportaron gratuitamente la carpintería**; faltan horas-persona, costo efectivo de estructura, fuentes, accesorios y comprobantes. [BOM y valor económico de carpintería](academica/03-costeo-maqueta-fisica.md).
 3. Construir una **cotización actual comparable**, con 2–3 proveedores por componente y destino en Chile; moneda, IVA y plazos.
 4. Cronometrar ensamblaje, recarga de catálogo, corrección de fichas e instalación.
 5. Medir consumo eléctrico real, páginas y papel por ticket, fallos y vida útil.
@@ -213,7 +234,7 @@ El beneficio podría ser **accesibilidad, experiencia turística y continuidad i
 
 ## Conclusión defendible
 
-**HexaTour ofrece una arquitectura potencialmente costo-efectiva para orientación local de información predefinida, donde un portal desde SD y Wi-Fi propio puede reducir la dependencia de servicios remotos.** El **informe original identifica un punto de entrada interior de $239.000–$471.000 (botonera) y uno táctil de $380.000–$850.000 en costos preliminares de 2025**. **La maqueta realmente presentada utilizaba una tableta convencional como terminal**, y su canasta de componentes referenciales de reposición **suma $192.350–$261.350 antes de madera/pintura (tope $60.000)**, pero el exterior asciende a varios millones de pesos. La impresión y la licencia MIT abren vías de productos/servicios asociados. **La rentabilidad real no está demostrada:** no hay BOM facturada actual, prueba física integrada, precio aceptado ni costos operacionales observados. Empezar por un **piloto de interior o informativo supervisado** suele ser una hipótesis más prudente que prometer un gabinete exterior o una red.
+**HexaTour ofrece una arquitectura potencialmente costo-efectiva para orientación local de información predefinida, donde un portal desde SD y Wi-Fi propio puede reducir la dependencia de servicios remotos.** El **informe original identifica un punto de entrada interior de $239.000–$471.000 (botonera) y uno táctil de $380.000–$850.000 en costos preliminares de 2025**. **La maqueta realmente presentada utilizaba una tableta personal prestada por Pablo como terminal, y su carpintería fue un aporte no remunerado de Benjamín y su padre**, y su canasta de componentes referenciales de reposición **suma $192.350–$261.350 antes de madera/pintura (tope $60.000)**, pero el exterior asciende a varios millones de pesos. La impresión y la licencia MIT abren vías de productos/servicios asociados. **La rentabilidad real no está demostrada:** no hay BOM facturada actual, prueba física integrada, precio aceptado ni costos operacionales observados. Empezar por un **piloto de interior o informativo supervisado** suele ser una hipótesis más prudente que prometer un gabinete exterior o una red.
 
 ### Procedencia y referencias
 
