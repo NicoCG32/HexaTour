@@ -6,6 +6,8 @@ La parte que más me entusiasmó fue hacer funcionar la idea. Me encargué del d
 
 **Benjamín Esquivel y su padre construyeron la maqueta física** que utilizamos para la presentación. Mis otros compañeros participaron principalmente en la investigación, los informes y las exposiciones. Yo también participé como presentador.
 
+Para la presentación, el cuerpo de la maqueta incorporaba **una tableta convencional que abría el portal local en la vista de operador**, conectada al ESP32-S3. No era una pantalla industrial hecha a medida. Una de las piezas de mayor valor era esa tableta; el resto incluía placas de desarrollo, una LCD, SD y cables de prototipado. La **impresora TTL costó alrededor de $23.000 CLP** y la madera/pintura **no sobrepasó $60.000**. Por eso ahora distingo [lo que realmente montamos y su costo de reposición](academica/03-costeo-maqueta-fisica.md) de lo que el informe propuso para futuras versiones comerciales.
+
 El repositorio conserva el prototipo, sus recursos y herramientas para probarlo. La demo web permite recorrer el portal sin montar las placas.
 
 [Equipo y documentos del curso](academica/README.md) · [Arquitectura y montaje](01-arquitectura-general.md) · [Cómo se desarrolló](17-desarrollo-y-metodologia.md)
