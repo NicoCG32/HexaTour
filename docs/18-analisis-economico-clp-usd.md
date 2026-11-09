@@ -72,6 +72,26 @@ Sin tarifa eléctrica local, precio de rollo, incidencias y horas observadas **n
 
 [Lectura crítica completa del informe académico](academica/02-lectura-critica-de-los-informes.md).
 
+## 2.4 Materiales de la maqueta REAL: tableta convencional y periféricos
+
+Un antecedente **posterior al informe de 2025** cambia la lectura de la viabilidad del prototipo: según el responsable tecnológico, **la maqueta presentada usó una tableta convencional para abrir el portal local con una cuenta de administración/operador**. No fue necesario desarrollar ni comprar una pantalla táctil industrial específica para esa muestra; la tableta era **un navegador cliente del ESP32-S3**, no el servidor del catálogo.
+
+La maqueta también utilizó **ESP32-S3, Arduino UNO, LCD, protoboard/jumpers de kit, módulo y tarjeta SD, ticketera TTL y madera/pintura**. Dos antecedentes de costo **directos del montaje**: **impresora térmica TTL ~CLP $23.000** adquirida en AliExpress y **madera más pintura ≤CLP $60.000**. No conocemos cuánto se pagó por la tableta ni si se compró, se reutilizó o se pidió prestada. Benjamín Esquivel y su padre construyeron la maqueta física; Pablo Guzmán desarrolló la integración tecnológica según [créditos de HexaCorp](academica/README.md).
+
+Se preparó una [**BOM de reposición trazable, elemento por elemento**](academica/03-costeo-maqueta-fisica.md) con referencias chilenas consultadas el **9 de noviembre de 2026**. Para una tableta genérica de entrada, un **kit ESP32-S3 que ya incluye protoboard/jumpers**, UNO compatible, LCD I²C, lector y tarjeta SD, **más los $23.000 referidos por la impresora**, la **suma parcial de referencia, sin madera/pintura**, es **CLP $192.350–$261.350**. Si se agrega el **tope de $60.000** en madera/pintura, el extremo máximo de esa suma parcial alcanza **$321.350**. **No es gasto efectivamente pagado en 2025 ni costo total cerrado**: faltan eventualmente fuentes, cables/soportes especiales, traslados, trabajo y otros elementos.
+
+| Cifra | Qué representa |
+| --- | --- |
+| **$23.000 aprox.** | **Compra de la impresora**, informada directamente, sin boleta adjunta |
+| **No más de $60.000** | **Límite informado** de madera y pintura, no valor exacto |
+| **$129.990–$189.990** | **Reemplazo estimado de tableta** con precios observados de 2026, no su precio histórico |
+| **$192.350–$261.350** | Suma de una canasta de **componentes referenciales** con impresora informada, **antes de madera/pintura** |
+| **$321.350** | Máximo aritmético de esa **canasta parcial** si madera/pintura alcanzara su tope; **no** máximo del costo total del proyecto |
+
+### Implicación en rentabilidad
+
+Esta reconstrucción sustenta la **factibilidad material de un módulo de exhibición interior con tableta estándar**, mucho mejor que extrapolar directamente un gabinete industrial al proyecto académico. **No sustituye los $380.000–$850.000 del «interior táctil 7”» del informe**, porque aquel era un producto conceptual diferente y se costeó en 2025. Tampoco demuestra un beneficio de ventas: para ofrecer HexaTour comercialmente hay que valorar **montaje repetible, horas de programación, estructura instalada, fiabilidad, actualización de fichas, garantía, transporte, electricidad y papel**. La simulación de costo variable **$650.000** del apartado 5 **sigue siendo un escenario comercial completamente hipotético**, no la factura de la maqueta.
+
 ## 3. Costos que deben presupuestarse
 
 | Capa | Partidas mínimas | Evidencia para costear |
@@ -183,7 +203,7 @@ El beneficio podría ser **accesibilidad, experiencia turística y continuidad i
 ## 9. Decisiones mínimas para una evaluación real
 
 1. **Hecho:** se revisó íntegramente el **Informe N.º 2** y se incorporaron **cuatro rangos de inversión por variante**, parámetros de papel, energía y dedicación, con páginas exactas. **Pendiente:** boletas y desglose de precios unitarios, impuestos e inclusión real de montaje/soporte. Conservar el PDF sin alteraciones.
-2. Recuperar **BOM, boletas y fotos** del montaje académico y aclarar si pantalla/tableta, estructura, impresora, fuentes y materiales fueron prestados, donados o comprados.
+2. **Avance documental:** se confirmó que la maqueta **sí usó tableta convencional**, ESP32-S3, UNO, LCD, SD, ticketera TTL y estructura de madera pintada; la impresora **costó aproximadamente $23.000** y madera/pintura **no superaron $60.000**. **Pendiente:** conocer adquisición o préstamo de tableta, gasto exacto de estructura, fuentes, accesorios restantes y comprobantes. [BOM de reposición](academica/03-costeo-maqueta-fisica.md).
 3. Construir una **cotización actual comparable**, con 2–3 proveedores por componente y destino en Chile; moneda, IVA y plazos.
 4. Cronometrar ensamblaje, recarga de catálogo, corrección de fichas e instalación.
 5. Medir consumo eléctrico real, páginas y papel por ticket, fallos y vida útil.
@@ -193,7 +213,7 @@ El beneficio podría ser **accesibilidad, experiencia turística y continuidad i
 
 ## Conclusión defendible
 
-**HexaTour ofrece una arquitectura potencialmente costo-efectiva para orientación local de información predefinida, donde un portal desde SD y Wi-Fi propio puede reducir la dependencia de servicios remotos.** El **informe original identifica un punto de entrada interior de $239.000–$471.000 (botonera) y uno táctil de $380.000–$850.000 en costos preliminares de 2025**, pero el exterior asciende a varios millones de pesos. La impresión y la licencia MIT abren vías de productos/servicios asociados. **La rentabilidad real no está demostrada:** no hay BOM facturada actual, prueba física integrada, precio aceptado ni costos operacionales observados. Empezar por un **piloto de interior o informativo supervisado** suele ser una hipótesis más prudente que prometer un gabinete exterior o una red.
+**HexaTour ofrece una arquitectura potencialmente costo-efectiva para orientación local de información predefinida, donde un portal desde SD y Wi-Fi propio puede reducir la dependencia de servicios remotos.** El **informe original identifica un punto de entrada interior de $239.000–$471.000 (botonera) y uno táctil de $380.000–$850.000 en costos preliminares de 2025**. **La maqueta realmente presentada utilizaba una tableta convencional como terminal**, y su canasta de componentes referenciales de reposición **suma $192.350–$261.350 antes de madera/pintura (tope $60.000)**, pero el exterior asciende a varios millones de pesos. La impresión y la licencia MIT abren vías de productos/servicios asociados. **La rentabilidad real no está demostrada:** no hay BOM facturada actual, prueba física integrada, precio aceptado ni costos operacionales observados. Empezar por un **piloto de interior o informativo supervisado** suele ser una hipótesis más prudente que prometer un gabinete exterior o una red.
 
 ### Procedencia y referencias
 
