@@ -17,7 +17,18 @@ Guías para conocer el proyecto, probar el portal y reproducir el montaje. La [m
 
 **Para trabajar con el sistema:** [arquitectura](01-arquitectura-general.md) → [modelo JSON](04-base-de-datos.md) → [compilación y pruebas](09-instalacion-y-despliegue.md).
 
-**Para revisar el curso:** [equipo y documentos originales](academica/README.md) → [metodología](17-desarrollo-y-metodologia.md).
+**Para revisar el curso:** [equipo y documentos originales](academica/README.md) → [lectura crítica de los informes](academica/02-lectura-critica-de-los-informes.md) → [metodología](17-desarrollo-y-metodologia.md).
+
+**Para evaluar conveniencia y rentabilidad:** [propuesta](00-problematica-cliente-y-valor.md) → [estudio económico](18-analisis-economico-clp-usd.md) → [mercado y posicionamiento](19-mercado-y-validacion-comercial.md) → [plan de validación](20-validacion-operativa-y-pilotos.md).
+
+## Estudios estratégicos y validación
+
+- [18 · Costos, rentabilidad y sostenibilidad: prefactibilidad, escenarios y punto de equilibrio](18-analisis-economico-clp-usd.md).
+- [19 · Mercado, compradores posibles, sustitutos y evidencia externa](19-mercado-y-validacion-comercial.md).
+- [20 · Seguridad, montaje integrado y diseño de pruebas con visitantes](20-validacion-operativa-y-pilotos.md).
+- [Lectura crítica de la documentación del curso, autoría y cifras todavía por verificar](academica/02-lectura-critica-de-los-informes.md).
+
+Las proyecciones económicas se distinguen del código funcional y de los resultados académicos. El contenido textual íntegro de los informes PDF/DOCX aún necesita cotejo directo para recuperar presupuestos históricos con sus páginas.
 
 ## Guías de implementación
 
@@ -40,4 +51,4 @@ El circuito del montaje está disponible en [Draw.io](diagramas/HexaTourCircuito
 
 Los [informes y anexos académicos](academica/README.md) registran la investigación y las propuestas del curso. Para instalar o modificar la versión actual, utiliza las guías técnicas.
 
-[Volver a la presentación](../README.md).
+[Volver a la presentación](../README.md) · [Licencia y créditos](../LICENSING.md).
