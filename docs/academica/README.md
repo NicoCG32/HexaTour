@@ -23,6 +23,12 @@ El curso fue impartido por **Alejandro Paolini Godoy** en el paralelo C2.
 | **Benjamín Esquivel y su padre** | Construcción de la maqueta física utilizada para presentar HexaTour. |
 | **Otros integrantes de HexaCorp** | Participación principalmente en investigación, elaboración de informes y presentaciones del proyecto. |
 
+## Cómo se presentó la maqueta real
+
+**Aclaración directa del responsable tecnológico (9-11-2026):** la interfaz principal era **una tableta convencional** conectada al **portal local** y utilizada con acceso de administración/operador. En el cuerpo construido por **Benjamín Esquivel y su padre** se utilizaron, además, **ESP32-S3, Arduino UNO, LCD, protoboard/cables, SD y lector, impresora térmica TTL y madera pintada**. La impresora se compró por **aproximadamente $23.000 CLP** y madera/pintura **no superaron $60.000**. El modelo/precio de la tableta original no fue confirmado.
+
+La [**reconstrucción de materiales y precios referenciales actuales**](03-costeo-maqueta-fisica.md) muestra el inventario observado, una tabla de reposición sin doble contar cables y protoboard, y los costos que aún faltan para llegar a un costo comercial real. **No confundir con los cuatro presupuestos preliminares del Informe N.º 2.**
+
 ## Entregables de esa etapa
 
 | Documento | Para qué sirve |
