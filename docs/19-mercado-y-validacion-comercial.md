@@ -57,6 +57,10 @@ Como magnitud sectorial, el [SIET de SERNATUR](https://datosturismo.sernatur.cl/
 
 ## 5. Referencias de productos: nichos y barreras
 
+**Antes de comparar precios publicados, usar las cuatro variantes realmente presupuestadas por HexaCorp** en el [informe de 2025, §9.4.1](18-analisis-economico-clp-usd.md): interior con botonera **CLP $239.000–$471.000**, interior táctil **$380.000–$850.000**, exterior con botonera **$1.921.000–$3.963.000** y exterior táctil **$2.655.000–$5.831.000**. Son **costos estimados, no precios de venta ni cotizaciones de 2026**. La variante exterior puede ser más costosa que ciertos equipos comerciales publicados, pero **sin especificaciones, garantía y puesta en marcha equivalentes no se puede decidir quién ofrece mayor valor**.
+
+
+
 Dos proveedores chilenos anuncian precios de vitrinas (consulta de noviembre de 2026): [Tottem Chile](https://tottem.cl/totem-autoservicio/) publica un tótem de **24” mural con impresora a CLP 1.090.000 + IVA** y pedestal de **24” a CLP 1.190.000 + IVA**; [EC Group](https://www.ecgroup.cl/producto-detalle/totem-administrador-de-fila-nuevo.php) publica uno de **15” para gestión de filas a CLP 1.790.000 + IVA**. Sus características, software, garantías y costos no son iguales a HexaTour. **No afirmar que HexaTour cuesta un porcentaje menor** sin fabricar y cotizar un prototipo con tamaño, montaje, fiabilidad y soporte equivalentes.
 
 **Posicionamiento que sí merece prueba:** orientación territorial **local, portátil/adaptable y mantenible sin conexión de datos externa**, con contenido propio del recinto, soporte profesional disponible como servicio opcional y un sistema de indicaciones impresas. La presencia de una **impresora física** es un diferenciador funcional que aumenta costo y riesgo; un piloto puede comparar versión con y sin ticketera.
