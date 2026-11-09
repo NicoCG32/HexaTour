@@ -36,4 +36,12 @@ El curso fue impartido por **Alejandro Paolini Godoy** en el paralelo C2.
 
 Las versiones **DOCX editables** de ambos informes se conservan junto con los PDF en [`docs/informes/`](../informes/). Las condiciones de reutilización están en [licencia y créditos](../../LICENSING.md).
 
+## Lectura de los presupuestos y la autoría
+
+Los informes y anexos contienen propuestas, alternativas y referencias de costos de la entrega universitaria. Su existencia está verificada en el repositorio, pero **el contenido binario de los PDF/DOCX no pudo extraerse directamente** en esta auditoría. No se atribuyen por eso montos ni resultados exactos al informe sin cotejo de su tabla y página.
+
+La [lectura crítica y tabla de cifras pendientes](02-lectura-critica-de-los-informes.md) distingue la investigación y roles del equipo de lo implementado en los sketches, portal y simulador. El [estudio económico](../18-analisis-economico-clp-usd.md) propone **supuestos independientes y explícitos**, con costos variables, mantenimiento y punto de equilibrio. No son ventas o beneficios del curso.
+
+La licencia MIT del código propio **no convierte automáticamente los informes, entrevistas, mapas, imágenes o maqueta grupal en materiales de libre explotación**.
+
 Consulta también el [origen del proyecto](../16-motivacion-y-contexto.md), el [proceso de desarrollo](../17-desarrollo-y-metodologia.md) y la [documentación técnica](../README.md).
